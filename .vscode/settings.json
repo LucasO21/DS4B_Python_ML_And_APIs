@@ -1,0 +1,21 @@
+{
+
+    
+
+    "macros": {  // Note: this requires macros extension by publisher:"geddski" 
+    "pythonExecSelectionAndCursorDown": [
+    "python.execSelectionInTerminal", 
+    "cursorDown" 
+    ]
+},
+
+
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+
+
+
+
+
+}
+
