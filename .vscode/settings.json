@@ -11,7 +11,7 @@
 
 
     "jupyter.notebookFileRoot": "${workspaceFolder}",
-    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+    "jupyter.interactiveWindow.textEditor.executeSelection": false,
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
