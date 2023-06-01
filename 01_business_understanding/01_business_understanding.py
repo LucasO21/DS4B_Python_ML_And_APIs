@@ -123,6 +123,11 @@ cost_table_df["cost_no_growth"].sum() * 0.30
 
 cost_table_df["cost_with_growth"].sum() * 0.30
 
+df = cost_table_df.copy()
+
+df["Email Size (No Growth)"] = df["email_size_no_growth"].apply(
+    lambda x: "{:.2f}".format(x))
+
 
 # COST CALCULATION FUNCTIONS ----
 
@@ -407,7 +412,10 @@ cost_simulate_unsub_cost(
 # Plotnine
 
 
-def cost_plot_simulated_unsub_costs_plotnine(simulation_results):
+def cost_plot_simulated_unsub_costs_plotnine(
+    simulation_results,
+    title, sub_title, x_lab, y_lab, legend_title=""
+):
 
     simulation_results_wide_df = simulation_results \
         .drop("cost_no_growth", axis=1) \
@@ -435,10 +443,11 @@ def cost_plot_simulated_unsub_costs_plotnine(simulation_results):
         + geom_text(aes(label="label_text"), size=8)
         + theme_bw()
         + labs(
-            title="Lead Cost Simulation",
-            x="Email List Growth Rate (%)",
-            y="Customer Converstion Rate (%)",
-            fill="Cost with Growth"
+            title=title,
+            subtitle=sub_title,
+            x=x_lab,
+            y=y_lab,
+            fill=legend_title
         )
         + theme(
             axis_text=element_text(size=8),
@@ -448,17 +457,23 @@ def cost_plot_simulated_unsub_costs_plotnine(simulation_results):
             legend_key_size=10,
             legend_position="none"
         )
+        + scale_fill_gradient(low="lightblue", high="orange")
     )
 
     return p
 
 
-cost_simulate_unsub_cost(
-    email_list_monthly_growth_rate=[0.01, 0.02, 0.03],
-    customer_conversion_rate=[0.04, 0.05, 0.06],
-    email_list_size=100000
-) \
-    .pipe(cost_plot_simulated_unsub_costs_plotnine)
+cost_plot_simulated_unsub_costs_plotnine(
+    simulation_results=cost_simulate_unsub_cost(
+        email_list_monthly_growth_rate=[0.01, 0.02, 0.03],
+        customer_conversion_rate=[0.04, 0.05, 0.06],
+        email_list_size=100000
+    ),
+    title="Cost Simulation with Variability in Cost Drivers",
+    sub_title="Including variability in cost drivers",
+    x_lab="Email List Growth Rate (%)",
+    y_lab="Customer Conversion Rate (%)"
+)
 
 
 # ARE OBJECTIVES BEING MET?
