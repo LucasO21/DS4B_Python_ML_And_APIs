@@ -1,21 +1,26 @@
 <!-- omit in toc -->
-# Unleashing the Power of Machine Learning for Email Lead Scoring
 
-<!-- omit in toc -->
-## A Case Study & Guided Project Using the [BSPF](https://www.business-science.io/bspf.html)
+<div align="center">
+    <h1>Unleashing the Power of Machine Learning for Email Lead Scoring</h1>
+    <h2>A Case Study & Guided Project Using the Business Science Problem Framework</h1>
+    <h4>Lucas Okwudishu - June 2023</h1>
+</div>
 
 ---
 
 <!-- omit in toc -->
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Problem Statement](#problem-statement)
-- [Solution Framework](#solution-framework)
-  - [Business Understanding](#business-understanding)
-    - [Cost Assessment](#cost-assessment)
+- [1.0 Introduction](#10-introduction)
+- [2.0 Problem Statement](#20-problem-statement)
+- [3.0 Objective](#30-objective)
+- [3.0 Solution Framework](#30-solution-framework)
+  - [3.1 Business Understanding](#31-business-understanding)
+    - [3.1.0 Cost Assessment](#310-cost-assessment)
 
-## Introduction
+<div style="page-break-after: always"></div>
+
+## 1.0 Introduction
 
 Businesses face challenges in identifying and prioritizing potential customers and/or identifying future purchase potential of current customers based on their email interactions, leading to suboptimal allocation of resourcesa nd missed opportunities.
 
@@ -39,9 +44,9 @@ This analysis works through and end-to-end email lead scoring solution for a bus
 
 Above all, the project demonstrates how to solve key business problems in the real world.
 
----
+<div style="page-break-after: always"></div>
 
-## Problem Statement
+## 2.0 Problem Statement
 
 As mentioned earlier, this analysis provides a lead scoring solution for a business.
 The business posesses a large email list of **100,000** subscribers, with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out **5** emails per month and the business's scales cycle generates approximately **$550,000** in revenue per month.
@@ -50,13 +55,19 @@ However, the email list also experiences a significant number of unsubscribes, a
 
 This High unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers has the potential to convert approximately 5% of them back into active customers.
 
+---
+
+## 3.0 Objective
+
 Given these key insights, the problem at hand is to develop an effective email list scoring and segmentation strategy. The goal is to identify and prioritize the most valuable customers while reducing unsubscribe rates and increasing overall customer conversions. By segmenting the email list based on various factors and implementing tailored communication and nurturing strategies, the business aims to optimize the use of marketing resources and enhance revenue generation.
 
 In summary, the primary objective is to leverage email list scoring and segmentation techniques to improve customer engagement, reduce unsubscribes, increase customer conversion rates, and ultimately maximize revenue and customer lifetime value.
 
-## Solution Framework
+<div style="page-break-after: always"></div>
 
-### Business Understanding
+## 3.0 Solution Framework
+
+### 3.1 Business Understanding
 
 We know that tackling business problems such as this requrires alot of resources including
 time and money. Therefore a key question to ask is **is this problem worth solving?.**
@@ -67,17 +78,23 @@ In this phase, the key is to analyze if solving this problem should be a busines
 - Improve Cost Analysis - Improve on cost assesment by account for email list growth uncertainty.
 - Business Cost Simulation - This is also necessary when accounting for uncertainty and helps model cost when key inputs change.
 
-#### Cost Assessment
+<!-- Page Break -->
+
+#### 3.1.0 Cost Assessment
 
 Given the values highlighted in the problem statement section, we can estimate the monthly lost revenue (we'll refer to this as **cost** going forward) due to unsubscribers to be around $250K per month (or $3M annually), not factoring in email list growth rate. After factoring in a 3.5% monthly email list growth rate, we can expect the annual lost revenue due to unsubscribers to rise to around $364K per month (or $4.3M per year), an increase of 46% in lost revenue. The table below shows this scenario.
 
-![Cost Scenarios](/analysis/png/cost_scenario_table.png)
+<p align="center" width="100%">
+    <img width="80%" src="png/cost_scenario_table.png" alt="Image" style="display:block; margin:auto;" width="400">
+</p>
 
 We can see the high cost of this problem which is the lost revenue to the business. However, the
 values shown in the table above do not factor in uncertainty. We can thus improve on
 our cost assessment by factoring in uncertainty in some of the drivers. Let assume some monthly variablity in email list growth rate and conversion rate. The heatmap below shows a cost simulation with variablity. The *y* axis represents various levels of customer converstion rate while the *x* axis represents various levels of email list growth rate.
 
-![Cost Simulation](/analysis/png/cost_simulation.png)
+<p align="center" width="100%">
+    <img width="80%" src="png/cost_simulation.png" alt="Image" style="display:block; margin:auto;" width="400">
+</p>
 
 We can thus see that regardless of how the drivers vary, we can still expect to see annual costs ranging from $5.39M to $10.3M.
 
