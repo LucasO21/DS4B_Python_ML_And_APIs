@@ -371,7 +371,7 @@ df = cost_simulate_unsub_cost(
 # Function: Plot Simulated Unsubscriber Costs ---------------------------------------
 
 
-def cost_plot_simulated_unsub_costs(simulation_results):
+def cost_plot_simulated_unsub_cost(simulation_results):
 
     simulation_results_wide_df = simulation_results \
         .drop("cost_no_growth", axis=1) \
@@ -412,7 +412,7 @@ cost_simulate_unsub_cost(
 # Plotnine
 
 
-def cost_plot_simulated_unsub_costs_plotnine(
+def cost_plot_simulated_unsub_cost_plotnine(
     simulation_results,
     title, sub_title, x_lab, y_lab, legend_title=""
 ):
