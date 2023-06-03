@@ -14,6 +14,10 @@
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import matplotlib.pyplot as plt
+from plotnine import ggplot, aes, geom_bar, geom_line, scale_y_continuous, theme_bw
+from plotnine import labs, theme, element_text
+import seaborn as sns
 
 # New Libraries:
 import sweetviz as sv
@@ -197,11 +201,10 @@ subscribers_joined_df \
     .quantile(q = [0.10, 0.50, 0.90])
 
 
+# 4.0 SWEETVIZ EDA REPORT ----
+report = sv.analyze(subscribers_joined_df, target_feat="made_purchase")
 
-
-
-
-# 4.0 SWEETVIZ EDA REPORT
+report.show_html(filepath="02_data_understanding/subscriber_eda_report.html")
 
 
 # 5.0 DEVELOP KPI'S ----
@@ -209,7 +212,119 @@ subscribers_joined_df \
 # - Segment list - apply sales (hot leads), nuture (cold leads)
 
 # EVALUATE PERFORMANCE -----
+subscribers_joined_df[["made_purchase", "tag_count"]] \
+    .groupby("made_purchase") \
+    .agg(
+        mean_tag_count = ("tag_count", "mean"),
+        median_tag_count = ("tag_count", "median"),
+        count_subscriber = ("tag_count", "count")
+    )
 
 
 # WHAT COULD BE MISSED?
 # - More information on which tags are most important
+
+
+######################################################################################################
+
+# EDA Section For Article
+
+print(sns.color_palette("pastel").as_hex())
+
+# - Member Rating: Count & Prop of `made_purchase`    
+df = subscribers_joined_df \
+    .groupby("member_rating") \
+    .agg(
+        count = ("member_rating", "size"),
+        made_purchase_prop = ("made_purchase", "mean") \
+    ) \
+    .reset_index() \
+    .assign(member_rating = lambda x: x["member_rating"].astype("str"))
+    
+# Set up the plot
+sns.set_theme(style="white", palette=None)
+fig, ax1 = plt.subplots()
+
+# Plot count as bars
+sns.barplot(x='member_rating', y='count', data=df, color='#a1c9f4', alpha=0.5, ax=ax1,
+            saturation=1)
+
+# Create a second y-axis for made_purchase_proportion
+ax2 = ax1.twinx()
+
+# Plot made_purchase_proportion as a line chart
+sns.lineplot(x='member_rating', y='made_purchase_prop', data=df, color='#ffb482', linewidth=2, ax=ax2,
+             marker='o')
+
+# Remove gridlines
+ax1.grid(False)
+ax2.grid(False)
+
+# Set labels and title
+ax1.set_ylabel('Frequency', fontsize=9)
+ax2.set_ylabel('\n Made Purchase (%)', fontsize=9)
+ax1.set_xlabel('Member Rating', fontsize=9)
+ax1.set_title('Count and Made Purchase Proportion', fontsize=9)
+
+# Reduce the fontsize of the axis values
+ax1.tick_params(axis='both', labelsize=8)
+ax2.tick_params(axis='both', labelsize=8)
+
+# Add data labels to the line plot
+for x, y in zip(df['member_rating'], df['made_purchase_prop']):
+    ax2.text(x, y, f'{y:.2%}', ha='center', va='bottom', fontsize = 8, fontweight="bold")
+
+# Show the plot
+plt.show()
+
+
+df = subscribers_joined_df \
+    .groupby("made_purchase") \
+    .agg(count = ("made_purchase", "size")) \
+    .reset_index() \
+    .assign(made_purchase_prop = lambda x: x["count"] / x["count"].sum())
+
+
+
+# Function: Plot Bar
+def plot_bar(data, x, y, fill_color="#a1c9f4", alpha=0.8,
+             xlab=None, ylab=None, title=None, data_label=None,
+             bar_width=0.7, **kwargs):
+    
+    sns.set_theme(style="white", palette=None)
+    fig, ax1 = plt.subplots()
+    
+    # Plot count as bars
+    ax1 = sns.barplot(x=x, y=y, data=data, color=fill_color, alpha=alpha, ax=ax1, saturation=1,
+                      width=bar_width)
+    
+    # Set labels and title
+    ax1.set_ylabel(ylab, fontsize=9)
+    ax1.set_xlabel(xlab, fontsize=9)
+    ax1.set_title(title, fontsize=10)
+    
+    # Reduce the fontsize of the axis values
+    ax1.tick_params(axis='both', labelsize=8)
+    
+    # Add data labels to the bars
+    if data_label is not None:
+        for i, row in data.iterrows():
+            label = f'{row[data_label]:.2%}' if isinstance(row[data_label], float) else str(row[data_label])
+            ax1.text(row.name, row[y], label, ha='center', va='bottom', fontsize=8, fontweight='bold')
+    
+    plt.tight_layout()
+    plt.show()
+    
+    return fig
+
+    
+    
+    
+plot_bar(
+    data=df, 
+    x="made_purchase", 
+    y="count", 
+    data_label="made_purchase_prop",
+    title="Only 5% of Users Have Made a Previous Purchase",
+    bar_width=0.5
+)

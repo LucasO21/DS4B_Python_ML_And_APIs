@@ -33,13 +33,13 @@ import email_lead_scoring as els
 # ?els.cost_plot_simulated_unsub_costs_plotnine
 
 
-# df = els.cost_simulate_unsub_cost(
-#     email_list_monthly_growth_rate=[0.015, 0.025, 0.035]
-# )
+df = els.cost_simulate_unsub_cost(
+    email_list_monthly_growth_rate=[0.015, 0.025, 0.035]
+)
 
-# els.cost_plot_simulated_unsub_cost(df)
+els.cost_plot_simulated_unsub_cost(df)
 
-# els.cost_plot_simulated_unsub_cost_plotnine(
-#     simulation_results=df,
-#     title="Cost Simulation"
-# )
+els.cost_plot_simulated_unsub_cost_plotnine(
+    simulation_results=df,
+    title="Cost Simulation"
+)

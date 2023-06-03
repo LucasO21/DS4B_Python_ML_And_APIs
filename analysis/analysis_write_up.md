@@ -17,6 +17,8 @@
 - [3.0 Solution Framework](#30-solution-framework)
   - [3.1 Business Understanding](#31-business-understanding)
     - [3.1.0 Cost Assessment](#310-cost-assessment)
+- [Data Understanding](#data-understanding)
+  - [Exploratory Data Analysis](#exploratory-data-analysis)
 
 <div style="page-break-after: always"></div>
 
@@ -96,7 +98,14 @@ our cost assessment by factoring in uncertainty in some of the drivers. Let assu
     <img width="80%" src="png/cost_simulation.png" alt="Image" style="display:block; margin:auto;" width="400">
 </p>
 
-We can thus see that regardless of how the drivers vary, we can still expect to see annual costs ranging from $5.39M to $10.3M.
+We can see that regardless of how the drivers vary, we can still expect to see annual costs ranging from $5.39M to $10.3M. Thus this is definitely a problem worth solving.
 
 At this point, a key question is can we reduce the unsubscribe rate. Recall that the business is loosing
 500 customers for every email sent out. What if we can reduce that number by 50% or 250.
+
+## Data Understanding
+
+The next step is to understand the data available at our disposal to tackle this problem.
+The visual below gives an overview of the companies database including table and table descriptions, including how each table can be connecting to other tables.
+
+### Exploratory Data Analysis
