@@ -9,6 +9,7 @@
     ]
 },
 
+"python.dataScience.autoScrolling": true,
 
     "jupyter.notebookFileRoot": "${workspaceFolder}",
     "jupyter.interactiveWindow.textEditor.executeSelection": true,
