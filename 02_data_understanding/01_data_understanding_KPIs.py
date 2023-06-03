@@ -129,21 +129,76 @@ with engine.connect() as conn:
 # - Products really aren't important to our initial question - just want to know if they made a purchase or not and identify which are likely
 
 # Make Target Feature
+emails_made_purchase = transactions_df["user_email"].unique()
 
+subscribers_df["user_email"] \
+    .isin(emails_made_purchase) 
+    
+subscribers_df = subscribers_df \
+    .assign(country_code = lambda x: x["country_code"].str.upper()) \
+    .assign(made_purchase = lambda x: x["user_email"].isin(emails_made_purchase).astype("int32"))
 
 # Who is purchasing?
+subscribers_df["made_purchase"].sum()/len(subscribers_df)
 
 
 # By Geographic Regions (Countries)
-
+by_geography_df = subscribers_df \
+    .groupby("country_code") \
+    .agg(
+        dict(made_purchase = ["sum", lambda x: sum(x) / len(x)])
+    ) \
+    .set_axis(["sales", "prop_in_group"], axis=1) \
+    .assign(prop_overall = lambda x: x["sales"] / sum(x["sales"])) \
+    .sort_values(by = "sales", ascending=False) \
+    .assign(prop_cumsum = lambda x: x["prop_overall"].cumsum())
+    
+subscribers_df
 
 # - Top 80% countries
-
+by_geography_df.query("prop_cumsum <= 0.80")
 
 # - High Conversion Countries (>8% conversion)
+by_geography_df.query("prop_in_group <= 0.80")
+
+# - Prop In Group Quantile 
+by_geography_df.quantile(q=[0.10, 0.50, 0.90])
+
+# - Prop In Group Mean 
+by_geography_df.mean()
 
 
 # By Tags (Events)
+# - Probablity of making a purchase may be impacted by the amount of tags (events) a customer has
+
+# - Count of Tags
+tags_df \
+    .groupby("tag") \
+    .agg(dict(tag = "count"))
+    
+# - Count of Tags by User
+user_events_df = tags_df \
+    .groupby("mailchimp_id") \
+    .agg(dict(tag = "count")) \
+    .set_axis(["tag_count"], axis = 1) \
+    .reset_index()
+
+# - Merge `user_events_df` and `subscribers_df`
+subscribers_joined_df = subscribers_df \
+    .merge(user_events_df, how = "left") \
+    .fillna(dict(tag_count = 0)) \
+    .assign(tag_count = lambda x: x["tag_count"].astype("int32"))
+    
+subscribers_joined_df.info()
+
+# - Analyzing Tag Count Proportions
+subscribers_joined_df \
+    .groupby("made_purchase") \
+    .quantile(q = [0.10, 0.50, 0.90])
+
+
+
+
 
 
 # 4.0 SWEETVIZ EDA REPORT
