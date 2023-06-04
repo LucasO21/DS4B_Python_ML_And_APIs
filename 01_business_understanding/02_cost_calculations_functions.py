@@ -43,3 +43,7 @@ els.cost_plot_simulated_unsub_cost_plotnine(
     simulation_results=df,
     title="Cost Simulation"
 )
+
+
+# Database
+els.db_read_els_data().head()
