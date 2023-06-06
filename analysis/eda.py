@@ -180,6 +180,40 @@ ax = sns.heatmap(data=df_corr, annot=True, cmap="Blues")
 ax.set_title("Correlation Heatmap", fontsize=12, fontweight="bold");
 
 
+# KPIs ---
+# - Reduce unnecessary sales emails by 30% while maintaning 99% of sales
+# - Segment list - apply sales (hot leads), nuture (cold leads)
+
+# Create a styler object
+styler = data.style
+
+# KPI 1: Median Tag Count 
+df_kp1_1 = data[["made_purchase", "tag_count"]] \
+    .groupby("made_purchase") \
+    .agg(
+        mean_tag_count    = ("tag_count", "mean"),
+        median_tag_count  = ("tag_count", "median"),
+        count_subscribers = ("tag_count", "count")
+    ) \
+    .reset_index() \
+    .assign(made_purchase=lambda x: x["made_purchase"].replace({0: "No", 1: "Yes"})) \
+    .rename(columns = lambda x: x.replace("_", " ").title()) \
+    #.rename_axis(index=lambda x: x.title().replace("_", " ")) 
+    
+    
+df_kp1_1 \
+    .style \
+    .set_table_styles([
+          {'selector': 'th', 'props': [
+                ('background-color', '#2c3e50'),
+                ('color', 'white'),
+                ('font-weight', 'bold'),
+                ('font-size', '16px')
+
+        ]}
+    ], overwrite=False)
+        
+  
     
 
 # ! ARCHIVE
@@ -215,3 +249,4 @@ ax2.tick_params(axis='both', labelsize=8)
 # Add data labels to the line plot
 for x, y in zip(df['country_code'], df['made_purchase_prop']):
     ax2.text(x, y, f'{y:.2%}', ha='center', va='bottom', fontsize = 9, fontweight="bold")
+

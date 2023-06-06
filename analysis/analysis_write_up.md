@@ -24,6 +24,7 @@
     - [**4.1.3 Country Code vs Made Purchase**](#413-country-code-vs-made-purchase)
     - [**4.1.4 Tag Count vs Made Purchase**](#414-tag-count-vs-made-purchase)
     - [**1.4.5 Correlation**](#145-correlation)
+- [**5.0 Formulating KPIs**](#50-formulating-kpis)
 
 <div style="page-break-after: always"></div>
 
@@ -139,8 +140,19 @@ The plot below shows *country_code* along with the within group *made_purchase* 
 
 The plot below shows *tag_count* along with the within group *made_purchase* proportion, for a selected number of *tag_count*. Recall that tags here refer to various events like trainings and webinars. Therefore *tag_count* refers to the number of such events a user has attended:
 
-**Observation:** We can see that if a user has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as *tag_count* decreases. Note that a user with 0 tags only has a 2% likelihood of making a purchase. This indicates that if the business can get users to attend more events, it drastically increases their likelihood of making a purchase.
+**Observation:** We can see that if a user has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as *tag_count* decreases. Note that a users with 0 tags only have a 2% likelihood of making a purchase. For these users (with 0 tags) we may not want to send them emails just yet. We may want to try and nurture them to attend more events before trying to get them to make a purchase. Overall if the business can get users to attend more events, it drastically increases their likelihood of making a purchase.
 
 #### **1.4.5 Correlation**
 
 The plot below is a correlation heatmap of numberic features only. These correlation values further validatates some of the data we saw earlier. We can see that *tag_count* and *member_rating* do show a fairly high correlation with *made_purchase*.
+
+## **5.0 Formulating KPIs**
+
+Now that we have a bit more understanding of some of the potential drivers of *made_purchase*, we may want to develop some hypothesis about how to improve the likelihood of a user making a purchase by applying some of the insights we just learned. For example:
+
+- Can we reduce the number of sales emails sent to users by 30% and still maintain 99% of sales revenue.
+
+- Can we segment our email list into **hot** and **cold** leads. Hot leads meaning users
+who are more likely to purchase (users with high *member_rating* for example), and cold leads meaning user less likely to purchase (users with low *member_rating*). This way we could come up with a strategy to only send sales emails to hot leads, while nuturing cold leads to increase their likelihood of purchase.
+
+One of such KPIs could be to increase the median *tag_count*. Looking at the table below, we can see that the median *tag_count* for users who have not made a purchase is 0 while for those who have made a purchase, the median *tag_count* is 2. Thus we could establsh a KPI for cold leads to get their median tag count to 2 or more (attend 2 or more webinars/events) and increase their likelihood of making a purchase.
