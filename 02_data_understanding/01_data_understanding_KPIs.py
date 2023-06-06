@@ -15,8 +15,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import matplotlib.pyplot as plt
-from plotnine import ggplot, aes, geom_bar, geom_line, scale_y_continuous, theme_bw
-from plotnine import labs, theme, element_text
 import seaborn as sns
 
 # New Libraries:
@@ -309,8 +307,8 @@ def plot_bar(data, x, y, fill_color="#a1c9f4", alpha=0.8,
     # Add data labels to the bars
     if data_label is not None:
         for i, row in data.iterrows():
-            label = f'{row[data_label]:.2%}' if isinstance(row[data_label], float) else str(row[data_label])
-            ax1.text(row.name, row[y], label, ha='center', va='bottom', fontsize=8, fontweight='bold')
+            label = f'{row[data_label]:.0%}' if isinstance(row[data_label], float) else str(row[data_label])
+            ax1.text(row.name, row[y], {label, ha='center', va='bottom', fontsize=8, fontweight='bold')
     
     plt.tight_layout()
     plt.show()

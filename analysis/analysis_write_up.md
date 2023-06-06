@@ -17,8 +17,13 @@
 - [3.0 Solution Framework](#30-solution-framework)
   - [3.1 Business Understanding](#31-business-understanding)
     - [3.1.0 Cost Assessment](#310-cost-assessment)
-- [Data Understanding](#data-understanding)
-  - [Exploratory Data Analysis](#exploratory-data-analysis)
+- [4.0 Data Understanding](#40-data-understanding)
+  - [4.1 Exploratory Data Analysis](#41-exploratory-data-analysis)
+    - [**4.1.1 Proportion of Users with a Previous Purchase**](#411-proportion-of-users-with-a-previous-purchase)
+    - [**4.1.2 Member Rating vs Made Purchase**](#412-member-rating-vs-made-purchase)
+    - [**4.1.3 Country Code vs Made Purchase**](#413-country-code-vs-made-purchase)
+    - [**4.1.4 Tag Count vs Made Purchase**](#414-tag-count-vs-made-purchase)
+    - [**1.4.5 Correlation**](#145-correlation)
 
 <div style="page-break-after: always"></div>
 
@@ -103,9 +108,39 @@ We can see that regardless of how the drivers vary, we can still expect to see a
 At this point, a key question is can we reduce the unsubscribe rate. Recall that the business is loosing
 500 customers for every email sent out. What if we can reduce that number by 50% or 250.
 
-## Data Understanding
+## 4.0 Data Understanding
 
 The next step is to understand the data available at our disposal to tackle this problem.
 The visual below gives an overview of the companies database including table and table descriptions, including how each table can be connecting to other tables.
 
-### Exploratory Data Analysis
+### 4.1 Exploratory Data Analysis
+
+After some initial data manipulation to get the data in the right format we need for analysis, including adding a *target* feature which is a binary flag of if a user has made a previous purchase or not, we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of users making a purchase.
+
+First lets analyze our target feature *made_purchase*:
+
+#### **4.1.1 Proportion of Users with a Previous Purchase**
+
+**Observation:** Only 5% of users have made a previous purchase, meaning we are dealing with a highly imbalanced dataset.
+
+#### **4.1.2 Member Rating vs Made Purchase**
+
+The plot below shows the different values of *member_rating* vs the proportion of *made_purchase* for users with each value of *member_rating*:
+
+**Observation:** Member rating appears to be quite predictive of *made_purchase*. We can see that the likelihood of a user making a purchase increases 3x when the *member_rating* goes from 1 to 2. Additionally the likelihood of making a purchase increases 5x when the *member_rating* goes from 2 to 5.
+
+#### **4.1.3 Country Code vs Made Purchase**
+
+The plot below shows *country_code* along with the within group *made_purchase* proportion, for the top 10 countries in terms of count of users:
+
+**Observation:** Country code appears to be quite predictive of *made_purchase* as well.For example we can see that while the US has the most users (over 3,500), the proportion of US users who have made a purchase is ~10%. However a country like AU which has less than 500 users has a higher proprtion of users who have made a purchase (~12%).
+
+#### **4.1.4 Tag Count vs Made Purchase**
+
+The plot below shows *tag_count* along with the within group *made_purchase* proportion, for a selected number of *tag_count*. Recall that tags here refer to various events like trainings and webinars. Therefore *tag_count* refers to the number of such events a user has attended:
+
+**Observation:** We can see that if a user has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as *tag_count* decreases. Note that a user with 0 tags only has a 2% likelihood of making a purchase. This indicates that if the business can get users to attend more events, it drastically increases their likelihood of making a purchase.
+
+#### **1.4.5 Correlation**
+
+The plot below is a correlation heatmap of numberic features only. These correlation values further validatates some of the data we saw earlier. We can see that *tag_count* and *member_rating* do show a fairly high correlation with *made_purchase*.
