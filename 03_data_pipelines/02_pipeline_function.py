@@ -48,10 +48,33 @@ def process_lead_tags(df_leads, df_tags):
         .fillna({col: 0 for col in df_2.columns if col.startswith("tag_")})
     
     # High Cardinality
-    countries_to_keep =  els.explore_sales_by_category(data=df_leads_tags, category="country_code") \
-        .query("sales >= 6") \
-        .index \
-        .to_list()
+    # countries_to_keep =  els.explore_sales_by_category(data=df_leads_tags, category="country_code") \
+    #     .query("sales >= 6") \
+    #     .index \
+    #     .to_list()
+    
+    countries_to_keep = ['US',
+                    'IN',
+                    'AU',
+                    'UK',
+                    'BR',
+                    'CA',
+                    'DE',
+                    'FR',
+                    'ES',
+                    'MX',
+                    'NL',
+                    'SG',
+                    'DK',
+                    'MY',
+                    'PL',
+                    'AE',
+                    'ID',
+                    'CO',
+                    'BE',
+                    'JP',
+                    'NG'
+                ]
 
     df_leads_tags = df_leads_tags \
         .assign(country_code = np.where(df_leads_tags["country_code"] \
@@ -66,7 +89,7 @@ process_lead_tags(df_leads, df_tags).head()
 
 
 
-# 3.0 Improve On Pipeline
+# 3.0 Improve On Pipeline ----
 def db_read_and_process_els_data(conn_string="sqlite://" + "/00_database/crm_database.sqlite"):
     
     df_leads = els.db_read_els_data(conn_string=conn_string)
@@ -79,5 +102,8 @@ def db_read_and_process_els_data(conn_string="sqlite://" + "/00_database/crm_dat
 
 
 
-# 4.0 TRY PACKAGE 
-db_read_and_process_els_data()
+# 4.0 Try Out Package ----
+
+import email_lead_scoring as els
+
+els.db_read_and_process_els_data()

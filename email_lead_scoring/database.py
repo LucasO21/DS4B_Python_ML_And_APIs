@@ -152,10 +152,33 @@ def process_lead_tags(df_leads, df_tags):
         .fillna({col: 0 for col in df_2.columns if col.startswith("tag_")})
     
     # High Cardinality
-    countries_to_keep =  els.explore_sales_by_category(data=df_leads_tags, category="country_code") \
-        .query("sales >= 6") \
-        .index \
-        .to_list()
+    # countries_to_keep =  explore_sales_by_category(data=df_leads_tags, category="country_code") \
+    #     .query("sales >= 6") \
+    #     .index \
+    #     .to_list()
+        
+    countries_to_keep = ['US', 
+                'IN',
+                'AU',
+                'UK',
+                'BR',
+                'CA',
+                'DE',
+                'FR',
+                'ES',
+                'MX',
+                'NL',
+                'SG',
+                'DK',
+                'MY',
+                'PL',
+                'AE',
+                'ID',
+                'CO',
+                'BE',
+                'JP',
+                'NG'
+            ]
 
     df_leads_tags = df_leads_tags \
         .assign(country_code = np.where(df_leads_tags["country_code"] \
@@ -163,3 +186,25 @@ def process_lead_tags(df_leads, df_tags):
     
     # Return
     return df_leads_tags
+
+
+
+# Improve On Pipeline
+def db_read_and_process_els_data(conn_string="sqlite://" + "/00_database/crm_database.sqlite"):
+    """Final data preprocessing pipeline function to join leads and tags dataframes from 
+    process_lead_tags() function.
+
+    Args:
+        conn_string (str, optional): Connection string. Defaults to "sqlite://"+"/00_database/crm_database.sqlite".
+        
+    Returns:
+        DataFrame: Final preprocessed dataframe ready for machine learning algorithms.  
+    """
+    
+    df_leads = db_read_els_data(conn_string=conn_string)
+    
+    df_tags = db_read_els_raw_table(conn_string=conn_string, table_name="Tags")
+    
+    df = process_lead_tags(df_leads, df_tags)
+    
+    return(df)
