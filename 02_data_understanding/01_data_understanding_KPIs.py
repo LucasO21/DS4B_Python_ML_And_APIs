@@ -227,7 +227,7 @@ subscribers_joined_df[["made_purchase", "tag_count"]] \
 
 # EDA Section For Article
 
-print(sns.color_palette("pastel").as_hex())
+print(sns.color_palette().as_hex())
 
 # - Member Rating: Count & Prop of `made_purchase`    
 df = subscribers_joined_df \

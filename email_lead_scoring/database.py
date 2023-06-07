@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 import sqlalchemy as sql
+import re
 
 
 # IMPORT RAW DATA ----
@@ -110,3 +111,55 @@ def db_read_els_raw_table(
         df = pd.read_sql(sql=f"select * from {table_name}", con=conn)
 
     return df
+
+
+# 1.0 Create Processing Function ----
+def process_lead_tags(df_leads, df_tags):
+    """Processing pipeline that combines the leads and tags dataframes and prepares for
+    machine learning.
+
+    Args:
+        df_leads (DataFrame): Leads dataframe from [els.db_read_els_data()]
+        df_tags (DataFrame): Raw Tags dataframe from [els.db_read_raw_els_table("Tags")].
+
+    Returns:
+        DataFrame: Leads and Tags combined and prepared for machine learning analysis. 
+    """
+    
+    
+    # Leads Data
+    df_1 = df_leads \
+        .assign(optin_days = lambda x: (x["optin_time"] - x["optin_time"].max()).dt.days) \
+        .assign(email_provider = lambda x: x["user_email"].str.split("@").str[1]) \
+        .assign(tag_count_by_optin_day = lambda x: x["tag_count"] / abs(x["optin_days"] - 1))
+        
+    # Tags Wide Data
+    df_2 = df_tags \
+        .assign(value = lambda x: 1) \
+        .pivot(
+            index   = "mailchimp_id",
+            columns = "tag",
+            values  = "value"            
+        ) \
+        .fillna(value = 0) \
+        .rename(columns = lambda x: x.replace("-", "_").lower()) \
+        .add_prefix("tag_") \
+        .reset_index()
+    
+    # Merge
+    df_leads_tags = df_1 \
+        .merge(df_2, how = "left") \
+        .fillna({col: 0 for col in df_2.columns if col.startswith("tag_")})
+    
+    # High Cardinality
+    countries_to_keep =  els.explore_sales_by_category(data=df_leads_tags, category="country_code") \
+        .query("sales >= 6") \
+        .index \
+        .to_list()
+
+    df_leads_tags = df_leads_tags \
+        .assign(country_code = np.where(df_leads_tags["country_code"] \
+            .isin(countries_to_keep), df_leads_tags["country_code"], "other"))        
+    
+    # Return
+    return df_leads_tags
