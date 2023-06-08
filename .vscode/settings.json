@@ -61,24 +61,16 @@
           "bold": false,
           "italic": false
         },
-        // {
-        //   "tag": "*",
-        //   "color": "#98C379",
-        //   "strikethrough": false,
-        //   "underline": false,
-        //   "backgroundColor": "transparent",
-        //   "bold": false,
-        //   "italic": false
-        // },
         {
-            "tag": "*",
-            "color": "#516940",
-            "strikethrough": false,
-            "underline": true,
-            "backgroundColor": "transparent",
-            "bold": true,
-            "italic": false
-          }
+          "tag": "*",
+          "color": "orange",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        }
+
 
 
 

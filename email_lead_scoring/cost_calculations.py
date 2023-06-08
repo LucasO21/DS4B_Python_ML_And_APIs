@@ -228,7 +228,7 @@ def cost_plot_simulated_unsub_cost_plotnine(
         )
         + geom_tile()
         + geom_text(aes(label="label_text"), size=8)
-        + theme_bw()
+        + theme_matplotlib()
         + labs(
             title=title,
             subtitle=sub_title,
