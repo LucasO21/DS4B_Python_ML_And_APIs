@@ -106,4 +106,4 @@ def db_read_and_process_els_data(conn_string="sqlite://" + "/00_database/crm_dat
 
 import email_lead_scoring as els
 
-els.db_read_and_process_els_data()
+els.db_read_and_process_els_data().info()

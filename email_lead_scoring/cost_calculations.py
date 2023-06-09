@@ -227,7 +227,7 @@ def cost_plot_simulated_unsub_cost_plotnine(
             )
         )
         + geom_tile()
-        + geom_text(aes(label="label_text"), size=8)
+        + geom_text(aes(label="label_text"), size=9)
         + theme_matplotlib()
         + labs(
             title=title,
@@ -237,14 +237,15 @@ def cost_plot_simulated_unsub_cost_plotnine(
             fill=legend_title
         )
         + theme(
-            axis_text=element_text(size=8),
-            axis_title=element_text(size=8),
+            plot_title = element_text(size = 13, weight = "bold"),
+            axis_text=element_text(size=9),
+            axis_title=element_text(size=9),
             legend_title=element_text(size=9),
             legend_text=element_text(size=7),
             legend_key_size=10,
             legend_position="none"
         )
-        + scale_fill_gradient(low="lightblue", high="orange")
+        + scale_fill_gradient(low="#c9e3f6", high="#1c6ca3")
     )
 
     return p
