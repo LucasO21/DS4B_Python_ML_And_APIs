@@ -3,6 +3,7 @@
 # EDA FOR ANALYSIS WRITE UP
 # ****
 
+
 # ***************************************************************************************************
 # LIBRARIES 
 # ***************************************************************************************************
@@ -14,10 +15,12 @@ from mizani.formatters import *
 import email_lead_scoring as els
 import random
 
+
 # ***************************************************************************************************
 # LOAD DATA 
 # ***************************************************************************************************
 data = els.db_read_els_data()
+
 
 # ***************************************************************************************************
 # EDA ----
@@ -248,7 +251,7 @@ columns = [
     'tag_learning_lab_13',
     'tag_learning_lab_05',
     'tag_learning_lab_31',
-    'tag_learning_lab_41'
+    'tag_learning_lab_14'
 ]
 
 # - Data
@@ -258,8 +261,8 @@ df = df_binary_tags[columns]
 
 # -- Grid setup
 sns.set_style("darkgrid")
-fig, axs = plt.subplots(3, 3, figsize=(16, 11))
-plt.subplots_adjust(wspace=0.2, hspace=0.3)
+fig, axs = plt.subplots(3, 3, figsize=(14, 11), sharey = True)
+plt.subplots_adjust(wspace=0.1, hspace=0.3)
 
 # -- Data Aggregation
 for feat, ax in zip(columns[1:], axs.ravel()):  
@@ -277,7 +280,7 @@ for feat, ax in zip(columns[1:], axs.ravel()):
    
     
     # -- Plot
-    sns.barplot(data = df_feat, x = feat, y = "proportion", alpha = 0.8, width = 0.6, ax = ax)
+    sns.barplot(data = df_feat, x = feat, y = "proportion", alpha = 0.8, width = 0.5, ax = ax)
     
     # -- Data labels
     ax.bar_label(ax.containers[0], labels=['{:.0%}'.format(x) for x in df_feat["proportion"]])
@@ -287,49 +290,17 @@ for feat, ax in zip(columns[1:], axs.ravel()):
     new_ylim = (current_ylim[0], current_ylim[1] + 0.01)
     ax.set_ylim(new_ylim)
     
-    # Axis labs
+    # -- Axis labs
     ax.set_title(f'{feat}')
     ax.set_ylabel(None)
     ax.set_xlabel(None)
     
-     # Overall plot title
+    # -- Remove x axis ticks
+    # ax.set_yticks([])
+    
+     # -- Overall plot title
     fig.suptitle("Proportion of Subscribers With A Purchase by Tag", fontsize = 13, fontweight = "bold")
     plt.show()
     
         
     
-# ***************************************************************************************************
-# ! ARCHIVE
-
-#  Dual Axis Function ----
-sns.set_theme(style="darkgrid", palette=None)
-
-# Subplots
-fig, ax1 = plt.subplots()
-
-# Barplot
-sns.barplot(data=df, x="country_code", y="count", width=0.6, color="#1f77b4", alpha=0.8, ax=ax1)
-
-# Create a second y-axis for made_purchase_proportion
-ax2 = ax1.twinx()
-
-# Plot made_purchase_proportion as a line chart
-sns.lineplot(x='country_code', y='made_purchase_prop', data=df, linewidth=2, markers='o', color="#ffb482", ax=ax2)
-
-# Remove gridliens from second axis
-ax2.grid(b=False)
-
-# Set labels and title
-ax1.set_ylabel('Frequency', fontsize=9)
-ax2.set_ylabel('\n Made Purchase (%)', fontsize=9)
-ax1.set_xlabel('Country Code', fontsize=9)
-ax1.set_title('Count and Made Purchase Proportion', fontsize=12)
-
-# Reduce the fontsize of the axis values
-ax1.tick_params(axis='both', labelsize=8)
-ax2.tick_params(axis='both', labelsize=8)
-
-# Add data labels to the line plot
-for x, y in zip(df['country_code'], df['made_purchase_prop']):
-    ax2.text(x, y, f'{y:.2%}', ha='center', va='bottom', fontsize = 9, fontweight="bold")
-
