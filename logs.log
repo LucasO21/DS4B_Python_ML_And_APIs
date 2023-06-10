@@ -3040,3 +3040,383 @@
 2023-06-10 08:13:28,323:INFO:Plot type: parameter
 2023-06-10 08:13:28,348:INFO:Visual Rendered Successfully
 2023-06-10 08:13:28,551:INFO:plot_model() succesfully completed......................................
+2023-06-10 09:30:03,350:INFO:gpu_param set to False
+2023-06-10 09:31:08,149:INFO:Initializing create_model()
+2023-06-10 09:31:08,152:INFO:create_model(estimator=xgboost, fold=None, round=4, cross_validation=True, predict=True, fit_kwargs=None, groups=None, refit=True, verbose=True, system=True, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-06-10 09:31:08,152:INFO:Checking exceptions
+2023-06-10 09:31:08,153:INFO:Preparing display monitor
+2023-06-10 09:31:08,220:INFO:Importing libraries
+2023-06-10 09:31:08,220:INFO:Copying training dataset
+2023-06-10 09:31:08,237:INFO:Defining folds
+2023-06-10 09:31:08,237:INFO:Declaring metric variables
+2023-06-10 09:31:08,265:INFO:Importing untrained model
+2023-06-10 09:31:08,299:INFO:Extreme Gradient Boosting Imported succesfully
+2023-06-10 09:31:08,433:INFO:Starting cross validation
+2023-06-10 09:31:08,441:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 09:32:03,286:INFO:Calculating mean and std
+2023-06-10 09:32:03,289:INFO:Creating metrics dataframe
+2023-06-10 09:32:03,437:INFO:Finalizing model
+2023-06-10 09:32:18,151:INFO:Creating Dashboard logs
+2023-06-10 09:32:18,175:INFO:Model: Extreme Gradient Boosting
+2023-06-10 09:32:18,262:INFO:logged params: {'objective': 'binary:logistic', 'use_label_encoder': False, 'base_score': 0.5, 'booster': 'gbtree', 'callbacks': None, 'colsample_bylevel': 1, 'colsample_bynode': 1, 'colsample_bytree': 1, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': None, 'gamma': 0, 'gpu_id': -1, 'grow_policy': 'depthwise', 'importance_type': None, 'interaction_constraints': '', 'learning_rate': 0.300000012, 'max_bin': 256, 'max_cat_to_onehot': 4, 'max_delta_step': 0, 'max_depth': 6, 'max_leaves': 0, 'min_child_weight': 1, 'missing': nan, 'monotone_constraints': '()', 'n_estimators': 100, 'n_jobs': 1, 'num_parallel_tree': 1, 'predictor': 'auto', 'random_state': 123, 'reg_alpha': 0, 'reg_lambda': 1, 'sampling_method': 'uniform', 'scale_pos_weight': 1, 'subsample': 1, 'tree_method': 'auto', 'validate_parameters': 1, 'verbosity': 0}
+2023-06-10 09:32:18,348:INFO:Initializing predict_model()
+2023-06-10 09:32:18,348:INFO:predict_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.300000012, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0, ...), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 09:32:18,349:INFO:Checking exceptions
+2023-06-10 09:32:18,349:INFO:Preloading libraries
+2023-06-10 09:32:20,614:INFO:Uploading results into container
+2023-06-10 09:32:20,614:INFO:Uploading model into container now
+2023-06-10 09:32:20,707:INFO:create_model_container: 33
+2023-06-10 09:32:20,707:INFO:master_model_container: 33
+2023-06-10 09:32:20,713:INFO:display_container: 6
+2023-06-10 09:32:20,716:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.300000012, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0, ...)
+2023-06-10 09:32:20,716:INFO:create_model() succesfully completed......................................
+2023-06-10 09:32:52,264:INFO:Initializing tune_model()
+2023-06-10 09:32:52,267:INFO:tune_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.300000012, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0, ...), fold=None, round=4, n_iter=5, custom_grid=None, optimize=AUC, custom_scorer=None, search_library=scikit-learn, search_algorithm=None, early_stopping=False, early_stopping_max_iters=10, choose_better=False, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=True, display=None, return_train_score=False, kwargs={})
+2023-06-10 09:32:52,268:INFO:Checking exceptions
+2023-06-10 09:32:52,273:INFO:Preparing display monitor
+2023-06-10 09:32:52,401:INFO:Copying training dataset
+2023-06-10 09:32:52,407:INFO:Checking base model
+2023-06-10 09:32:52,407:INFO:Base model : Extreme Gradient Boosting
+2023-06-10 09:32:52,447:INFO:Declaring metric variables
+2023-06-10 09:32:52,487:INFO:Defining Hyperparameters
+2023-06-10 09:32:52,736:INFO:Tuning with n_jobs=1
+2023-06-10 09:32:52,737:INFO:Initializing RandomizedSearchCV
+2023-06-10 09:36:30,518:INFO:best_params: {'actual_estimator__subsample': 1, 'actual_estimator__scale_pos_weight': 35.1, 'actual_estimator__reg_lambda': 0.5, 'actual_estimator__reg_alpha': 0.0005, 'actual_estimator__n_estimators': 100, 'actual_estimator__min_child_weight': 1, 'actual_estimator__max_depth': 1, 'actual_estimator__learning_rate': 0.5, 'actual_estimator__colsample_bytree': 1}
+2023-06-10 09:36:30,520:INFO:Hyperparameter search completed
+2023-06-10 09:36:30,520:INFO:SubProcess create_model() called ==================================
+2023-06-10 09:36:30,522:INFO:Initializing create_model()
+2023-06-10 09:36:30,522:INFO:create_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.300000012, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0, ...), fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=True, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x7fb0e1255f60>, return_train_score=False, kwargs={'subsample': 1, 'scale_pos_weight': 35.1, 'reg_lambda': 0.5, 'reg_alpha': 0.0005, 'n_estimators': 100, 'min_child_weight': 1, 'max_depth': 1, 'learning_rate': 0.5, 'colsample_bytree': 1})
+2023-06-10 09:36:30,522:INFO:Checking exceptions
+2023-06-10 09:36:30,522:INFO:Importing libraries
+2023-06-10 09:36:30,522:INFO:Copying training dataset
+2023-06-10 09:36:30,525:INFO:Defining folds
+2023-06-10 09:36:30,525:INFO:Declaring metric variables
+2023-06-10 09:36:30,556:INFO:Importing untrained model
+2023-06-10 09:36:30,556:INFO:Declaring custom model
+2023-06-10 09:36:30,586:INFO:Extreme Gradient Boosting Imported succesfully
+2023-06-10 09:36:30,690:INFO:Starting cross validation
+2023-06-10 09:36:30,692:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 09:36:37,623:INFO:Calculating mean and std
+2023-06-10 09:36:37,625:INFO:Creating metrics dataframe
+2023-06-10 09:36:37,650:INFO:Finalizing model
+2023-06-10 09:36:39,223:INFO:Uploading results into container
+2023-06-10 09:36:39,224:INFO:Uploading model into container now
+2023-06-10 09:36:39,224:INFO:create_model_container: 34
+2023-06-10 09:36:39,224:INFO:master_model_container: 34
+2023-06-10 09:36:39,224:INFO:display_container: 7
+2023-06-10 09:36:39,227:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:36:39,227:INFO:create_model() succesfully completed......................................
+2023-06-10 09:36:39,360:INFO:SubProcess create_model() end ==================================
+2023-06-10 09:36:39,361:INFO:Creating Dashboard logs
+2023-06-10 09:36:39,377:INFO:Model: Extreme Gradient Boosting
+2023-06-10 09:36:39,410:INFO:logged params: {'objective': 'binary:logistic', 'use_label_encoder': False, 'base_score': 0.5, 'booster': 'gbtree', 'callbacks': None, 'colsample_bylevel': 1, 'colsample_bynode': 1, 'colsample_bytree': 1, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': None, 'gamma': 0, 'gpu_id': -1, 'grow_policy': 'depthwise', 'importance_type': None, 'interaction_constraints': '', 'learning_rate': 0.5, 'max_bin': 256, 'max_cat_to_onehot': 4, 'max_delta_step': 0, 'max_depth': 1, 'max_leaves': 0, 'min_child_weight': 1, 'missing': nan, 'monotone_constraints': '()', 'n_estimators': 100, 'n_jobs': 1, 'num_parallel_tree': 1, 'predictor': 'auto', 'random_state': 123, 'reg_alpha': 0.0005, 'reg_lambda': 0.5, 'sampling_method': 'uniform', 'scale_pos_weight': 35.1, 'subsample': 1, 'tree_method': 'auto', 'validate_parameters': 1, 'verbosity': 0}
+2023-06-10 09:36:39,608:INFO:Initializing predict_model()
+2023-06-10 09:36:39,608:INFO:predict_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 09:36:39,609:INFO:Checking exceptions
+2023-06-10 09:36:39,609:INFO:Preloading libraries
+2023-06-10 09:36:40,199:INFO:create_model_container: 34
+2023-06-10 09:36:40,199:INFO:master_model_container: 34
+2023-06-10 09:36:40,200:INFO:display_container: 7
+2023-06-10 09:36:40,203:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:36:40,203:INFO:tune_model() succesfully completed......................................
+2023-06-10 09:40:33,304:INFO:Initializing finalize_model()
+2023-06-10 09:40:33,305:INFO:finalize_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), fit_kwargs=None, groups=None, model_only=True, display=None, experiment_custom_tags=None, return_train_score=False)
+2023-06-10 09:40:33,311:INFO:Finalizing XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:40:33,315:INFO:Initializing create_model()
+2023-06-10 09:40:33,315:INFO:create_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), fold=None, round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=False, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-06-10 09:40:33,316:INFO:Checking exceptions
+2023-06-10 09:40:33,316:INFO:Importing libraries
+2023-06-10 09:40:33,316:INFO:Copying training dataset
+2023-06-10 09:40:33,328:INFO:Defining folds
+2023-06-10 09:40:33,328:INFO:Declaring metric variables
+2023-06-10 09:40:33,328:INFO:Importing untrained model
+2023-06-10 09:40:33,328:INFO:Declaring custom model
+2023-06-10 09:40:33,334:INFO:Extreme Gradient Boosting Imported succesfully
+2023-06-10 09:40:33,334:INFO:Starting cross validation
+2023-06-10 09:40:33,339:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 09:40:44,005:INFO:Calculating mean and std
+2023-06-10 09:40:44,007:INFO:Creating metrics dataframe
+2023-06-10 09:40:44,013:INFO:Finalizing model
+2023-06-10 09:40:47,297:INFO:create_model_container: 34
+2023-06-10 09:40:47,298:INFO:master_model_container: 34
+2023-06-10 09:40:47,298:INFO:display_container: 8
+2023-06-10 09:40:47,301:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:40:47,301:INFO:create_model() succesfully completed......................................
+2023-06-10 09:40:47,472:INFO:Creating Dashboard logs
+2023-06-10 09:40:47,473:INFO:Model: Extreme Gradient Boosting
+2023-06-10 09:40:47,494:INFO:logged params: {'objective': 'binary:logistic', 'use_label_encoder': False, 'base_score': 0.5, 'booster': 'gbtree', 'callbacks': None, 'colsample_bylevel': 1, 'colsample_bynode': 1, 'colsample_bytree': 1, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': None, 'gamma': 0, 'gpu_id': -1, 'grow_policy': 'depthwise', 'importance_type': None, 'interaction_constraints': '', 'learning_rate': 0.5, 'max_bin': 256, 'max_cat_to_onehot': 4, 'max_delta_step': 0, 'max_depth': 1, 'max_leaves': 0, 'min_child_weight': 1, 'missing': nan, 'monotone_constraints': '()', 'n_estimators': 100, 'n_jobs': 1, 'num_parallel_tree': 1, 'predictor': 'auto', 'random_state': 123, 'reg_alpha': 0.0005, 'reg_lambda': 0.5, 'sampling_method': 'uniform', 'scale_pos_weight': 35.1, 'subsample': 1, 'tree_method': 'auto', 'validate_parameters': 1, 'verbosity': 0}
+2023-06-10 09:40:47,679:INFO:Initializing predict_model()
+2023-06-10 09:40:47,679:INFO:predict_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 09:40:47,679:INFO:Checking exceptions
+2023-06-10 09:40:47,679:INFO:Preloading libraries
+2023-06-10 09:40:48,234:INFO:create_model_container: 34
+2023-06-10 09:40:48,235:INFO:master_model_container: 34
+2023-06-10 09:40:48,235:INFO:display_container: 7
+2023-06-10 09:40:48,239:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:40:48,239:INFO:finalize_model() succesfully completed......................................
+2023-06-10 09:41:15,043:INFO:Initializing finalize_model()
+2023-06-10 09:41:15,045:INFO:finalize_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), fit_kwargs=None, groups=None, model_only=True, display=None, experiment_custom_tags=None, return_train_score=False)
+2023-06-10 09:41:15,050:INFO:Finalizing XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:41:15,052:INFO:Initializing create_model()
+2023-06-10 09:41:15,053:INFO:create_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), fold=None, round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=False, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-06-10 09:41:15,053:INFO:Checking exceptions
+2023-06-10 09:41:15,053:INFO:Importing libraries
+2023-06-10 09:41:15,053:INFO:Copying training dataset
+2023-06-10 09:41:15,056:INFO:Defining folds
+2023-06-10 09:41:15,056:INFO:Declaring metric variables
+2023-06-10 09:41:15,060:INFO:Importing untrained model
+2023-06-10 09:41:15,060:INFO:Declaring custom model
+2023-06-10 09:41:15,066:INFO:Extreme Gradient Boosting Imported succesfully
+2023-06-10 09:41:15,066:INFO:Starting cross validation
+2023-06-10 09:41:15,067:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 09:41:26,200:INFO:Calculating mean and std
+2023-06-10 09:41:26,201:INFO:Creating metrics dataframe
+2023-06-10 09:41:26,208:INFO:Finalizing model
+2023-06-10 09:41:29,800:INFO:create_model_container: 34
+2023-06-10 09:41:29,800:INFO:master_model_container: 34
+2023-06-10 09:41:29,800:INFO:display_container: 8
+2023-06-10 09:41:29,808:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:41:29,808:INFO:create_model() succesfully completed......................................
+2023-06-10 09:41:30,001:INFO:Creating Dashboard logs
+2023-06-10 09:41:30,002:INFO:Model: Extreme Gradient Boosting
+2023-06-10 09:41:30,046:INFO:logged params: {'objective': 'binary:logistic', 'use_label_encoder': False, 'base_score': 0.5, 'booster': 'gbtree', 'callbacks': None, 'colsample_bylevel': 1, 'colsample_bynode': 1, 'colsample_bytree': 1, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': None, 'gamma': 0, 'gpu_id': -1, 'grow_policy': 'depthwise', 'importance_type': None, 'interaction_constraints': '', 'learning_rate': 0.5, 'max_bin': 256, 'max_cat_to_onehot': 4, 'max_delta_step': 0, 'max_depth': 1, 'max_leaves': 0, 'min_child_weight': 1, 'missing': nan, 'monotone_constraints': '()', 'n_estimators': 100, 'n_jobs': 1, 'num_parallel_tree': 1, 'predictor': 'auto', 'random_state': 123, 'reg_alpha': 0.0005, 'reg_lambda': 0.5, 'sampling_method': 'uniform', 'scale_pos_weight': 35.1, 'subsample': 1, 'tree_method': 'auto', 'validate_parameters': 1, 'verbosity': 0}
+2023-06-10 09:41:30,339:INFO:Initializing predict_model()
+2023-06-10 09:41:30,340:INFO:predict_model(estimator=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 09:41:30,340:INFO:Checking exceptions
+2023-06-10 09:41:30,340:INFO:Preloading libraries
+2023-06-10 09:41:31,192:INFO:create_model_container: 34
+2023-06-10 09:41:31,192:INFO:master_model_container: 34
+2023-06-10 09:41:31,192:INFO:display_container: 7
+2023-06-10 09:41:31,196:INFO:XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...)
+2023-06-10 09:41:31,196:INFO:finalize_model() succesfully completed......................................
+2023-06-10 09:50:55,236:INFO:Initializing save_model()
+2023-06-10 09:50:55,237:INFO:save_model(model=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), model_name=models/xgb_model_tuned_finalized, prep_pipe_=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False), verbose=True, kwargs={})
+2023-06-10 09:50:55,238:INFO:Adding model into prep_pipe
+2023-06-10 09:50:55,278:INFO:models/xgb_model_tuned_finalized.pkl saved in current working directory
+2023-06-10 09:50:55,320:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               objective='binary:logistic', predictor='auto',
+                               random_state=123, reg_alpha=0.0005, ...)]],
+         verbose=False)
+2023-06-10 09:50:55,320:INFO:save_model() successfully completed......................................

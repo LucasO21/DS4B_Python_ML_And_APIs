@@ -197,23 +197,33 @@ clf.plot_model(best_models[0], plot =  "parameter")
 
 
 
-
 # ========================================================================
 # 5.0 CREATING & TUNING INDIVIDUAL MODELS ----
 # ========================================================================
 
+clf.models()
+
+# - Create more models
+xgb_model = clf.create_model(estimator = "xgboost")
 
 
-# Create more models
+# - Tuning Models
+xgb_model_tuned = clf.tune_model(
+    estimator = xgb_model,
+    n_iter    = 5,
+    optimize  = "AUC"
+)
+
+# - Finalize model 
+xgb_model_tuned_finalized = clf.finalize_model(xgb_model_tuned)
 
 
+# - Save xgb tuned
+clf.save_model(
+    model      = xgb_model_tuned_finalized,
+    model_name = "models/xgb_model_tuned_finalized"
+)
 
-
-# Tuning Models
-
-
-
-# Save xgb tuned
 
 # ========================================================================
 # 6.0 INTERPRETING MODELS ----
