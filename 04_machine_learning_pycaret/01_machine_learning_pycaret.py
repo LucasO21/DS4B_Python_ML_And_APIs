@@ -115,31 +115,49 @@ pipeline.fit(df)
 # 3.0 MACHINE LEARNING (COMPARE MODELS) ----
 # ========================================================================
 
-# Available Models
+# - Available Models
+clf.models()
 
 
-# Running All Available Models
+# - Running All Available Models
+best_models = clf.compare_models(
+    sort        = "AUC",
+    n_select    = 3,
+    budget_time = 3
+)
 
 
-
-# Get the grid
-
-
-
-# Top 3 Models
+# - Get the grid
+clf.pull()
 
 
+# - Top 3 Models
+best_models
 
-# Make predictions
-
-
-
-# Refits on Full Dataset
+best_models[0]
 
 
+# - Make predictions
+clf.predict_model(best_models[0])
 
-# Save / load model
+clf.predict_model(
+    estimator = best_models[1],
+    data      = df.iloc[[1]]
+)
 
+# - Refits on Full Dataset
+best_model_0_finalized = clf.finalize_model(best_models[0])
+
+
+# - Save / load model
+os.mkdir("models")
+
+clf.save_model(
+    model      = best_model_0_finalized,
+    model_name = "models/best_model_0"
+)
+
+clf.load_model("models/best_model_0")
 
 # ========================================================================
 # 4.0 PLOTTING MODEL PERFORMANCE -----
