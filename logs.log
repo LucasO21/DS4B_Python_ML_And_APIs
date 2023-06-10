@@ -2457,3 +2457,586 @@
 2023-06-10 07:53:07,265:INFO:save_model() successfully completed......................................
 2023-06-10 07:53:45,847:INFO:Initializing load_model()
 2023-06-10 07:53:45,848:INFO:load_model(model_name=models/best_model_0, platform=None, authentication=None, verbose=True)
+2023-06-10 07:55:54,933:INFO:Initializing evaluate_model()
+2023-06-10 07:55:54,938:INFO:evaluate_model(estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), fold=None, fit_kwargs=None, plot_kwargs=None, feature_name=None, groups=None, use_train_data=False)
+2023-06-10 07:55:54,999:INFO:Initializing plot_model()
+2023-06-10 07:55:54,999:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=parameter, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:55:55,000:INFO:Checking exceptions
+2023-06-10 07:55:55,006:INFO:Preparing display monitor
+2023-06-10 07:55:55,023:INFO:Preloading libraries
+2023-06-10 07:55:55,041:INFO:Copying training dataset
+2023-06-10 07:55:55,055:INFO:Copying test dataset
+2023-06-10 07:55:55,057:INFO:Plot type: parameter
+2023-06-10 07:55:55,076:INFO:Visual Rendered Successfully
+2023-06-10 07:55:55,326:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:56:09,569:INFO:Initializing plot_model()
+2023-06-10 07:56:09,570:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=auc, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:56:09,570:INFO:Checking exceptions
+2023-06-10 07:56:09,579:INFO:Preparing display monitor
+2023-06-10 07:56:09,591:INFO:Preloading libraries
+2023-06-10 07:56:09,616:INFO:Copying training dataset
+2023-06-10 07:56:09,620:INFO:Copying test dataset
+2023-06-10 07:56:09,653:INFO:Plot type: auc
+2023-06-10 07:56:09,660:INFO:Initializing get_config()
+2023-06-10 07:56:09,660:INFO:get_config(variable=prep_pipe)
+2023-06-10 07:56:09,670:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 07:56:09,671:INFO:get_config() succesfully completed......................................
+2023-06-10 07:56:09,673:INFO:Fitting Model
+2023-06-10 07:56:09,676:INFO:Scoring test/hold-out set
+2023-06-10 07:56:10,386:INFO:Visual Rendered Successfully
+2023-06-10 07:56:10,487:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:56:37,799:INFO:Initializing plot_model()
+2023-06-10 07:56:37,800:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=confusion_matrix, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:56:37,800:INFO:Checking exceptions
+2023-06-10 07:56:37,805:INFO:Preparing display monitor
+2023-06-10 07:56:37,816:INFO:Preloading libraries
+2023-06-10 07:56:37,926:INFO:Copying training dataset
+2023-06-10 07:56:37,930:INFO:Copying test dataset
+2023-06-10 07:56:37,931:INFO:Plot type: confusion_matrix
+2023-06-10 07:56:37,936:INFO:Initializing get_config()
+2023-06-10 07:56:37,938:INFO:get_config(variable=prep_pipe)
+2023-06-10 07:56:38,006:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 07:56:38,007:INFO:get_config() succesfully completed......................................
+2023-06-10 07:56:38,032:INFO:Fitting Model
+2023-06-10 07:56:38,036:INFO:Scoring test/hold-out set
+2023-06-10 07:56:38,503:INFO:Visual Rendered Successfully
+2023-06-10 07:56:38,668:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:56:45,469:INFO:Initializing plot_model()
+2023-06-10 07:56:45,471:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=parameter, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:56:45,471:INFO:Checking exceptions
+2023-06-10 07:56:45,475:INFO:Preparing display monitor
+2023-06-10 07:56:45,492:INFO:Preloading libraries
+2023-06-10 07:56:45,506:INFO:Copying training dataset
+2023-06-10 07:56:45,509:INFO:Copying test dataset
+2023-06-10 07:56:45,510:INFO:Plot type: parameter
+2023-06-10 07:56:45,527:INFO:Visual Rendered Successfully
+2023-06-10 07:56:45,930:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:56:50,384:INFO:Initializing plot_model()
+2023-06-10 07:56:50,384:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=auc, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:56:50,385:INFO:Checking exceptions
+2023-06-10 07:56:50,390:INFO:Preparing display monitor
+2023-06-10 07:56:50,412:INFO:Preloading libraries
+2023-06-10 07:56:50,427:INFO:Copying training dataset
+2023-06-10 07:56:50,429:INFO:Copying test dataset
+2023-06-10 07:56:50,430:INFO:Plot type: auc
+2023-06-10 07:56:50,435:INFO:Initializing get_config()
+2023-06-10 07:56:50,435:INFO:get_config(variable=prep_pipe)
+2023-06-10 07:56:50,447:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 07:56:50,447:INFO:get_config() succesfully completed......................................
+2023-06-10 07:56:50,448:INFO:Fitting Model
+2023-06-10 07:56:50,471:INFO:Scoring test/hold-out set
+2023-06-10 07:56:51,283:INFO:Visual Rendered Successfully
+2023-06-10 07:56:51,503:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:56:52,762:INFO:Initializing plot_model()
+2023-06-10 07:56:52,762:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=threshold, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:56:52,762:INFO:Checking exceptions
+2023-06-10 07:56:52,766:INFO:Preparing display monitor
+2023-06-10 07:56:52,783:INFO:Preloading libraries
+2023-06-10 07:56:52,801:INFO:Copying training dataset
+2023-06-10 07:56:52,804:INFO:Copying test dataset
+2023-06-10 07:56:52,804:INFO:Plot type: threshold
+2023-06-10 07:56:52,812:INFO:Fitting Model
+2023-06-10 07:58:37,311:INFO:Scoring test/hold-out set
+2023-06-10 07:58:38,187:INFO:Visual Rendered Successfully
+2023-06-10 07:58:38,408:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:58:38,528:INFO:Initializing plot_model()
+2023-06-10 07:58:38,529:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=auc, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:58:38,529:INFO:Checking exceptions
+2023-06-10 07:58:38,533:INFO:Preparing display monitor
+2023-06-10 07:58:38,550:INFO:Preloading libraries
+2023-06-10 07:58:38,622:INFO:Copying training dataset
+2023-06-10 07:58:38,633:INFO:Copying test dataset
+2023-06-10 07:58:38,634:INFO:Plot type: auc
+2023-06-10 07:58:38,646:INFO:Initializing get_config()
+2023-06-10 07:58:38,646:INFO:get_config(variable=prep_pipe)
+2023-06-10 07:58:38,659:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 07:58:38,660:INFO:get_config() succesfully completed......................................
+2023-06-10 07:58:38,662:INFO:Fitting Model
+2023-06-10 07:58:38,667:INFO:Scoring test/hold-out set
+2023-06-10 07:58:39,464:INFO:Visual Rendered Successfully
+2023-06-10 07:58:39,589:INFO:plot_model() succesfully completed......................................
+2023-06-10 07:58:42,883:INFO:Initializing plot_model()
+2023-06-10 07:58:42,883:INFO:plot_model(fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), use_train_data=False, verbose=True, is_in_evaluate=True, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot=threshold, plot_kwargs={}, save=False, scale=1, system=True)
+2023-06-10 07:58:42,883:INFO:Checking exceptions
+2023-06-10 07:58:42,888:INFO:Preparing display monitor
+2023-06-10 07:58:42,900:INFO:Preloading libraries
+2023-06-10 07:58:42,918:INFO:Copying training dataset
+2023-06-10 07:58:42,920:INFO:Copying test dataset
+2023-06-10 07:58:42,921:INFO:Plot type: threshold
+2023-06-10 07:58:42,933:INFO:Fitting Model
+2023-06-10 08:00:18,965:INFO:Scoring test/hold-out set
+2023-06-10 08:00:19,360:INFO:Visual Rendered Successfully
+2023-06-10 08:00:19,496:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:03:30,193:INFO:Initializing plot_model()
+2023-06-10 08:03:30,197:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=auc, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:03:30,197:INFO:Checking exceptions
+2023-06-10 08:03:30,220:INFO:Preparing display monitor
+2023-06-10 08:03:30,259:INFO:Preloading libraries
+2023-06-10 08:03:30,330:INFO:Copying training dataset
+2023-06-10 08:03:30,335:INFO:Copying test dataset
+2023-06-10 08:03:30,336:INFO:Plot type: auc
+2023-06-10 08:03:30,350:INFO:Initializing get_config()
+2023-06-10 08:03:30,350:INFO:get_config(variable=prep_pipe)
+2023-06-10 08:03:30,370:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 08:03:30,370:INFO:get_config() succesfully completed......................................
+2023-06-10 08:03:30,375:INFO:Fitting Model
+2023-06-10 08:03:30,379:INFO:Scoring test/hold-out set
+2023-06-10 08:03:30,804:INFO:Visual Rendered Successfully
+2023-06-10 08:03:31,185:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:03:41,912:INFO:Initializing plot_model()
+2023-06-10 08:03:41,912:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=pr, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:03:41,912:INFO:Checking exceptions
+2023-06-10 08:03:41,915:INFO:Preparing display monitor
+2023-06-10 08:03:41,960:INFO:Preloading libraries
+2023-06-10 08:03:41,988:INFO:Copying training dataset
+2023-06-10 08:03:41,991:INFO:Copying test dataset
+2023-06-10 08:03:41,992:INFO:Plot type: pr
+2023-06-10 08:03:42,000:INFO:Fitting Model
+2023-06-10 08:03:42,003:INFO:Scoring test/hold-out set
+2023-06-10 08:03:42,542:INFO:Visual Rendered Successfully
+2023-06-10 08:03:42,714:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:04:37,466:INFO:Initializing plot_model()
+2023-06-10 08:04:37,479:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=confusion_matrix, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:04:37,480:INFO:Checking exceptions
+2023-06-10 08:04:37,483:INFO:Preparing display monitor
+2023-06-10 08:04:37,510:INFO:Preloading libraries
+2023-06-10 08:04:37,583:INFO:Copying training dataset
+2023-06-10 08:04:37,589:INFO:Copying test dataset
+2023-06-10 08:04:37,592:INFO:Plot type: confusion_matrix
+2023-06-10 08:04:37,598:INFO:Initializing get_config()
+2023-06-10 08:04:37,598:INFO:get_config(variable=prep_pipe)
+2023-06-10 08:04:37,611:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 08:04:37,611:INFO:get_config() succesfully completed......................................
+2023-06-10 08:04:37,612:INFO:Fitting Model
+2023-06-10 08:04:37,613:INFO:Scoring test/hold-out set
+2023-06-10 08:04:37,980:INFO:Visual Rendered Successfully
+2023-06-10 08:04:38,328:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:06:46,444:INFO:Initializing plot_model()
+2023-06-10 08:06:46,447:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=gain, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:06:46,447:INFO:Checking exceptions
+2023-06-10 08:06:46,450:INFO:Preparing display monitor
+2023-06-10 08:06:46,464:INFO:Preloading libraries
+2023-06-10 08:06:46,481:INFO:Copying training dataset
+2023-06-10 08:06:46,484:INFO:Copying test dataset
+2023-06-10 08:06:46,485:INFO:Plot type: gain
+2023-06-10 08:06:46,491:INFO:Generating predictions / predict_proba on X_test
+2023-06-10 08:06:47,091:INFO:Visual Rendered Successfully
+2023-06-10 08:06:47,217:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:08:23,021:INFO:Initializing plot_model()
+2023-06-10 08:08:23,033:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostClassifier object at 0x7fb0e1243dd8>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=gain, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:08:23,033:INFO:Checking exceptions
+2023-06-10 08:08:23,039:INFO:Preparing display monitor
+2023-06-10 08:08:23,056:INFO:Preloading libraries
+2023-06-10 08:08:23,075:INFO:Copying training dataset
+2023-06-10 08:08:23,083:INFO:Copying test dataset
+2023-06-10 08:08:23,085:INFO:Plot type: gain
+2023-06-10 08:08:23,087:INFO:Generating predictions / predict_proba on X_test
+2023-06-10 08:08:23,517:INFO:Visual Rendered Successfully
+2023-06-10 08:08:23,664:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:09:03,661:INFO:Initializing plot_model()
+2023-06-10 08:09:03,661:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostClassifier object at 0x7fb0e1243dd8>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=lift, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:09:03,661:INFO:Checking exceptions
+2023-06-10 08:09:03,666:INFO:Preparing display monitor
+2023-06-10 08:09:03,718:INFO:Preloading libraries
+2023-06-10 08:09:03,723:INFO:Copying training dataset
+2023-06-10 08:09:03,727:INFO:Copying test dataset
+2023-06-10 08:09:03,730:INFO:Plot type: lift
+2023-06-10 08:09:03,734:INFO:Generating predictions / predict_proba on X_test
+2023-06-10 08:09:04,364:INFO:Visual Rendered Successfully
+2023-06-10 08:09:04,540:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:09:34,788:INFO:Initializing plot_model()
+2023-06-10 08:09:34,789:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=tree, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:09:34,790:INFO:Checking exceptions
+2023-06-10 08:10:01,795:INFO:Initializing plot_model()
+2023-06-10 08:10:01,797:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:10:01,797:INFO:Checking exceptions
+2023-06-10 08:10:01,801:INFO:Preparing display monitor
+2023-06-10 08:10:01,811:INFO:Preloading libraries
+2023-06-10 08:10:01,835:INFO:Copying training dataset
+2023-06-10 08:10:01,837:INFO:Copying test dataset
+2023-06-10 08:10:01,838:INFO:Plot type: feature
+2023-06-10 08:10:01,843:WARNING:No coef_ found. Trying feature_importances_
+2023-06-10 08:10:02,284:INFO:Visual Rendered Successfully
+2023-06-10 08:10:02,503:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:11:39,047:INFO:Initializing plot_model()
+2023-06-10 08:11:39,050:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostClassifier object at 0x7fb0e1243dd8>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:11:39,050:INFO:Checking exceptions
+2023-06-10 08:11:39,055:INFO:Preparing display monitor
+2023-06-10 08:11:39,132:INFO:Preloading libraries
+2023-06-10 08:11:39,144:INFO:Copying training dataset
+2023-06-10 08:11:39,150:INFO:Copying test dataset
+2023-06-10 08:11:39,151:INFO:Plot type: feature
+2023-06-10 08:11:39,157:WARNING:No coef_ found. Trying feature_importances_
+2023-06-10 08:11:39,713:INFO:Visual Rendered Successfully
+2023-06-10 08:11:39,831:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:12:28,946:INFO:Initializing plot_model()
+2023-06-10 08:12:28,948:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=class_report, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:12:28,948:INFO:Checking exceptions
+2023-06-10 08:12:28,958:INFO:Preparing display monitor
+2023-06-10 08:12:28,968:INFO:Preloading libraries
+2023-06-10 08:12:28,988:INFO:Copying training dataset
+2023-06-10 08:12:28,991:INFO:Copying test dataset
+2023-06-10 08:12:28,992:INFO:Plot type: class_report
+2023-06-10 08:12:28,997:INFO:Initializing get_config()
+2023-06-10 08:12:28,997:INFO:get_config(variable=prep_pipe)
+2023-06-10 08:12:29,024:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 08:12:29,025:INFO:get_config() succesfully completed......................................
+2023-06-10 08:12:29,028:INFO:Fitting Model
+2023-06-10 08:12:29,030:INFO:Scoring test/hold-out set
+2023-06-10 08:12:30,291:INFO:Visual Rendered Successfully
+2023-06-10 08:12:30,493:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:13:00,260:INFO:Initializing plot_model()
+2023-06-10 08:13:00,261:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostClassifier object at 0x7fb0e1243dd8>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=class_report, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:13:00,262:INFO:Checking exceptions
+2023-06-10 08:13:00,266:INFO:Preparing display monitor
+2023-06-10 08:13:00,278:INFO:Preloading libraries
+2023-06-10 08:13:00,282:INFO:Copying training dataset
+2023-06-10 08:13:00,286:INFO:Copying test dataset
+2023-06-10 08:13:00,287:INFO:Plot type: class_report
+2023-06-10 08:13:00,292:INFO:Initializing get_config()
+2023-06-10 08:13:00,293:INFO:get_config(variable=prep_pipe)
+2023-06-10 08:13:00,310:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-10 08:13:00,310:INFO:get_config() succesfully completed......................................
+2023-06-10 08:13:00,311:INFO:Fitting Model
+2023-06-10 08:13:00,350:INFO:Scoring test/hold-out set
+2023-06-10 08:13:01,410:INFO:Visual Rendered Successfully
+2023-06-10 08:13:01,623:INFO:plot_model() succesfully completed......................................
+2023-06-10 08:13:28,275:INFO:Initializing plot_model()
+2023-06-10 08:13:28,275:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=parameter, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 08:13:28,276:INFO:Checking exceptions
+2023-06-10 08:13:28,278:INFO:Preparing display monitor
+2023-06-10 08:13:28,298:INFO:Preloading libraries
+2023-06-10 08:13:28,317:INFO:Copying training dataset
+2023-06-10 08:13:28,320:INFO:Copying test dataset
+2023-06-10 08:13:28,323:INFO:Plot type: parameter
+2023-06-10 08:13:28,348:INFO:Visual Rendered Successfully
+2023-06-10 08:13:28,551:INFO:plot_model() succesfully completed......................................

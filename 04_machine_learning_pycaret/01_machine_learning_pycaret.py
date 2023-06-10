@@ -163,29 +163,37 @@ clf.load_model("models/best_model_0")
 # 4.0 PLOTTING MODEL PERFORMANCE -----
 # ========================================================================
 
-
-
 # Get all plots 
 # - Note that this can take a long time for certain plots
 # - May want to just plot individual (see that next)
-
+clf.evaluate_model(best_model_0_finalized)
 
 # - ROC Curves & PR Curves
+clf.plot_model(best_models[0], plot =  "auc")
 
+clf.plot_model(best_models[0], plot =  "pr")
+
+clf.plot_model(best_models[0], plot =  "tree")
 
 # Confusion Matrix / Error
-
+clf.plot_model(best_models[0], plot =  "confusion_matrix")
 
 # Gain/Lift Plots
+clf.plot_model(best_models[1], plot =  "gain")
+
+clf.plot_model(best_models[1], plot =  "lift")
 
 
 # Feature Importance
+clf.plot_model(best_models[1], plot =  "feature")
 
 
 # Shows the Precision/Recall/F1
+clf.plot_model(best_models[1], plot =  "class_report")
 
 
 # Get model parameters used
+clf.plot_model(best_models[0], plot =  "parameter")
 
 
 
