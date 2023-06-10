@@ -4300,3 +4300,73 @@
                                random_state=123, reg_alpha=0.0005, ...)]],
          verbose=False)
 2023-06-10 12:13:10,633:INFO:save_model() successfully completed......................................
+2023-06-10 12:19:56,292:INFO:Initializing predict_model()
+2023-06-10 12:19:56,294:INFO:predict_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e3211390>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-06-10 12:19:56,295:INFO:Checking exceptions
+2023-06-10 12:19:56,295:INFO:Preloading libraries
+2023-06-10 12:19:56,295:INFO:Preparing display monitor
+2023-06-10 12:20:51,108:INFO:Initializing predict_model()
+2023-06-10 12:20:51,111:INFO:predict_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e3211390>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-06-10 12:20:51,112:INFO:Checking exceptions
+2023-06-10 12:20:51,113:INFO:Preloading libraries
+2023-06-10 12:20:51,113:INFO:Preparing display monitor

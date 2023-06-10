@@ -32,7 +32,15 @@ leads_df.info()
 
 # - Removing Unnecessary Columns
 df = leads_df \
-    .drop(["mailchimp_id", "user_full_name", "user_email", "optin_time", "email_provider"], axis = 1)
+    .drop(
+        [
+            "mailchimp_id", 
+            "user_full_name", 
+            "user_email", 
+            "optin_time", 
+            "email_provider"
+        ], axis = 1
+    )
 
 
 # - Specify Feature Datatypes
@@ -272,47 +280,67 @@ clf.interpret_model(
     X_new_sample = leads_df.iloc[[1]]
 )
 
+# ========================================================================
+# 7.0 BLENDING MODELS (ENSEMBLES)
+# ========================================================================
 
-# 7.0 BLENDING MODELS (ENSEMBLES) -----
+blend_models = clf.blend_models(best_models, optimize = "AUC")
+
 
 
 # ========================================================================
-# 8.0 CALIBRATION ----
+# 8.0 CALIBRATION
 # ========================================================================
 # - Improves the probability scoring (makes the probability realistic)
 
+blended_models_calibrated = clf.calibrate_model(blend_models)
 
+clf.plot_model(blend_models, plot = "calibration")
+
+clf.plot_model(blended_models_calibrated, plot = "calibration")
 
 # ========================================================================
-# 9.0 FINALIZE MODEL ----
+# 9.0 FINALIZE MODEL
 # ========================================================================
 # - Equivalent of refitting on full dataset
 
-# ========================================================================
-# 10.0 MAKING PREDICTIONS & RANKING LEADS ----
-# ========================================================================
-
-# Prediction
-
-# Scoring
-
-# ========================================================================
-# SAVING / LOADING PRODUCTION MODELS -----
-# ========================================================================
+blended_models_final = clf.finalize_model(blended_models_calibrated)
 
 
 # ========================================================================
-# CONCLUSIONS ----
+# 10.0 MAKING PREDICTIONS & RANKING LEADS
+# ========================================================================
+
+# - Prediction
+predictions_df = clf.predict_model(
+    estimator = blended_models_final,
+    data = leads_df
+)
+
+predictions_df.query("Label = 1").sort_values("Score", ascending = False)
+
+
+# - Scoring
+leads_scored_df = pd.concat([1 - predictions_df["Score"], leads_df], axis = 1)
+
+leads_scored_df.sort_values("Score", ascending = False)
+
+# ========================================================================
+# SAVING / LOADING PRODUCTION MODELS
+# ========================================================================
+
+clf.save_model(
+    model      = xgb_model_tuned_finalized,
+    model_name = "models/blended_model_final"
+)
+
+# ========================================================================
+# CONCLUSIONS
 # ========================================================================
 
 # - We now have an email lead scoring model
 # - Pycaret simplifies the process of building, selecting, improving machine learning models
 # - Scikit Learn would take 1000's of lines of code to do all of this
-
-
-
-
-
 
 # ========================================================================
 # ========================================================================
