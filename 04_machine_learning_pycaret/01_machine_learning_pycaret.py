@@ -1,15 +1,19 @@
 # BUSINESS SCIENCE UNIVERSITY
 # COURSE: DS4B 201-P PYTHON MACHINE LEARNING & APIS
 # MODULE 4: MACHINE LEARNING | PYCARET
-# ----
+# =====
 
-# Core
+# ========================================================================
+# LIBRARIES
+# ========================================================================
+
+# - Core
 import os
 import pandas as pd
 import numpy as np
 import pycaret.classification as clf
 
-# Lead Scoring
+# - Lead Scoring
 import email_lead_scoring as els
 
 # RECAP ----
@@ -17,35 +21,99 @@ import email_lead_scoring as els
 leads_df = els.db_read_and_process_els_data() 
 
 
-
+# ========================================================================
 # 1.0 PREPROCESSING (SETUP) ---- 
+# ========================================================================
 # - Infers data types (requires user to say yes)
 # - Returns a preprocessing pipeline
+# ?clf.setup
+
+leads_df.info()
+
+# - Removing Unnecessary Columns
+df = leads_df \
+    .drop(["mailchimp_id", "user_full_name", "user_email", "optin_time", "email_provider"], axis = 1)
 
 
+# - Specify Feature Datatypes
+
+# -- Numeric Features
+_tag_mask = df.columns.str.match("^tag_")
+
+numeric_features = df.columns[_tag_mask].to_list()
+
+numeric_features.append("optin_days")
+
+# -- Categorical Features
+categorical_features = ["country_code"]
+
+# -- Ordinal Features
+ordinal_features = {"member_rating": ["1", "2", "3", "4", "5"]}
 
 
+# - Classifier Setup
+clf_1 = clf.setup(
+    
+    # main
+    data                       = df, 
+    target                     = "made_purchase",
+    train_size                 = 0.8,
+    preprocess                 = True,
+    imputation_type            = "simple",
+    
+    # categorical
+    categorical_features       = categorical_features,
+    handle_unknown_categorical = True,
+    combine_rare_levels        = True,
+    rare_level_threshold       = 0.005,
+    
+    # ordinal
+    ordinal_features           = ordinal_features,
+    
+    # numeric
+    numeric_features           = numeric_features,
+    
+    # k-fold
+    fold_strategy              = "stratifiedkfold",
+    fold                       = 5,
+    
+    # experiment logging
+    n_jobs                     = 1,
+    session_id                 = 123,
+    log_experiment             = True,
+    experiment_name            = "email_lead_scoring_0",
+    
+    # silent: turns off asking if data types infered correctly
+    silent                     = False
+)
 
 
+# ========================================================================
 # 2.0 GET CONFIGURATION ----
+# ========================================================================
 # - Understanding what Pycaret is doing underneath
 # - Can extract pre/post transformed data
 # - Get the Scikit Learn Pipeline
+# - Specify ordinal, categorical, and numeric features
+
+# - Transformed Dataset
+# ?clf.get_config
+
+clf.get_config("data_before_preprocess")
+
+clf.get_config("X")
+
+# - Extract Scikit learn Pipeline
+pipeline = clf.get_config("prep_pipe")
 
 
-# Transformed Dataset
+# - Check difference in columns
+pipeline.fit(df)
 
 
-
-# Extract Scikit learn Pipeline
-
-
-
-# Check difference in columns
-
-
-
+# ========================================================================
 # 3.0 MACHINE LEARNING (COMPARE MODELS) ----
+# ========================================================================
 
 # Available Models
 
@@ -73,8 +141,9 @@ leads_df = els.db_read_and_process_els_data()
 # Save / load model
 
 
-
+# ========================================================================
 # 4.0 PLOTTING MODEL PERFORMANCE -----
+# ========================================================================
 
 
 
@@ -103,8 +172,9 @@ leads_df = els.db_read_and_process_els_data()
 
 
 
-
+# ========================================================================
 # 5.0 CREATING & TUNING INDIVIDUAL MODELS ----
+# ========================================================================
 
 
 
@@ -119,8 +189,9 @@ leads_df = els.db_read_and_process_els_data()
 
 # Save xgb tuned
 
-
+# ========================================================================
 # 6.0 INTERPRETING MODELS ----
+# ========================================================================
 # - SHAP Package Integration
 
 
@@ -153,32 +224,45 @@ els.explore_sales_by_category(
 # 7.0 BLENDING MODELS (ENSEMBLES) -----
 
 
-
+# ========================================================================
 # 8.0 CALIBRATION ----
+# ========================================================================
 # - Improves the probability scoring (makes the probability realistic)
 
 
 
-
+# ========================================================================
 # 9.0 FINALIZE MODEL ----
+# ========================================================================
 # - Equivalent of refitting on full dataset
 
-
+# ========================================================================
 # 10.0 MAKING PREDICTIONS & RANKING LEADS ----
+# ========================================================================
 
 # Prediction
 
 # Scoring
 
-
+# ========================================================================
 # SAVING / LOADING PRODUCTION MODELS -----
+# ========================================================================
 
 
-
+# ========================================================================
 # CONCLUSIONS ----
+# ========================================================================
 
 # - We now have an email lead scoring model
 # - Pycaret simplifies the process of building, selecting, improving machine learning models
 # - Scikit Learn would take 1000's of lines of code to do all of this
 
 
+
+
+
+
+# ========================================================================
+# ========================================================================
+# ========================================================================
+# ========================================================================

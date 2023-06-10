@@ -84,6 +84,13 @@ will focus on a business solution process using the BSPF.
 
 ## **3.0 Business Understanding**
 
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Business Understanding | View Business as a Machine.
+</blockquote>
+
+<br>
+
 We know that tackling business problems such as this requrires alot of resources including
 time and money. Therefore a key question to ask is **is this problem worth solving?.**
 
