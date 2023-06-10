@@ -3566,3 +3566,737 @@
 2023-06-10 10:18:51,232:WARNING:Observation set to None. Model agnostic plot will be rendered.
 2023-06-10 10:18:51,241:INFO:Visual Rendered Successfully
 2023-06-10 10:18:51,241:INFO:interpret_model() succesfully completed......................................
+2023-06-10 11:53:09,832:INFO:Initializing blend_models()
+2023-06-10 11:53:09,834:INFO:blend_models(estimator_list=[GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
+                           learning_rate=0.1, loss='deviance', max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort='deprecated',
+                           random_state=123, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False), <catboost.core.CatBoostClassifier object at 0x7fb0e1243dd8>, AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
+                   n_estimators=50, random_state=123)], fold=None, round=4, choose_better=False, optimize=AUC, method=auto, weights=None, fit_kwargs=None, groups=None, probability_threshold=None, verbose=True, display=None, return_train_score=False)
+2023-06-10 11:53:09,834:INFO:Checking exceptions
+2023-06-10 11:53:09,894:INFO:Preparing display monitor
+2023-06-10 11:53:10,034:INFO:Importing libraries
+2023-06-10 11:53:10,035:INFO:Copying training dataset
+2023-06-10 11:53:10,118:INFO:Getting model names
+2023-06-10 11:53:10,150:INFO:SubProcess create_model() called ==================================
+2023-06-10 11:53:10,158:INFO:Initializing create_model()
+2023-06-10 11:53:10,159:INFO:create_model(estimator=VotingClassifier(estimators=[('gbc',
+                              GradientBoostingClassifier(ccp_alpha=0.0,
+                                                         criterion='friedman_mse',
+                                                         init=None,
+                                                         learning_rate=0.1,
+                                                         loss='deviance',
+                                                         max_depth=3,
+                                                         max_features=None,
+                                                         max_leaf_nodes=None,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         n_estimators=100,
+                                                         n_iter_no_change=No...
+                                                         random_state=123,
+                                                         subsample=1.0,
+                                                         tol=0.0001,
+                                                         validation_fraction=0.1,
+                                                         verbose=0,
+                                                         warm_start=False)),
+                             ('catboost',
+                              <catboost.core.CatBoostClassifier object at 0x7fb0e1243dd8>),
+                             ('ada',
+                              AdaBoostClassifier(algorithm='SAMME.R',
+                                                 base_estimator=None,
+                                                 learning_rate=1.0,
+                                                 n_estimators=50,
+                                                 random_state=123))],
+                 flatten_transform=True, n_jobs=1, verbose=False, voting='soft',
+                 weights=None), fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=True, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x7fb0dfd490f0>, return_train_score=False, kwargs={})
+2023-06-10 11:53:10,160:INFO:Checking exceptions
+2023-06-10 11:53:10,160:INFO:Importing libraries
+2023-06-10 11:53:10,161:INFO:Copying training dataset
+2023-06-10 11:53:10,169:INFO:Defining folds
+2023-06-10 11:53:10,169:INFO:Declaring metric variables
+2023-06-10 11:53:10,214:INFO:Importing untrained model
+2023-06-10 11:53:10,215:INFO:Declaring custom model
+2023-06-10 11:53:10,246:INFO:Voting Classifier Imported succesfully
+2023-06-10 11:53:10,318:INFO:Starting cross validation
+2023-06-10 11:53:10,321:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 11:54:16,102:INFO:Calculating mean and std
+2023-06-10 11:54:16,112:INFO:Creating metrics dataframe
+2023-06-10 11:54:16,153:INFO:Finalizing model
+2023-06-10 11:54:29,930:INFO:Uploading results into container
+2023-06-10 11:54:29,932:INFO:Uploading model into container now
+2023-06-10 11:54:29,933:INFO:create_model_container: 35
+2023-06-10 11:54:29,933:INFO:master_model_container: 35
+2023-06-10 11:54:29,936:INFO:display_container: 8
+2023-06-10 11:54:29,949:INFO:VotingClassifier(estimators=[('gbc',
+                              GradientBoostingClassifier(ccp_alpha=0.0,
+                                                         criterion='friedman_mse',
+                                                         init=None,
+                                                         learning_rate=0.1,
+                                                         loss='deviance',
+                                                         max_depth=3,
+                                                         max_features=None,
+                                                         max_leaf_nodes=None,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         n_estimators=100,
+                                                         n_iter_no_change=No...
+                                                         random_state=123,
+                                                         subsample=1.0,
+                                                         tol=0.0001,
+                                                         validation_fraction=0.1,
+                                                         verbose=0,
+                                                         warm_start=False)),
+                             ('catboost',
+                              <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>),
+                             ('ada',
+                              AdaBoostClassifier(algorithm='SAMME.R',
+                                                 base_estimator=None,
+                                                 learning_rate=1.0,
+                                                 n_estimators=50,
+                                                 random_state=123))],
+                 flatten_transform=True, n_jobs=1, verbose=False, voting='soft',
+                 weights=None)
+2023-06-10 11:54:29,949:INFO:create_model() succesfully completed......................................
+2023-06-10 11:54:30,519:INFO:SubProcess create_model() end ==================================
+2023-06-10 11:54:30,521:INFO:Creating Dashboard logs
+2023-06-10 11:54:30,542:INFO:Model: Voting Classifier
+2023-06-10 11:54:30,585:INFO:logged params: {'flatten_transform': True, 'n_jobs': 1, 'verbose': False, 'voting': 'soft', 'weights': None, 'catboost': <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>, 'ada': AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
+                   n_estimators=50, random_state=123), 'gbc__ccp_alpha': 0.0, 'gbc__criterion': 'friedman_mse', 'gbc__init': None, 'gbc__learning_rate': 0.1, 'gbc__loss': 'deviance', 'gbc__max_depth': 3, 'gbc__max_features': None, 'gbc__max_leaf_nodes': None, 'gbc__min_impurity_decrease': 0.0, 'gbc__min_impurity_split': None, 'gbc__min_samples_leaf': 1, 'gbc__min_samples_split': 2, 'gbc__min_weight_fraction_leaf': 0.0, 'gbc__n_estimators': 100, 'gbc__n_iter_no_change': None, 'gbc__presort': 'deprecated', 'gbc__random_state': 123, 'gbc__subsample': 1.0, 'gbc__tol': 0.0001, 'gbc__validation_fraction': 0.1, 'gbc__verbose': 0, 'gbc__warm_start': False, 'catboost__border_count': 254, 'catboost__thread_count': 1, 'catboost__verbose': False, 'catboost__task_type': 'CPU', 'catboost__random_state': 123, 'ada__algorithm': 'SAMME.R', 'ada__base_estimator': None, 'ada__learning_rate': 1.0, 'ada__n_estimators': 50, 'ada__random_state': 123}
+2023-06-10 11:54:30,769:INFO:Initializing predict_model()
+2023-06-10 11:54:30,769:INFO:predict_model(estimator=VotingClassifier(estimators=[('gbc',
+                              GradientBoostingClassifier(ccp_alpha=0.0,
+                                                         criterion='friedman_mse',
+                                                         init=None,
+                                                         learning_rate=0.1,
+                                                         loss='deviance',
+                                                         max_depth=3,
+                                                         max_features=None,
+                                                         max_leaf_nodes=None,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         n_estimators=100,
+                                                         n_iter_no_change=No...
+                                                         random_state=123,
+                                                         subsample=1.0,
+                                                         tol=0.0001,
+                                                         validation_fraction=0.1,
+                                                         verbose=0,
+                                                         warm_start=False)),
+                             ('catboost',
+                              <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>),
+                             ('ada',
+                              AdaBoostClassifier(algorithm='SAMME.R',
+                                                 base_estimator=None,
+                                                 learning_rate=1.0,
+                                                 n_estimators=50,
+                                                 random_state=123))],
+                 flatten_transform=True, n_jobs=1, verbose=False, voting='soft',
+                 weights=None), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 11:54:30,770:INFO:Checking exceptions
+2023-06-10 11:54:30,770:INFO:Preloading libraries
+2023-06-10 11:54:31,968:INFO:create_model_container: 35
+2023-06-10 11:54:31,969:INFO:master_model_container: 35
+2023-06-10 11:54:31,976:INFO:display_container: 8
+2023-06-10 11:54:31,988:INFO:VotingClassifier(estimators=[('gbc',
+                              GradientBoostingClassifier(ccp_alpha=0.0,
+                                                         criterion='friedman_mse',
+                                                         init=None,
+                                                         learning_rate=0.1,
+                                                         loss='deviance',
+                                                         max_depth=3,
+                                                         max_features=None,
+                                                         max_leaf_nodes=None,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         n_estimators=100,
+                                                         n_iter_no_change=No...
+                                                         random_state=123,
+                                                         subsample=1.0,
+                                                         tol=0.0001,
+                                                         validation_fraction=0.1,
+                                                         verbose=0,
+                                                         warm_start=False)),
+                             ('catboost',
+                              <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>),
+                             ('ada',
+                              AdaBoostClassifier(algorithm='SAMME.R',
+                                                 base_estimator=None,
+                                                 learning_rate=1.0,
+                                                 n_estimators=50,
+                                                 random_state=123))],
+                 flatten_transform=True, n_jobs=1, verbose=False, voting='soft',
+                 weights=None)
+2023-06-10 11:54:31,988:INFO:blend_models() succesfully completed......................................
+2023-06-10 11:56:54,583:INFO:Initializing calibrate_model()
+2023-06-10 11:56:54,586:INFO:calibrate_model(estimator=VotingClassifier(estimators=[('gbc',
+                              GradientBoostingClassifier(ccp_alpha=0.0,
+                                                         criterion='friedman_mse',
+                                                         init=None,
+                                                         learning_rate=0.1,
+                                                         loss='deviance',
+                                                         max_depth=3,
+                                                         max_features=None,
+                                                         max_leaf_nodes=None,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         n_estimators=100,
+                                                         n_iter_no_change=No...
+                                                         random_state=123,
+                                                         subsample=1.0,
+                                                         tol=0.0001,
+                                                         validation_fraction=0.1,
+                                                         verbose=0,
+                                                         warm_start=False)),
+                             ('catboost',
+                              <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>),
+                             ('ada',
+                              AdaBoostClassifier(algorithm='SAMME.R',
+                                                 base_estimator=None,
+                                                 learning_rate=1.0,
+                                                 n_estimators=50,
+                                                 random_state=123))],
+                 flatten_transform=True, n_jobs=1, verbose=False, voting='soft',
+                 weights=None), method=sigmoid, calibrate_fold=5, fold=None, round=4, fit_kwargs=None, groups=None, verbose=True, display=None, return_train_score=False)
+2023-06-10 11:56:54,587:INFO:Checking exceptions
+2023-06-10 11:56:54,587:INFO:Preloading libraries
+2023-06-10 11:56:54,587:INFO:Preparing display monitor
+2023-06-10 11:56:54,587:INFO:Preparing display monitor
+2023-06-10 11:56:54,713:INFO:Getting model name
+2023-06-10 11:56:54,715:INFO:Base model : Voting Classifier
+2023-06-10 11:56:54,796:INFO:Importing untrained CalibratedClassifierCV
+2023-06-10 11:56:54,802:INFO:SubProcess create_model() called ==================================
+2023-06-10 11:56:54,819:INFO:Initializing create_model()
+2023-06-10 11:56:54,819:INFO:create_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), fold=StratifiedKFold(n_splits=5, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=True, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x7fb0e302e9b0>, return_train_score=False, kwargs={})
+2023-06-10 11:56:54,819:INFO:Checking exceptions
+2023-06-10 11:56:54,820:INFO:Importing libraries
+2023-06-10 11:56:54,820:INFO:Copying training dataset
+2023-06-10 11:56:54,832:INFO:Defining folds
+2023-06-10 11:56:54,832:INFO:Declaring metric variables
+2023-06-10 11:56:54,894:INFO:Importing untrained model
+2023-06-10 11:56:54,895:INFO:Declaring custom model
+2023-06-10 11:56:54,934:INFO:Voting Classifier Imported succesfully
+2023-06-10 11:56:54,996:INFO:Starting cross validation
+2023-06-10 11:56:54,997:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 12:01:42,189:INFO:Calculating mean and std
+2023-06-10 12:01:42,193:INFO:Creating metrics dataframe
+2023-06-10 12:01:42,227:INFO:Finalizing model
+2023-06-10 12:02:59,267:INFO:Uploading results into container
+2023-06-10 12:02:59,286:INFO:Uploading model into container now
+2023-06-10 12:02:59,286:INFO:create_model_container: 36
+2023-06-10 12:02:59,287:INFO:master_model_container: 36
+2023-06-10 12:02:59,289:INFO:display_container: 9
+2023-06-10 12:02:59,323:INFO:CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid')
+2023-06-10 12:02:59,323:INFO:create_model() succesfully completed......................................
+2023-06-10 12:02:59,546:INFO:SubProcess create_model() end ==================================
+2023-06-10 12:02:59,555:INFO:Creating Dashboard logs
+2023-06-10 12:02:59,691:INFO:Model: Voting Classifier
+2023-06-10 12:02:59,748:INFO:logged params: {'base_estimator__flatten_transform': True, 'base_estimator__n_jobs': 1, 'base_estimator__verbose': False, 'base_estimator__voting': 'soft', 'base_estimator__weights': None, 'base_estimator__catboost': <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>, 'base_estimator__ada': AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
+                   n_estimators=50, random_state=123), 'base_estimator__gbc__ccp_alpha': 0.0, 'base_estimator__gbc__criterion': 'friedman_mse', 'base_estimator__gbc__init': None, 'base_estimator__gbc__learning_rate': 0.1, 'base_estimator__gbc__loss': 'deviance', 'base_estimator__gbc__max_depth': 3, 'base_estimator__gbc__max_features': None, 'base_estimator__gbc__max_leaf_nodes': None, 'base_estimator__gbc__min_impurity_decrease': 0.0, 'base_estimator__gbc__min_impurity_split': None, 'base_estimator__gbc__min_samples_leaf': 1, 'base_estimator__gbc__min_samples_split': 2, 'base_estimator__gbc__min_weight_fraction_leaf': 0.0, 'base_estimator__gbc__n_estimators': 100, 'base_estimator__gbc__n_iter_no_change': None, 'base_estimator__gbc__presort': 'deprecated', 'base_estimator__gbc__random_state': 123, 'base_estimator__gbc__subsample': 1.0, 'base_estimator__gbc__tol': 0.0001, 'base_estimator__gbc__validation_fraction': 0.1, 'base_estimator__gbc__verbose': 0, 'base_estimator__gbc__warm_start': False, 'base_estimator__catboost__border_count': 254, 'base_estimator__catboost__thread_count': 1, 'base_estimator__catboost__verbose': False, 'base_estimator__catboost__task_type': 'CPU', 'base_estimator__catboost__random_state': 123, 'base_estimator__ada__algorithm': 'SAMME.R', 'base_estimator__ada__base_estimator': None, 'base_estimator__ada__learning_rate': 1.0, 'base_estimator__ada__n_estimators': 50, 'base_estimator__ada__random_state': 123, 'cv': 5, 'method': 'sigmoid'}
+2023-06-10 12:02:59,873:INFO:Initializing predict_model()
+2023-06-10 12:02:59,873:INFO:predict_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 12:02:59,873:INFO:Checking exceptions
+2023-06-10 12:02:59,873:INFO:Preloading libraries
+2023-06-10 12:03:02,677:INFO:create_model_container: 36
+2023-06-10 12:03:02,677:INFO:master_model_container: 36
+2023-06-10 12:03:02,678:INFO:display_container: 9
+2023-06-10 12:03:02,688:INFO:CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid')
+2023-06-10 12:03:02,688:INFO:calibrate_model() succesfully completed......................................
+2023-06-10 12:04:27,800:INFO:Initializing plot_model()
+2023-06-10 12:04:27,801:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=VotingClassifier(estimators=[('gbc',
+                              GradientBoostingClassifier(ccp_alpha=0.0,
+                                                         criterion='friedman_mse',
+                                                         init=None,
+                                                         learning_rate=0.1,
+                                                         loss='deviance',
+                                                         max_depth=3,
+                                                         max_features=None,
+                                                         max_leaf_nodes=None,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         n_estimators=100,
+                                                         n_iter_no_change=No...
+                                                         random_state=123,
+                                                         subsample=1.0,
+                                                         tol=0.0001,
+                                                         validation_fraction=0.1,
+                                                         verbose=0,
+                                                         warm_start=False)),
+                             ('catboost',
+                              <catboost.core.CatBoostClassifier object at 0x7fb0e3172710>),
+                             ('ada',
+                              AdaBoostClassifier(algorithm='SAMME.R',
+                                                 base_estimator=None,
+                                                 learning_rate=1.0,
+                                                 n_estimators=50,
+                                                 random_state=123))],
+                 flatten_transform=True, n_jobs=1, verbose=False, voting='soft',
+                 weights=None), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=calibration, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 12:04:27,802:INFO:Checking exceptions
+2023-06-10 12:04:27,807:INFO:Preparing display monitor
+2023-06-10 12:04:27,838:INFO:Preloading libraries
+2023-06-10 12:04:27,874:INFO:Copying training dataset
+2023-06-10 12:04:27,876:INFO:Copying test dataset
+2023-06-10 12:04:27,877:INFO:Plot type: calibration
+2023-06-10 12:04:27,913:INFO:Scoring test/hold-out set
+2023-06-10 12:04:28,529:INFO:Visual Rendered Successfully
+2023-06-10 12:04:28,710:INFO:plot_model() succesfully completed......................................
+2023-06-10 12:04:41,631:INFO:Initializing plot_model()
+2023-06-10 12:04:41,631:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=calibration, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-10 12:04:41,631:INFO:Checking exceptions
+2023-06-10 12:04:41,634:INFO:Preparing display monitor
+2023-06-10 12:04:41,700:INFO:Preloading libraries
+2023-06-10 12:04:41,907:INFO:Copying training dataset
+2023-06-10 12:04:41,909:INFO:Copying test dataset
+2023-06-10 12:04:41,910:INFO:Plot type: calibration
+2023-06-10 12:04:41,943:INFO:Scoring test/hold-out set
+2023-06-10 12:04:42,758:INFO:Visual Rendered Successfully
+2023-06-10 12:04:42,877:INFO:plot_model() succesfully completed......................................
+2023-06-10 12:05:33,751:INFO:Initializing finalize_model()
+2023-06-10 12:05:33,757:INFO:finalize_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), fit_kwargs=None, groups=None, model_only=True, display=None, experiment_custom_tags=None, return_train_score=False)
+2023-06-10 12:05:33,775:INFO:Finalizing CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid')
+2023-06-10 12:05:33,793:INFO:Initializing create_model()
+2023-06-10 12:05:33,793:INFO:create_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e2408a20>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), fold=None, round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=False, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-06-10 12:05:33,793:INFO:Checking exceptions
+2023-06-10 12:05:33,794:INFO:Importing libraries
+2023-06-10 12:05:33,794:INFO:Copying training dataset
+2023-06-10 12:05:33,810:INFO:Defining folds
+2023-06-10 12:05:33,810:INFO:Declaring metric variables
+2023-06-10 12:05:33,810:INFO:Importing untrained model
+2023-06-10 12:05:33,810:INFO:Declaring custom model
+2023-06-10 12:05:33,813:INFO:Voting Classifier Imported succesfully
+2023-06-10 12:05:33,813:INFO:Starting cross validation
+2023-06-10 12:05:33,813:INFO:Cross validating with StratifiedKFold(n_splits=5, random_state=None, shuffle=False), n_jobs=1
+2023-06-10 12:11:13,817:INFO:Calculating mean and std
+2023-06-10 12:11:13,818:INFO:Creating metrics dataframe
+2023-06-10 12:11:13,823:INFO:Finalizing model
+2023-06-10 12:12:27,367:INFO:create_model_container: 36
+2023-06-10 12:12:27,369:INFO:master_model_container: 36
+2023-06-10 12:12:27,369:INFO:display_container: 10
+2023-06-10 12:12:27,377:INFO:CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e3211390>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid')
+2023-06-10 12:12:27,377:INFO:create_model() succesfully completed......................................
+2023-06-10 12:12:27,506:INFO:Creating Dashboard logs
+2023-06-10 12:12:27,507:INFO:Model: Voting Classifier
+2023-06-10 12:12:27,539:INFO:logged params: {'base_estimator__flatten_transform': True, 'base_estimator__n_jobs': 1, 'base_estimator__verbose': False, 'base_estimator__voting': 'soft', 'base_estimator__weights': None, 'base_estimator__catboost': <catboost.core.CatBoostClassifier object at 0x7fb0e3211390>, 'base_estimator__ada': AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
+                   n_estimators=50, random_state=123), 'base_estimator__gbc__ccp_alpha': 0.0, 'base_estimator__gbc__criterion': 'friedman_mse', 'base_estimator__gbc__init': None, 'base_estimator__gbc__learning_rate': 0.1, 'base_estimator__gbc__loss': 'deviance', 'base_estimator__gbc__max_depth': 3, 'base_estimator__gbc__max_features': None, 'base_estimator__gbc__max_leaf_nodes': None, 'base_estimator__gbc__min_impurity_decrease': 0.0, 'base_estimator__gbc__min_impurity_split': None, 'base_estimator__gbc__min_samples_leaf': 1, 'base_estimator__gbc__min_samples_split': 2, 'base_estimator__gbc__min_weight_fraction_leaf': 0.0, 'base_estimator__gbc__n_estimators': 100, 'base_estimator__gbc__n_iter_no_change': None, 'base_estimator__gbc__presort': 'deprecated', 'base_estimator__gbc__random_state': 123, 'base_estimator__gbc__subsample': 1.0, 'base_estimator__gbc__tol': 0.0001, 'base_estimator__gbc__validation_fraction': 0.1, 'base_estimator__gbc__verbose': 0, 'base_estimator__gbc__warm_start': False, 'base_estimator__catboost__border_count': 254, 'base_estimator__catboost__thread_count': 1, 'base_estimator__catboost__verbose': False, 'base_estimator__catboost__task_type': 'CPU', 'base_estimator__catboost__random_state': 123, 'base_estimator__ada__algorithm': 'SAMME.R', 'base_estimator__ada__base_estimator': None, 'base_estimator__ada__learning_rate': 1.0, 'base_estimator__ada__n_estimators': 50, 'base_estimator__ada__random_state': 123, 'cv': 5, 'method': 'sigmoid'}
+2023-06-10 12:12:27,674:INFO:Initializing predict_model()
+2023-06-10 12:12:27,675:INFO:predict_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e3211390>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=False, ml_usecase=None, display=None, drift_kwargs=None)
+2023-06-10 12:12:27,675:INFO:Checking exceptions
+2023-06-10 12:12:27,675:INFO:Preloading libraries
+2023-06-10 12:12:30,010:INFO:create_model_container: 36
+2023-06-10 12:12:30,011:INFO:master_model_container: 36
+2023-06-10 12:12:30,011:INFO:display_container: 9
+2023-06-10 12:12:30,018:INFO:CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fb0e3211390>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid')
+2023-06-10 12:12:30,019:INFO:finalize_model() succesfully completed......................................
+2023-06-10 12:13:10,542:INFO:Initializing save_model()
+2023-06-10 12:13:10,543:INFO:save_model(model=XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+              colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+              early_stopping_rounds=None, enable_categorical=False,
+              eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+              importance_type=None, interaction_constraints='',
+              learning_rate=0.5, max_bin=256, max_cat_to_onehot=4,
+              max_delta_step=0, max_depth=1, max_leaves=0, min_child_weight=1,
+              missing=nan, monotone_constraints='()', n_estimators=100,
+              n_jobs=1, num_parallel_tree=1, objective='binary:logistic',
+              predictor='auto', random_state=123, reg_alpha=0.0005, ...), model_name=models/blended_model_final, prep_pipe_=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False), verbose=True, kwargs={})
+2023-06-10 12:13:10,546:INFO:Adding model into prep_pipe
+2023-06-10 12:13:10,578:INFO:models/blended_model_final.pkl saved in current working directory
+2023-06-10 12:13:10,633:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               objective='binary:logistic', predictor='auto',
+                               random_state=123, reg_alpha=0.0005, ...)]],
+         verbose=False)
+2023-06-10 12:13:10,633:INFO:save_model() successfully completed......................................
