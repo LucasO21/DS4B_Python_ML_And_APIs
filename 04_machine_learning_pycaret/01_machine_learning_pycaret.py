@@ -228,33 +228,49 @@ clf.save_model(
 # ========================================================================
 # 6.0 INTERPRETING MODELS ----
 # ========================================================================
+
 # - SHAP Package Integration
+# ?clf.interpret_model
 
 
+# - 1. Summary Plot: Overall top features
+clf.interpret_model(best_models[1], plot = "summary")
 
-# 1. Summary Plot: Overall top features
 
+# - 2. Analyze Specific Features 
 
-# 2. Analyze Specific Features ----
-
-# Our Exploratory Function
+# -- Our Exploratory Function
 els.explore_sales_by_category(
     leads_df, 
     'member_rating', 
     sort_by='prop_in_group'
 )
 
-# Correlation Plot
+# -- Correlation Plot
+clf.interpret_model(
+    estimator = best_models[1], 
+    plot      = "correlation",
+    feature   = "optin_days"    
+)
+
+# -- Partial Dependence Plot
+clf.interpret_model(
+    estimator = best_models[1], 
+    plot      = "pdp",
+    feature   = "member_rating",
+    ice       = True    
+)
 
 
-# Partial Dependence Plot
-
-
-# 3. Analyze Individual Observations
-
+# - 3. Analyze Individual Observations
+leads_df.iloc[[0]]
 
 # Shap Force Plot
-
+clf.interpret_model(
+    estimator    = best_models[1], 
+    plot         = "reason",
+    X_new_sample = leads_df.iloc[[1]]
+)
 
 
 # 7.0 BLENDING MODELS (ENSEMBLES) -----
