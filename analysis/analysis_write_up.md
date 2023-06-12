@@ -26,6 +26,12 @@
     - [**1.4.5 Correlation**](#145-correlation)
 - [**5.0 Formulating KPIs**](#50-formulating-kpis)
 - [**6.0 Feature Engineering**](#60-feature-engineering)
+- [**7.0 Modeling**](#70-modeling)
+  - [**7.1 Testing Multiple Models**](#71-testing-multiple-models)
+  - [**7.2 Model Blending for Enhanced Performance**](#72-model-blending-for-enhanced-performance)
+  - [**7.3 Model Metrics**](#73-model-metrics)
+    - [**7.3.1 AUC-ROC Plot**](#731-auc-roc-plot)
+    - [**7.3.2 Confusion Matrix**](#732-confusion-matrix)
 
 <div style="page-break-after: always"></div>
 
@@ -259,3 +265,81 @@ To demonstrate the importance of feature engineering in this analysis, we'll sho
 </p>
 
 This indicates  that having these additional features could be very indicative of *made_purchase*.
+
+---
+
+<div style="page-break-after: always"></div>
+
+## **7.0 Modeling**
+
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Modeling | Encode Algorithms.
+</blockquote>
+
+---
+
+This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem[^1]. For modeling, we used the **Pycaret** python package. [Pycaret]() is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
+
+### **7.1 Testing Multiple Models**
+
+Several models were initially testing, using Area Under the Curve ([**AUC**]()) as the key metric. Higher AUC indicates a better-performing model in distinquising positive and negative leads. The chart belows shows the AUC along with other metrics from initial modeling. We can see the 3 models in terms of AUC are Gradient Boosing Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).
+
+<figure align="center" style="width: 100%;">
+    <img src="png/modeling_all_models_metrics.png" alt="Image" style="display: block; margin: auto;" width="60%">
+    <figcaption style="text-align: center; margin-top: 1px; font-style: italic; font-size: 11px;">Model Metrics: Initial Modeling</figcaption>
+</figure>
+
+### **7.2 Model Blending for Enhanced Performance**
+
+To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model blending (or ensembling)[^2]. By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.
+
+After blending and calibrating[^3] the top three models, we observed a very slight improvement in AUC from the best performing model (Gradient Boosting Classifier) from 0.8044 to 0.8089, a 0.6% improvement.  in the overall AUC. The blended model achieved an AUC score of 0.8089. This demonstrates the complementary nature of these models and their ability to collectively improve the accuracy of lead scoring.
+
+<figure align="center" style="width: 100%;">
+    <img src="png/modeling_blended_calibrated_metrics.png" alt="Image" style="display: block; margin: auto;" width="40%">
+    <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">Model Metrics: Blended/Calibrated Models</figcaption>
+</figure>
+
+**Note:** Model training paramerters were set to strike a balance between accuracy and efficiency.  
+
+[^1]: [Binary Classification is the task of classifying the elements of a set into two groups (each called class) on the basis of a classification rule.](https://en.wikipedia.org/wiki/Binary_classification)
+
+[^2]: [Ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any one single model alone.](https://en.wikipedia.org/wiki/Ensemble_learning)
+
+[^3]: [Model calibration can be defined as finding a unique set of model parameters that provide a good description of the system behaviour, and can be achieved by confronting model predictions with actual measurements performed on the system.](https://www.google.com/search?q=pycaret+calibrate+model&oq=pycaret+calibrate&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyBggBEEUYOTIKCAIQABiGAxiKBTIKCAMQABiGAxiKBdIBDjU0MzM4NzI1OGowajE1qAIAsAIA&sourceid=chrome&ie=UTF-8)
+
+---
+
+### **7.3 Model Metrics**
+
+<br>
+
+#### **7.3.1 AUC-ROC Plot**
+
+An AUC-ROC (Area Under the Receiver Operating Characteristic Curve) plot is a graphical representation that summarizes the performance of a binary classification model. It showcases the model's ability to distinguish between positive and negative instances by plotting the true positive rate against the false positive rate. The AUC value, ranging from 0 to 1, quantifies the model's accuracy, with a higher value (higher curve towards 1) indicating better performance. The AUC-ROC plot enables data scientists and decision-makers to assess and compare models, aiding in the selection and optimization of classification algorithms.
+
+<figure align="center" style="width: 100%;">
+    <img src="png/modeling_blended_models_calibrated_auc_plot.png" alt="Image" style="display: block; margin: auto;" width="50%">
+    <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">AUC-ROC Plot: Blended/Calibrated Models</figcaption>
+</figure>
+
+<br>
+
+#### **7.3.2 Confusion Matrix**
+
+The confusion matrix is a tabular representation that provides a comprehensive summary of the performance of a classification model. It organizes predictions made by the model into four categories: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).
+
+- True Positive (TP): The model correctly predicts the positive class.
+- True Negative (TN): The model correctly predicts the negative class.
+- False Positive (FP): The model incorrectly predicts the positive class when it should have been negative (Type I error).
+- False Negative (FN): The model incorrectly predicts the negative class when it should have been positive (Type II error).
+
+The plot below is the confusion matrix for the top 3 models after blending and calibrating.
+
+<figure align="center" style="width: 100%;">
+    <img src="png/modeling_blended_calibrated_models_confusion_matrix.png" alt="Image" style="display: block; margin: auto;" width="50%">
+    <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">AUC-ROC Plot: Confusion Matrix</figcaption>
+</figure>
+
+Let's understand what this is showing.

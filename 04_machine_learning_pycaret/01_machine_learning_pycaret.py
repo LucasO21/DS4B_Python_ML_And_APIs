@@ -111,6 +111,8 @@ clf.get_config("data_before_preprocess")
 
 clf.get_config("X")
 
+clf.get_config("y_test")
+
 # - Extract Scikit learn Pipeline
 pipeline = clf.get_config("prep_pipe")
 
@@ -330,6 +332,17 @@ clf.plot_model(blend_models, plot = "calibration")
 
 clf.plot_model(blended_models_calibrated, plot = "calibration")
 
+# - Blended Model Metrics Plots
+clf.plot_model(blended_models_calibrated, plot =  "auc") # auc-roc plot
+
+clf.plot_model(blended_models_calibrated, plot =  "confusion_matrix") # confusion matrix
+
+
+
+clf.plot_model(best_models[1], plot =  "pr")
+
+clf.plot_model(best_models[6], plot =  "tree")
+
 # ========================================================================
 # 9.0 FINALIZE MODEL
 # ========================================================================
@@ -345,7 +358,7 @@ blended_models_final = clf.finalize_model(blended_models_calibrated)
 # - Prediction
 predictions_df = clf.predict_model(
     estimator = blended_models_final,
-    data = leads_df
+    data      = leads_df
 )
 
 predictions_df.query("Label = 1").sort_values("Score", ascending = False)
@@ -361,7 +374,7 @@ leads_scored_df.sort_values("Score", ascending = False)
 # ========================================================================
 
 clf.save_model(
-    model      = xgb_model_tuned_finalized,
+    model      = blended_models_final,
     model_name = "models/blended_model_final"
 )
 

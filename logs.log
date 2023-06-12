@@ -7462,3 +7462,285 @@
                                         cv=5, method='sigmoid')]],
          verbose=False)
 2023-06-12 07:16:40,040:INFO:save_model() successfully completed......................................
+2023-06-12 17:19:11,525:INFO:Initializing interpret_model()
+2023-06-12 17:19:11,527:INFO:interpret_model(estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fcf27860f28>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), use_train_data=False, X_new_sample=None, y_new_sample=None, feature=optin_days, kwargs={}, observation=None, plot=correlation, save=False)
+2023-06-12 17:19:11,528:INFO:Checking exceptions
+2023-06-12 17:19:36,411:INFO:Initializing plot_model()
+2023-06-12 17:19:36,413:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fcf27860f28>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=auc, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-12 17:19:36,414:INFO:Checking exceptions
+2023-06-12 17:19:36,453:INFO:Preparing display monitor
+2023-06-12 17:19:36,476:INFO:Preloading libraries
+2023-06-12 17:19:36,818:INFO:Copying training dataset
+2023-06-12 17:19:36,850:INFO:Copying test dataset
+2023-06-12 17:19:36,855:INFO:Plot type: auc
+2023-06-12 17:19:36,859:INFO:Initializing get_config()
+2023-06-12 17:19:36,859:INFO:get_config(variable=prep_pipe)
+2023-06-12 17:19:37,017:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-12 17:19:37,017:INFO:get_config() succesfully completed......................................
+2023-06-12 17:19:37,050:INFO:Fitting Model
+2023-06-12 17:19:37,064:INFO:Scoring test/hold-out set
+2023-06-12 17:19:38,904:INFO:Visual Rendered Successfully
+2023-06-12 17:19:39,467:INFO:plot_model() succesfully completed......................................
+2023-06-12 18:23:53,446:INFO:Initializing plot_model()
+2023-06-12 18:23:53,449:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fcf27860f28>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=auc, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-12 18:23:53,449:INFO:Checking exceptions
+2023-06-12 18:23:53,471:INFO:Preparing display monitor
+2023-06-12 18:23:53,500:INFO:Preloading libraries
+2023-06-12 18:23:53,665:INFO:Copying training dataset
+2023-06-12 18:23:53,674:INFO:Copying test dataset
+2023-06-12 18:23:53,676:INFO:Plot type: auc
+2023-06-12 18:23:53,680:INFO:Initializing get_config()
+2023-06-12 18:23:53,680:INFO:get_config(variable=prep_pipe)
+2023-06-12 18:23:53,690:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-12 18:23:53,691:INFO:get_config() succesfully completed......................................
+2023-06-12 18:23:53,697:INFO:Fitting Model
+2023-06-12 18:23:53,702:INFO:Scoring test/hold-out set
+2023-06-12 18:23:54,768:INFO:Visual Rendered Successfully
+2023-06-12 18:23:55,380:INFO:plot_model() succesfully completed......................................
+2023-06-12 18:42:24,508:INFO:Initializing plot_model()
+2023-06-12 18:42:24,510:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=CalibratedClassifierCV(base_estimator=VotingClassifier(estimators=[('gbc',
+                                                                    GradientBoostingClassifier(ccp_alpha=0.0,
+                                                                                               criterion='friedman_mse',
+                                                                                               init=None,
+                                                                                               learning_rate=0.1,
+                                                                                               loss='deviance',
+                                                                                               max_depth=3,
+                                                                                               max_features=None,
+                                                                                               max_leaf_nodes=None,
+                                                                                               min_impurity_decrease=0.0,
+                                                                                               min_impurity_split=None,
+                                                                                               min_samples_leaf=1,
+                                                                                               min_samples_split=2,
+                                                                                               min_weight_fraction_leaf=0....
+                                                                                               tol=0.0001,
+                                                                                               validation_fraction=0.1,
+                                                                                               verbose=0,
+                                                                                               warm_start=False)),
+                                                                   ('catboost',
+                                                                    <catboost.core.CatBoostClassifier object at 0x7fcf27860f28>),
+                                                                   ('ada',
+                                                                    AdaBoostClassifier(algorithm='SAMME.R',
+                                                                                       base_estimator=None,
+                                                                                       learning_rate=1.0,
+                                                                                       n_estimators=50,
+                                                                                       random_state=123))],
+                                                       flatten_transform=True,
+                                                       n_jobs=1, verbose=False,
+                                                       voting='soft',
+                                                       weights=None),
+                       cv=5, method='sigmoid'), feature_name=None, fit_kwargs=None, groups=None, label=False, plot=confusion_matrix, plot_kwargs=None, save=False, scale=1, system=True)
+2023-06-12 18:42:24,510:INFO:Checking exceptions
+2023-06-12 18:42:24,521:INFO:Preparing display monitor
+2023-06-12 18:42:24,536:INFO:Preloading libraries
+2023-06-12 18:42:24,938:INFO:Copying training dataset
+2023-06-12 18:42:25,035:INFO:Copying test dataset
+2023-06-12 18:42:25,038:INFO:Plot type: confusion_matrix
+2023-06-12 18:42:25,052:INFO:Initializing get_config()
+2023-06-12 18:42:25,052:INFO:get_config(variable=prep_pipe)
+2023-06-12 18:42:25,068:INFO:Global variable: prep_pipe returned as Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning...
+                ('scaling', 'passthrough'), ('P_transform', 'passthrough'),
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough')],
+         verbose=False)
+2023-06-12 18:42:25,068:INFO:get_config() succesfully completed......................................
+2023-06-12 18:42:25,142:INFO:Fitting Model
+2023-06-12 18:42:25,168:INFO:Scoring test/hold-out set
+2023-06-12 18:42:26,665:INFO:Visual Rendered Successfully
+2023-06-12 18:42:27,293:INFO:plot_model() succesfully completed......................................
+2023-06-12 18:54:54,071:INFO:Initializing get_config()
+2023-06-12 18:54:54,074:INFO:get_config(variable=y)
+2023-06-12 18:54:54,081:INFO:Global variable: y returned as 0        1
+1        1
+2        1
+3        1
+4        0
+        ..
+19914    0
+19915    0
+19916    0
+19917    0
+19918    0
+Name: made_purchase, Length: 19919, dtype: int32
+2023-06-12 18:54:54,081:INFO:get_config() succesfully completed......................................
+2023-06-12 18:55:54,066:INFO:Initializing get_config()
+2023-06-12 18:55:54,072:INFO:get_config(variable=y_train)
+2023-06-12 18:55:54,075:INFO:Global variable: y_train returned as 18082    0
+12335    0
+18614    0
+7881     0
+10438    0
+        ..
+13435    0
+7763     0
+15377    0
+17730    0
+15725    0
+Name: made_purchase, Length: 15935, dtype: int32
+2023-06-12 18:55:54,075:INFO:get_config() succesfully completed......................................
+2023-06-12 18:56:06,304:INFO:Initializing get_config()
+2023-06-12 18:56:06,305:INFO:get_config(variable=y_test)
+2023-06-12 18:56:06,308:INFO:Global variable: y_test returned as 9407     0
+4674     0
+18540    0
+16189    0
+16217    0
+        ..
+9070     0
+1654     1
+13357    0
+13225    0
+13654    0
+Name: made_purchase, Length: 3984, dtype: int32
+2023-06-12 18:56:06,308:INFO:get_config() succesfully completed......................................
