@@ -156,6 +156,11 @@ clf.predict_model(
 # - Refits on Full Dataset
 best_model_0_finalized = clf.finalize_model(best_models[0])
 
+best_model_1_finalized = clf.finalize_model(best_models[1])
+
+best_model_2_finalized = clf.finalize_model(best_models[2])
+
+
 
 # - Save / load model
 os.mkdir("models")
@@ -163,6 +168,16 @@ os.mkdir("models")
 clf.save_model(
     model      = best_model_0_finalized,
     model_name = "models/best_model_0"
+)
+
+clf.save_model(
+    model      = best_model_1_finalized,
+    model_name = "models/best_model_1"
+)
+
+clf.save_model(
+    model      = best_model_2_finalized,
+    model_name = "models/best_model_2"
 )
 
 clf.load_model("models/best_model_0")
@@ -177,14 +192,14 @@ clf.load_model("models/best_model_0")
 clf.evaluate_model(best_model_0_finalized)
 
 # - ROC Curves & PR Curves
-clf.plot_model(best_models[0], plot =  "auc")
+clf.plot_model(best_models[1], plot =  "auc")
 
-clf.plot_model(best_models[0], plot =  "pr")
+clf.plot_model(best_models[1], plot =  "pr")
 
-clf.plot_model(best_models[0], plot =  "tree")
+clf.plot_model(best_models[6], plot =  "tree")
 
 # Confusion Matrix / Error
-clf.plot_model(best_models[0], plot =  "confusion_matrix")
+clf.plot_model(best_models[1], plot =  "confusion_matrix")
 
 # Gain/Lift Plots
 clf.plot_model(best_models[1], plot =  "gain")
@@ -212,10 +227,19 @@ clf.plot_model(best_models[0], plot =  "parameter")
 clf.models()
 
 # - Create more models
+catboost_model = clf.create_model(estimator = "catboost")
+
 xgb_model = clf.create_model(estimator = "xgboost")
 
 
 # - Tuning Models
+catboost_model_tuned = clf.tune_model(
+    estimator = catboost_model,
+    n_iter    = 5,
+    optimize  = "AUC"
+)
+
+
 xgb_model_tuned = clf.tune_model(
     estimator = xgb_model,
     n_iter    = 5,
@@ -223,10 +247,18 @@ xgb_model_tuned = clf.tune_model(
 )
 
 # - Finalize model 
+catboost_model_tuned_finalized = clf.finalize_model(catboost_model_tuned)
+
+
 xgb_model_tuned_finalized = clf.finalize_model(xgb_model_tuned)
 
 
 # - Save xgb tuned
+clf.save_model(
+    model      = catboost_model_tuned_finalized,
+    model_name = "models/catboost_model_tuned_finalized"
+)
+
 clf.save_model(
     model      = xgb_model_tuned_finalized,
     model_name = "models/xgb_model_tuned_finalized"
@@ -277,7 +309,7 @@ leads_df.iloc[[0]]
 clf.interpret_model(
     estimator    = best_models[1], 
     plot         = "reason",
-    X_new_sample = leads_df.iloc[[1]]
+    X_new_sample = leads_df.iloc[[11]]
 )
 
 # ========================================================================
@@ -285,7 +317,6 @@ clf.interpret_model(
 # ========================================================================
 
 blend_models = clf.blend_models(best_models, optimize = "AUC")
-
 
 
 # ========================================================================
