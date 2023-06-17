@@ -7,17 +7,37 @@
 </div>
 
 ---
+<p align="center" width="100%">
+    <br>
+    <img width="60%" src="png/title/bspf_framework.png" alt="Image" style="display:block; margin:auto;" width="400">
+    <br>
+</p>
+
+---
+
+<p align="center" width="100%">
+    <br>
+    <img width="60%" src="png/title/course_workflow.png" alt="Image" style="display:block; margin:auto;" width="400">
+    <br>
+</p>
+
+---
+
+<div style="page-break-after: always"></div>
 
 <!-- omit in toc -->
 ## **Table of Contents**
 
 - [**1.0 Introduction**](#10-introduction)
 - [**2.0 Problem Statement \& Objective**](#20-problem-statement--objective)
+- [](#)
   - [**2.1 Problem Statement**](#21-problem-statement)
   - [**2.2 Objective**](#22-objective)
 - [**3.0 Business Understanding**](#30-business-understanding)
+- [](#-1)
   - [**3.1 Cost Assessment**](#31-cost-assessment)
 - [**4.0 Data Understanding**](#40-data-understanding)
+- [](#-2)
   - [**4.1 Exploratory Data Analysis**](#41-exploratory-data-analysis)
     - [**4.1.1 Proportion of Users with a Previous Purchase**](#411-proportion-of-users-with-a-previous-purchase)
     - [**4.1.2 Member Rating vs Made Purchase**](#412-member-rating-vs-made-purchase)
@@ -25,13 +45,17 @@
     - [**4.1.4 Tag Count vs Made Purchase**](#414-tag-count-vs-made-purchase)
     - [**1.4.5 Correlation**](#145-correlation)
 - [**5.0 Formulating KPIs**](#50-formulating-kpis)
+- [](#-3)
 - [**6.0 Feature Engineering**](#60-feature-engineering)
+- [](#-4)
 - [**7.0 Modeling**](#70-modeling)
   - [**7.1 Testing Multiple Models**](#71-testing-multiple-models)
   - [**7.2 Model Blending for Enhanced Performance**](#72-model-blending-for-enhanced-performance)
   - [**7.3 Model Metrics**](#73-model-metrics)
     - [**7.3.1 AUC-ROC Plot**](#731-auc-roc-plot)
     - [**7.3.2 Confusion Matrix**](#732-confusion-matrix)
+    - [**7.3.2 Feature Importance**](#732-feature-importance)
+    - [**7.3.2 Shap Values**](#732-shap-values)
 
 <div style="page-break-after: always"></div>
 
@@ -63,6 +87,12 @@ Above all, the project demonstrates how to solve key business problems in the re
 
 ## **2.0 Problem Statement & Objective**
 
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Business Understanding | View Business As A Machine.
+</blockquote>
+---
+
 ---
 
 ### **2.1 Problem Statement**
@@ -92,8 +122,9 @@ will focus on a business solution process using the BSPF.
 
 <blockquote style="border: 2px solid #2c3e50;
 padding: 10px; background-color: #2c3e50; color: white">
-BSPF Phase: Business Understanding | View Business as a Machine.
+BSPF Phase: Business Understanding | Understanding/Measuring The Drivers.
 </blockquote>
+---
 
 <br>
 
@@ -124,7 +155,7 @@ our cost assessment by factoring in uncertainty in some of the drivers. Let assu
 
 <p align="center" width="100%">
     <br>
-    <img width="70%" src="png/cost_simulation.png" alt="Image" style="display:block; margin:auto;" width="400">
+    <img width="60%" src="png/cost_simulation.png" alt="Image" style="display:block; margin:auto;" width="400">
     <br>
 </p>
 
@@ -138,6 +169,12 @@ The only problem is that we still do not know a lot about what causes a subscrib
 ---
 
 ## **4.0 Data Understanding**
+
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Data Understanding | Understanding/Measuring The Drivers.
+</blockquote>
+---
 
 This phase requires understanding the data available at our disposal to tackle this problem.
 The visual below gives an overview of the companies crm database including table and field descriptions. Connecting arrows show how each table can be connecting to other tables based on common fields.
@@ -222,6 +259,12 @@ The plot below is a correlation heatmap of numberic features only. These correla
 
 ## **5.0 Formulating KPIs**
 
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Data Understanding | Uncover Opportunities.
+</blockquote>
+---
+
 Now that we have a bit more understanding of some of the potential drivers of *made_purchase*, we may want to develop some hypothesis about how to improve the likelihood of a user making a purchase by applying some of the insights we just learned. For example:
 
 - Can we reduce the number of sales emails sent to subscribers by 30% and still maintain 99% of sales revenue.
@@ -242,6 +285,12 @@ One of such KPIs could be to increase the median *tag_count*. Looking at the tab
 <div style="page-break-after: always"></div>
 
 ## **6.0 Feature Engineering**
+
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Encode Algorithms | Data Preparation.
+</blockquote>
+---
 
 Now that we have a better understand of our data and what features might be predictive of a subscriber
 making a purchase, the next phase in our workflow is creating preprocessing pipelines to get our data in the right form for machine learning algorithms. [Feature Engineering](https://towardsdatascience.com/what-is-feature-engineering-importance-tools-and-techniques-for-machine-learning-2080b0269f10) is the process of selecting, manipulation and transforming raw data into features that can be used in supervised learning.
@@ -274,7 +323,7 @@ This indicates  that having these additional features could be very indicative o
 
 <blockquote style="border: 2px solid #2c3e50;
 padding: 10px; background-color: #2c3e50; color: white">
-BSPF Phase: Modeling | Encode Algorithms.
+BSPF Phase: Encode Algorithms | Modeling.
 </blockquote>
 
 ---
@@ -338,8 +387,59 @@ The confusion matrix is a tabular representation that provides a comprehensive s
 The plot below is the confusion matrix for the top 3 models after blending and calibrating.
 
 <figure align="center" style="width: 100%;">
-    <img src="png/modeling_blended_calibrated_models_confusion_matrix.png" alt="Image" style="display: block; margin: auto;" width="50%">
+    <br>
+    <img src="png/modeling_matrix/catboost.png" alt="Image" style="display: block; margin: auto;" width="50%">
     <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">AUC-ROC Plot: Confusion Matrix</figcaption>
+    <br>
 </figure>
 
-Let's understand what this is showing.
+Let's understand what this is showing:
+
+- 17 predictions (bottom right) are true positives, these are the subscribers the model predicted will make a purchase and they did make a purchase.
+- 23 are false positives. The model predicted them to make a purchase and they did not. This is where we might have wasted effort.
+- 175 are false negatives. The model predicted they will not make a purchase but they did. These are missed opportunities.
+- 3769 are true negatives. The model predicted they will not make a purchase and they did not. There is no impact for these.
+
+<br>
+
+#### **7.3.2 Feature Importance**
+
+A feature importance plot is a graphical representation that helps us understand the relative importance of different features or variables in a predictive model. It provides insights into what factors or variables have the most significant impact on the outcome or target variable. The plots below show feature importance for the Catboost and Xgboost models.
+
+<div style="display: flex; justify-content: center;">
+    <br>
+    <div style="flex: 1; padding-right: 5px;">
+        <figure style="width: 100%;">
+            <img src="png/modeling_vip_plot/catboost_tuned.png" alt="Image" style="display: block; margin: auto;" width="100%">
+            <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">Catboost Feature Importance Plot</figcaption>
+        </figure>
+    </div>
+    <div style="flex: 1; padding-left: 5px;">
+        <figure style="width: 100%;">
+            <img src="png/modeling_vip_plot/xgb_tuned.png" alt="Image" style="display: block; margin: auto;" width="100%">
+            <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">Xgboost Feature Importance Plot</figcaption>
+            <br>
+        </figure>
+    </div>
+</div>
+
+You can see that the Catboost model shows the most importance features to be *optin_days*, *member_rating* and *country_code_US* while the Xgboost model shows *country_code_other*, *tag_count* and *member_rating* as the most important features respectively. Different machine learning models can have different ranking for feature importance due to their inherent characteristics and the algorithims they employ to make predictions. Factors such as model architecture, algorithmic approach, feature interactions, model assumptions, all play a part in how a model ranks feature imporance.
+
+<br>
+
+#### **7.3.2 Shap Values**
+
+A SHAP (SHapley Additive exPlanations) values plot is a visual representation that provides insights into the contribution of individual features to the predictions made by a machine learning model. It is based on Shapley values, a concept from cooperative game theory, which assigns a value to each feature by measuring its impact on the prediction compared to its absence or average value. The SHAP values plot displays the magnitude and direction of each feature's impact on the model predictions, allowing for a comprehensive understanding of how different features influence the outcomes. It helps identify which features have the most significant positive or negative influence on predictions and provides a clear picture of how the model is making decisions based on different feature values. This plot enables users, including business leaders, to interpret and explain the model's behavior and make informed decisions based on the feature contributions.
+
+The plot below shows shap values for the Catboost model:
+
+<figure align="center" style="width: 100%;">
+    <br>
+    <img src="png/modeling_shap/shap_catboost.png" alt="Image" style="display: block; margin: auto;" width="50%">
+    <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">Catboost Shap Values</figcaption>
+    <br>
+</figure>
+
+The higher the shap value is (x-axis), the higher the likelihood of positive. For example we can see the higher shap values for *member_rating* and *tag_count*, meaning that subscribers who have higher values for these 2 features are more likely to predicted as making a purchase.
+
+In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.

@@ -10194,3 +10194,33 @@ Name: made_purchase, Length: 3984, dtype: int32
 2023-06-12 22:29:28,492:INFO:Scoring test/hold-out set
 2023-06-12 22:29:29,500:INFO:Visual Rendered Successfully
 2023-06-12 22:29:30,409:INFO:plot_model() succesfully completed......................................
+2023-06-17 06:42:25,390:INFO:Initializing load_model()
+2023-06-17 06:42:25,393:INFO:load_model(model_name=models/best_model_0, platform=None, authentication=None, verbose=True)
+2023-06-17 06:44:19,521:INFO:Initializing load_model()
+2023-06-17 06:44:19,526:INFO:load_model(model_name=models/best_model_0, platform=None, authentication=None, verbose=True)
+2023-06-17 06:44:43,884:INFO:Initializing predict_model()
+2023-06-17 06:44:43,884:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                ('binn', 'passthrough'), ('rem_outliers', 'passthrough'),
+                ('cluster_all', 'passthrough'),
+                ('dummy', Dummify(target='made_purchase')),
+                ('fix_perfect', Remove_100(target='made_purchase')),
+                ('clean_names', Clean_Colum_Names()),
+                ('feature_select', 'passthrough'), ('fix_multi', 'passthrough'),
+                ('dfs', 'passthrough'), ('pca', 'passthrough'),
+                ['trained_model',
+                 GradientBoostingClassifier(random_state=123)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=True, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-06-17 06:44:43,885:INFO:Checking exceptions
+2023-06-17 06:44:43,885:INFO:Preloading libraries
