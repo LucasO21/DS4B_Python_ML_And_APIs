@@ -10224,3 +10224,5 @@ Name: made_purchase, Length: 3984, dtype: int32
                  GradientBoostingClassifier(random_state=123)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=True, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
 2023-06-17 06:44:43,885:INFO:Checking exceptions
 2023-06-17 06:44:43,885:INFO:Preloading libraries
+2023-06-17 07:44:45,236:INFO:Initializing load_model()
+2023-06-17 07:44:45,249:INFO:load_model(model_name=models/blended_tuned_models_final, platform=None, authentication=None, verbose=True)
