@@ -58,6 +58,11 @@
     - [**7.3.2 Shap Values**](#732-shap-values)
 - [**8.0 Experiment Logging (MLFLOW)**](#80-experiment-logging-mlflow)
   - [8.1 **What is MLflow?**](#81-what-is-mlflow)
+<<<<<<< HEAD
+=======
+  - [8.2 **The Importance of MLflow in Machine Learning**](#82-the-importance-of-mlflow-in-machine-learning)
+  - [8.3 **Integrating MLflow with PyCaret**](#83-integrating-mlflow-with-pycaret)
+>>>>>>> 6ab0411... re-create branch_mlflow, update article
   - [**Conclusion**](#conclusion)
 
 <div style="page-break-after: always"></div>
@@ -361,6 +366,8 @@ After blending and calibrating[^3] the top three models, we observed a very slig
 
 [^3]: [Model calibration can be defined as finding a unique set of model parameters that provide a good description of the system behaviour, and can be achieved by confronting model predictions with actual measurements performed on the system.](https://www.google.com/search?q=pycaret+calibrate+model&oq=pycaret+calibrate&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyBggBEEUYOTIKCAIQABiGAxiKBTIKCAMQABiGAxiKBdIBDjU0MzM4NzI1OGowajE1qAIAsAIA&sourceid=chrome&ie=UTF-8)
 
+<div style="page-break-after: always"></div>
+
 ---
 
 ### **7.3 Model Metrics**
@@ -464,11 +471,19 @@ BSPF Phase: Encode Algorithms | Modeling.
 
 [MLflow](https://mlflow.org/) is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.
 
+<<<<<<< HEAD
 **The Importance of MLflow in Machine Learning**
 
 <figure align="center" style="width: 100%;">
     <br>
     <img src="png/mlflow/mlflow_dash.png" alt="Image" style="display: block; margin: auto;" width="90%">
+=======
+#### 8.2 **The Importance of MLflow in Machine Learning**
+
+<figure align="center" style="width: 100%;">
+    <br>
+    <img src="png/mlflow/mlflow_dashboard.png" alt="Image" style="display: block; margin: auto;" width="90%">
+>>>>>>> 6ab0411... re-create branch_mlflow, update article
     <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">Email Lead Scoring MLflow Dashboard</figcaption>
     <br>
 </figure>
@@ -483,6 +498,7 @@ MLflow plays a critical role in the machine learning workflow, addressing severa
 
 **Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.
 
+<<<<<<< HEAD
 **Integrating MLflow with PyCaret**
 
 PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.
@@ -492,3 +508,12 @@ PyCaret, can be seamlessly integrated with MLflow to leverage its powerful exper
 #### **Conclusion**
 
 MLflow is a powerful addition to the machine learning ecosystem, and its integration with PyCaret offers significant advantages to data scientists. By enabling seamless experiment tracking, reproducibility, and collaboration, MLflow empowers data science teams to streamline their workflows and achieve more efficient and effective model development and deployment. The combination of PyCaret and MLflow provides a comprehensive and powerful toolkit for data scientists to accelerate their journey from data exploration to production-ready machine learning models.
+=======
+#### 8.3 **Integrating MLflow with PyCaret**
+
+PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.
+
+#### **Conclusion**
+
+In this email lead scoring project, MLflow will be a valuable asset as the project progresses  progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.
+>>>>>>> 6ab0411... re-create branch_mlflow, update article
