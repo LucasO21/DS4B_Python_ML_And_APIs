@@ -10226,3 +10226,44 @@ Name: made_purchase, Length: 3984, dtype: int32
 2023-06-17 06:44:43,885:INFO:Preloading libraries
 2023-06-17 07:44:45,236:INFO:Initializing load_model()
 2023-06-17 07:44:45,249:INFO:load_model(model_name=models/blended_tuned_models_final, platform=None, authentication=None, verbose=True)
+2023-07-22 10:32:48,476:INFO:Initializing predict_model()
+2023-07-22 10:32:48,479:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                                                                                                   grow_policy='depthwise',
+                                                                                                   importance_type=None,
+                                                                                                   interaction_constraints='',
+                                                                                                   learning_rate=0.5,
+                                                                                                   max_bin=256,
+                                                                                                   max_cat_to_onehot=4,
+                                                                                                   max_delta_step=0,
+                                                                                                   max_depth=1,
+                                                                                                   max_leaves=0,
+                                                                                                   min_child_weight=1,
+                                                                                                   missing=nan,
+                                                                                                   monotone_constraints='()',
+                                                                                                   n_estimators=100,
+                                                                                                   n_jobs=1,
+                                                                                                   num_parallel_tree=1,
+                                                                                                   predictor='auto',
+                                                                                                   random_state=123,
+                                                                                                   reg_alpha=0.0005,
+                                                                                                   reg_lambda=0.5, ...))],
+                                                                        n_jobs=1,
+                                                                        voting='soft'),
+                                        cv=5)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=True, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-07-22 10:32:48,481:INFO:Checking exceptions
+2023-07-22 10:32:48,481:INFO:Preloading libraries
+2023-07-22 10:34:30,235:INFO:Initializing load_model()
+2023-07-22 10:34:30,236:INFO:load_model(model_name=mlruns/1/83a295ee41844a0a81bc832102eef2a1/artifacts/model/model, platform=None, authentication=None, verbose=True)
