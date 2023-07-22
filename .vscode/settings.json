@@ -1,11 +1,23 @@
 {   
 
-    "macros": {  // Note: this requires macros extension by publisher:"geddski" 
-        "pythonExecSelectionAndCursorDown": [
-        "python.execSelectionInTerminal", 
-        "cursorDown" 
-        ]
-    },
+"macros": {  
+  "pythonExecSelectionAndCursorDown": [
+      "python.execSelectionInTerminal",
+      "cursorDown"
+  ],
+  "jupyterExeSelThenCursorDown":[
+      "jupyter.execSelectionInteractive",
+      "cursorDown"
+  ],
+  "jupyterRunCellThenCursorDown":[
+      "jupyter.runcurrentcelladvance",
+      "cursorDown"
+  ],
+  "interactiveExe":[
+      "interactive.execute",
+      "cursorDown"
+  ]
+},
 
     "python.dataScience.autoScrolling": true,
     "window.zoomLevel": -1,
@@ -69,12 +81,8 @@
           "backgroundColor": "transparent",
           "bold": false,
           "italic": false
-        }
+        },
 
-
-
-
-
+        
 
 }
-
