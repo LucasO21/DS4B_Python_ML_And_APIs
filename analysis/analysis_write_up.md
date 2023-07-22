@@ -56,6 +56,9 @@
     - [**7.3.2 Confusion Matrix**](#732-confusion-matrix)
     - [**7.3.2 Feature Importance**](#732-feature-importance)
     - [**7.3.2 Shap Values**](#732-shap-values)
+- [**8.0 Experiment Logging (MLFLOW)**](#80-experiment-logging-mlflow)
+  - [8.1 **What is MLflow?**](#81-what-is-mlflow)
+  - [**Conclusion**](#conclusion)
 
 <div style="page-break-after: always"></div>
 
@@ -443,3 +446,49 @@ The plot below shows shap values for the Catboost model:
 The higher the shap value is (x-axis), the higher the likelihood of positive. For example we can see the higher shap values for *member_rating* and *tag_count*, meaning that subscribers who have higher values for these 2 features are more likely to predicted as making a purchase.
 
 In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.
+
+---
+
+<div style="page-break-after: always"></div>
+
+## **8.0 Experiment Logging (MLFLOW)**
+
+<blockquote style="border: 2px solid #2c3e50;
+padding: 10px; background-color: #2c3e50; color: white">
+BSPF Phase: Encode Algorithms | Modeling.
+</blockquote>
+
+---
+
+#### 8.1 **What is MLflow?**
+
+[MLflow](https://mlflow.org/) is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.
+
+**The Importance of MLflow in Machine Learning**
+
+<figure align="center" style="width: 100%;">
+    <br>
+    <img src="png/mlflow/mlflow_dash.png" alt="Image" style="display: block; margin: auto;" width="90%">
+    <figcaption style="text-align: center; margin-top: 3px; font-style: italic; font-size: 11px;">Email Lead Scoring MLflow Dashboard</figcaption>
+    <br>
+</figure>
+
+MLflow plays a critical role in the machine learning workflow, addressing several key challenges that data scientists often encounter:
+
+**Experiment Tracking:** MLflow allows data scientists to log their experiments with ease. This includes recording the hyperparameters, metrics, and model artifacts associated with each run. Such comprehensive tracking facilitates comparison between different model iterations and helps in selecting the best performing model for deployment.
+
+**Reproducibility:** In machine learning, it is crucial to ensure that experiments can be reproduced with the same results. MLflow records the exact versions of libraries, data, and code used in each run, making it easier to replicate the experiments and maintain consistency across different environments.
+
+**Collaboration:** In team-based data science projects, collaboration is essential. MLflow enables seamless sharing of experiments, models, and associated artifacts with colleagues, promoting knowledge sharing and fostering a collaborative environment.
+
+**Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.
+
+**Integrating MLflow with PyCaret**
+
+PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.
+
+<br>
+
+#### **Conclusion**
+
+MLflow is a powerful addition to the machine learning ecosystem, and its integration with PyCaret offers significant advantages to data scientists. By enabling seamless experiment tracking, reproducibility, and collaboration, MLflow empowers data science teams to streamline their workflows and achieve more efficient and effective model development and deployment. The combination of PyCaret and MLflow provides a comprehensive and powerful toolkit for data scientists to accelerate their journey from data exploration to production-ready machine learning models.
