@@ -1,3 +1,7 @@
-00_database/
-minus/
-model/
+/00_database/
+/minus/
+/model/
+/archive/
+*.css
+*.jss
+*.wolf
