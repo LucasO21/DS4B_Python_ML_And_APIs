@@ -10267,3 +10267,7 @@ Name: made_purchase, Length: 3984, dtype: int32
 2023-07-22 10:32:48,481:INFO:Preloading libraries
 2023-07-22 10:34:30,235:INFO:Initializing load_model()
 2023-07-22 10:34:30,236:INFO:load_model(model_name=mlruns/1/83a295ee41844a0a81bc832102eef2a1/artifacts/model/model, platform=None, authentication=None, verbose=True)
+2023-11-09 05:49:00,377:INFO:Initializing load_model()
+2023-11-09 05:49:00,379:INFO:load_model(model_name=challenge_02/model_pycaret/xgb_model_tuned.pkl, platform=None, authentication=None, verbose=True)
+2023-11-09 05:50:51,878:INFO:Initializing load_model()
+2023-11-09 05:50:51,878:INFO:load_model(model_name=challenge_02/model_pycaret/xgb_model_tuned, platform=None, authentication=None, verbose=True)
