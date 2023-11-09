@@ -1,3 +1,6 @@
 00_database/
 minus/
 model/
+*.css
+*.jss
+*.wolf

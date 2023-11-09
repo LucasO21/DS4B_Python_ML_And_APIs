@@ -16,12 +16,12 @@ leads_df = els.db_read_and_process_els_data()
 
 leads_scored_df = els.model_score_leads(
     data = leads_df,
-    model_path = "models/xgb_model_tuned"
+    model_path = "models/xgb_model_tuned_finalized"
 )
 
 # Optional (MLFlow)
 leads_scored_df_2 = els.mlflow_score_leads(
-    data=leads_df, 
+    data=leads_df,
     run_id = els.mlflow_get_best_run('automl_lead_scoring_1')
 )
 
@@ -29,7 +29,7 @@ leads_scored_df_2 = els.mlflow_score_leads(
 
 els.cost_calc_monthly_cost_table()
 
-els.cost_simulate_unsub_costs()
+els.cost_simulate_unsub_cost()
 
 # 1.0 LEAD TARGETING STRATEGY ----
 
@@ -73,8 +73,8 @@ sample_factor = 5
 
 # 3.3 [Cost] Hot Leads Targeted That Unsubscribe
 
-    
-    
+
+
 # 3.4 [Savings] Sales Achieved
 
 

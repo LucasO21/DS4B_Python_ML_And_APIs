@@ -1,0 +1,33 @@
+---
+title: "Machine Learning for Email Lead Scoring"
+subtitle: "TBD"
+date: 11/02/2023
+author: Lucas Okwudishu
+title-block-banner: true
+format:
+  html:
+    css: styles.css
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    theme: flatly
+    code-fold: false
+    code-tools: true
+    page-layout: article
+link-citations: true
+categories: [predictive analytics, marketing analytics]
+---
+
+
+
+
+# Modeling
+
+::: {.callout-note title="BSPF Phase"}
+This section is part of the **Modeling** Phase of the BSFP
+:::
+
+This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the [Pycaret](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
+
+## Testing Multiple Models
+Several models were initially testing, using [Area Under the Curve](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) (AUC) as the key metric. Higher AUC indicates a better-performing model in distinquising positive and negative leads. The chart belows shows the AUC along with other metrics from initial modeling. We can see the 3 models in terms of AUC are Gradient Boosing Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).
