@@ -33,7 +33,7 @@ def cost_calc_monthly_cost_table(
         n_periods (int, optional): Number of months for our cost table. Defaults to 24.
 
     Returns:
-        Dataframe: Returns a cost table. 
+        Dataframe: Returns a cost table.
     """
 
     # Period
@@ -45,10 +45,10 @@ def cost_calc_monthly_cost_table(
     # No Growth & Growth Scenarios
     cost_table_df = cost_table_df \
         .assign(email_size_no_growth=np.repeat(email_list_size, n_periods)) \
-        .assign(lost_customers_no_growth=lambda x: x["email_size_no_growth"] * unsub_rate_per_sales_email * sales_emails_per_month) \
+        .assign(lost_customers_no_growth=lambda x: x["email_size_no_growth"] * unsub_rate_per_sales_email * sales_emails_per_month * customer_conversion_rate) \
         .assign(cost_no_growth=lambda x: x["lost_customers_no_growth"] * customer_conversion_rate * average_customer_value) \
         .assign(email_size_with_growth=lambda x: x["email_size_no_growth"] * ((1 + email_list_growth_rate) ** x["period"])) \
-        .assign(lost_customers_with_growth=lambda x: x["email_size_with_growth"] * unsub_rate_per_sales_email * sales_emails_per_month) \
+        .assign(lost_customers_with_growth=lambda x: x["email_size_with_growth"] * unsub_rate_per_sales_email * sales_emails_per_month * customer_conversion_rate) \
         .assign(cost_with_growth=lambda x: x["lost_customers_with_growth"] * customer_conversion_rate * average_customer_value)
 
     return cost_table_df
@@ -57,8 +57,8 @@ def cost_calc_monthly_cost_table(
 # Function: Sumarize Cost ----
 @pf.register_dataframe_method
 def cost_total_unsub_cost(cost_table):
-    """Takes the input from [cost_calc_monthly_cost_table()], and produces a summary of the 
-    total cost. 
+    """Takes the input from [cost_calc_monthly_cost_table()], and produces a summary of the
+    total cost.
 
     Args:
         cost_table (Dataframe): Output from [cost_calc_monthly_cost_table()]
@@ -84,13 +84,13 @@ def cost_simulate_unsub_cost(
     """Generate a cost analysis siumlation to characterize cost uncertainty.
 
     Args:
-        email_list_monthly_growth_rate (list, optional): List of values for email monthly 
+        email_list_monthly_growth_rate (list, optional): List of values for email monthly
         growth rate to simulate. Defaults to [0, 0.035].
         customer_conversion_rate (list, optional): List of values for customer conversion
         rate to simulate. Defaults to [0.04, 0.05, 0.06].
 
     Returns:
-        Dataframe: Cartesian product of the email list and customer conversion rate is 
+        Dataframe: Cartesian product of the email list and customer conversion rate is
         calculated and total unsubscriber costs are calculated.
     """
 
@@ -189,7 +189,7 @@ def cost_plot_simulated_unsub_cost_plotnine(
     simulation_results,
     title=None, sub_title=None, x_lab=None, y_lab=None, legend_title=None
 ):
-    """This is a plotnine plotting function to plot the results 
+    """This is a plotnine plotting function to plot the results
     from [cost_simulated_unsub_cost()]
 
     Args:
