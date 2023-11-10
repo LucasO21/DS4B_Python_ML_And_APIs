@@ -8,8 +8,8 @@ format:
   html:
     css: styles.css
     toc: true
-    toc-depth: 2
-    number-sections: false
+    toc-depth: 3
+    number-sections: true
     theme: flatly
     code-fold: false
     code-tools: true
@@ -23,8 +23,8 @@ categories: [predictive analytics, marketing analytics]
 
 # Modeling
 
-::: {.callout-note title="BSPF Phase"}
-This section is part of the **Modeling** Phase of the BSFP
+::: {.callout-note title="BSPF Phase: Modeling"}
+This section is part of **Encode Algorithms** under the **Modeling** Phase of the BSPF
 :::
 
 This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the [Pycaret](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
@@ -92,7 +92,7 @@ The color of the bar indicates the direction of the impact, with blue bars indic
 
 In this case, we can see that features like `tag_count` of 6, `tag_learning_lab_22` and `tag_learning_lab_2`  positively impact the prediction while `member_rating` of 1 and `country_code_IN` negatively impact the prediction.
 
-In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score(probability) of 0.9;
+In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score (probability) of 0.9;
 
 ![](modelling_png/best_model_1/shap_instance_1.png){width=90% fig-align="center" .shaded-border}
 
@@ -100,8 +100,54 @@ Notice that features that are positively impacting the score inclue `country_cod
 
 These comparison underscores the nuanced and individualized way in which different features contribute to the model's predictions for each customer.
 
+## Blending Models (Ensembling) for Enhanced Performance
+To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model [ensembling](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis/analysis_write_up.md#user-content-fn-2-9b9f3303967f98df5ad1c4ba39105c28). By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.
+
+After blending and [calibrating](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis/analysis_write_up.md#user-content-fn-3-9b9f3303967f98df5ad1c4ba39105c28) the top three models, the resulting ensemble had an AUC of **0.8020** which is a very slight differnece in AUC from the individual models;
+
+
+|                 | GBM     | Catboost  | Ada Boost |
+|-----------------|:------- |:----------|:----------|
+| **Model AUC**   | 0.8044  | 0.8015    |   0.7965  |
+| **VS Ensemble** | - 30%   | + 0.06%   |  + 0.69%  |
+
+
+: Ensemble AUC of **0.8020** vs Individual Models
+
+
+This ensemble method showcases how combining individual models can enhance overall predictive accuracy, particularly in complex tasks like lead scoring.
+
+---
+
 In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.
 
 
-## Blending Models for Enhanced Performance
+---
 
+# Experiment Tracking/Logging (MLflow)
+
+::: {.callout-note title="BSPF Phase: Modeling"}
+This section is part of the **Encode Algorithims** under the  **Modeling** Phase of the BSPF.
+:::
+
+## What is MLflow?
+[MLflow](https://mlflow.org/) is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.
+
+![Email Lead Scoring MLflow Dashboard](modelling_png/mlflow/dashboard.png){width=120% fig-align="center" .shaded-border}
+
+MLflow plays a critical role in the machine learning workflow, addressing several key challenges that data scientists often encounter:
+
+**Experiment Tracking:** MLflow allows data scientists to log their experiments with ease. This includes recording the hyperparameters, metrics, and model artifacts associated with each run. Such comprehensive tracking facilitates comparison between different model iterations and helps in selecting the best performing model for deployment.
+
+**Reproducibility:** In machine learning, it is crucial to ensure that experiments can be reproduced with the same results. MLflow records the exact versions of libraries, data, and code used in each run, making it easier to replicate the experiments and maintain consistency across different environments.
+
+**Collaboration:** In team-based data science projects, collaboration is essential. MLflow enables seamless sharing of experiments, models, and associated artifacts with colleagues, promoting knowledge sharing and fostering a collaborative environment.
+
+**Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.
+
+## Integrating MLflow with PyCaret
+PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.
+
+![Finalized Model Detail](modelling_png/mlflow/detail.png){width=100% fig-align="center" .shaded-border}
+
+In this project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.
