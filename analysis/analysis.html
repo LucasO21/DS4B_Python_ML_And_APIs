@@ -114,12 +114,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
+  <ul>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link active" data-scroll-target="#modeling"><span class="header-section-number">1</span> Modeling</a>
   <ul class="collapse">
-  <li><a href="#modeling" id="toc-modeling" class="nav-link active" data-scroll-target="#modeling">Modeling</a>
+  <li><a href="#testing-multiple-models" id="toc-testing-multiple-models" class="nav-link" data-scroll-target="#testing-multiple-models"><span class="header-section-number">1.1</span> Testing Multiple Models</a></li>
+  <li><a href="#model-metrics" id="toc-model-metrics" class="nav-link" data-scroll-target="#model-metrics"><span class="header-section-number">1.2</span> Model Metrics</a>
   <ul class="collapse">
-  <li><a href="#testing-multiple-models" id="toc-testing-multiple-models" class="nav-link" data-scroll-target="#testing-multiple-models">Testing Multiple Models</a></li>
-  <li><a href="#model-metrics" id="toc-model-metrics" class="nav-link" data-scroll-target="#model-metrics">Model Metrics</a></li>
-  <li><a href="#blending-models-for-enhanced-performance" id="toc-blending-models-for-enhanced-performance" class="nav-link" data-scroll-target="#blending-models-for-enhanced-performance">Blending Models for Enhanced Performance</a></li>
+  <li><a href="#auc-roc-plot" id="toc-auc-roc-plot" class="nav-link" data-scroll-target="#auc-roc-plot"><span class="header-section-number">1.2.1</span> AUC-ROC Plot</a></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix"><span class="header-section-number">1.2.2</span> Confusion Matrix</a></li>
+  <li><a href="#feature-importance" id="toc-feature-importance" class="nav-link" data-scroll-target="#feature-importance"><span class="header-section-number">1.2.3</span> Feature Importance</a></li>
+  <li><a href="#shap-values" id="toc-shap-values" class="nav-link" data-scroll-target="#shap-values"><span class="header-section-number">1.2.4</span> Shap Values</a></li>
+  <li><a href="#shap-values-specific-observations" id="toc-shap-values-specific-observations" class="nav-link" data-scroll-target="#shap-values-specific-observations"><span class="header-section-number">1.2.5</span> Shap Values (Specific Observations)</a></li>
+  </ul></li>
+  <li><a href="#blending-models-ensembling-for-enhanced-performance" id="toc-blending-models-ensembling-for-enhanced-performance" class="nav-link" data-scroll-target="#blending-models-ensembling-for-enhanced-performance"><span class="header-section-number">1.3</span> Blending Models (Ensembling) for Enhanced Performance</a></li>
+  </ul></li>
+  <li><a href="#experiment-trackinglogging-mlflow" id="toc-experiment-trackinglogging-mlflow" class="nav-link" data-scroll-target="#experiment-trackinglogging-mlflow"><span class="header-section-number">2</span> Experiment Tracking/Logging (MLflow)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-mlflow" id="toc-what-is-mlflow" class="nav-link" data-scroll-target="#what-is-mlflow"><span class="header-section-number">2.1</span> What is MLflow?</a></li>
+  <li><a href="#integrating-mlflow-with-pycaret" id="toc-integrating-mlflow-with-pycaret" class="nav-link" data-scroll-target="#integrating-mlflow-with-pycaret"><span class="header-section-number">2.2</span> Integrating MLflow with PyCaret</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -129,28 +141,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="modeling" class="level1">
-<h1>Modeling</h1>
-<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase">
+<section id="modeling" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Modeling</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Modeling">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-BSPF Phase
+BSPF Phase: Modeling
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section is part of the <strong>Modeling</strong> Phase of the BSFP</p>
+<p>This section is part of <strong>Encode Algorithms</strong> under the <strong>Modeling</strong> Phase of the BSPF</p>
 </div>
 </div>
 <p>This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the <a href="https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis">Pycaret</a> python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.</p>
-<section id="testing-multiple-models" class="level2">
-<h2 class="anchored" data-anchor-id="testing-multiple-models">Testing Multiple Models</h2>
+<section id="testing-multiple-models" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="testing-multiple-models"><span class="header-section-number">1.1</span> Testing Multiple Models</h2>
 <p>Several models were initially testing, using <a href="https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis">Area Under the Curve</a> (AUC) as the key metric. Higher AUC indicates a better-performing model in distinquising positive and negative leads. The chart belows shows the AUC along with other metrics from initial modeling. We can see the top 3 models in terms of AUC are Gradient Boosing Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).</p>
 </section>
-<section id="model-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="model-metrics">Model Metrics</h2>
+<section id="model-metrics" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="model-metrics"><span class="header-section-number">1.2</span> Model Metrics</h2>
 <p>Here we can examine metrics for the Catboost model.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Model Metrics (Catboost)">
 <div class="callout-header d-flex align-content-center">
@@ -170,8 +182,8 @@ Model Metrics (Catboost)
 <p><img src="modelling_png/best_models.png" class="shaded-border img-fluid figure-img" style="width:80.0%"></p>
 </figure>
 </div>
-<section id="auc-roc-plot" class="level3">
-<h3 class="anchored" data-anchor-id="auc-roc-plot">AUC-ROC Plot</h3>
+<section id="auc-roc-plot" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="auc-roc-plot"><span class="header-section-number">1.2.1</span> AUC-ROC Plot</h3>
 <p>An AUC-ROC (Area Under the Receiver Operating Characteristic Curve) plot is a graphical representation that summarizes the performance of a binary classification model. It showcases the model’s ability to distinguish between positive and negative instances by plotting the true positive rate against the false positive rate. The AUC value, ranging from 0 to 1, quantifies the model’s accuracy, with a higher value (higher curve towards 1) indicating better performance. The AUC-ROC plot enables data scientists and decision-makers to assess and compare models, aiding in the selection and optimization of classification algorithms.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -179,8 +191,8 @@ Model Metrics (Catboost)
 </figure>
 </div>
 </section>
-<section id="confusion-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
+<section id="confusion-matrix" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="confusion-matrix"><span class="header-section-number">1.2.2</span> Confusion Matrix</h3>
 <p>The confusion matrix is a tabular representation that provides a comprehensive summary of the performance of a classification model. It organizes predictions made by the model into four categories: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).</p>
 <ul>
 <li>True Positive (TP): The model correctly predicts the positive class.</li>
@@ -199,8 +211,8 @@ Model Metrics (Catboost)
 <li>168 (bottom left) are false negatives. The model predicted they will not make a purchase but they did. These are missed opportunities. 3765 (top left) are true negatives. The model predicted they will not make a purchase and they did not. There is no impact for these.</li>
 </ul>
 </section>
-<section id="feature-importance" class="level3">
-<h3 class="anchored" data-anchor-id="feature-importance">Feature Importance</h3>
+<section id="feature-importance" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="feature-importance"><span class="header-section-number">1.2.3</span> Feature Importance</h3>
 <p>A feature importance plot is a graphical representation that helps us understand the relative importance of different features or variables in a predictive model. It provides insights into what factors or variables have the most significant impact on the outcome or target variable. The plot below show feature importance for the Catboost model;</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -209,8 +221,8 @@ Model Metrics (Catboost)
 </div>
 <p>You can see that the model shows the most importance features to be <code>optin_days</code>, <code>member_rating</code> and <code>country_code_US</code>. Note that this order may vary for another model. Different machine learning models can have different ranking for feature importance due to their inherent characteristics and the algorithims they employ to make predictions. Factors such as model architecture, algorithmic approach, feature interactions, model assumptions, all play a part in how a model ranks feature imporance.</p>
 </section>
-<section id="shap-values" class="level3">
-<h3 class="anchored" data-anchor-id="shap-values">Shap Values</h3>
+<section id="shap-values" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="shap-values"><span class="header-section-number">1.2.4</span> Shap Values</h3>
 <p>A SHAP (SHapley Additive exPlanations) values plot is a visual representation that provides insights into the contribution of individual features to the predictions made by a machine learning model. It is based on Shapley values, a concept from cooperative game theory, which assigns a value to each feature by measuring its impact on the prediction compared to its absence or average value. The SHAP values plot displays the magnitude and direction of each feature’s impact on the model predictions, allowing for a comprehensive understanding of how different features influence the outcomes. It helps identify which features have the most significant positive or negative influence on predictions and provides a clear picture of how the model is making decisions based on different feature values. This plot enables users, including business leaders, to interpret and explain the model’s behavior and make informed decisions based on the feature contributions.</p>
 <p>The plot below shows shap values for the Catboost model;</p>
 <div class="quarto-figure quarto-figure-center">
@@ -220,30 +232,102 @@ Model Metrics (Catboost)
 </div>
 <p>The higher the shap value is (x-axis), the higher the likelihood of positive. For example we can see the higher shap values for member_rating and tag_count, meaning that subscribers who have higher values for these 2 features are more likely to predicted as making a purchase.</p>
 </section>
-<section id="shap-values-specific-observations" class="level3">
-<h3 class="anchored" data-anchor-id="shap-values-specific-observations">Shap Values (Specific Observations)</h3>
+<section id="shap-values-specific-observations" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="shap-values-specific-observations"><span class="header-section-number">1.2.5</span> Shap Values (Specific Observations)</h3>
 <p>Shap values can also be created for specific observations or individual customers in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="modelling_png/best_model_1/shap_instance_0.png" class="shaded-border img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="modelling_png/best_model_1/shap_instance_0.png" class="shaded-border img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 <p>The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature’s SHAP value, with longer bars indicating a larger impact on the prediction.</p>
 <p>The color of the bar indicates the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.</p>
-<p>In this case, we can see that features like <code>tag_count</code> (6), <code>tag_learning_lab_22</code> and <code>tag_learning_lab_</code>2<code>positively impact the prediction while</code>member_rating<code>(1) of 1 and</code>country_code_IN` negatively impact the prediction.</p>
+<p>In this case, we can see that features like <code>tag_count</code> of 6, <code>tag_learning_lab_22</code> and <code>tag_learning_lab_2</code> positively impact the prediction while <code>member_rating</code> of 1 and <code>country_code_IN</code> negatively impact the prediction.</p>
 <p>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score(probability) of 0.9;</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="modelling_png/best_model_1/shap_instance_1.png" class="shaded-border img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="modelling_png/best_model_1/shap_instance_1.png" class="shaded-border img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 <p>Notice that features that are positively impacting the score inclue <code>country_code_other</code> and <code>tag_learning_lab_1</code> while features that are negatively impacting the score include <code>country_code_IN</code> and <code>member_rating</code> of 1.</p>
 <p>These comparison underscores the nuanced and individualized way in which different features contribute to the model’s predictions for each customer.</p>
+</section>
+</section>
+<section id="blending-models-ensembling-for-enhanced-performance" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="blending-models-ensembling-for-enhanced-performance"><span class="header-section-number">1.3</span> Blending Models (Ensembling) for Enhanced Performance</h2>
+<p>To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model <a href="https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis/analysis_write_up.md#user-content-fn-2-9b9f3303967f98df5ad1c4ba39105c28">ensembling</a>. By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.</p>
+<p>After blending and <a href="https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis/analysis_write_up.md#user-content-fn-3-9b9f3303967f98df5ad1c4ba39105c28">calibrating</a> the top three models, the resulting ensemble had an AUC of <strong>0.8020</strong> which is a very slight differnece in AUC from the individual models;</p>
+<table class="table">
+<caption>Ensemble AUC of <strong>0.8020</strong> vs Individual Models</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;">GBM</th>
+<th style="text-align: left;">Catboost</th>
+<th style="text-align: left;">Ada Boost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Model AUC</strong></td>
+<td style="text-align: left;">0.8044</td>
+<td style="text-align: left;">0.8015</td>
+<td style="text-align: left;">0.7965</td>
+</tr>
+<tr class="even">
+<td><strong>VS Ensemble</strong></td>
+<td style="text-align: left;">- 30%</td>
+<td style="text-align: left;">+ 0.06%</td>
+<td style="text-align: left;">+ 0.69%</td>
+</tr>
+</tbody>
+</table>
+<p>Ensemble models demonstrates the complementary nature of individual models and their ability to collectively improve the accuracy of lead scoring.</p>
+<hr>
 <p>In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model’s overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model’s performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.</p>
+<hr>
 </section>
 </section>
-<section id="blending-models-for-enhanced-performance" class="level2">
-<h2 class="anchored" data-anchor-id="blending-models-for-enhanced-performance">Blending Models for Enhanced Performance</h2>
+<section id="experiment-trackinglogging-mlflow" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Experiment Tracking/Logging (MLflow)</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Modeling">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BSPF Phase: Modeling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section is part of the <strong>Encode Algorithims</strong> under the <strong>Modeling</strong> Phase of the BSPF.</p>
+</div>
+</div>
+<section id="what-is-mlflow" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="what-is-mlflow"><span class="header-section-number">2.1</span> What is MLflow?</h2>
+<p><a href="https://mlflow.org/">MLflow</a> is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="modelling_png/mlflow/dashboard.png" class="shaded-border img-fluid figure-img" style="width:120.0%"></p>
+<figcaption class="figure-caption">Email Lead Scoring MLflow Dashboard</figcaption>
+</figure>
+</div>
+<p>MLflow plays a critical role in the machine learning workflow, addressing several key challenges that data scientists often encounter:</p>
+<p><strong>Experiment Tracking:</strong> MLflow allows data scientists to log their experiments with ease. This includes recording the hyperparameters, metrics, and model artifacts associated with each run. Such comprehensive tracking facilitates comparison between different model iterations and helps in selecting the best performing model for deployment.</p>
+<p><strong>Reproducibility:</strong> In machine learning, it is crucial to ensure that experiments can be reproduced with the same results. MLflow records the exact versions of libraries, data, and code used in each run, making it easier to replicate the experiments and maintain consistency across different environments.</p>
+<p><strong>Collaboration:</strong> In team-based data science projects, collaboration is essential. MLflow enables seamless sharing of experiments, models, and associated artifacts with colleagues, promoting knowledge sharing and fostering a collaborative environment.</p>
+<p><strong>Model Management:</strong> MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.</p>
+</section>
+<section id="integrating-mlflow-with-pycaret" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="integrating-mlflow-with-pycaret"><span class="header-section-number">2.2</span> Integrating MLflow with PyCaret</h2>
+<p>PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="modelling_png/mlflow/detail.png" class="shaded-border img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Finalized Model Detail</figcaption>
+</figure>
+</div>
+<p>In project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</p>
 <!-- -->
 
 </section>
@@ -545,8 +629,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: false</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: flatly</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
@@ -560,8 +644,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu"># Modeling</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>This section is part of the **Modeling** Phase of the BSFP</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Modeling"}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>This section is part of **Encode Algorithms** under the **Modeling** Phase of the BSPF</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the <span class="co">[</span><span class="ot">Pycaret</span><span class="co">](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis)</span> python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.</span>
@@ -621,26 +705,73 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>Shap values can also be created for specific observations or individual customers in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.</span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="al">![](modelling_png/best_model_1/shap_instance_0.png)</span>{width=70% fig-align="center" .shaded-border}</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="al">![](modelling_png/best_model_1/shap_instance_0.png)</span>{width=90% fig-align="center" .shaded-border}</span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature's SHAP value, with longer bars indicating a larger impact on the prediction.</span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>The color of the bar indicates the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.</span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>In this case, we can see that features like <span class="in">`tag_count`</span> (6), <span class="in">`tag_learning_lab_22`</span> and <span class="in">`tag_learning_lab_`</span>2<span class="in">`  positively impact the prediction while `</span>member_rating<span class="in">` (1) of 1 and `</span>country_code_IN` negatively impact the prediction.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>In this case, we can see that features like <span class="in">`tag_count`</span> of 6, <span class="in">`tag_learning_lab_22`</span> and <span class="in">`tag_learning_lab_2`</span>  positively impact the prediction while <span class="in">`member_rating`</span> of 1 and <span class="in">`country_code_IN`</span> negatively impact the prediction.</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score(probability) of 0.9;</span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="al">![](modelling_png/best_model_1/shap_instance_1.png)</span>{width=70% fig-align="center" .shaded-border}</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="al">![](modelling_png/best_model_1/shap_instance_1.png)</span>{width=90% fig-align="center" .shaded-border}</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>Notice that features that are positively impacting the score inclue <span class="in">`country_code_other`</span> and <span class="in">`tag_learning_lab_1`</span> while features that are negatively impacting the score include <span class="in">`country_code_IN`</span> and <span class="in">`member_rating`</span> of 1.</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>These comparison underscores the nuanced and individualized way in which different features contribute to the model's predictions for each customer.</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blending Models (Ensembling) for Enhanced Performance</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model <span class="co">[</span><span class="ot">ensembling</span><span class="co">](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis/analysis_write_up.md#user-content-fn-2-9b9f3303967f98df5ad1c4ba39105c28)</span>. By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.</span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blending Models for Enhanced Performance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>After blending and <span class="co">[</span><span class="ot">calibrating</span><span class="co">](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis/analysis_write_up.md#user-content-fn-3-9b9f3303967f98df5ad1c4ba39105c28)</span> the top three models, the resulting ensemble had an AUC of **0.8020** which is a very slight differnece in AUC from the individual models;</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>|                 | GBM     | Catboost  | Ada Boost |</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>|-----------------|:------- |:----------|:----------|</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>| **Model AUC**   | 0.8044  | 0.8015    |   0.7965  |</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>| **VS Ensemble** | - 30%   | + 0.06%   |  + 0.69%  |</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>: Ensemble AUC of **0.8020** vs Individual Models</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>Ensemble models  demonstrates the complementary nature of individual models and their ability to collectively improve the accuracy of lead scoring.</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="fu"># Experiment Tracking/Logging (MLflow)</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Modeling"}</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>This section is part of the **Encode Algorithims** under the  **Modeling** Phase of the BSPF.</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is MLflow?</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">MLflow</span><span class="co">](https://mlflow.org/)</span> is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="al">![Email Lead Scoring MLflow Dashboard](modelling_png/mlflow/dashboard.png)</span>{width=120% fig-align="center" .shaded-border}</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>MLflow plays a critical role in the machine learning workflow, addressing several key challenges that data scientists often encounter:</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>**Experiment Tracking:** MLflow allows data scientists to log their experiments with ease. This includes recording the hyperparameters, metrics, and model artifacts associated with each run. Such comprehensive tracking facilitates comparison between different model iterations and helps in selecting the best performing model for deployment.</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>**Reproducibility:** In machine learning, it is crucial to ensure that experiments can be reproduced with the same results. MLflow records the exact versions of libraries, data, and code used in each run, making it easier to replicate the experiments and maintain consistency across different environments.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>**Collaboration:** In team-based data science projects, collaboration is essential. MLflow enables seamless sharing of experiments, models, and associated artifacts with colleagues, promoting knowledge sharing and fostering a collaborative environment.</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>**Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integrating MLflow with PyCaret</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="al">![Finalized Model Detail](modelling_png/mlflow/detail.png)</span>{width=100% fig-align="center" .shaded-border}</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>In project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
