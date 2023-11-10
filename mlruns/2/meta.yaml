@@ -1,0 +1,4 @@
+artifact_location: file:///Users/BachataLu/Desktop/School/Business_Science/DS4B_Python_ML_And_APIs/mlruns/2
+experiment_id: '2'
+lifecycle_stage: active
+name: h2o_automl_lead_scoring_0
