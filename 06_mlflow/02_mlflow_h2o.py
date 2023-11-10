@@ -49,7 +49,7 @@ y_col = 'made_purchase'
 # Initialize H2O
 
 # Create an mlflow client
-EXPERIMENT_NAME = "automl_lead_scoring_1"
+EXPERIMENT_NAME = "h2o_automl_lead_scoring_0"
 
 client = mlflow.MlflowClient
 
@@ -106,7 +106,6 @@ mlflow.log_metric("log_loss", aml.leader.logloss())
 
 mlflow.log_metric("AUC", aml.leader.auc())
 
-
 # Set a Tag
 mlflow.set_tag("source", "h2o_automl_model")
 
@@ -138,7 +137,7 @@ mlflow.end_run()
 # PREDICTIONS ----
 # - Copy from MLFlow UI Artifacts
 #import mlflow
-logged_model = 'runs:/70db91338aa74883a9807e9313764d9a/model'
+logged_model = 'runs:/74cbdaeda4b84396bff017aedade778e/model'
 
 # Load model as a PyFuncModel.
 loaded_model = mlflow.pyfunc.load_model(logged_model)
