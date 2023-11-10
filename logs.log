@@ -2079,3 +2079,99 @@
                                             verbose=0, warm_start=False)]],
          verbose=False)
 2023-11-09 20:09:49,564:INFO:save_model() successfully completed......................................
+2023-11-09 20:12:29,204:INFO:Initializing interpret_model()
+2023-11-09 20:12:29,206:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=None, y_new_sample=None, feature=None, kwargs={}, observation=None, plot=summary, save=False)
+2023-11-09 20:12:29,206:INFO:Checking exceptions
+2023-11-09 20:12:29,742:INFO:plot type: summary
+2023-11-09 20:12:29,742:INFO:Creating TreeExplainer
+2023-11-09 20:12:30,217:INFO:Compiling shap values
+2023-11-09 20:12:33,773:INFO:Visual Rendered Successfully
+2023-11-09 20:12:33,774:INFO:interpret_model() succesfully completed......................................
+2023-11-09 22:43:08,012:INFO:Initializing interpret_model()
+2023-11-09 22:43:08,014:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=None, y_new_sample=None, feature=member_rating, kwargs={}, observation=None, plot=correlation, save=False)
+2023-11-09 22:43:08,014:INFO:Checking exceptions
+2023-11-09 22:43:08,018:INFO:plot type: correlation
+2023-11-09 22:43:08,019:WARNING:feature value passed. Feature used for correlation plot: member_rating
+2023-11-09 22:43:08,019:INFO:Creating TreeExplainer
+2023-11-09 22:43:09,831:INFO:Compiling shap values
+2023-11-09 22:43:11,417:INFO:model type detected: type 2
+2023-11-09 22:43:12,827:INFO:Visual Rendered Successfully
+2023-11-09 22:43:12,828:INFO:interpret_model() succesfully completed......................................
+2023-11-09 22:44:06,346:INFO:Initializing interpret_model()
+2023-11-09 22:44:06,348:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=None, y_new_sample=None, feature=member_rating, kwargs={'ice': True}, observation=None, plot=pdp, save=False)
+2023-11-09 22:44:06,348:INFO:Checking exceptions
+2023-11-09 22:44:06,468:INFO:plot type: pdp
+2023-11-09 22:44:06,468:INFO:Checking feature parameter passed
+2023-11-09 22:44:06,468:INFO:feature value passed. Feature used for correlation plot: member_rating
+2023-11-09 22:44:31,037:INFO:Initializing interpret_model()
+2023-11-09 22:44:31,039:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=None, y_new_sample=None, feature=member_rating, kwargs={'ice': True}, observation=None, plot=pdp, save=False)
+2023-11-09 22:44:31,039:INFO:Checking exceptions
+2023-11-09 22:44:31,040:INFO:plot type: pdp
+2023-11-09 22:44:31,040:INFO:Checking feature parameter passed
+2023-11-09 22:44:31,040:INFO:feature value passed. Feature used for correlation plot: member_rating
+2023-11-09 22:45:18,229:INFO:Initializing interpret_model()
+2023-11-09 22:45:18,234:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=None, y_new_sample=None, feature=optin_days, kwargs={}, observation=None, plot=correlation, save=False)
+2023-11-09 22:45:18,237:INFO:Checking exceptions
+2023-11-09 22:45:18,237:INFO:plot type: correlation
+2023-11-09 22:45:18,238:WARNING:feature value passed. Feature used for correlation plot: optin_days
+2023-11-09 22:45:18,238:INFO:Creating TreeExplainer
+2023-11-09 22:45:18,631:INFO:Compiling shap values
+2023-11-09 22:45:20,605:INFO:model type detected: type 2
+2023-11-09 22:45:21,802:INFO:Visual Rendered Successfully
+2023-11-09 22:45:21,803:INFO:interpret_model() succesfully completed......................................
+2023-11-09 22:47:10,550:INFO:Initializing interpret_model()
+2023-11-09 22:47:10,551:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=   mailchimp_id     user_full_name                   user_email  \
+0             3  Garrick Langworth  garrick.langworth@gmail.com   
+
+   member_rating optin_time country_code  tag_count  made_purchase  \
+0              2 2019-05-22           IN          6              1   
+
+   optin_days email_provider  ...  tag_learning_lab_43  tag_learning_lab_44  \
+0        -589      gmail.com  ...                  0.0                  0.0   
+
+   tag_learning_lab_45  tag_learning_lab_46  tag_learning_lab_47  \
+0                  0.0                  0.0                  0.0   
+
+   tag_time_series_webinar  tag_webinar  tag_webinar_01  \
+0                      0.0          1.0             0.0   
+
+   tag_webinar_no_degree  tag_webinar_no_degree_02  
+0                    0.0                       0.0  
+
+[1 rows x 57 columns], y_new_sample=None, feature=None, kwargs={}, observation=None, plot=reason, save=False)
+2023-11-09 22:47:10,552:INFO:Checking exceptions
+2023-11-09 22:47:10,942:INFO:plot type: reason
+2023-11-09 22:47:10,942:INFO:model type detected: type 2
+2023-11-09 22:47:10,942:INFO:Creating TreeExplainer
+2023-11-09 22:47:11,875:INFO:Compiling shap values
+2023-11-09 22:47:11,936:WARNING:Observation set to None. Model agnostic plot will be rendered.
+2023-11-09 22:47:11,943:INFO:Visual Rendered Successfully
+2023-11-09 22:47:11,944:INFO:interpret_model() succesfully completed......................................
+2023-11-09 22:52:02,340:INFO:Initializing interpret_model()
+2023-11-09 22:52:02,341:INFO:interpret_model(estimator=<catboost.core.CatBoostClassifier object at 0x7f7b099ab6a0>, use_train_data=False, X_new_sample=    mailchimp_id user_full_name              user_email  member_rating  \
+11            25   Cornell Funk  cornell.funk@gmail.com              2   
+
+   optin_time country_code  tag_count  made_purchase  optin_days  \
+11 2020-06-30           IN          2              0        -184   
+
+   email_provider  ...  tag_learning_lab_43  tag_learning_lab_44  \
+11      gmail.com  ...                  0.0                  0.0   
+
+    tag_learning_lab_45  tag_learning_lab_46  tag_learning_lab_47  \
+11                  0.0                  0.0                  0.0   
+
+    tag_time_series_webinar  tag_webinar  tag_webinar_01  \
+11                      0.0          0.0             0.0   
+
+    tag_webinar_no_degree  tag_webinar_no_degree_02  
+11                    0.0                       0.0  
+
+[1 rows x 57 columns], y_new_sample=None, feature=None, kwargs={}, observation=None, plot=reason, save=False)
+2023-11-09 22:52:02,342:INFO:Checking exceptions
+2023-11-09 22:52:02,535:INFO:plot type: reason
+2023-11-09 22:52:02,535:INFO:model type detected: type 2
+2023-11-09 22:52:02,535:INFO:Creating TreeExplainer
+2023-11-09 22:52:03,945:INFO:Compiling shap values
+2023-11-09 22:52:04,012:WARNING:Observation set to None. Model agnostic plot will be rendered.
+2023-11-09 22:52:04,017:INFO:Visual Rendered Successfully
+2023-11-09 22:52:04,018:INFO:interpret_model() succesfully completed......................................

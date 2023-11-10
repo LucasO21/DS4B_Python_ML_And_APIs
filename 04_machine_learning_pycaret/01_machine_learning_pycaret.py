@@ -315,9 +315,9 @@ clf.save_model(
 
 
 # - 1. Summary Plot: Overall top features
-clf.interpret_model(catboost_model_tuned, plot = "summary")
+clf.interpret_model(best_models[1], plot = "summary")
 
-clf.interpret_model(lgbm_model_tuned, plot = "summary")
+# clf.interpret_model(lgbm_model_tuned, plot = "summary")
 
 
 # - 2. Analyze Specific Features
@@ -331,7 +331,13 @@ els.explore_sales_by_category(
 
 # -- Correlation Plot
 clf.interpret_model(
-    estimator = catboost_model_tuned,
+    estimator = best_models[1],
+    plot      = "correlation",
+    feature   = "member_rating"
+)
+
+clf.interpret_model(
+    estimator = best_models[1],
     plot      = "correlation",
     feature   = "optin_days"
 )
@@ -350,43 +356,32 @@ leads_df.iloc[[0]]
 
 # Shap Force Plot
 clf.interpret_model(
-    estimator    = catboost_model_tuned,
+    estimator    = best_models[1],
     plot         = "reason",
     X_new_sample = leads_df.iloc[[0]]
 )
 
 clf.interpret_model(
-    estimator    = catboost_model_tuned,
+    estimator    = best_models[1],
     plot         = "reason",
     X_new_sample = leads_df.iloc[[11]]
 )
 
-clf.interpret_model(
-    estimator    = xgb_model_tuned,
-    plot         = "reason",
-    X_new_sample = leads_df.iloc[[0]]
-)
-
-clf.interpret_model(
-    estimator    = xgb_model_tuned,
-    plot         = "reason",
-    X_new_sample = leads_df.iloc[[11]]
-)
 
 # - 4. Feature importance
-clf.plot_model(catboost_model_tuned, plot =  "feature")
+# clf.plot_model(catboost_model_tuned, plot =  "feature")
 
-clf.plot_model(xgb_model_tuned, plot =  "feature")
+# clf.plot_model(xgb_model_tuned, plot =  "feature")
 
-# 5. Gain
-clf.plot_model(catboost_model_tuned, plot =  "gain")
+# # 5. Gain
+# clf.plot_model(catboost_model_tuned, plot =  "gain")
 
-clf.plot_model(catboost_model_tuned, plot =  "lift")
+# clf.plot_model(catboost_model_tuned, plot =  "lift")
 
-# 6. Confusion Matrix
-clf.plot_model(catboost_model_tuned, plot = "confusion_matrix")
+# # 6. Confusion Matrix
+# clf.plot_model(catboost_model_tuned, plot = "confusion_matrix")
 
-clf.plot_model(xgb_model_tuned, plot = "confusion_matrix")
+# clf.plot_model(xgb_model_tuned, plot = "confusion_matrix")
 
 # ========================================================================
 # 7.0 BLENDING MODELS (ENSEMBLES)
