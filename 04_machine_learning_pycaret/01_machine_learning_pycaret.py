@@ -180,7 +180,7 @@ clf.save_model(
     model_name = "models/best_model_2_finalized"
 )
 
-clf.load_model("models/best_model_0_finalized")
+clf.load_model("models/pycaret/best_model_0_finalized")
 
 # ========================================================================
 # 4.0 PLOTTING MODEL PERFORMANCE -----
@@ -202,18 +202,15 @@ clf.plot_model(best_models[6], plot =  "tree")
 clf.plot_model(best_models[1], plot =  "confusion_matrix")
 
 # Gain/Lift Plots
-clf.plot_model(best_models[1], plot =  "gain")
+clf.plot_model(best_models[0], plot =  "gain")
 
 clf.plot_model(best_models[1], plot =  "lift")
-
 
 # Feature Importance
 clf.plot_model(best_models[1], plot =  "feature")
 
-
 # Shows the Precision/Recall/F1
 clf.plot_model(best_models[1], plot =  "class_report")
-
 
 # Get model parameters used
 clf.plot_model(best_models[0], plot =  "parameter")
@@ -227,44 +224,44 @@ clf.plot_model(best_models[0], plot =  "parameter")
 clf.models()
 
 # - Create Models
-gbc_model = clf.create_model(estimator = "gbc")
+gbc_model_single = clf.create_model(estimator = "gbc")
 
-cat_model = clf.create_model(estimator = "catboost")
+# cat_model = clf.create_model(estimator = "catboost")
 
-ada_model = clf.create_model(estimator = "ada")
+# ada_model = clf.create_model(estimator = "ada")
 
-lgbm_model = clf.create_model(estimator = "lightgbm")
+# lgbm_model = clf.create_model(estimator = "lightgbm")
 
-xgb_model = clf.create_model(estimator = "xgboost")
+xgb_model_single = clf.create_model(estimator = "xgboost")
 
 
 # - Tuning Models
 gbc_model_tuned = clf.tune_model(
-    estimator = gbc_model,
+    estimator = gbc_model_single,
     n_iter    = 5,
     optimize  = "AUC"
 )
 
-catboost_model_tuned = clf.tune_model(
-    estimator = cat_model,
-    n_iter    = 5,
-    optimize  = "AUC"
-)
+# catboost_model_tuned = clf.tune_model(
+#     estimator = cat_model,
+#     n_iter    = 5,
+#     optimize  = "AUC"
+# )
 
-adaboost_model_tuned = clf.tune_model(
-    estimator = ada_model,
-    n_iter    = 5,
-    optimize  = "AUC"
-)
+# adaboost_model_tuned = clf.tune_model(
+#     estimator = ada_model,
+#     n_iter    = 5,
+#     optimize  = "AUC"
+# )
 
-lgbm_model_tuned = clf.tune_model(
-    estimator = lgbm_model,
-    n_iter    = 5,
-    optimize  = "AUC"
-)
+# lgbm_model_tuned = clf.tune_model(
+#     estimator = lgbm_model,
+#     n_iter    = 5,
+#     optimize  = "AUC"
+# )
 
 xgb_model_tuned = clf.tune_model(
-    estimator = xgb_model,
+    estimator = xgb_model_single,
     n_iter    = 5,
     optimize  = "AUC"
 )
@@ -272,11 +269,11 @@ xgb_model_tuned = clf.tune_model(
 # - Finalize tuned model
 gbc_model_model_tuned_finalized = clf.finalize_model(gbc_model_tuned)
 
-catboost_model_tuned_finalized = clf.finalize_model(catboost_model_tuned)
+# catboost_model_tuned_finalized = clf.finalize_model(catboost_model_tuned)
 
-adaboost_model_tuned_finalized = clf.finalize_model(adaboost_model_tuned)
+# adaboost_model_tuned_finalized = clf.finalize_model(adaboost_model_tuned)
 
-lgbm_model_model_tuned_finalized = clf.finalize_model(lgbm_model_tuned)
+# lgbm_model_model_tuned_finalized = clf.finalize_model(lgbm_model_tuned)
 
 xgb_model_tuned_finalized = clf.finalize_model(xgb_model_tuned)
 
@@ -284,27 +281,27 @@ xgb_model_tuned_finalized = clf.finalize_model(xgb_model_tuned)
 # - Save tunded models
 clf.save_model(
     model      = gbc_model_model_tuned_finalized,
-    model_name = "models/gbc_model_model_tuned_finalized"
+    model_name = "models/pycaret/gbc_model_single_tuned_finalized"
 )
 
-clf.save_model(
-    model      = catboost_model_tuned_finalized,
-    model_name = "models/catboost_model_tuned_finalized"
-)
+# clf.save_model(
+#     model      = catboost_model_tuned_finalized,
+#     model_name = "models/catboost_model_tuned_finalized"
+# )
 
-clf.save_model(
-    model      = adaboost_model_tuned_finalized,
-    model_name = "models/adaboost_model_tuned_finalized"
-)
+# clf.save_model(
+#     model      = adaboost_model_tuned_finalized,
+#     model_name = "models/adaboost_model_tuned_finalized"
+# )
 
-clf.save_model(
-    model      = lgbm_model_model_tuned_finalized,
-    model_name = "models/lgbm_model_model_tuned_finalized"
-)
+# clf.save_model(
+#     model      = lgbm_model_model_tuned_finalized,
+#     model_name = "models/lgbm_model_model_tuned_finalized"
+# )
 
 clf.save_model(
     model      = xgb_model_tuned_finalized,
-    model_name = "models/xgb_model_tuned_finalized"
+    model_name = "models/pycaret/xgb_model_single_tuned_finalized"
 )
 
 
