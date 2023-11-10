@@ -18,11 +18,11 @@ import email_lead_scoring as els
 
 # RECAP ----
 
-leads_df = els.db_read_and_process_els_data() 
+leads_df = els.db_read_and_process_els_data()
 
 
 # ========================================================================
-# 1.0 PREPROCESSING (SETUP) ---- 
+# 1.0 PREPROCESSING (SETUP) ----
 # ========================================================================
 # - Infers data types (requires user to say yes)
 # - Returns a preprocessing pipeline
@@ -34,10 +34,10 @@ leads_df.info()
 df = leads_df \
     .drop(
         [
-            "mailchimp_id", 
-            "user_full_name", 
-            "user_email", 
-            "optin_time", 
+            "mailchimp_id",
+            "user_full_name",
+            "user_email",
+            "optin_time",
             "email_provider"
         ], axis = 1
     )
@@ -61,36 +61,36 @@ ordinal_features = {"member_rating": ["1", "2", "3", "4", "5"]}
 
 # - Classifier Setup
 clf_1 = clf.setup(
-    
+
     # main
-    data                       = df, 
+    data                       = df,
     target                     = "made_purchase",
     train_size                 = 0.8,
     preprocess                 = True,
     imputation_type            = "simple",
-    
+
     # categorical
     categorical_features       = categorical_features,
     handle_unknown_categorical = True,
     combine_rare_levels        = True,
     rare_level_threshold       = 0.005,
-    
+
     # ordinal
     ordinal_features           = ordinal_features,
-    
+
     # numeric
     numeric_features           = numeric_features,
-    
+
     # k-fold
     fold_strategy              = "stratifiedkfold",
     fold                       = 5,
-    
+
     # experiment logging
     n_jobs                     = 1,
     session_id                 = 123,
     log_experiment             = True,
     experiment_name            = "email_lead_scoring_0",
-    
+
     # silent: turns off asking if data types infered correctly
     silent                     = False
 )
@@ -116,7 +116,6 @@ clf.get_config("y_test")
 # - Extract Scikit learn Pipeline
 pipeline = clf.get_config("prep_pipe")
 
-
 # - Check difference in columns
 pipeline.fit(df)
 
@@ -127,7 +126,6 @@ pipeline.fit(df)
 
 # - Available Models
 clf.models()
-
 
 # - Running All Available Models
 best_models = clf.compare_models(
@@ -148,7 +146,10 @@ best_models[0]
 
 
 # - Make predictions
-clf.predict_model(best_models[0])
+clf.predict_model(best_models[1])
+
+# pred_df = clf.predict_model(best_models[1])
+# pred_df.query("Label == 1")
 
 clf.predict_model(
     estimator = best_models[1],
@@ -165,30 +166,30 @@ best_model_2_finalized = clf.finalize_model(best_models[2])
 
 
 # - Save / load model
-os.mkdir("models")
+# os.mkdir("models")
 
 clf.save_model(
     model      = best_model_0_finalized,
-    model_name = "models/best_model_0"
+    model_name = "models/pycaret/best_model_0_finalized"
 )
 
 clf.save_model(
     model      = best_model_1_finalized,
-    model_name = "models/best_model_1"
+    model_name = "models/best_model_1_finalized"
 )
 
 clf.save_model(
     model      = best_model_2_finalized,
-    model_name = "models/best_model_2"
+    model_name = "models/best_model_2_finalized"
 )
 
-clf.load_model("models/best_model_0")
+clf.load_model("models/pycaret/best_model_0_finalized")
 
 # ========================================================================
 # 4.0 PLOTTING MODEL PERFORMANCE -----
 # ========================================================================
 
-# Get all plots 
+# Get all plots
 # - Note that this can take a long time for certain plots
 # - May want to just plot individual (see that next)
 clf.evaluate_model(best_model_0_finalized)
@@ -204,18 +205,15 @@ clf.plot_model(best_models[6], plot =  "tree")
 clf.plot_model(best_models[1], plot =  "confusion_matrix")
 
 # Gain/Lift Plots
-clf.plot_model(best_models[1], plot =  "gain")
+clf.plot_model(best_models[0], plot =  "gain")
 
 clf.plot_model(best_models[1], plot =  "lift")
-
 
 # Feature Importance
 clf.plot_model(best_models[1], plot =  "feature")
 
-
 # Shows the Precision/Recall/F1
 clf.plot_model(best_models[1], plot =  "class_report")
-
 
 # Get model parameters used
 clf.plot_model(best_models[0], plot =  "parameter")
@@ -229,56 +227,56 @@ clf.plot_model(best_models[0], plot =  "parameter")
 clf.models()
 
 # - Create Models
-gbc_model = clf.create_model(estimator = "gbc")
+gbc_model_single = clf.create_model(estimator = "gbc")
 
-cat_model = clf.create_model(estimator = "catboost")
+# cat_model = clf.create_model(estimator = "catboost")
 
-ada_model = clf.create_model(estimator = "ada")
+# ada_model = clf.create_model(estimator = "ada")
 
-lgbm_model = clf.create_model(estimator = "lightgbm")
+# lgbm_model = clf.create_model(estimator = "lightgbm")
 
-xgb_model = clf.create_model(estimator = "xgboost")
+xgb_model_single = clf.create_model(estimator = "xgboost")
 
 
 # - Tuning Models
 gbc_model_tuned = clf.tune_model(
-    estimator = gbc_model,
+    estimator = gbc_model_single,
     n_iter    = 5,
     optimize  = "AUC"
 )
 
-catboost_model_tuned = clf.tune_model(
-    estimator = cat_model,
-    n_iter    = 5,
-    optimize  = "AUC"
-)
+# catboost_model_tuned = clf.tune_model(
+#     estimator = cat_model,
+#     n_iter    = 5,
+#     optimize  = "AUC"
+# )
 
-adaboost_model_tuned = clf.tune_model(
-    estimator = ada_model,
-    n_iter    = 5,
-    optimize  = "AUC"
-)
+# adaboost_model_tuned = clf.tune_model(
+#     estimator = ada_model,
+#     n_iter    = 5,
+#     optimize  = "AUC"
+# )
 
-lgbm_model_tuned = clf.tune_model(
-    estimator = lgbm_model,
-    n_iter    = 5,
-    optimize  = "AUC"
-)
+# lgbm_model_tuned = clf.tune_model(
+#     estimator = lgbm_model,
+#     n_iter    = 5,
+#     optimize  = "AUC"
+# )
 
 xgb_model_tuned = clf.tune_model(
-    estimator = xgb_model,
+    estimator = xgb_model_single,
     n_iter    = 5,
     optimize  = "AUC"
 )
 
-# - Finalize tuned model 
+# - Finalize tuned model
 gbc_model_model_tuned_finalized = clf.finalize_model(gbc_model_tuned)
 
-catboost_model_tuned_finalized = clf.finalize_model(catboost_model_tuned)
+# catboost_model_tuned_finalized = clf.finalize_model(catboost_model_tuned)
 
-adaboost_model_tuned_finalized = clf.finalize_model(adaboost_model_tuned)
+# adaboost_model_tuned_finalized = clf.finalize_model(adaboost_model_tuned)
 
-lgbm_model_model_tuned_finalized = clf.finalize_model(lgbm_model_tuned)
+# lgbm_model_model_tuned_finalized = clf.finalize_model(lgbm_model_tuned)
 
 xgb_model_tuned_finalized = clf.finalize_model(xgb_model_tuned)
 
@@ -286,27 +284,27 @@ xgb_model_tuned_finalized = clf.finalize_model(xgb_model_tuned)
 # - Save tunded models
 clf.save_model(
     model      = gbc_model_model_tuned_finalized,
-    model_name = "models/gbc_model_model_tuned_finalized"
+    model_name = "models/pycaret/gbc_model_single_tuned_finalized"
 )
 
-clf.save_model(
-    model      = catboost_model_tuned_finalized,
-    model_name = "models/catboost_model_tuned_finalized"
-)
+# clf.save_model(
+#     model      = catboost_model_tuned_finalized,
+#     model_name = "models/catboost_model_tuned_finalized"
+# )
 
-clf.save_model(
-    model      = adaboost_model_tuned_finalized,
-    model_name = "models/adaboost_model_tuned_finalized"
-)
+# clf.save_model(
+#     model      = adaboost_model_tuned_finalized,
+#     model_name = "models/adaboost_model_tuned_finalized"
+# )
 
-clf.save_model(
-    model      = lgbm_model_model_tuned_finalized,
-    model_name = "models/lgbm_model_model_tuned_finalized"
-)
+# clf.save_model(
+#     model      = lgbm_model_model_tuned_finalized,
+#     model_name = "models/lgbm_model_model_tuned_finalized"
+# )
 
 clf.save_model(
     model      = xgb_model_tuned_finalized,
-    model_name = "models/xgb_model_tuned_finalized"
+    model_name = "models/pycaret/xgb_model_single_tuned_finalized"
 )
 
 
@@ -320,33 +318,39 @@ clf.save_model(
 
 
 # - 1. Summary Plot: Overall top features
-clf.interpret_model(catboost_model_tuned, plot = "summary")
+clf.interpret_model(best_models[1], plot = "summary")
 
-clf.interpret_model(lgbm_model_tuned, plot = "summary")
+# clf.interpret_model(lgbm_model_tuned, plot = "summary")
 
 
-# - 2. Analyze Specific Features 
+# - 2. Analyze Specific Features
 
 # -- Our Exploratory Function
 els.explore_sales_by_category(
-    leads_df, 
-    'member_rating', 
+    leads_df,
+    'member_rating',
     sort_by='prop_in_group'
 )
 
 # -- Correlation Plot
 clf.interpret_model(
-    estimator = catboost_model_tuned, 
+    estimator = best_models[1],
     plot      = "correlation",
-    feature   = "optin_days"    
+    feature   = "member_rating"
+)
+
+clf.interpret_model(
+    estimator = best_models[1],
+    plot      = "correlation",
+    feature   = "optin_days"
 )
 
 # -- Partial Dependence Plot
 clf.interpret_model(
-    estimator = best_models[1], 
+    estimator = best_models[1],
     plot      = "pdp",
     feature   = "member_rating",
-    ice       = True    
+    ice       = True
 )
 
 
@@ -355,43 +359,36 @@ leads_df.iloc[[0]]
 
 # Shap Force Plot
 clf.interpret_model(
-    estimator    = catboost_model_tuned, 
+    estimator    = best_models[1],
     plot         = "reason",
     X_new_sample = leads_df.iloc[[0]]
 )
 
+clf.predict_model(best_models[1], leads_df.iloc[[0]])
+
 clf.interpret_model(
-    estimator    = catboost_model_tuned, 
+    estimator    = best_models[1],
     plot         = "reason",
     X_new_sample = leads_df.iloc[[11]]
 )
 
-clf.interpret_model(
-    estimator    = xgb_model_tuned, 
-    plot         = "reason",
-    X_new_sample = leads_df.iloc[[0]]
-)
+clf.predict_model(best_models[1], leads_df.iloc[[11]])
 
-clf.interpret_model(
-    estimator    = xgb_model_tuned, 
-    plot         = "reason",
-    X_new_sample = leads_df.iloc[[11]]
-)
 
 # - 4. Feature importance
-clf.plot_model(catboost_model_tuned, plot =  "feature")
+# clf.plot_model(catboost_model_tuned, plot =  "feature")
 
-clf.plot_model(xgb_model_tuned, plot =  "feature")
+# clf.plot_model(xgb_model_tuned, plot =  "feature")
 
-# 5. Gain 
-clf.plot_model(catboost_model_tuned, plot =  "gain")
+# # 5. Gain
+# clf.plot_model(catboost_model_tuned, plot =  "gain")
 
-clf.plot_model(catboost_model_tuned, plot =  "lift")
+# clf.plot_model(catboost_model_tuned, plot =  "lift")
 
-# 6. Confusion Matrix
-clf.plot_model(catboost_model_tuned, plot = "confusion_matrix")
+# # 6. Confusion Matrix
+# clf.plot_model(catboost_model_tuned, plot = "confusion_matrix")
 
-clf.plot_model(xgb_model_tuned, plot = "confusion_matrix")
+# clf.plot_model(xgb_model_tuned, plot = "confusion_matrix")
 
 # ========================================================================
 # 7.0 BLENDING MODELS (ENSEMBLES)
@@ -400,7 +397,7 @@ clf.plot_model(xgb_model_tuned, plot = "confusion_matrix")
 blend_models = clf.blend_models(best_models, optimize = "AUC")
 
 blend_models_tuned = clf.blend_models(
-    estimator_list = [catboost_model_tuned, lgbm_model_tuned, xgb_model_tuned],
+    estimator_list = [gbc_model_tuned, xgb_model_tuned],
     optimize       = "AUC"
 )
 
@@ -460,12 +457,12 @@ leads_scored_df.sort_values("Score", ascending = False)
 
 clf.save_model(
     model      = blended_models_final,
-    model_name = "models/blended_model_final"
+    model_name = "models/pycaret/blended_models_calibrated_finalized"
 )
 
 clf.save_model(
     model      = blended_tuned_models_final,
-    model_name = "models/blended_tuned_models_final"
+    model_name = "models/pycaret/blended_tuned_models_calibrated_finalized"
 )
 
 # ========================================================================
