@@ -146,7 +146,10 @@ best_models[0]
 
 
 # - Make predictions
-clf.predict_model(best_models[0])
+clf.predict_model(best_models[1])
+
+# pred_df = clf.predict_model(best_models[1])
+# pred_df.query("Label == 1")
 
 clf.predict_model(
     estimator = best_models[1],
@@ -361,11 +364,15 @@ clf.interpret_model(
     X_new_sample = leads_df.iloc[[0]]
 )
 
+clf.predict_model(best_models[1], leads_df.iloc[[0]])
+
 clf.interpret_model(
     estimator    = best_models[1],
     plot         = "reason",
     X_new_sample = leads_df.iloc[[11]]
 )
+
+clf.predict_model(best_models[1], leads_df.iloc[[11]])
 
 
 # - 4. Feature importance
@@ -390,7 +397,7 @@ clf.interpret_model(
 blend_models = clf.blend_models(best_models, optimize = "AUC")
 
 blend_models_tuned = clf.blend_models(
-    estimator_list = [catboost_model_tuned, lgbm_model_tuned, xgb_model_tuned],
+    estimator_list = [gbc_model_tuned, xgb_model_tuned],
     optimize       = "AUC"
 )
 
@@ -450,12 +457,12 @@ leads_scored_df.sort_values("Score", ascending = False)
 
 clf.save_model(
     model      = blended_models_final,
-    model_name = "models/blended_model_final"
+    model_name = "models/pycaret/blended_models_calibrated_finalized"
 )
 
 clf.save_model(
     model      = blended_tuned_models_final,
-    model_name = "models/blended_tuned_models_final"
+    model_name = "models/pycaret/blended_tuned_models_calibrated_finalized"
 )
 
 # ========================================================================

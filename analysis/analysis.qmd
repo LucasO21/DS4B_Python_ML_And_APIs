@@ -30,4 +30,78 @@ This section is part of the **Modeling** Phase of the BSFP
 This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the [Pycaret](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
 
 ## Testing Multiple Models
-Several models were initially testing, using [Area Under the Curve](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) (AUC) as the key metric. Higher AUC indicates a better-performing model in distinquising positive and negative leads. The chart belows shows the AUC along with other metrics from initial modeling. We can see the 3 models in terms of AUC are Gradient Boosing Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).
+Several models were initially testing, using [Area Under the Curve](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) (AUC) as the key metric. Higher AUC indicates a better-performing model in distinquising positive and negative leads. The chart belows shows the AUC along with other metrics from initial modeling. We can see the top 3 models in terms of AUC are Gradient Boosing Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).
+
+## Model Metrics
+Here we can examine metrics for the Catboost model.
+
+::: {.callout-important title="Model Metrics (Catboost)"}
+The choice of Catboost, a tree-based model, is driven by its inherent advantage in explainability, which is critical for understanding model decisions and behavior. It's important to note that the final model selection will be determined in the Return on Investment (ROI) section of the course. However, it is worth mentioning that all the models under consideration exhibit very similar performance metrics. Consequently, regardless of the final choice, we can anticipate that the selected model will demonstrate metrics comparable to those of the Catboost model. This consistency across models ensures reliability in the anticipated performance, irrespective of the specific model chosen.
+:::
+
+![](modelling_png/best_models.png){width=80% fig-align="center" .shaded-border}
+
+### AUC-ROC Plot
+An AUC-ROC (Area Under the Receiver Operating Characteristic Curve) plot is a graphical representation that summarizes the performance of a binary classification model. It showcases the model's ability to distinguish between positive and negative instances by plotting the true positive rate against the false positive rate. The AUC value, ranging from 0 to 1, quantifies the model's accuracy, with a higher value (higher curve towards 1) indicating better performance. The AUC-ROC plot enables data scientists and decision-makers to assess and compare models, aiding in the selection and optimization of classification algorithms.
+
+![](modelling_png/best_model_1/auc_best_model_1.png){width=80% fig-align="center" .shaded-border}
+
+
+### Confusion Matrix
+The confusion matrix is a tabular representation that provides a comprehensive summary of the performance of a classification model. It organizes predictions made by the model into four categories: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).
+
+* True Positive (TP): The model correctly predicts the positive class.
+* True Negative (TN): The model correctly predicts the negative class.
+* False Positive (FP): The model incorrectly predicts the positive class when it should have been negative (Type I error).
+* False Negative (FN): The model incorrectly predicts the negative class when it should have been positive (Type II error).
+
+![](modelling_png/best_model_1/cm_best_model_1.png){width=80% fig-align="center" .shaded-border}
+
+Let's understand the confusion matrix above;
+
+* 24 predictions (bottom right) are true positives, these are the subscribers the model predicted will make a purchase and they did make a purchase.
+27 (top right) are false positives. The model predicted them to make a purchase and they did not. This is where we might have wasted effort.
+* 168 (bottom left) are false negatives. The model predicted they will not make a purchase but they did. These are missed opportunities.
+3765 (top left) are true negatives. The model predicted they will not make a purchase and they did not. There is no impact for these.
+
+### Feature Importance
+A feature importance plot is a graphical representation that helps us understand the relative importance of different features or variables in a predictive model. It provides insights into what factors or variables have the most significant impact on the outcome or target variable. The plot below show feature importance for the Catboost model;
+
+![](modelling_png/best_model_1/vip_best_model_1.png){width=80% fig-align="center" .shaded-border}
+
+You can see that the model shows the most importance features to be `optin_days`, `member_rating` and `country_code_US`. Note that this order may vary for another model. Different machine learning models can have different ranking for feature importance due to their inherent characteristics and the algorithims they employ to make predictions. Factors such as model architecture, algorithmic approach, feature interactions, model assumptions, all play a part in how a model ranks feature imporance.
+
+### Shap Values
+A SHAP (SHapley Additive exPlanations) values plot is a visual representation that provides insights into the contribution of individual features to the predictions made by a machine learning model. It is based on Shapley values, a concept from cooperative game theory, which assigns a value to each feature by measuring its impact on the prediction compared to its absence or average value. The SHAP values plot displays the magnitude and direction of each feature's impact on the model predictions, allowing for a comprehensive understanding of how different features influence the outcomes. It helps identify which features have the most significant positive or negative influence on predictions and provides a clear picture of how the model is making decisions based on different feature values. This plot enables users, including business leaders, to interpret and explain the model's behavior and make informed decisions based on the feature contributions.
+
+The plot below shows shap values for the Catboost model;
+
+![](modelling_png/best_model_1/shap_summary.png){width=70% fig-align="center" .shaded-border}
+
+The higher the shap value is (x-axis), the higher the likelihood of positive. For example we can see the higher shap values for member_rating and tag_count, meaning that subscribers who have higher values for these 2 features are more likely to predicted as making a purchase.
+
+### Shap Values (Specific Observations)
+
+Shap values can also be created for specific observations or individual customers in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.
+
+![](modelling_png/best_model_1/shap_instance_0.png){width=90% fig-align="center" .shaded-border}
+
+The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature's SHAP value, with longer bars indicating a larger impact on the prediction.
+
+The color of the bar indicates the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.
+
+In this case, we can see that features like `tag_count` of 6, `tag_learning_lab_22` and `tag_learning_lab_2`  positively impact the prediction while `member_rating` of 1 and `country_code_IN` negatively impact the prediction.
+
+In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score(probability) of 0.9;
+
+![](modelling_png/best_model_1/shap_instance_1.png){width=90% fig-align="center" .shaded-border}
+
+Notice that features that are positively impacting the score inclue `country_code_other` and `tag_learning_lab_1` while features that are negatively impacting the score include `country_code_IN` and `member_rating` of 1.
+
+These comparison underscores the nuanced and individualized way in which different features contribute to the model's predictions for each customer.
+
+In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.
+
+
+## Blending Models for Enhanced Performance
+
