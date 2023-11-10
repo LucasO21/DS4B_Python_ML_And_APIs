@@ -18,11 +18,11 @@ import email_lead_scoring as els
 
 # RECAP ----
 
-leads_df = els.db_read_and_process_els_data() 
+leads_df = els.db_read_and_process_els_data()
 
 
 # ========================================================================
-# 1.0 PREPROCESSING (SETUP) ---- 
+# 1.0 PREPROCESSING (SETUP) ----
 # ========================================================================
 # - Infers data types (requires user to say yes)
 # - Returns a preprocessing pipeline
@@ -34,10 +34,10 @@ leads_df.info()
 df = leads_df \
     .drop(
         [
-            "mailchimp_id", 
-            "user_full_name", 
-            "user_email", 
-            "optin_time", 
+            "mailchimp_id",
+            "user_full_name",
+            "user_email",
+            "optin_time",
             "email_provider"
         ], axis = 1
     )
@@ -61,36 +61,36 @@ ordinal_features = {"member_rating": ["1", "2", "3", "4", "5"]}
 
 # - Classifier Setup
 clf_1 = clf.setup(
-    
+
     # main
-    data                       = df, 
+    data                       = df,
     target                     = "made_purchase",
     train_size                 = 0.8,
     preprocess                 = True,
     imputation_type            = "simple",
-    
+
     # categorical
     categorical_features       = categorical_features,
     handle_unknown_categorical = True,
     combine_rare_levels        = True,
     rare_level_threshold       = 0.005,
-    
+
     # ordinal
     ordinal_features           = ordinal_features,
-    
+
     # numeric
     numeric_features           = numeric_features,
-    
+
     # k-fold
     fold_strategy              = "stratifiedkfold",
     fold                       = 5,
-    
+
     # experiment logging
     n_jobs                     = 1,
     session_id                 = 123,
     log_experiment             = True,
     experiment_name            = "email_lead_scoring_0",
-    
+
     # silent: turns off asking if data types infered correctly
     silent                     = False
 )
@@ -116,7 +116,6 @@ clf.get_config("y_test")
 # - Extract Scikit learn Pipeline
 pipeline = clf.get_config("prep_pipe")
 
-
 # - Check difference in columns
 pipeline.fit(df)
 
@@ -127,7 +126,6 @@ pipeline.fit(df)
 
 # - Available Models
 clf.models()
-
 
 # - Running All Available Models
 best_models = clf.compare_models(
@@ -165,30 +163,30 @@ best_model_2_finalized = clf.finalize_model(best_models[2])
 
 
 # - Save / load model
-os.mkdir("models")
+# os.mkdir("models")
 
 clf.save_model(
     model      = best_model_0_finalized,
-    model_name = "models/best_model_0"
+    model_name = "models/pycaret/best_model_0_finalized"
 )
 
 clf.save_model(
     model      = best_model_1_finalized,
-    model_name = "models/best_model_1"
+    model_name = "models/best_model_1_finalized"
 )
 
 clf.save_model(
     model      = best_model_2_finalized,
-    model_name = "models/best_model_2"
+    model_name = "models/best_model_2_finalized"
 )
 
-clf.load_model("models/best_model_0")
+clf.load_model("models/best_model_0_finalized")
 
 # ========================================================================
 # 4.0 PLOTTING MODEL PERFORMANCE -----
 # ========================================================================
 
-# Get all plots 
+# Get all plots
 # - Note that this can take a long time for certain plots
 # - May want to just plot individual (see that next)
 clf.evaluate_model(best_model_0_finalized)
@@ -271,7 +269,7 @@ xgb_model_tuned = clf.tune_model(
     optimize  = "AUC"
 )
 
-# - Finalize tuned model 
+# - Finalize tuned model
 gbc_model_model_tuned_finalized = clf.finalize_model(gbc_model_tuned)
 
 catboost_model_tuned_finalized = clf.finalize_model(catboost_model_tuned)
@@ -325,28 +323,28 @@ clf.interpret_model(catboost_model_tuned, plot = "summary")
 clf.interpret_model(lgbm_model_tuned, plot = "summary")
 
 
-# - 2. Analyze Specific Features 
+# - 2. Analyze Specific Features
 
 # -- Our Exploratory Function
 els.explore_sales_by_category(
-    leads_df, 
-    'member_rating', 
+    leads_df,
+    'member_rating',
     sort_by='prop_in_group'
 )
 
 # -- Correlation Plot
 clf.interpret_model(
-    estimator = catboost_model_tuned, 
+    estimator = catboost_model_tuned,
     plot      = "correlation",
-    feature   = "optin_days"    
+    feature   = "optin_days"
 )
 
 # -- Partial Dependence Plot
 clf.interpret_model(
-    estimator = best_models[1], 
+    estimator = best_models[1],
     plot      = "pdp",
     feature   = "member_rating",
-    ice       = True    
+    ice       = True
 )
 
 
@@ -355,25 +353,25 @@ leads_df.iloc[[0]]
 
 # Shap Force Plot
 clf.interpret_model(
-    estimator    = catboost_model_tuned, 
+    estimator    = catboost_model_tuned,
     plot         = "reason",
     X_new_sample = leads_df.iloc[[0]]
 )
 
 clf.interpret_model(
-    estimator    = catboost_model_tuned, 
+    estimator    = catboost_model_tuned,
     plot         = "reason",
     X_new_sample = leads_df.iloc[[11]]
 )
 
 clf.interpret_model(
-    estimator    = xgb_model_tuned, 
+    estimator    = xgb_model_tuned,
     plot         = "reason",
     X_new_sample = leads_df.iloc[[0]]
 )
 
 clf.interpret_model(
-    estimator    = xgb_model_tuned, 
+    estimator    = xgb_model_tuned,
     plot         = "reason",
     X_new_sample = leads_df.iloc[[11]]
 )
@@ -383,7 +381,7 @@ clf.plot_model(catboost_model_tuned, plot =  "feature")
 
 clf.plot_model(xgb_model_tuned, plot =  "feature")
 
-# 5. Gain 
+# 5. Gain
 clf.plot_model(catboost_model_tuned, plot =  "gain")
 
 clf.plot_model(catboost_model_tuned, plot =  "lift")
