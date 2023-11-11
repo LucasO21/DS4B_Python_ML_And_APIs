@@ -4,26 +4,30 @@
 # PART 1: COST VS SAVINGS TRADEOFF & ESTIMATE
 # ----
 
+# *************************************************************************
 # LIBRARIES -----
+# *************************************************************************
 
 import pandas as pd
 import numpy as np
 import email_lead_scoring as els
 
+# *************************************************************************
 # RECAP ----
+# *************************************************************************
 
 leads_df = els.db_read_and_process_els_data()
 
 leads_scored_df = els.model_score_leads(
-    data = leads_df,
-    model_path = "models/xgb_model_tuned_finalized"
+    data       = leads_df,
+    model_path = "models/pycaret/blended_tuned_models_calibrated_finalized"
 )
 
 # Optional (MLFlow)
-leads_scored_df_2 = els.mlflow_score_leads(
-    data=leads_df,
-    run_id = els.mlflow_get_best_run('automl_lead_scoring_1')
-)
+# leads_scored_df_2 = els.mlflow_score_leads(
+#     data=leads_df,
+#     run_id = els.mlflow_get_best_run('automl_lead_scoring_1')
+# )
 
 # REVIEW COSTS ----
 

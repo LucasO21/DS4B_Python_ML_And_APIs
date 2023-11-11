@@ -46,10 +46,10 @@ def cost_calc_monthly_cost_table(
     cost_table_df = cost_table_df \
         .assign(email_size_no_growth=np.repeat(email_list_size, n_periods)) \
         .assign(lost_customers_no_growth=lambda x: x["email_size_no_growth"] * unsub_rate_per_sales_email * sales_emails_per_month * customer_conversion_rate) \
-        .assign(cost_no_growth=lambda x: x["lost_customers_no_growth"] * customer_conversion_rate * average_customer_value) \
+        .assign(cost_no_growth=lambda x: x["lost_customers_no_growth"] * average_customer_value) \
         .assign(email_size_with_growth=lambda x: x["email_size_no_growth"] * ((1 + email_list_growth_rate) ** x["period"])) \
         .assign(lost_customers_with_growth=lambda x: x["email_size_with_growth"] * unsub_rate_per_sales_email * sales_emails_per_month * customer_conversion_rate) \
-        .assign(cost_with_growth=lambda x: x["lost_customers_with_growth"] * customer_conversion_rate * average_customer_value)
+        .assign(cost_with_growth=lambda x: x["lost_customers_with_growth"] * average_customer_value)
 
     return cost_table_df
 
