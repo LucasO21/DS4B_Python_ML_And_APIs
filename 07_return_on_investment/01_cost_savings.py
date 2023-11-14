@@ -161,37 +161,63 @@ sales_per_email_sent = avg_sales_per_month / avg_sales_emails_per_month
 # *************************************************************************
 
 # 3.1 [Savings] Cold That Are Not Targeted
+# - Savings per month by NOT targeting people that were not ready to buy
+savings_cold_no_target = (
+	cold_lead_count
+		* (sales_emails_per_month * unsub_rate_per_sales_email)
+		* (customer_conversion_rate * avg_customer_value)
+		* sample_factor
 
-
+)
 
 # 3.2 [Cost] Missed Sales That Are Not Targeted
+# - Missed Sales per month by NOT targeting people that were not ready to buy
+missed_purchase_ratio = missed_purchases / (missed_purchases + made_purchases)
 
+cost_missed_purchases = (sales_per_email_sent * sales_emails_per_month * missed_purchase_ratio)
 
 
 # 3.3 [Cost] Hot Leads Targeted That Unsubscribe
-
+cost_hot_target_but_unsub = (
+	hot_lead_count
+		* sales_emails_per_month * unsub_rate_per_sales_email
+		* customer_conversion_rate * avg_customer_value
+		* sample_factor
+)
 
 
 # 3.4 [Savings] Sales Achieved
+made_purchase_ratio = made_purchases / (missed_purchases + made_purchases)
+
+savings_made_purchases = (sales_per_email_sent * sales_emails_per_month * made_purchase_ratio)
 
 
-
+# *************************************************************************
 # 4.0 FINAL EXPECTED VALUE TO REPORT TO MANAGEMENT
+# *************************************************************************
 
 # 4.1 Expected Monthly Sales (Realized)
+# - Initial sales go down. Over the next 60 - 90 days sales improve as we norture leads
+savings_made_purchases
 
 
 # 4.2 Expected Monthly Value (Unrealized because of delayed nuture effect)
+ev = savings_made_purchases + savings_cold_no_target - cost_missed_purchases
 
 
 # 4.3 Expected Monthly Savings (Unrealized until nurture takes effect)
+es = savings_cold_no_target - cost_missed_purchases
 
 
 # 4.4 Expected Saved Customers (Unrealized until nuture takes effect)
+esc = savings_cold_no_target / avg_customer_value
 
 
 # 4.5 EXPECTED VALUE SUMMARY OUTPUT
-
+print(f"Expected Value: {'${:,.0f}'.format(ev)}")
+print(f"Expected Savings: {'${:,.0f}'.format(es)}")
+print(f"Monthly Sales: {'${:,.0f}'.format(savings_made_purchases)}")
+print(f"Saved Customers: {'${:,.0f}'.format(esc)}")
 
 
 
