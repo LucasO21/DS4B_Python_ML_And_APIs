@@ -23,8 +23,8 @@ categories: [predictive analytics, marketing analytics]
 
 # Modeling
 
-::: {.callout-note title="BSPF Phase: Modeling"}
-This section is part of **Encode Algorithms** under the **Modeling** Phase of the BSPF
+::: {.callout-note title="BSPF Phase: Encode Algorithms"}
+This section is part of **Step 1: Developing Alogrithims** under the **Encode Algorithms** Phase of the BSPF
 :::
 
 This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the [Pycaret](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis) python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
@@ -151,3 +151,19 @@ PyCaret, can be seamlessly integrated with MLflow to leverage its powerful exper
 ![Finalized Model Detail](modelling_png/mlflow/detail.png){width=100% fig-align="center" .shaded-border}
 
 In this project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.
+
+
+---
+
+# ROI
+
+::: {.callout-note title="BSPF Phase: Encode Algorithms"}
+This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** Phase of the BSPF
+:::
+
+In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model's prediction. This process us further sub-divided into 2 phases;
+
+1. Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model.
+2. Optimize the threshold for maximum efficiency and ROI.
+
+Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.

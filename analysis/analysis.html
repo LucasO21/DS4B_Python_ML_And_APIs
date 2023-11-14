@@ -133,6 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-mlflow" id="toc-what-is-mlflow" class="nav-link" data-scroll-target="#what-is-mlflow"><span class="header-section-number">2.1</span> What is MLflow?</a></li>
   <li><a href="#integrating-mlflow-with-pycaret" id="toc-integrating-mlflow-with-pycaret" class="nav-link" data-scroll-target="#integrating-mlflow-with-pycaret"><span class="header-section-number">2.2</span> Integrating MLflow with PyCaret</a></li>
   </ul></li>
+  <li><a href="#roi" id="toc-roi" class="nav-link" data-scroll-target="#roi"><span class="header-section-number">3</span> ROI</a></li>
   </ul>
 </nav>
 </div>
@@ -143,17 +144,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="modeling" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Modeling</h1>
-<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Modeling">
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Encode Algorithms">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-BSPF Phase: Modeling
+BSPF Phase: Encode Algorithms
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section is part of <strong>Encode Algorithms</strong> under the <strong>Modeling</strong> Phase of the BSPF</p>
+<p>This section is part of <strong>Step 1: Developing Alogrithims</strong> under the <strong>Encode Algorithms</strong> Phase of the BSPF</p>
 </div>
 </div>
 <p>This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the <a href="https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis">Pycaret</a> python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.</p>
@@ -243,7 +244,7 @@ Model Metrics (Catboost)
 <p>The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature’s SHAP value, with longer bars indicating a larger impact on the prediction.</p>
 <p>The color of the bar indicates the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.</p>
 <p>In this case, we can see that features like <code>tag_count</code> of 6, <code>tag_learning_lab_22</code> and <code>tag_learning_lab_2</code> positively impact the prediction while <code>member_rating</code> of 1 and <code>country_code_IN</code> negatively impact the prediction.</p>
-<p>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score(probability) of 0.9;</p>
+<p>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score (probability) of 0.9;</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="modelling_png/best_model_1/shap_instance_1.png" class="shaded-border img-fluid figure-img" style="width:90.0%"></p>
@@ -282,7 +283,7 @@ Model Metrics (Catboost)
 </tr>
 </tbody>
 </table>
-<p>Ensemble models demonstrates the complementary nature of individual models and their ability to collectively improve the accuracy of lead scoring.</p>
+<p>This ensemble method showcases how combining individual models can enhance overall predictive accuracy, particularly in complex tasks like lead scoring.</p>
 <hr>
 <p>In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model’s overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model’s performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.</p>
 <hr>
@@ -327,10 +328,33 @@ BSPF Phase: Modeling
 <figcaption class="figure-caption">Finalized Model Detail</figcaption>
 </figure>
 </div>
-<p>In project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</p>
+<p>In this project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</p>
+<hr>
+</section>
+</section>
+<section id="roi" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> ROI</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Encode Algorithms">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BSPF Phase: Encode Algorithms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section is part of <strong>Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit</strong> under the <strong>Encode Algorithms</strong> Phase of the BSPF</p>
+</div>
+</div>
+<p>In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model’s prediction. This process us further sub-divided into 2 phases;</p>
+<ol type="1">
+<li>Identifying a threshold for which to categorize customers as <strong>Hot-Leads</strong> or <strong>Cold-Leads</strong> based on the their score from the model.</li>
+<li>Optimize the threshold for maximum efficiency and ROI.</li>
+</ol>
+<p>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads or Cold-Leads. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads.</p>
 <!-- -->
 
-</section>
 </section>
 
 </main>
@@ -644,8 +668,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu"># Modeling</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Modeling"}</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>This section is part of **Encode Algorithms** under the **Modeling** Phase of the BSPF</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Encode Algorithms"}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>This section is part of **Step 1: Developing Alogrithims** under the **Encode Algorithms** Phase of the BSPF</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based features identified and engineered in previous sections. Therefore this is a binary classification problem1. For modeling, we use the <span class="co">[</span><span class="ot">Pycaret</span><span class="co">](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/blob/main/analysis)</span> python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.</span>
@@ -713,7 +737,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>In this case, we can see that features like <span class="in">`tag_count`</span> of 6, <span class="in">`tag_learning_lab_22`</span> and <span class="in">`tag_learning_lab_2`</span>  positively impact the prediction while <span class="in">`member_rating`</span> of 1 and <span class="in">`country_code_IN`</span> negatively impact the prediction.</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score(probability) of 0.9;</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score (probability) of 0.9;</span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="al">![](modelling_png/best_model_1/shap_instance_1.png)</span>{width=90% fig-align="center" .shaded-border}</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
@@ -736,7 +760,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>: Ensemble AUC of **0.8020** vs Individual Models</span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>Ensemble models  demonstrates the complementary nature of individual models and their ability to collectively improve the accuracy of lead scoring.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>This ensemble method showcases how combining individual models can enhance overall predictive accuracy, particularly in complex tasks like lead scoring.</span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
@@ -771,7 +795,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="al">![Finalized Model Detail](modelling_png/mlflow/detail.png)</span>{width=100% fig-align="center" .shaded-border}</span>
 <span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>In project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>In this project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="fu"># ROI</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Encode Algorithms"}</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** Phase of the BSPF</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model's prediction. This process us further sub-divided into 2 phases;</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score from the model.</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Optimize the threshold for maximum efficiency and ROI.</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads or Cold-Leads. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
