@@ -51,7 +51,7 @@ def lead_make_strategy(
     # make the strategy
     strategy_df = (
         leads_ranked_df
-        .assign(category=lambda x: np.where(x['gain'] <= thresh, 'Hot-Lead', 'Cold-Lead'))
+        	.assign(category=lambda x: np.where(x['gain'] <= thresh, 'Hot-Lead', 'Cold-Lead'))
     )
 
     if for_marketing_team:
@@ -223,14 +223,82 @@ lead_make_strategy(
 
 
 
-# ------------------------------------------------------------------------------------------------ #
-#                          4.0 OPTIMIZE THE THRESHOLD AND GENERATE A TABLE                         #
-# ------------------------------------------------------------------------------------------------ #
+# -------------------------------------------------------------------------------------------- #
+#                          4.0 OPTIMIZE THE THRESHOLD AND GENERATE A TABLE                     #
+# -------------------------------------------------------------------------------------------- #
 #  lead_strategy_create_thresh_table()
 
+def lead_strategy_create_thresh_table(
+	data,
+    thresh = np.linspace(0, 1, num = 100),
+	email_list_size = 100000,
+	unsub_rate_per_sales_email = 0.005,
+	sales_emails_per_month = 5,
+	avg_sales_per_month = 250000,
+	avg_sales_emails_per_month = 5,
+	customer_conversion_rate = 0.05,
+	avg_customer_value = 2000,
+	highlight_max = True,
+	highlight_max_color = "yellow",
+	verbose = False
+):
+    # Thereshold Table
+    thresh_df = pd.Series(thresh, name = "thresh").to_frame()
+
+    # List Comp
+    #[tup[0] for tup in zip(thresh_df['thresh'])]
+
+    sim_results_list = [
+		lead_make_strategy(
+			data = data,
+			thresh = tup[0],
+			verbose = verbose
+		) \
+			.pipe(
+				lead_aggregate_strategy_results
+    		) \
+			.pipe(
+				lead_strategy_calc_expected_value,
+				email_list_size = email_list_size,
+				unsub_rate_per_sales_email = unsub_rate_per_sales_email,
+				sales_emails_per_month = sales_emails_per_month,
+				avg_sales_per_month = avg_sales_per_month,
+				avg_sales_emails_per_month = avg_sales_emails_per_month,
+				customer_conversion_rate = customer_conversion_rate,
+				avg_customer_value = avg_customer_value,
+				verbose = verbose,
+			)
+		for tup in zip(thresh_df['thresh'])
+	]
+
+    # List to Frame
+    sim_results_df = pd.Series(sim_results_list, name = 'sim_results').to_frame()
+
+    sim_results_df = sim_results_df['sim_results'].apply(pd.Series)
+
+    thresh_optim_df = pd.concat([thresh_df, sim_results_df], axis = 1)
+
+    # Highlighting
+    if highlight_max:
+        thresh_optim_df = thresh_optim_df.style.highlight_max(
+			color = highlight_max_color,
+			axis = 0
+		)
+
+    # Return
+    return thresh_optim_df
+
+# -------------------------------------------------------------------------------------- #
 
 
 # Workflow:
+lead_strategy_create_thresh_table(
+    data = leads_scored_df,
+    highlight_max_color = "green",
+    verbose = True
+)
+
+
 
 
 
