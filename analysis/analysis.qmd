@@ -163,7 +163,34 @@ This section is part of **Step 2: Tie Financial Value of Individual Decisions to
 
 In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model's prediction. This process us further sub-divided into 2 phases;
 
-1. Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model.
+1. Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.
+
 2. Optimize the threshold for maximum efficiency and ROI.
 
 Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.
+
+
+## Initial Threshold & Cost Savings
+This step involved calculating the [cumulative gain]() of our machine learning model. to enhance our return on investment (ROI). Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.
+
+The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold;
+
+|   **Category**       | **Total Customers** | **Made Purchase**  |
+|-----------------------:------------------- |:-------------------|
+| Cold-Lead             | 5528               | 49                |
+| Hot-Lead              | 14691              | 913               |
+
+: Hot / Cold Lead Categorization (95% Gain Threshold)
+
+This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.
+
+### Expected Value (Cost vs Savings)
+The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails. Note: These values are based on assumptions stated in the earlier [cost assessment]().
+
+|                       | **Old Strategy** | **New Strategy** | **Delta**           |
+|---------------------- |:----------------:|:----------------:|:-------------------:|
+| Monthly Sales         | $250,000         | $237,266         | <span style="color:red;">(5%)</span> |
+
+
+
+: Estimated Change in Monthly Revenue (Old vs New Strategy)

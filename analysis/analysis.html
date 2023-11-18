@@ -133,7 +133,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-mlflow" id="toc-what-is-mlflow" class="nav-link" data-scroll-target="#what-is-mlflow"><span class="header-section-number">2.1</span> What is MLflow?</a></li>
   <li><a href="#integrating-mlflow-with-pycaret" id="toc-integrating-mlflow-with-pycaret" class="nav-link" data-scroll-target="#integrating-mlflow-with-pycaret"><span class="header-section-number">2.2</span> Integrating MLflow with PyCaret</a></li>
   </ul></li>
-  <li><a href="#roi" id="toc-roi" class="nav-link" data-scroll-target="#roi"><span class="header-section-number">3</span> ROI</a></li>
+  <li><a href="#roi" id="toc-roi" class="nav-link" data-scroll-target="#roi"><span class="header-section-number">3</span> ROI</a>
+  <ul class="collapse">
+  <li><a href="#initial-threshold-cost-savings" id="toc-initial-threshold-cost-savings" class="nav-link" data-scroll-target="#initial-threshold-cost-savings"><span class="header-section-number">3.1</span> Initial Threshold &amp; Cost Savings</a>
+  <ul class="collapse">
+  <li><a href="#expected-value-cost-vs-savings" id="toc-expected-value-cost-vs-savings" class="nav-link" data-scroll-target="#expected-value-cost-vs-savings"><span class="header-section-number">3.1.1</span> Expected Value (Cost vs Savings)</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -349,12 +355,50 @@ BSPF Phase: Encode Algorithms
 </div>
 <p>In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model’s prediction. This process us further sub-divided into 2 phases;</p>
 <ol type="1">
-<li>Identifying a threshold for which to categorize customers as <strong>Hot-Leads</strong> or <strong>Cold-Leads</strong> based on the their score from the model.</li>
-<li>Optimize the threshold for maximum efficiency and ROI.</li>
+<li><p>Identifying a threshold for which to categorize customers as <strong>Hot-Leads</strong> or <strong>Cold-Leads</strong> based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.</p></li>
+<li><p>Optimize the threshold for maximum efficiency and ROI.</p></li>
 </ol>
-<p>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads or Cold-Leads. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads.</p>
+<p>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.</p>
+<section id="initial-threshold-cost-savings" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="initial-threshold-cost-savings"><span class="header-section-number">3.1</span> Initial Threshold &amp; Cost Savings</h2>
+<p>This step involved calculating the <a href="">cumulative gain</a> of our machine learning model. Here the predictions are sorted based on the model’s score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of <strong>0.95</strong> is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</p>
+<p>The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold;</p>
+<p>&nbsp;&nbsp;<strong>Category</strong> | <strong>Total Customers</strong> | <strong>Made Purchase</strong> |</p>
+<p>|———————–:——————- |:——————-| | Cold-Lead | 5528 | 49 | | Hot-Lead | 14691 | 913 |</p>
+<p>: Hot / Cold Lead Categorization (95% Gain Threshold)</p>
+<p>The result of this strategy is that instead of our previous strategy where we target all customers with sales emails, we now only focus on sending sales emails to the hot leads, while nurturing cold leads, whom we’ll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the <strong>Cold-Lead</strong> row in the table above, we can see that 5528 or (X%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</p>
+<section id="expected-value-cost-vs-savings" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="expected-value-cost-vs-savings"><span class="header-section-number">3.1.1</span> Expected Value (Cost vs Savings)</h3>
+<p>The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails;</p>
+<table class="table">
+<caption>Estimated Change in Monthly Revenue (Old vs New Strategy)</caption>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><strong>Old Strategy</strong></th>
+<th style="text-align: center;"><strong>New Strategy</strong></th>
+<th style="text-align: center;"><strong>Delta</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Monthly Sales</td>
+<td style="text-align: center;">$250,000</td>
+<td style="text-align: center;">$237,266</td>
+<td style="text-align: center;"><span style="color:red;">-5%</span></td>
+</tr>
+</tbody>
+</table>
 <!-- -->
 
+</section>
+</section>
 </section>
 
 </main>
@@ -808,10 +852,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model's prediction. This process us further sub-divided into 2 phases;</span>
 <span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score from the model.</span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Optimize the threshold for maximum efficiency and ROI.</span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads or Cold-Leads. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Optimize the threshold for maximum efficiency and ROI.</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Initial Threshold &amp; Cost Savings</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>This step involved calculating the <span class="co">[</span><span class="ot">cumulative gain</span><span class="co">]()</span> of our machine learning model. Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold;</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>|   **Category**       | **Total Customers** | **Made Purchase**  |</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>|-----------------------:------------------- |:-------------------|</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>| Cold-Lead             | 5528               | 49                |</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>| Hot-Lead              | 14691              | 913               |</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>: Hot / Cold Lead Categorization (95% Gain Threshold)</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>The result of this strategy is that instead of our previous strategy where we target all customers with sales emails, we now only focus on sending sales emails to the hot leads, while nurturing cold leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 or (X%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="fu">### Expected Value (Cost vs Savings)</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails;</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>|                       | **Old Strategy** | **New Strategy** | **Delta**           |</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>|---------------------- |:----------------:|:----------------:|:-------------------:|</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>| Monthly Sales         | $250,000         | $237,266         | <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red;"</span><span class="kw">&gt;</span>-5%<span class="kw">&lt;/span&gt;</span> |</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>: Estimated Change in Monthly Revenue (Old vs New Strategy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
