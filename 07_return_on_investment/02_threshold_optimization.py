@@ -14,6 +14,7 @@ import plotly.express as px
 import email_lead_scoring as els
 
 
+
 # ---------------------------------------------------------------------------- #
 #                                  RECAP                                       #
 # ---------------------------------------------------------------------------- #
@@ -292,51 +293,300 @@ def lead_strategy_create_thresh_table(
 
 
 # Workflow:
-lead_strategy_create_thresh_table(
+data = lead_strategy_create_thresh_table(
     data = leads_scored_df,
     highlight_max_color = "green",
     verbose = True
 )
 
+# data = lead_strategy_create_thresh_table(
+#     data = leads_scored_df,
+#     highlight_max_color = "green",
+#     verbose = True
+# )
 
 
 
-
-# 5.0 SELECT THE BEST THRESHOLD
+# -------------------------------------------------------------------------------------- #
+#                              5.0 DETERMINE THE BEST THRESHOLD                             #
+# -------------------------------------------------------------------------------------- #
 #  def lead_select_optimum_thresh()
 
+def lead_select_optimum_thresh(
+	data,
+	optim_col = 'expected_value',
+	monthly_sales_reduction_safe_guard = 0.90,
+	verbose = False
+):
+
+    # Handle Styler Object
+    try:
+        data = data.data
+    except:
+        data = data
+
+    # Find Optim
+    _filter_1 = data[optim_col] == data[optim_col].max()
+
+    # Find Safeguard
+    _filter_2 = data['monthly_sales'] >= monthly_sales_reduction_safe_guard * data['monthly_sales'].max()
+
+    # Test if optim is in the safegard range
+    if (all(_filter_1 + _filter_2 == _filter_2)):
+        _filter = _filter_1
+    else:
+        _filter = _filter_2
+
+    # Apply Filter
+    thresh_selected = data[_filter].head(1)
+
+    # Values
+    ret = thresh_selected['thresh'].values[0]
+
+    # Verbose
+    if (verbose):
+        print(f'Optimal threshold: {ret}')
+
+    # Return
+    return ret
+
+# ---- End Function ---- #
+
+
+
 
 
 # Workflow
+thresh_optim_df = lead_strategy_create_thresh_table(
+    data                = leads_scored_df,
+    highlight_max_color = "green",
+    verbose             = True
+)
+
+thresh_optim = lead_select_optimum_thresh(
+	data = thresh_optim_df,
+	monthly_sales_reduction_safe_guard = 0.85
+)
 
 
 
-# 6.0 GET EXPECTED VALUE RESULTS ----
+# -------------------------------------------------------------------------------------- #
+#                             6.0 GET EXPECTED VALUE RESULTS                             #
+# -------------------------------------------------------------------------------------- #
 #  def lead_get_expected_value()
 
+def lead_get_expected_value(data = thresh_optim_df, verbose = False, threshold = None):
+
+     # Handle Styler Object
+    try:
+        data = data.data
+    except:
+        data = data
+
+    # Expected Value Table
+    df = data[data.thresh >= threshold].head(1)
+
+    # Verbose
+    if verbose:
+        print("Expected Value Table:")
+        print(df)
+
+    # Return
+    return df
+
+# ---- End Function ---- #
 
 
+# workflow
+lead_get_expected_value(
+	data = thresh_optim_df,
+	threshold = lead_select_optimum_thresh(
+		data = thresh_optim_df,
+	monthly_sales_reduction_safe_guard = 0.90
+	)
+)
 
-# 7.0 PLOT THE OPTIMAL THRESHOLD ----
+
+# -------------------------------------------------------------------------------------- #
+#                             7.0 PLOT THE OPTIMAL THRESHOLD                             #
+# -------------------------------------------------------------------------------------- #
 #  def lead_plot_optim_thresh()
 
+fig = px.line(
+	data,
+	x = 'thresh',
+	y = 'expected_value'
+)
+
+fig.add_hline(y = 0, line_color = 'black')
+
+fig.add_vline(
+    x = lead_select_optimum_thresh(data),
+    line_color = 'red',
+    line_dash = 'dash'
+)
+
+def lead_plot_optim_thresh(
+    data = thresh_optim_df,
+    optim_col = 'expected_value',
+    monthly_sales_reduction_safe_guard = 0.90,
+    verbose = False
+):
+
+    # Handle Styler Object
+    try:
+        data = data.data
+    except:
+        data = data
+
+    # Make Plot
+    fig = px.line(
+		data,
+		x = 'thresh',
+		y = 'expected_value'
+	)
+
+    fig.add_hline(y = 0, line_color = 'black')
+
+    fig.add_vline(
+		x = lead_select_optimum_thresh(
+			data = data,
+			optim_col = optim_col,
+			monthly_sales_reduction_safe_guard = monthly_sales_reduction_safe_guard
+		),
+		line_color = 'red',
+		line_dash = 'dash'
+	)
+
+    # Verbose
+    if verbose:
+        print('Plot created')
+
+    # Return
+    return fig
+
+# ---- End Function ---- #
 
 
 # Workflow
+lead_plot_optim_thresh(
+	data = thresh_optim_df,
+	optim_col = 'expected_value',
+	monthly_sales_reduction_safe_guard = 0.88,
+	verbose = True
+)
 
 
 
-# 8.0 MAKE THE OPTIMAL STRATEGY ----
-
-
+# -------------------------------------------------------------------------------------- #
+#                              8.0 MAKE THE OPTIMAL STRATEGY                             #
+# -------------------------------------------------------------------------------------- #
 
 # FINAL OPTIMIZATION RESULTS ----
 # - Use one function to perform the automation and collect the results
 #   def lead_score_strategy_optimization()
 
+def lead_score_strategy_optimization(
+    data,
+
+    thresh = np.linspace(0, 1, num = 100),
+    optim_col = 'expected_value',
+	monthly_sales_reduction_safe_guard = 0.90,
+	for_marketing_team = True,
+
+	email_list_size = 100000,
+	unsub_rate_per_sales_email = 0.005,
+	sales_emails_per_month = 5,
+	avg_sales_per_month = 250000,
+	avg_sales_emails_per_month = 5,
+	customer_conversion_rate = 0.05,
+	avg_customer_value = 2000,
+	highlight_max = True,
+	highlight_max_color = "green",
+
+	verbose = False
+
+):
+
+    # Lead Strategy Create Thresh Table
+    thresh_optim_df = lead_strategy_create_thresh_table(
+		data = data,
+		thresh = thresh,
+  		email_list_size = email_list_size,
+		unsub_rate_per_sales_email = unsub_rate_per_sales_email,
+		sales_emails_per_month = sales_emails_per_month,
+		avg_sales_per_month = avg_sales_per_month,
+		avg_sales_emails_per_month = avg_sales_emails_per_month,
+		customer_conversion_rate = customer_conversion_rate,
+		avg_customer_value = avg_customer_value,
+		highlight_max = highlight_max,
+		highlight_max_color = highlight_max_color,
+		verbose = verbose
+
+	)
+
+    # Lead Select Optimum Thresh
+    thresh_optim = lead_select_optimum_thresh(
+		data = thresh_optim_df,
+		optim_col = optim_col,
+		monthly_sales_reduction_safe_guard = monthly_sales_reduction_safe_guard,
+		verbose = verbose
+	)
+
+    # Expected Value
+    expected_value = lead_get_expected_value(
+		data = thresh_optim_df,
+		threshold = thresh_optim,
+		verbose = verbose
+	)
+
+    # Lead Plot
+    thresh_plot = lead_plot_optim_thresh(
+		data = thresh_optim_df,
+		optim_col = optim_col,
+		monthly_sales_reduction_safe_guard = monthly_sales_reduction_safe_guard,
+		verbose = verbose
+	)
+
+    # Re-Calculate Lead Strategy
+    lead_strategy_df = lead_make_strategy(
+		data = data,
+		thresh = thresh_optim,
+		for_marketing_team = for_marketing_team,
+		verbose = verbose
+	)
+
+    # Return Dictionary
+    ret = dict(
+		lead_strategy_df = lead_strategy_df,
+		expected_value = expected_value,
+		thresh_optim_df = thresh_optim_df,
+		thresh_plot = thresh_plot
+	)
+
+    # Return
+    return ret
+
+    # ---- End Function ---- #
+
 
 
 # Workflow
+optimization_results_dict = lead_score_strategy_optimization(
+	data = leads_scored_df,
+	monthly_sales_reduction_safe_guard = 0.90,
+	verbose = True
+)
+
+optimization_results_dict.keys()
+
+optimization_results_dict['lead_strategy_df']
+
+optimization_results_dict['expected_value']
+
+optimization_results_dict['thresh_optim_df']
+
+optimization_results_dict['thresh_plot']
 
 
 
