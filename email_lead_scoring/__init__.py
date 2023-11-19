@@ -20,11 +20,16 @@ from .database import (
 
 from .exploratory import (
     explore_sales_by_numeric,
-    explore_sales_by_category    
+    explore_sales_by_category
 )
 
 from .modeling import (
     model_score_leads,
     mlflow_get_best_run,
     mlflow_score_leads
+)
+
+from .lead_strategy import (
+    lead_score_strategy_optimization,
+    lead_plot_optim_thresh
 )

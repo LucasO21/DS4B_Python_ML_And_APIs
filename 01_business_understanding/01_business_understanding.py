@@ -83,7 +83,7 @@ growth_rate = 3500 / 100000
 100000 * ((1 + growth_rate) ** 12)
 
 
-# Cost Table
+# Cost Table ----
 time = 12
 
 # Period
@@ -96,11 +96,10 @@ cost_table_df["email_size_no_growth"] = np.repeat(email_list_size_1, time)
 
 # Lost Customers - No Growth
 cost_table_df["lost_customers_no_growth"] = cost_table_df["email_size_no_growth"] * \
-    unsub_rate_1 * sales_emails_per_month_1
+    unsub_rate_1 * sales_emails_per_month_1 * conversion_rate_1
 
 # Cost - No Growth
-cost_table_df["cost_no_growth"] = cost_table_df["lost_customers_no_growth"] * \
-    conversion_rate_1 * average_customer_value_1
+cost_table_df["cost_no_growth"] = cost_table_df["lost_customers_no_growth"] * average_customer_value_1
 
 # Email Size - With Growth
 cost_table_df["email_size_with_growth"] = cost_table_df["email_size_no_growth"] * \
@@ -133,13 +132,13 @@ df["Email Size (No Growth)"] = df["email_size_no_growth"].apply(
 
 # Function: Calculate Monthly Unsubscriber Cost Table ----
 def cost_calc_monthly_cost_table(
-    email_list_size=100000,
-    email_list_growth_rate=0.035,
-    sales_emails_per_month=5,
-    unsub_rate_per_sales_email=0.005,
-    customer_conversion_rate=0.05,
-    average_customer_value=2000,
-    n_periods=24
+    email_list_size            = 100000,
+    email_list_growth_rate     = 0.035,
+    sales_emails_per_month     = 5,
+    unsub_rate_per_sales_email = 0.005,
+    customer_conversion_rate   = 0.05,
+    average_customer_value     = 2000,
+    n_periods                  = 12
 ):
 
     # Period
@@ -151,20 +150,20 @@ def cost_calc_monthly_cost_table(
     # No Growth & Growth Scenarios
     cost_table_df = cost_table_df \
         .assign(email_size_no_growth=np.repeat(email_list_size, n_periods)) \
-        .assign(lost_customers_no_growth=lambda x: x["email_size_no_growth"] * unsub_rate_per_sales_email * sales_emails_per_month) \
-        .assign(cost_no_growth=lambda x: x["lost_customers_no_growth"] * customer_conversion_rate * average_customer_value) \
+        .assign(lost_customers_no_growth=lambda x: x["email_size_no_growth"] * unsub_rate_per_sales_email * sales_emails_per_month * customer_conversion_rate) \
+        .assign(cost_no_growth=lambda x: x["lost_customers_no_growth"] * average_customer_value) \
         .assign(email_size_with_growth=lambda x: x["email_size_no_growth"] * ((1 + email_list_growth_rate) ** x["period"])) \
-        .assign(lost_customers_with_growth=lambda x: x["email_size_with_growth"] * unsub_rate_per_sales_email * sales_emails_per_month) \
-        .assign(cost_with_growth=lambda x: x["lost_customers_with_growth"] * customer_conversion_rate * average_customer_value)
+        .assign(lost_customers_with_growth=lambda x: x["email_size_with_growth"] * unsub_rate_per_sales_email * sales_emails_per_month * customer_conversion_rate) \
+        .assign(cost_with_growth=lambda x: x["lost_customers_with_growth"] * average_customer_value)
 
     return cost_table_df
 
 
 cost_calc_monthly_cost_table(
-    email_list_size=50000,
-    sales_emails_per_month=1,
-    unsub_rate_per_sales_email=0.001,
-    n_periods=24
+    email_list_size            = 100000,
+    sales_emails_per_month     = 1,
+    unsub_rate_per_sales_email = 0.005,
+    n_periods                  = 12
 )
 
 
