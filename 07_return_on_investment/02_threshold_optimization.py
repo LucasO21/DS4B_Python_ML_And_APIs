@@ -39,7 +39,9 @@ def lead_make_strategy(
 ):
 
     # Rank Leads
-    leads_ranked_df = data \
+    leads_scored_small_df = data[['user_email', 'Score', 'made_purchase']]
+
+    leads_ranked_df = leads_scored_small_df \
 		.sort_values('Score', ascending = False) \
 		.assign(rank = lambda x: np.arange(0, len(x['made_purchase'])) + 1) \
 		.assign(
@@ -54,7 +56,7 @@ def lead_make_strategy(
 
 	# Format for Marketing
     if for_marketing_team:
-        strategy_for_marketing_df = leads_scored_df \
+        strategy_for_marketing_df = data \
             .merge(
                 right       = strategy_df[['category']],
                 how         = 'left',
