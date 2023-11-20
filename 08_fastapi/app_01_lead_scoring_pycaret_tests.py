@@ -36,14 +36,24 @@ pd.read_json(res.json())
 # -------------------------------------------------------------------------------------- #
 #                              2.0 POST: PASS DATA TO AN API                             #
 # -------------------------------------------------------------------------------------- #
+res = requests.post(
+    url  = "http://127.0.0.1:8000/data",
+    json = sample_data_json
+)
 
-
-
+res.json()
 
 # -------------------------------------------------------------------------------------- #
 #                        3.0 POST: PASS DATA AND MAKE PREDICTIONS                        #
 # -------------------------------------------------------------------------------------- #
+res = requests.post(
+    url  = "http://127.0.0.1:8000/predict",
+    json = sample_data_json
+)
 
+res.json()
+
+pd.DataFrame(res.json())
 
 
 
@@ -51,6 +61,26 @@ pd.read_json(res.json())
 #                           4.0 POST: PASS DATA AND PARAMETERS                           #
 # -------------------------------------------------------------------------------------- #
 #   TO CALCULATE LEAD STRATEGY FOR MARKETING
+res = requests.post(
+    url    = "http://127.0.0.1:8000/calculate_lead_strategy",
+    json   = sample_data_json,
+    params = dict(
+        monthly_sales_reduction_safe_guard = 0.9,
+        for_marketing_team                 = True,
+        email_list_size                    = 100000,
+        unsub_rate_per_sales_email         = 0.005,
+        sales_emails_per_month             = 5,
+        avg_sales_per_month                = 250000,
+        avg_sales_emails_per_month         = 5,
+        customer_conversion_rate           = 0.05,
+        avg_customer_value                 = 2000
+    )
+)
+
+res.json().keys()
+
+pd.read_json(res.json()['thresh_optim_df'])
+
 
 
 
