@@ -194,3 +194,15 @@ The table below is a breakdown of cost vs savings for this new strategy vs our o
 
 
 : Estimated Change in Monthly Revenue (Old vs New Strategy)
+
+
+---
+
+# FAST API (BACKEND DEPLOYMENT)
+
+::: {.callout-note title="BSPF Phase: Deployment"}
+This section is part of the **Backend Deployment** phase of the BSPF.
+:::
+
+This section will be brief as it focuses on the backend deployment phase of the project. The
+goal here is create `get` and `post` API endpoints for our lead scoring application. This API will be used in our Streamlit app and enable management and other stakeholders to explore various lead scoring strategies and their financial implications.
