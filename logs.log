@@ -4360,3 +4360,343 @@
                                reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
 2023-11-19 20:41:33,158:INFO:Checking exceptions
 2023-11-19 20:41:33,158:INFO:Preloading libraries
+2023-11-23 10:39:03,941:INFO:Initializing load_model()
+2023-11-23 10:39:03,941:INFO:load_model(model_name=models/xgb_model_tuned, platform=None, authentication=None, verbose=True)
+2023-11-23 10:43:09,313:INFO:Initializing load_model()
+2023-11-23 10:43:09,314:INFO:load_model(model_name=models/xgb_model_tuned, platform=None, authentication=None, verbose=True)
+2023-11-23 11:08:41,029:INFO:Initializing load_model()
+2023-11-23 11:08:41,029:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:08:41,512:INFO:Initializing predict_model()
+2023-11-23 11:08:41,512:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:08:41,512:INFO:Checking exceptions
+2023-11-23 11:08:41,512:INFO:Preloading libraries
+2023-11-23 11:12:35,866:INFO:Initializing load_model()
+2023-11-23 11:12:35,867:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:12:36,199:INFO:Initializing predict_model()
+2023-11-23 11:12:36,199:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:12:36,199:INFO:Checking exceptions
+2023-11-23 11:12:36,199:INFO:Preloading libraries
+2023-11-23 11:19:58,468:INFO:Initializing load_model()
+2023-11-23 11:19:58,468:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:19:58,864:INFO:Initializing predict_model()
+2023-11-23 11:19:58,865:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:19:58,865:INFO:Checking exceptions
+2023-11-23 11:19:58,866:INFO:Preloading libraries
+2023-11-23 11:24:26,958:INFO:Initializing load_model()
+2023-11-23 11:24:26,962:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:24:27,422:INFO:Initializing predict_model()
+2023-11-23 11:24:27,424:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:24:27,428:INFO:Checking exceptions
+2023-11-23 11:24:27,434:INFO:Preloading libraries
+2023-11-23 11:24:37,626:INFO:Initializing load_model()
+2023-11-23 11:24:37,635:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:24:37,799:INFO:Initializing predict_model()
+2023-11-23 11:24:37,800:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:24:37,820:INFO:Checking exceptions
+2023-11-23 11:24:37,854:INFO:Preloading libraries
+2023-11-23 11:26:40,510:INFO:Initializing load_model()
+2023-11-23 11:26:40,511:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:26:40,748:INFO:Initializing predict_model()
+2023-11-23 11:26:40,748:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:26:40,748:INFO:Checking exceptions
+2023-11-23 11:26:40,749:INFO:Preloading libraries
+2023-11-23 11:38:36,063:INFO:Initializing load_model()
+2023-11-23 11:38:36,064:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:38:36,399:INFO:Initializing predict_model()
+2023-11-23 11:38:36,399:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:38:36,400:INFO:Checking exceptions
+2023-11-23 11:38:36,400:INFO:Preloading libraries
+2023-11-23 11:40:08,327:INFO:Initializing load_model()
+2023-11-23 11:40:08,327:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:40:08,806:INFO:Initializing predict_model()
+2023-11-23 11:40:08,806:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:40:08,806:INFO:Checking exceptions
+2023-11-23 11:40:08,806:INFO:Preloading libraries
+2023-11-23 11:41:13,682:INFO:Initializing load_model()
+2023-11-23 11:41:13,683:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:41:14,199:INFO:Initializing predict_model()
+2023-11-23 11:41:14,199:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:41:14,200:INFO:Checking exceptions
+2023-11-23 11:41:14,200:INFO:Preloading libraries
+2023-11-23 11:44:20,162:INFO:Initializing load_model()
+2023-11-23 11:44:20,163:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:44:20,637:INFO:Initializing predict_model()
+2023-11-23 11:44:20,637:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:44:20,638:INFO:Checking exceptions
+2023-11-23 11:44:20,638:INFO:Preloading libraries
+2023-11-23 11:48:36,657:INFO:Initializing load_model()
+2023-11-23 11:48:36,658:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:48:37,057:INFO:Initializing predict_model()
+2023-11-23 11:48:37,057:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:48:37,057:INFO:Checking exceptions
+2023-11-23 11:48:37,058:INFO:Preloading libraries
+2023-11-23 11:51:06,507:INFO:Initializing load_model()
+2023-11-23 11:51:06,508:INFO:load_model(model_name=models/pycaret/xgb_model_single_tuned_finalized, platform=None, authentication=None, verbose=True)
+2023-11-23 11:51:06,867:INFO:Initializing predict_model()
+2023-11-23 11:51:06,867:INFO:predict_model(estimator=Pipeline(steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['country_code'],
+                                      ml_usecase='classification',
+                                      numerical_features=['tag_count',
+                                                          'tag_count_by_optin_day',
+                                                          'tag_aws_webinar',
+                                                          'tag_learning_lab',
+                                                          'tag_learning_lab_05',
+                                                          'tag_learning_lab_09',
+                                                          'tag_learning_lab_11',
+                                                          'tag_learning_lab_12',
+                                                          'tag_learning_lab_13',
+                                                          'tag_learning_lab_14',
+                                                          'tag_learni...
+                               gamma=0, gpu_id=-1, grow_policy='depthwise',
+                               importance_type=None, interaction_constraints='',
+                               learning_rate=0.5, max_bin=256,
+                               max_cat_to_onehot=4, max_delta_step=0,
+                               max_depth=1, max_leaves=0, min_child_weight=1,
+                               missing=nan, monotone_constraints='()',
+                               n_estimators=100, n_jobs=1, num_parallel_tree=1,
+                               predictor='auto', random_state=123,
+                               reg_alpha=0.0005, reg_lambda=0.5, ...)]]), probability_threshold=None, encoded_labels=False, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.CLASSIFICATION, display=None, drift_kwargs=None)
+2023-11-23 11:51:06,867:INFO:Checking exceptions
+2023-11-23 11:51:06,867:INFO:Preloading libraries
