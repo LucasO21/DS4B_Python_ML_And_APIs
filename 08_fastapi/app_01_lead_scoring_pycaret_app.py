@@ -19,6 +19,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 import json
 import pandas as pd
+import numpy as np
 import email_lead_scoring as els
 
 

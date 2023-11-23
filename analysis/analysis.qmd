@@ -155,7 +155,7 @@ In this project, MLflow will be a valuable asset as the project progresses progr
 
 ---
 
-# ROI
+# Return on Investment (ROI)
 
 ::: {.callout-note title="BSPF Phase: Encode Algorithms"}
 This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** Phase of the BSPF
@@ -198,11 +198,35 @@ The table below is a breakdown of cost vs savings for this new strategy vs our o
 
 ---
 
-# FAST API (BACKEND DEPLOYMENT)
+# Backend Deployment (FastAPI)
 
 ::: {.callout-note title="BSPF Phase: Deployment"}
 This section is part of the **Backend Deployment** phase of the BSPF.
 :::
 
-This section will be brief as it focuses on the backend deployment phase of the project. The
-goal here is create `get` and `post` API endpoints for our lead scoring application. This API will be used in our Streamlit app and enable management and other stakeholders to explore various lead scoring strategies and their financial implications.
+We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of [Application Programming Interfaces](https://en.wikipedia.org/wiki/API) (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.
+
+## API Endpoints
+Our API, developed using [FastAPI](https://fastapi.tiangolo.com/), features several endpoints,
+each serving a specific purpose;
+
+1. Main Endpoint `("/")`
+This is the landing page of our API. It provides users with a welcoming interface and guides them to the API documentation. This endpoint is crucial for user orientation and ease of use.
+
+2. Get Email Subscribers `("/get_email_subscribers")`
+This `GET` endpoint exposes our email subscriber data. When accessed, it returns the data with scored leads in JSON format. It's vital for stakeholders to view and understand the current leads database.
+
+3. Data Reception `("/data")`
+A `POST` endpoint designed to receive data. Users can submit data in JSON format, which is then processed and stored. This endpoint is essential for updating our leads database with new information.
+
+4. Lead Scoring Prediction `("/predict")`
+This `POST` endpoint is the heart of our API. It accepts lead data and returns scored leads, using our proprietary lead scoring models. It enables the application of our predictive model to new or existing data for real-time lead scoring.
+
+5. Lead Scoring Strategy Calculation `("/calculate_lead_strategy")`
+Another `POST` endpoint, it calculates and optimizes lead scoring strategies based on various parameters (e.g., sales reduction safeguard, email list size). This is crucial for strategic decision-making and marketing optimization.
+
+APIs play a pivotal role in the data science lifecycle, especially in the deployment phase. They enable the seamless integration of data science models into business processes, making predictive insights accessible and actionable for decision-makers. APIs facilitate real-time data processing and interaction, which is essential for dynamic and responsive business strategies.
+
+---
+
+

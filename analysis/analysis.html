@@ -133,12 +133,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-mlflow" id="toc-what-is-mlflow" class="nav-link" data-scroll-target="#what-is-mlflow"><span class="header-section-number">2.1</span> What is MLflow?</a></li>
   <li><a href="#integrating-mlflow-with-pycaret" id="toc-integrating-mlflow-with-pycaret" class="nav-link" data-scroll-target="#integrating-mlflow-with-pycaret"><span class="header-section-number">2.2</span> Integrating MLflow with PyCaret</a></li>
   </ul></li>
-  <li><a href="#roi" id="toc-roi" class="nav-link" data-scroll-target="#roi"><span class="header-section-number">3</span> ROI</a>
+  <li><a href="#return-on-investment-roi" id="toc-return-on-investment-roi" class="nav-link" data-scroll-target="#return-on-investment-roi"><span class="header-section-number">3</span> Return on Investment (ROI)</a>
   <ul class="collapse">
   <li><a href="#initial-threshold-cost-savings" id="toc-initial-threshold-cost-savings" class="nav-link" data-scroll-target="#initial-threshold-cost-savings"><span class="header-section-number">3.1</span> Initial Threshold &amp; Cost Savings</a>
   <ul class="collapse">
   <li><a href="#expected-value-cost-vs-savings" id="toc-expected-value-cost-vs-savings" class="nav-link" data-scroll-target="#expected-value-cost-vs-savings"><span class="header-section-number">3.1.1</span> Expected Value (Cost vs Savings)</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#backend-deployment-fastapi" id="toc-backend-deployment-fastapi" class="nav-link" data-scroll-target="#backend-deployment-fastapi"><span class="header-section-number">4</span> Backend Deployment (FastAPI)</a>
+  <ul class="collapse">
+  <li><a href="#api-endpoints" id="toc-api-endpoints" class="nav-link" data-scroll-target="#api-endpoints"><span class="header-section-number">4.1</span> API Endpoints</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -338,8 +342,8 @@ BSPF Phase: Modeling
 <hr>
 </section>
 </section>
-<section id="roi" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> ROI</h1>
+<section id="return-on-investment-roi" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Return on Investment (ROI)</h1>
 <div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Encode Algorithms">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -361,15 +365,15 @@ BSPF Phase: Encode Algorithms
 <p>Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.</p>
 <section id="initial-threshold-cost-savings" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="initial-threshold-cost-savings"><span class="header-section-number">3.1</span> Initial Threshold &amp; Cost Savings</h2>
-<p>This step involved calculating the <a href="">cumulative gain</a> of our machine learning model. Here the predictions are sorted based on the model’s score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of <strong>0.95</strong> is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</p>
+<p>This step involved calculating the <a href="">cumulative gain</a> of our machine learning model. to enhance our return on investment (ROI). Here the predictions are sorted based on the model’s score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of <strong>0.95</strong> is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</p>
 <p>The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold;</p>
 <p>&nbsp;&nbsp;<strong>Category</strong> | <strong>Total Customers</strong> | <strong>Made Purchase</strong> |</p>
 <p>|———————–:——————- |:——————-| | Cold-Lead | 5528 | 49 | | Hot-Lead | 14691 | 913 |</p>
 <p>: Hot / Cold Lead Categorization (95% Gain Threshold)</p>
-<p>The result of this strategy is that instead of our previous strategy where we target all customers with sales emails, we now only focus on sending sales emails to the hot leads, while nurturing cold leads, whom we’ll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the <strong>Cold-Lead</strong> row in the table above, we can see that 5528 or (X%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</p>
+<p>This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we’ll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the <strong>Cold-Lead</strong> row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</p>
 <section id="expected-value-cost-vs-savings" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="expected-value-cost-vs-savings"><span class="header-section-number">3.1.1</span> Expected Value (Cost vs Savings)</h3>
-<p>The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails;</p>
+<p>The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails. Note: These values are based on assumptions stated in the earlier <a href="">cost assessment</a>.</p>
 <table class="table">
 <caption>Estimated Change in Monthly Revenue (Old vs New Strategy)</caption>
 <colgroup>
@@ -391,13 +395,44 @@ BSPF Phase: Encode Algorithms
 <td>Monthly Sales</td>
 <td style="text-align: center;">$250,000</td>
 <td style="text-align: center;">$237,266</td>
-<td style="text-align: center;"><span style="color:red;">-5%</span></td>
+<td style="text-align: center;"><span style="color:red;">(5%)</span></td>
 </tr>
 </tbody>
 </table>
+<hr>
+</section>
+</section>
+</section>
+<section id="backend-deployment-fastapi" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Backend Deployment (FastAPI)</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Deployment">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BSPF Phase: Deployment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section is part of the <strong>Backend Deployment</strong> phase of the BSPF.</p>
+</div>
+</div>
+<p>We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of <a href="https://en.wikipedia.org/wiki/API">Application Programming Interfaces</a> (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.</p>
+<section id="api-endpoints" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="api-endpoints"><span class="header-section-number">4.1</span> API Endpoints</h2>
+<p>Our API, developed using <a href="https://fastapi.tiangolo.com/">FastAPI</a>, features several endpoints, each serving a specific purpose;</p>
+<ol type="1">
+<li><p>Main Endpoint <code>("/")</code> This is the landing page of our API. It provides users with a welcoming interface and guides them to the API documentation. This endpoint is crucial for user orientation and ease of use.</p></li>
+<li><p>Get Email Subscribers <code>("/get_email_subscribers")</code> This <code>GET</code> endpoint exposes our email subscriber data. When accessed, it returns the data with scored leads in JSON format. It’s vital for stakeholders to view and understand the current leads database.</p></li>
+<li><p>Data Reception <code>("/data")</code> A <code>POST</code> endpoint designed to receive data. Users can submit data in JSON format, which is then processed and stored. This endpoint is essential for updating our leads database with new information.</p></li>
+<li><p>Lead Scoring Prediction <code>("/predict")</code> This <code>POST</code> endpoint is the heart of our API. It accepts lead data and returns scored leads, using our proprietary lead scoring models. It enables the application of our predictive model to new or existing data for real-time lead scoring.</p></li>
+<li><p>Lead Scoring Strategy Calculation <code>("/calculate_lead_strategy")</code> Another <code>POST</code> endpoint, it calculates and optimizes lead scoring strategies based on various parameters (e.g., sales reduction safeguard, email list size). This is crucial for strategic decision-making and marketing optimization.</p></li>
+</ol>
+<p>APIs play a pivotal role in the data science lifecycle, especially in the deployment phase. They enable the seamless integration of data science models into business processes, making predictive insights accessible and actionable for decision-makers. APIs facilitate real-time data processing and interaction, which is essential for dynamic and responsive business strategies.</p>
+<hr>
 <!-- -->
 
-</section>
 </section>
 </section>
 
@@ -844,7 +879,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="fu"># ROI</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="fu"># Return on Investment (ROI)</span></span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Encode Algorithms"}</span>
 <span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** Phase of the BSPF</span>
@@ -860,7 +895,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Initial Threshold &amp; Cost Savings</span></span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>This step involved calculating the <span class="co">[</span><span class="ot">cumulative gain</span><span class="co">]()</span> of our machine learning model. Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>This step involved calculating the <span class="co">[</span><span class="ot">cumulative gain</span><span class="co">]()</span> of our machine learning model. to enhance our return on investment (ROI). Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</span>
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold;</span>
 <span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
@@ -871,18 +906,53 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>: Hot / Cold Lead Categorization (95% Gain Threshold)</span>
 <span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>The result of this strategy is that instead of our previous strategy where we target all customers with sales emails, we now only focus on sending sales emails to the hot leads, while nurturing cold leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 or (X%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="fu">### Expected Value (Cost vs Savings)</span></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails;</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails. Note: These values are based on assumptions stated in the earlier <span class="co">[</span><span class="ot">cost assessment</span><span class="co">]()</span>.</span>
 <span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>|                       | **Old Strategy** | **New Strategy** | **Delta**           |</span>
 <span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>|---------------------- |:----------------:|:----------------:|:-------------------:|</span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>| Monthly Sales         | $250,000         | $237,266         | <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red;"</span><span class="kw">&gt;</span>-5%<span class="kw">&lt;/span&gt;</span> |</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>| Monthly Sales         | $250,000         | $237,266         | <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red;"</span><span class="kw">&gt;</span>(5%)<span class="kw">&lt;/span&gt;</span> |</span>
 <span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>: Estimated Change in Monthly Revenue (Old vs New Strategy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>: Estimated Change in Monthly Revenue (Old vs New Strategy)</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="fu"># Backend Deployment (FastAPI)</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Deployment"}</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>This section is part of the **Backend Deployment** phase of the BSPF.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of <span class="co">[</span><span class="ot">Application Programming Interfaces</span><span class="co">](https://en.wikipedia.org/wiki/API)</span> (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## API Endpoints</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>Our API, developed using <span class="co">[</span><span class="ot">FastAPI</span><span class="co">](https://fastapi.tiangolo.com/)</span>, features several endpoints,</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>each serving a specific purpose;</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Main Endpoint <span class="in">`("/")`</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>This is the landing page of our API. It provides users with a welcoming interface and guides them to the API documentation. This endpoint is crucial for user orientation and ease of use.</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Get Email Subscribers <span class="in">`("/get_email_subscribers")`</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>This <span class="in">`GET`</span> endpoint exposes our email subscriber data. When accessed, it returns the data with scored leads in JSON format. It's vital for stakeholders to view and understand the current leads database.</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Data Reception <span class="in">`("/data")`</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>A <span class="in">`POST`</span> endpoint designed to receive data. Users can submit data in JSON format, which is then processed and stored. This endpoint is essential for updating our leads database with new information.</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Lead Scoring Prediction <span class="in">`("/predict")`</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>This <span class="in">`POST`</span> endpoint is the heart of our API. It accepts lead data and returns scored leads, using our proprietary lead scoring models. It enables the application of our predictive model to new or existing data for real-time lead scoring.</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Lead Scoring Strategy Calculation <span class="in">`("/calculate_lead_strategy")`</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>Another <span class="in">`POST`</span> endpoint, it calculates and optimizes lead scoring strategies based on various parameters (e.g., sales reduction safeguard, email list size). This is crucial for strategic decision-making and marketing optimization.</span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>APIs play a pivotal role in the data science lifecycle, especially in the deployment phase. They enable the seamless integration of data science models into business processes, making predictive insights accessible and actionable for decision-makers. APIs facilitate real-time data processing and interaction, which is essential for dynamic and responsive business strategies.</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
