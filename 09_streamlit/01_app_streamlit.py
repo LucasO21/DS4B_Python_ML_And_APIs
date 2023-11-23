@@ -117,27 +117,48 @@ if uploaded_file:
                     avg_customer_value = 2000.0
                 )
             )
-            print(pd.read_json(res.json()["expected_value"]))
+            #print(pd.read_json(res.json()["expected_value"]))
 
 
             # Collect JSON / Convert Data
+            print(res.json().keys())
 
-
+            lead_strategy_df = pd.read_json(res.json()["lead_strategy"])
+            expected_value_df = pd.read_json(res.json()["expected_value"])
+            thresh_optim_table_df = pd.read_json(res.json()["thresh_optim_table"])
 
             # Display Results
-
+            st.success("Success! Lead Scoring is complete. Download the results below.")
 
             # Display Strategy Summary
-
+            st.write("---")
+            st.subheader("Lead Strategy")
+            st.write(expected_value_df)
 
             # Display Expected Value Plot
-
-
+            st.subheader("Expected Value Plot")
+            st.plotly_chart(
+                els.lead_plot_optim_thresh(
+                    data = thresh_optim_table_df,
+                    monthly_sales_reduction_safe_guard = monthly_sales_reduction_safe_guard
+                )
+            )
 
             # Display Sample Lead Strategy
+            st.write("---")
+            st.subheader("Sample of Lead Strategy (First 10 Rows)")
+            st.write(lead_strategy_df.head(10))
 
 
             # Download button - Get lead scoring results
+            st.write("---")
+            st.download_button(
+                label = "Download Lead Scoring Strategy Data",
+                data = lead_strategy_df.to_csv(index = False),
+                file_name = "lead_strategy.csv",
+                mime = "text/cst",
+                key = "download-csv"
+            )
 
 
 
