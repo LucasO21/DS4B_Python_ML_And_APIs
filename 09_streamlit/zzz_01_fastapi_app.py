@@ -84,7 +84,7 @@ async def predict(request: Request):
     # Load model
     leads_scored_df = els.model_score_leads(
         data = leads_df,
-        model_path="models/xgb_model_tuned"
+        model_path="models/pycaret/xgb_model_single_tuned_finalized"
     )
 
     # print(leads_scored_df)

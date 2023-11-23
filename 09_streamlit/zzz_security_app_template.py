@@ -24,7 +24,7 @@ if not st.session_state.authenticated:
     st.title('API Key Authentication')
     user_name = st.text_input("Enter User Name")
     user_input_key = st.text_input("Enter API Key", type="password")
-    
+
     # Store the user name and password in the session state
     st.session_state.user_name = user_name
     st.session_state.user_input_key = user_input_key
