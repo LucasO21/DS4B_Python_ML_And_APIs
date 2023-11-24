@@ -1,0 +1,99 @@
+---
+title: "Machine Learning for Email Lead Scoring"
+subtitle: "TBD"
+date: 11/02/2023
+author: Lucas Okwudishu
+title-block-banner: true
+format:
+  html:
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: flatly
+    code-fold: false
+    code-tools: true
+    page-layout: article
+    root.dir: "/Users/BachataLu/Desktop/School/Business_Science/DS4B_Python_ML_And_APIs/analysis/qmd"
+link-citations: true
+categories: [predictive analytics, marketing analytics]
+---
+
+# Introduction
+
+
+Businesses face challenges in identifying and prioritizing potential customers and/or identifying future purchase potential of current customers based on their email interactions, leading to suboptimal allocation of resourcesa and missed opportunities.
+
+Email lead scoring plays a crucial role in determining the quality and conversion potential of leads generated through email marketing campaigns. Email lead scoring is a method used by marketers and sales teams to evaluate and prioritize [leads](https://www.wrike.com/marketing-guide/faq/what-is-a-lead-in-marketing/) based on their potential to become customers. It involves assigning scores or ratings to individual leads based on their behaviour, interations, and other characteristics. However, the traditional manual lead scoring methods are time-consuming, subjective, and often produce inconsistent results. Additionally, these methods do not fully leverage the available data, such as email content, sender information, and historical customer interactions.
+
+Machine learning based solution that can effectively evaluate the probability of leads converting into customers based on various data points extracted from email interactions. This solution should take into account factors like email open rates, click-through rates, response times, engagement patterns, and historical customer data to provide a comprehensive lead score.
+
+By leveraging machine learning algorithms, such as classification models businesses can create a reliable and automated system that can accurately score and rank email leads according to their conversion potential. The solution will empower email marketers to prioritize their efforts and resources more effectively, enabling them to focus on the most promising leads and improve overall sales and marketing efficiency.
+
+This project demonstrates and end-to-end email lead scoring solution for a business, from initial analysis, to modeling, to deployment. Skills demonstrated in this project include -
+
++ Project management.
+
++ Stakeholder management.
+
++ Business understanding.
+
++ Business return on investment and sensitivity analysis.
+
++ Exploratory data analysis.
+
++ Machine learning (using tools like python, pycaret, mlflow).
+
++ Model deploying (using tools like fastapi and streamlit).
+
+Above all, the project demonstrates how to solve key business problems in the real world.
+
+---
+
+# Problem Statement & Objective
+
+As mentioned earlier, this analysis provides a lead scoring solution for a company for an online educational company. The company offers training cources (their main product) in data science and has a large email list of **100,000** subscribers, with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out *5* emails per month and the business's scales cycle generates approximately **$550,000** in revenue per month.
+
+
+However, the email list also experiences a significant number of unsubscribes, about **500** per email, resulting in a total of **2,500** unsubscribers per month.
+
+This High unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers has the potential to convert approximately **5%** of them back into active customers.
+
+
+## Objective
+
+Given these key insights, the problem at hand is to develop an effective email list scoring and segmentation strategy. The goal is to identify and prioritize the most valuable customers (in terms of probability to make a purchase) to target for sales emails, while also identifying customers with low probability of purchase to nurture and increased their likelihood to purchase.
+
+In summary, the primary objective is to leverage email list scoring and segmentation techniques to improve customer engagement, reduce unsubscribes, increase customer conversion rates, and ultimately maximize revenue and customer lifetime value.
+
+Now that we have a general understanding of the problem statement and the objective, the next sections will focus on a business solution process using the [Business Science Problem Framework](https://www.business-science.io/bspf.html) (BSPF).
+
+---
+
+# Business Understanding
+
+::: {.callout-note title="BSPF Phase: Understanding the Drivers"}
+This section falls under the **Understanding drivers** Phase of the BSPF
+:::
+
+Addressing business challenges like these demands significant resources, including both time and money. Therefore a key question to ask is *"is this problem worth solving?"*
+
+In this phase, the key is to highlight why this problem should be a business prority. One way to achive this is by calculating the cost of the business problem by understand how high unsubscribe rates lead to lower revenue. Our goals in this phase include -
+
++ Cost Assessment - Assign a cost to high unsubscribe rates, thus giving the business a point estimate of annual costs of unsubscribe rates. This step does NOT account of growth rate of email lists.
+
++ Improve Cost Analysis - Improve on cost assesment by account for email list growth uncertainty.
+
++ Business Cost Simulation - This is also necessary when accounting for uncertainty and helps model cost when key inputs change.
+
+## Cost Assessment
+
+Given the values highlighted in the [problem statement](#problem-statement--objective) section, we can estimate the monthly lost revenue (we'll refer to this as cost going forward) due to unsubscribers to be around **$250K** per month (or **$3M** annually), not factoring in email list growth rate.
+
+After factoring in a **3.5%** monthly email list growth rate, we can expect the annual lost revenue due to unsubscribers to rise to around **$364K** per month (or **$4.3M** per year), an increase of **46%** in lost revenue. The table below shows this scenario -
+
+![Cost Analysis](png/cost/cost_scenario_table.png){width=90% fig-align="center" .shaded-border}
+
+We can see the high cost of this problem which is the lost revenue to the business. However, the values shown in the table above do not factor in uncertainty. We can thus improve on our cost assessment by factoring in uncertainty in some of the drivers. Let assume some monthly variablity in email list growth rate and conversion rate. The heatmap below shows a cost simulation with variablity. The y-axis represents various levels of customer converstion rate while the x-axis represents various levels of email list growth rate;
+
+![Cost Simulation](png/cost/cost_simulation.png){width=90% fig-align="center" .shaded-border}
