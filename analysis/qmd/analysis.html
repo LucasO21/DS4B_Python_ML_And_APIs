@@ -124,6 +124,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#cost-assessment" id="toc-cost-assessment" class="nav-link" data-scroll-target="#cost-assessment"><span class="header-section-number">3.1</span> Cost Assessment</a></li>
   </ul></li>
+  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding"><span class="header-section-number">4</span> Data Understanding</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">4.1</span> Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#proportion-of-users-with-previous-purchase" id="toc-proportion-of-users-with-previous-purchase" class="nav-link" data-scroll-target="#proportion-of-users-with-previous-purchase"><span class="header-section-number">4.1.1</span> Proportion of Users with Previous Purchase</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -203,8 +210,61 @@ BSPF Phase: Understanding the Drivers
 <figcaption class="figure-caption">Cost Simulation</figcaption>
 </figure>
 </div>
+<p>We can see that regardless of how the drivers vary, we can still expect to see annual costs ranging from <strong>$2.61M</strong> to <strong>$4.38M</strong>. Thus this is definitely a problem worth solving.</p>
+<p>At this point, a key question is <em>“can we reduce the unsubscribe rate?”</em>. Recall that the business is loosing <strong>500</strong> customers for every email sent out. What if we can reduce that number by <strong>50%</strong> (or <strong>250</strong>), while maintaning <strong>90%</strong> of revenue. What impact will that have on the business?</p>
+<p>The only problem is that we still do not know a lot about what causes a subscriber to make a purchase. If we do, we can focus on targeting the ones that are more likely to purchase with sales emails and nurture the ones who are unlikely to covert at the moment. This will help with our goal of reducing the unsubsbribe rate while maintaning <strong>90%</strong> of revenue.</p>
+<hr>
+</section>
+</section>
+<section id="data-understanding" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Data Understanding</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase: Understanding the Drivers">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BSPF Phase: Understanding the Drivers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section falls under the <strong>Understand The Drivers</strong> Phase of the BSPF</p>
+</div>
+</div>
+<p>This phase requires understanding the data available at our disposal to tackle this problem. The visual below gives an overview of the company’s crm database including table and field descriptions. Connecting arrows show how each table can be linked to other tables based on common fields.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/other/crm_database.png" class="shaded-border img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note:</strong> We will not be using the <code>website</code> table in this project.</p>
+</div>
+</div>
+<hr>
+<section id="exploratory-data-analysis" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">4.1</span> Exploratory Data Analysis</h2>
+<p>After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a user has made a previous purchase or not (we’ll call this target feature <code>made_purchase</code>), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of users making a purchase.</p>
+<p>First lets analyze our target feature <code>made_purchase</code>.</p>
+<section id="proportion-of-users-with-previous-purchase" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="proportion-of-users-with-previous-purchase"><span class="header-section-number">4.1.1</span> Proportion of Users with Previous Purchase</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/eda/made_purchase_prop.png" class="shaded-border img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <!-- -->
 
+</section>
 </section>
 </section>
 
@@ -592,7 +652,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>We can see the high cost of this problem which is the lost revenue to the business. However, the values shown in the table above do not factor in uncertainty. We can thus improve on our cost assessment by factoring in uncertainty in some of the drivers. Let assume some monthly variablity in email list growth rate and conversion rate. The heatmap below shows a cost simulation with variablity. The y-axis represents various levels of customer converstion rate while the x-axis represents various levels of email list growth rate;</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="al">![Cost Simulation](png/cost/cost_simulation.png)</span>{width=90% fig-align="center" .shaded-border}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="al">![Cost Simulation](png/cost/cost_simulation.png)</span>{width=90% fig-align="center" .shaded-border}</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>We can see that regardless of how the drivers vary, we can still expect to see annual costs ranging from **$2.61M** to **$4.38M**. Thus this is definitely a problem worth solving.</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>At this point, a key question is *"can we reduce the unsubscribe rate?"*. Recall that the business is loosing **500** customers for every email sent out. What if we can reduce that number by **50%** (or **250**), while maintaning **90%** of revenue. What impact will that have on the business?</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>The only problem is that we still do not know a lot about what causes a subscriber to make a purchase. If we do, we can focus on targeting the ones that are more likely to purchase with sales emails and nurture the ones who are unlikely to covert at the moment. This will help with our goal of reducing the unsubsbribe rate while maintaning **90%** of revenue.</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Understanding</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase: Understanding the Drivers"}</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>This section falls under the **Understand The Drivers** Phase of the BSPF</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>This phase requires understanding the data available at our disposal to tackle this problem. The visual below gives an overview of the company's crm database including table and field descriptions. Connecting arrows show how each table can be linked to other tables based on common fields.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/other/crm_database.png)</span>{width=90% fig-align="center" .shaded-border}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>**Note:** We will not be using the <span class="in">`website`</span> table in this project.</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory Data Analysis</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a user has made a previous purchase or not (we'll call this target feature <span class="in">`made_purchase`</span>), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of users making a purchase.</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>First lets analyze our target feature <span class="in">`made_purchase`</span>.</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">### Proportion of Users with Previous Purchase</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/made_purchase_prop.png)</span>{width=80% fig-align="center" .shaded-border}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
