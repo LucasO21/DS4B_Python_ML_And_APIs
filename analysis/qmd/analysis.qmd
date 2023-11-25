@@ -428,7 +428,7 @@ These business KPIs are then used along with subscriber counts from the [initial
 : Preliminary EV Calculations (Based on 95% Threhold and Sample Factor of 5.0)
 
 ::: {.callout-important title="Expected Value Calculations"}
-To understand how these values are calculated, please see [this]().
+To understand how these values are calculated, please refer to [this](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/tree/main/analysis/ev_calculation) excel sheet.
 :::
 
 Finally these preliminary calculations are then used to calculate expected value. The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails.
