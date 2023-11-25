@@ -393,6 +393,7 @@ def lead_plot_optim_thresh(
     data,
     optim_col = 'expected_value',
     monthly_sales_reduction_safe_guard = 0.85,
+    #fig_title = "Expected Value by Threshold Plot",
     verbose = False
 ):
 
@@ -404,14 +405,14 @@ def lead_plot_optim_thresh(
 
     # ---- MAKE PLOT ----- #
 
-    # Plot: Initial Plot
+    # Fig: Initial Plot
     fig = px.line(
 		data,
 		x = 'thresh',
 		y = 'expected_value'
 	)
 
-	# Plot: Add Hline
+	# Fig: Add Hline
     fig.add_hline(y = 0, line_color = 'black')
 
 	# Plot:: Add Vline
@@ -424,6 +425,28 @@ def lead_plot_optim_thresh(
 		line_color = 'red',
 		line_dash = 'dash'
 	)
+
+    # Fig Format Y-Axis Label
+    fig.update_yaxes(tickformat = '$,.0f')
+
+    # Fig Adjust Y-Axlis Label
+    fig.update_yaxes(ticklabelposition = "inside top")
+
+    # Fig Tooltip
+    fig.update_traces(
+        hovertemplate=(
+            "<b>Thresh:</b> %{x:.2f}<br>"
+            "<b>Expected Value:</b> %{y:$,.0f}<br>"
+            "<b>Monthly Sales:</b> %{customdata[1]:$,.0f}<br>"
+            "<b>Expected Customers Saved:</b> %{customdata[0]:.0f}<extra></extra>"
+        ),
+        customdata=np.stack((data['expected_customers_saved'], data['monthly_sales']), axis=-1),
+        hoverlabel=dict(font_size=16)  # Increase the font size as needed
+    )
+
+    # Fig Title
+    # fig.update_layout(title = fig_title)
+
 
     # Verbose
     if verbose:
@@ -457,6 +480,8 @@ def lead_score_strategy_optimization(
 	avg_customer_value = 2000,
 	highlight_max = True,
 	highlight_max_color = "green",
+
+    #fig_title = "Expected Value Plot",
 
 	verbose = False
 
@@ -523,6 +548,7 @@ def lead_score_strategy_optimization(
 		avg_customer_value = avg_customer_value,
 		highlight_max = highlight_max,
 		highlight_max_color = highlight_max_color,
+        #fig_title = fig_title,
 		verbose = verbose
 
 	)
@@ -547,6 +573,7 @@ def lead_score_strategy_optimization(
 		data = thresh_optim_df,
 		optim_col = optim_col,
 		monthly_sales_reduction_safe_guard = monthly_sales_reduction_safe_guard,
+        #fig_title = fig_title,
 		verbose = verbose
 	)
 

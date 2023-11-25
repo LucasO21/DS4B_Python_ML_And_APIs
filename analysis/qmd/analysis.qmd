@@ -385,10 +385,10 @@ This step involved calculating the [cumulative gain](http://mlwiki.org/index.php
 
 The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold.
 
-|   **Category**       | **Total Customers** | **Made Purchase**  |
-|-----------------------:------------------- |:-------------------|
-| Cold-Lead             | 5528               | 49                |
-| Hot-Lead              | 14691              | 913               |
+|   **Category**        | **Total Customers** | **Made Purchase**  |
+|-----------------------:---------------------|:-------------------|
+| Cold-Lead             | 5,528               | 49                 |
+| Hot-Lead              | 14,691              | 913                |
 
 : Hot / Cold Lead Categorization (95% Gain Threshold)
 
@@ -401,7 +401,7 @@ As highlighted above, there is as cost and savings trade-off from only targeting
 Before proceeding, we'll also need some of the values stated earlier in the [Business Understanding](#business-understanding) section -
 
 | Business KPIs            | Value          |
-|--------------------------|----------------|
+|--------------------------|:---------------|
 | Email List Size          | 100,000        |
 | Unsubscribes Per Email   | 500            |
 | Sales Emails Per Month   | 5              |
@@ -433,12 +433,12 @@ To understand how these values are calculated, please see [this]().
 
 Finally these preliminary calculations are then used to calculate expected value. The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails.
 
-| Expected Value (with New Leadscoring Strategy) | Value    | Description                                           |
-|------------------------------------------------|:---------|:----------------------------------------------------- |
-| Revenue in First Month                         | $237,266 | Sales in first month of implementing new strategy     |
-| New Revenue (Post Nurturing Cold Leads)        | $290,148 | Expected total sales after nurturing cold leads       |
-| Expected Monthly Savings                       | $52,882  | Expected Monthly savings of implementing new strategy |
-| Expected Saved Customers                       | 33       | Expected saved customers after nurturing cold leads   |
+| EV (with New Leadscoring Strategy)            | Value      | Description                                           |
+|-----------------------------------------------|:-----------|:----------------------------------------------------- |
+| Revenue in First Month                        | $237,266   | Sales in first month with new strategy     |
+| New Revenue (Post Nurturing Cold Leads)       | $290,148   | Expected total sales after nurturing cold leads       |
+| Expected Monthly Savings                      | $52,882    | Expected monthly savings with new strategy |
+| Expected Saved Customers                      | 33         | Expected saved customers after with new strategy   |
 
 : Expected Value of Implementing New Strategy (Based on 95% Threhold and Sample Factor of 5.0)
 
@@ -472,7 +472,7 @@ The core of our decision-making process lies in striking a balance between two c
 # Backend Deployment (FastAPI)
 
 ::: {.callout-note title="BSPF Phase"}
-This section is part of the last 3 phases of the BSPF **(Encode Algorithms, Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 3 phases of the BSPF.
+This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 3 phases of the BSPF.
 :::
 
 We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of [Application Programming Interfaces](https://en.wikipedia.org/wiki/API) (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.
@@ -502,3 +502,7 @@ APIs play a pivotal role in the data science lifecycle, especially in the deploy
 ---
 
 # Frontend Deployment (Streamlit)
+
+::: {.callout-note title="BSPF Phase"}
+This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 2 phases of the BSPF.
+:::

@@ -145,7 +145,8 @@ else:
                             avg_sales_per_month = float(estimated_monthly_sales),
                             avg_sales_emails_per_month = 5,
                             customer_conversion_rate = 0.05,
-                            avg_customer_value = 2000.0
+                            avg_customer_value = 2000.0,
+                            #fig_title = "Expected Value Plot"
                     ),
                         headers = HEADERS
 
@@ -158,8 +159,20 @@ else:
                 print(res.json().keys())
 
                 lead_strategy_df = pd.read_json(res.json()["lead_strategy"])
+                lead_strategy_df.columns = [col.replace('_',' ').title() for col in lead_strategy_df.columns]
+
                 expected_value_df = pd.read_json(res.json()["expected_value"])
+                expected_value_df['expected_value'] = expected_value_df['expected_value'].apply(lambda x: "${:,.0f}".format(x))
+                expected_value_df['expected_savings'] = expected_value_df['expected_savings'].apply(lambda x: "${:,.0f}".format(x))
+                expected_value_df['monthly_sales'] = expected_value_df['monthly_sales'].apply(lambda x: "${:,.0f}".format(x))
+                expected_value_df['expected_customers_saved'] = expected_value_df['expected_customers_saved'].round(0)
+                expected_value_df['thresh'] = (expected_value_df['thresh'] * 100).round(2).astype(str) + '%'
+                # #expected_value_df.set_index('index', inplace = True)
+                expected_value_df.columns = [col.replace('_', ' ').title() for col in expected_value_df.columns]
+
                 thresh_optim_table_df = pd.read_json(res.json()["thresh_optim_table"])
+                #thresh_optim_table_df.set_index('index', inplace = True)
+                #thresh_optim_table_df.columns = [col.replace('_',' ').title() for col in thresh_optim_table_df.columns]
 
                 # Display Results
                 st.success("Success! Lead Scoring is complete. Download the results below.")
