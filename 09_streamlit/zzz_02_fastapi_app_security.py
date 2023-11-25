@@ -130,7 +130,8 @@ async def calculate_lead_strategy(
     avg_sales_per_month: float=250000.0,
     avg_sales_emails_per_month: int=5,
     customer_conversion_rate: float=0.05,
-    avg_customer_value: float=2000.0,
+    avg_customer_value: float=2000.0
+    #fig_title: str="Expected Value Plot"
 ):
 
     # Handle incoming JSON request
@@ -157,7 +158,8 @@ async def calculate_lead_strategy(
         avg_sales_per_month=avg_sales_per_month,
         avg_sales_emails_per_month=avg_sales_emails_per_month,
         customer_conversion_rate= customer_conversion_rate,
-        avg_customer_value=avg_customer_value,
+        avg_customer_value=avg_customer_value
+        #fig_title = fig_title
 
     )
 
