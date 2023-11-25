@@ -56,7 +56,7 @@ def lead_make_strategy(
 
 	# Format for Marketing
     if for_marketing_team:
-        strategy_for_marketing_df = data \
+        strategy_df = data \
             .merge(
                 right       = strategy_df[['category']],
                 how         = 'left',
@@ -73,7 +73,7 @@ def lead_make_strategy(
     # Return
     return strategy_df
 
-# ---- End Function ---- #
+#! ---- End Function ---- #
 
 
 # Workflow
@@ -94,6 +94,8 @@ lead_make_strategy(
 
 def lead_aggregate_strategy_results(data):
 
+    # `data` should be lead_strategy_df
+
     # Aggregate Results
     results_df = data \
 			.groupby('category') \
@@ -106,7 +108,7 @@ def lead_aggregate_strategy_results(data):
     # return
     return results_df
 
-# ---- End Function ---- #
+#! ---- End Function ---- #
 
 
 # Workflow
@@ -203,14 +205,14 @@ def lead_strategy_calc_expected_value(
 # Workflow:
 lead_make_strategy(
 	data = leads_scored_df,
-	thresh = 0.99,
+	thresh = 0.95,
 	verbose = True
 ) \
     .pipe(lead_aggregate_strategy_results) \
     .pipe(
         lead_strategy_calc_expected_value,
-        email_list_size = 200000,
-		unsub_rate_per_sales_email = 0.001,
+        email_list_size = 100000,
+		unsub_rate_per_sales_email = 0.005,
 		sales_emails_per_month = 5,
 		avg_sales_per_month = 250000,
 		avg_sales_emails_per_month = 5,
@@ -241,6 +243,9 @@ def lead_strategy_create_thresh_table(
 	highlight_max_color        = "green",
 	verbose                    = False
 ):
+
+    # `data` should be `lead_scored_df`
+
     # Thereshold Table
     thresh_df = pd.Series(thresh, name = "thresh").to_frame()
 
@@ -297,11 +302,11 @@ lead_strategy_create_thresh_table(
     verbose = True
 )
 
-# data = lead_strategy_create_thresh_table(
-#     data = leads_scored_df,
-#     highlight_max_color = "green",
-#     verbose = True
-# )
+data = lead_strategy_create_thresh_table(
+    data = leads_scored_df,
+    highlight_max_color = "green",
+    verbose = True
+)
 
 
 
@@ -403,7 +408,7 @@ lead_get_expected_value(
 	data = thresh_optim_df,
 	threshold = lead_select_optimum_thresh(
 		data = thresh_optim_df,
-		monthly_sales_reduction_safe_guard = 0.85
+		monthly_sales_reduction_safe_guard = 0.66
 	)
 )
 
@@ -427,10 +432,33 @@ lead_get_expected_value(
 #     line_dash = 'dash'
 # )
 
+# fig.update_yaxes(tickformat = '$,.0f')
+
+# fig.update_yaxes(ticklabelposition = "inside top")
+
+# fig.update_traces(
+#     hovertemplate="<b>Thresh:</b> %{x:.2f}<br><b>Expected Value:</b> %{y:$,.0f}<extra></extra>",
+#     hoverlabel=dict(font_size=16)  # Adjust the font size as needed
+# )
+
+# fig.update_layout(title = 'Expected Value by Threshold Plot')
+
+# fig.update_traces(
+#     hovertemplate=(
+#         "<b>Thresh:</b> %{x:.2f}<br>"
+#         "<b>Expected Value:</b> %{y:$,.0f}<br>"
+#         "<b>Monthly Sales:</b> %{customdata[1]:$,.0f}<br>"
+#         "<b>Expected Customers Saved:</b> %{customdata[0]:.0f}<extra></extra>"
+#     ),
+#     customdata=np.stack((data['expected_customers_saved'], data['monthly_sales']), axis=-1)
+# )y
+
+
 def lead_plot_optim_thresh(
     data,
     optim_col = 'expected_value',
     monthly_sales_reduction_safe_guard = 0.85,
+    fig_title = "Expected Value by Threshold Plot",
     verbose = False
 ):
 
@@ -442,7 +470,7 @@ def lead_plot_optim_thresh(
 
     # ---- MAKE PLOT ----- #
 
-    # Plot: Initial Plot
+    # Fig: Initial Plot
     fig = px.line(
 		data,
 		x = 'thresh',
@@ -452,7 +480,7 @@ def lead_plot_optim_thresh(
 	# Plot: Add Hline
     fig.add_hline(y = 0, line_color = 'black')
 
-	# Plot:: Add Vline
+	# Fig Add Vline
     fig.add_vline(
 		x = lead_select_optimum_thresh(
 				data = data,
@@ -462,6 +490,27 @@ def lead_plot_optim_thresh(
 		line_color = 'red',
 		line_dash = 'dash'
 	)
+
+    # Fig Format Y-Axis Label
+    fig.update_yaxes(tickformat = '$,.0f')
+
+    # Fig Adjust Y-Axlis Label
+    fig.update_yaxes(ticklabelposition = "inside top")
+
+    # Fig Tooltip
+    fig.update_traces(
+        hovertemplate=(
+            "<b>Thresh:</b> %{x:.2f}<br>"
+            "<b>Expected Value:</b> %{y:$,.0f}<br>"
+            "<b>Monthly Sales:</b> %{customdata[1]:$,.0f}<br>"
+            "<b>Expected Customers Saved:</b> %{customdata[0]:.0f}<extra></extra>"
+        ),
+        customdata=np.stack((data['expected_customers_saved'], data['monthly_sales']), axis=-1),
+        hoverlabel=dict(font_size=16)  # Increase the font size as needed
+    )
+
+    # Fig Title
+    fig.update_layout(title = fig_title)
 
     # Verbose
     if verbose:
@@ -479,7 +528,8 @@ def lead_plot_optim_thresh(
 lead_plot_optim_thresh(
 	data = thresh_optim_df,
 	optim_col = 'expected_value',
-	monthly_sales_reduction_safe_guard = 0.80,
+	monthly_sales_reduction_safe_guard = 0.90,
+    fig_title = "Expected Value Plot (90% Safeguard)",
 	verbose = True
 )
 
