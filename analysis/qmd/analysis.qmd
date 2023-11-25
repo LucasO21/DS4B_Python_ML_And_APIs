@@ -506,3 +506,37 @@ APIs play a pivotal role in the data science lifecycle, especially in the deploy
 ::: {.callout-note title="BSPF Phase"}
 This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 2 phases of the BSPF.
 :::
+
+
+In this final phase of the email lead scoring project, we transition from the development of [API endpoints](#api-endpoints) for our lead scoring strategy to their practical application. Recognizing the importance of deployment in the lifecycle of any data science project, we integrated these APIs into a user-friendly [Streamlit](https://streamlit.io/) application. This step is instrumental in transforming our analytical insights into actionable tools, directly accessible to senior management and other marketing stakeholders.
+
+::: {.callout-note title="Streamlit App"}
+You can access the Streamlit app [here]().
+:::
+
+When first accessed, the link brings the user to an authentication screen where they will need to to input their secret keys.
+
+![](png/streamlit/auth.png){width=60% fig-align="center"}
+
+Once logged in successfully, the user will be prompted to upload a csv with the leads scored data. In an enterprise setting, we will be connecting the app to the company's database.
+
+![](png/streamlit/browse_csv.png){width=60% fig-align="center"}
+
+Next, the user can adjust the monthly sales and [monthly sales safeguard](#threshold-optimization--profit-maximization), based on the strategy they will like to implement, then hit the `Run Analysis` button.
+
+![](png/streamlit/safeguard.png){width=60% fig-align="center"}
+
+Once the analysis is complete, the user will be able to see the expected value table and plot based on their monthly sales and monthly sales safeguard inputs.
+
+![](png/streamlit/plot.png){width=60% fig-align="center"}
+
+Additionally the user can also see and download the lead scoring strategy data with leads information and their Hot-Lead/Cold-Lead classification.
+
+![](png/streamlit/strategy.png){width=60% fig-align="center"}
+
+In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it's a vital component in ensuring that our project's insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy's financial benefits.
+
+
+# Conclusion
+
+Coming soon...

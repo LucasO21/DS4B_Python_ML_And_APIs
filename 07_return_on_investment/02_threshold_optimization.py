@@ -126,7 +126,7 @@ lead_make_strategy(leads_scored_df, thresh = 0.90) \
 def lead_strategy_calc_expected_value(
 	data,
 	email_list_size = 100000,
-	unsub_rate_per_sales_email = 0.001,
+	unsub_rate_per_sales_email = 0.005,
 	sales_emails_per_month = 5,
 	avg_sales_per_month = 250000,
 	avg_sales_emails_per_month = 5,
@@ -528,7 +528,7 @@ def lead_plot_optim_thresh(
 lead_plot_optim_thresh(
 	data = thresh_optim_df,
 	optim_col = 'expected_value',
-	monthly_sales_reduction_safe_guard = 0.90,
+	monthly_sales_reduction_safe_guard = 0.87,
     fig_title = "Expected Value Plot (90% Safeguard)",
 	verbose = True
 )
@@ -631,8 +631,8 @@ def lead_score_strategy_optimization(
 # Workflow
 optimization_results_dict = lead_score_strategy_optimization(
 	data = leads_scored_df,
-	monthly_sales_reduction_safe_guard = 0.90,
-	verbose = True
+	monthly_sales_reduction_safe_guard = 0.95,
+	verbose = False
 )
 
 optimization_results_dict.keys()

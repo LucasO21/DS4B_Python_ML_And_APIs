@@ -169,6 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#api-endpoints" id="toc-api-endpoints" class="nav-link" data-scroll-target="#api-endpoints"><span class="header-section-number">10.1</span> API Endpoints</a></li>
   </ul></li>
   <li><a href="#frontend-deployment-streamlit" id="toc-frontend-deployment-streamlit" class="nav-link" data-scroll-target="#frontend-deployment-streamlit"><span class="header-section-number">11</span> Frontend Deployment (Streamlit)</a></li>
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1"><span class="header-section-number">12</span> Conclusion</a></li>
   </ul>
 </nav>
 </div>
@@ -676,7 +677,7 @@ BSPF Phase
 <p>This step involved calculating the <a href="http://mlwiki.org/index.php/Cumulative_Gain_Chart">cumulative gain</a> of our machine learning model to enhance our return on investment (ROI). Here the predictions are sorted based on the model’s score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of <strong>0.95</strong> is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</p>
 <p>The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold.</p>
 <p>&nbsp;&nbsp;<strong>Category</strong> | <strong>Total Customers</strong> | <strong>Made Purchase</strong> |</p>
-<p>|———————–:——————- |:——————-| | Cold-Lead | 5528 | 49 | | Hot-Lead | 14691 | 913 |</p>
+<p>|———————–:———————|:——————-| | Cold-Lead | 5,528 | 49 | | Hot-Lead | 14,691 | 913 |</p>
 <p>: Hot / Cold Lead Categorization (95% Gain Threshold)</p>
 <p>This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we’ll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the <strong>Cold-Lead</strong> row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</p>
 <section id="expected-value-cost-vs-savings" class="level3" data-number="9.1.1">
@@ -688,41 +689,41 @@ BSPF Phase
 <thead>
 <tr class="header">
 <th>Business KPIs</th>
-<th>Value</th>
+<th style="text-align: left;">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Email List Size</td>
-<td>100,000</td>
+<td style="text-align: left;">100,000</td>
 </tr>
 <tr class="even">
 <td>Unsubscribes Per Email</td>
-<td>500</td>
+<td style="text-align: left;">500</td>
 </tr>
 <tr class="odd">
 <td>Sales Emails Per Month</td>
-<td>5</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="even">
 <td>Unsubscribe Rate</td>
-<td>0.50%</td>
+<td style="text-align: left;">0.50%</td>
 </tr>
 <tr class="odd">
 <td>Avg Sales Per Month</td>
-<td>$250,000</td>
+<td style="text-align: left;">$250,000</td>
 </tr>
 <tr class="even">
 <td>Customer Conversion Rate</td>
-<td>5.00%</td>
+<td style="text-align: left;">5.00%</td>
 </tr>
 <tr class="odd">
 <td>Avg Customer CLV</td>
-<td>$2,000</td>
+<td style="text-align: left;">$2,000</td>
 </tr>
 <tr class="even">
 <td>Sales Per Email Sent</td>
-<td>$50,000</td>
+<td style="text-align: left;">$50,000</td>
 </tr>
 </tbody>
 </table>
@@ -791,13 +792,13 @@ Expected Value Calculations
 <table class="table">
 <caption>Expected Value of Implementing New Strategy (Based on 95% Threhold and Sample Factor of 5.0)</caption>
 <colgroup>
-<col style="width: 42%">
-<col style="width: 8%">
-<col style="width: 48%">
+<col style="width: 41%">
+<col style="width: 10%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Expected Value (with New Leadscoring Strategy)</th>
+<th>EV (with New Leadscoring Strategy)</th>
 <th style="text-align: left;">Value</th>
 <th style="text-align: left;">Description</th>
 </tr>
@@ -806,7 +807,7 @@ Expected Value Calculations
 <tr class="odd">
 <td>Revenue in First Month</td>
 <td style="text-align: left;">$237,266</td>
-<td style="text-align: left;">Sales in first month of implementing new strategy</td>
+<td style="text-align: left;">Sales in first month with new strategy</td>
 </tr>
 <tr class="even">
 <td>New Revenue (Post Nurturing Cold Leads)</td>
@@ -816,12 +817,12 @@ Expected Value Calculations
 <tr class="odd">
 <td>Expected Monthly Savings</td>
 <td style="text-align: left;">$52,882</td>
-<td style="text-align: left;">Expected Monthly savings of implementing new strategy</td>
+<td style="text-align: left;">Expected monthly savings with new strategy</td>
 </tr>
 <tr class="even">
 <td>Expected Saved Customers</td>
 <td style="text-align: left;">33</td>
-<td style="text-align: left;">Expected saved customers after nurturing cold leads</td>
+<td style="text-align: left;">Expected saved customers after with new strategy</td>
 </tr>
 </tbody>
 </table>
@@ -865,7 +866,7 @@ BSPF Phase
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section is part of the last 3 phases of the BSPF <strong>(Encode Algorithms, Measure Results and Report Financial Impact)</strong>. Deploying ML models and enabling users to engage with these strategies is key to these last 3 phases of the BSPF.</p>
+<p>This section is part of the last 2 phases of the BSPF <strong>(Measure Results and Report Financial Impact)</strong>. Deploying ML models and enabling users to engage with these strategies is key to these last 3 phases of the BSPF.</p>
 </div>
 </div>
 <p>We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of <a href="https://en.wikipedia.org/wiki/API">Application Programming Interfaces</a> (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.</p>
@@ -885,6 +886,68 @@ BSPF Phase
 </section>
 <section id="frontend-deployment-streamlit" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Frontend Deployment (Streamlit)</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="BSPF Phase">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BSPF Phase
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section is part of the last 2 phases of the BSPF <strong>(Measure Results and Report Financial Impact)</strong>. Deploying ML models and enabling users to engage with these strategies is key to these last 2 phases of the BSPF.</p>
+</div>
+</div>
+<p>In this final phase of the email lead scoring project, we transition from the development of <a href="#api-endpoints">API endpoints</a> for our lead scoring strategy to their practical application. Recognizing the importance of deployment in the lifecycle of any data science project, we integrated these APIs into a user-friendly <a href="https://streamlit.io/">Streamlit</a> application. This step is instrumental in transforming our analytical insights into actionable tools, directly accessible to senior management and other marketing stakeholders.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Streamlit App">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Streamlit App
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can access the Streamlit app <a href="">here</a>.</p>
+</div>
+</div>
+<p>When first accessed, the link brings the user to an authentication screen where they will need to to input their secret keys.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/streamlit/auth.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>Once logged in successfully, the user will be prompted to upload a csv with the leads scored data. In an enterprise setting, we will be connecting the app to the company’s database.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/streamlit/browse_csv.png.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>Next, the user can adjust the monthly sales and <a href="#threshold-optimization--profit-maximization">monthly sales safeguard</a>, based on the strategy they will like to implement, then hit the <code>Run Analysis</code> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/streamlit/safeguard.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>Once the analysis is complete, the user will be able to see the expected value table and plot based on their monthly sales and monthly sales safeguard inputs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/streamlit/plot.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>Additionally the user can also see and download the lead scoring strategy data with leads information and their Hot-Lead/Cold-Lead classification.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/streamlit/strategy.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it’s a vital component in ensuring that our project’s insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy’s financial benefits.</p>
+</section>
+<section id="conclusion-1" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Conclusion</h1>
+<p>Coming soon…</p>
 <!-- -->
 
 </section>
@@ -1562,10 +1625,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold.</span>
 <span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>|   **Category**       | **Total Customers** | **Made Purchase**  |</span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>|-----------------------:------------------- |:-------------------|</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>| Cold-Lead             | 5528               | 49                |</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>| Hot-Lead              | 14691              | 913               |</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>|   **Category**        | **Total Customers** | **Made Purchase**  |</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>|-----------------------:---------------------|:-------------------|</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>| Cold-Lead             | 5,528               | 49                 |</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>| Hot-Lead              | 14,691              | 913                |</span>
 <span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>: Hot / Cold Lead Categorization (95% Gain Threshold)</span>
 <span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
@@ -1578,7 +1641,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>Before proceeding, we'll also need some of the values stated earlier in the <span class="co">[</span><span class="ot">Business Understanding</span><span class="co">](#business-understanding)</span> section -</span>
 <span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>| Business KPIs            | Value          |</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>|--------------------------|----------------|</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>|--------------------------|:---------------|</span>
 <span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>| Email List Size          | 100,000        |</span>
 <span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>| Unsubscribes Per Email   | 500            |</span>
 <span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>| Sales Emails Per Month   | 5              |</span>
@@ -1610,12 +1673,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>Finally these preliminary calculations are then used to calculate expected value. The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails.</span>
 <span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>| Expected Value (with New Leadscoring Strategy) | Value    | Description                                           |</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>|------------------------------------------------|:---------|:----------------------------------------------------- |</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>| Revenue in First Month                         | $237,266 | Sales in first month of implementing new strategy     |</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>| New Revenue (Post Nurturing Cold Leads)        | $290,148 | Expected total sales after nurturing cold leads       |</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>| Expected Monthly Savings                       | $52,882  | Expected Monthly savings of implementing new strategy |</span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>| Expected Saved Customers                       | 33       | Expected saved customers after nurturing cold leads   |</span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>| EV (with New Leadscoring Strategy)            | Value      | Description                                           |</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>|-----------------------------------------------|:-----------|:----------------------------------------------------- |</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>| Revenue in First Month                        | $237,266   | Sales in first month with new strategy     |</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>| New Revenue (Post Nurturing Cold Leads)       | $290,148   | Expected total sales after nurturing cold leads       |</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>| Expected Monthly Savings                      | $52,882    | Expected monthly savings with new strategy |</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>| Expected Saved Customers                      | 33         | Expected saved customers after with new strategy   |</span>
 <span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>: Expected Value of Implementing New Strategy (Based on 95% Threhold and Sample Factor of 5.0)</span>
 <span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a></span>
@@ -1649,7 +1712,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="fu"># Backend Deployment (FastAPI)</span></span>
 <span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>This section is part of the last 3 phases of the BSPF **(Encode Algorithms, Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 3 phases of the BSPF.</span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 3 phases of the BSPF.</span>
 <span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a>We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of <span class="co">[</span><span class="ot">Application Programming Interfaces</span><span class="co">](https://en.wikipedia.org/wiki/API)</span> (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.</span>
@@ -1679,6 +1742,44 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="fu"># Frontend Deployment (Streamlit)</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 2 phases of the BSPF.</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a>In this final phase of the email lead scoring project, we transition from the development of <span class="co">[</span><span class="ot">API endpoints</span><span class="co">](#api-endpoints)</span> for our lead scoring strategy to their practical application. Recognizing the importance of deployment in the lifecycle of any data science project, we integrated these APIs into a user-friendly <span class="co">[</span><span class="ot">Streamlit</span><span class="co">](https://streamlit.io/)</span> application. This step is instrumental in transforming our analytical insights into actionable tools, directly accessible to senior management and other marketing stakeholders.</span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Streamlit App"}</span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a>You can access the Streamlit app <span class="co">[</span><span class="ot">here</span><span class="co">]()</span>.</span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>When first accessed, the link brings the user to an authentication screen where they will need to to input their secret keys.</span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/auth.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a>Once logged in successfully, the user will be prompted to upload a csv with the leads scored data. In an enterprise setting, we will be connecting the app to the company's database.</span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/browse_csv.png.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a>Next, the user can adjust the monthly sales and <span class="co">[</span><span class="ot">monthly sales safeguard</span><span class="co">](#threshold-optimization--profit-maximization)</span>, based on the strategy they will like to implement, then hit the <span class="in">`Run Analysis`</span> button.</span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/safeguard.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a>Once the analysis is complete, the user will be able to see the expected value table and plot based on their monthly sales and monthly sales safeguard inputs.</span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/plot.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>Additionally the user can also see and download the lead scoring strategy data with leads information and their Hot-Lead/Cold-Lead classification.</span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/strategy.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it's a vital component in ensuring that our project's insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy's financial benefits.</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conclusion</span></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>Coming soon...</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
