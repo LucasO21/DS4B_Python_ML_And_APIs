@@ -139,15 +139,15 @@ This phase requires understanding the data available at our disposal to tackle t
 ## Exploratory Data Analysis
 
 
-After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a user has made a previous purchase or not (we'll call this target feature `made_purchase`), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of users making a purchase.
+After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a lead has made a previous purchase or not (we'll call this target feature `made_purchase`), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of leads making a purchase.
 
-First lets analyze our target feature `made_purchase`.
+First, lets analyze our target feature `made_purchase`.
 
 ### Proportion of Users with Previous Purchase
 
 ![](png/eda/made_purchase_prop.png){width=70% fig-align="center"}
 
-**Observation:** Only **5%** of customers have made a previous purchase, meaning we are dealing with a highligh [imbalanced dataset](https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-data).
+**Observation:** Only **5%** of leads have made a previous purchase, meaning we are dealing with a highly [imbalanced dataset](https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-data).
 
 ### Member Rating vs Made Purchase
 
@@ -162,22 +162,22 @@ The plot below shows `country_code` along with the within group `made_purchase` 
 
 ![](png/eda/country_code_vs_made_purchase.png){width=70% fig-align="center"}
 
-**Observation:** `country_code` also appears to be quite predictive of `made_purchase` as well.For example we can see that while the US has the most users (over 3,500), the proportion of US users who have made a purchase is ~10%. However a country like AU which has less than 500 users has a higher proprtion of users who have made a purchase (~12%).
+**Observation:** `country_code` also appears to be quite predictive of `made_purchase` as well.For example we can see that while the US has the most users (over 3,500), the proportion of US users who have made a purchase is ~10%. However a country like AU, which has less than 500 users has a higher proprtion of users who have made a purchase (~12%).
 
 ### Tag Count vs Made Purchase
 The plot below shows `tag_count` along with the within group `made_purchase` proportion, for a selected number of `tag_count`. Recall that tags here refer to various events like trainings and webinars. Therefore `tag_count` refers to the number of such events a user has attended -
 
 ![](png/eda/tags_vs_made_purchase.png){width=70% fig-align="center"}
 
-**Observation:** We can see that if a subscriber has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as `tag_count` decreases. Note that a subscriber with 0 tags only have a 2% likelihood of making a purchase. For those with 0 tags (meaning they have not attended any events yet) we may not want to send them emails just yet. We may want to try and nurture them to attend more events before trying to get them to make a purchase. Overall if the business can get subscribers to attend more events, it drastically increases their likelihood of making a purchase.
+**Observation:** We can see that if a subscriber has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as `tag_count` decreases. Note that a lead with 0 tags only have a 2% likelihood of making a purchase. For those with 0 tags (meaning they have not attended any events yet) we may not want to send them emails just yet. We may want to try and nurture them to attend more events before trying to get them to make a purchase. Overall if the business can get leads to attend more events, it drastically increases their likelihood of making a purchase.
 
 
 ### Correlation
-The plot below is a correlation heatmap of numberic features only -
+The plot below is a correlation heatmap of numeric features only -
 
 ![](png/eda/corr_heatmap.png){width=70% fig-align="center"}
 
-**Observation**: These correlation values further validatates some of the data we saw earlier. We can see that `tag_count` and `member_rating` do show a fairly high correlation with `made_purchase`.
+**Observation**: These correlation values further validatate some of the data we saw earlier. We can see that `tag_count` and `member_rating` do show a fairly high correlation with `made_purchase`.
 
 ---
 
