@@ -519,19 +519,20 @@ This section is part of the last 2 phases of the BSPF **(Measure Results and Rep
 
 In this final phase of the email lead scoring project, we transition from the development of [API endpoints](#api-endpoints) for our lead scoring strategy to their practical application. Recognizing the importance of deployment in the lifecycle of any data science project, we integrated these APIs into a user-friendly [Streamlit](https://streamlit.io/) application. This step is instrumental in transforming our analytical insights into actionable tools, directly accessible to senior management and other marketing stakeholders.
 
-::: {.callout-note title="Streamlit App"}
-You can access the Streamlit app [here]().
+::: {.callout-important title="Streamlit App"}
+<!--You can access the Streamlit app [here](). -->
+Please be aware that the Streamlit application is currently in the final stages of development and has not yet been deployed to a cloud platform. As soon as the deployment is complete, a direct link will be added to write-up.
 :::
 
-When first accessed, the link brings the user to an authentication screen where they will need to to input their secret keys.
+When first accessed, the link brings the user to an authentication screen where they will need to input their secret keys.
 
 ![](png/streamlit/auth.png){width=60% fig-align="center"}
 
-Once logged in successfully, the user will be prompted to upload a csv with the leads scored data. In an enterprise setting, we will be connecting the app to the company's database.
+Once logged in successfully, the user will be prompted to upload a csv file with the leads scored data. In an enterprise setting, we will be connecting the app to the company's database.
 
 ![](png/streamlit/browse_csv.png){width=60% fig-align="center"}
 
-Next, the user can adjust the monthly sales and [monthly sales safeguard](#threshold-optimization--profit-maximization), based on the strategy they will like to implement, then hit the `Run Analysis` button.
+Next, the user can adjust the monthly sales and [monthly sales safeguard](#threshold-optimization--profit-maximization), based on the strategy they would like to implement, then hit the `Run Analysis` button.
 
 ![](png/streamlit/safeguard.png){width=60% fig-align="center"}
 
@@ -548,4 +549,16 @@ In conclusion, the successful deployment of our Streamlit application is a cruci
 
 # Conclusion
 
-Coming soon...
+This project has successfully demonstrated the integration of advanced data science techniques into practical business solutions for email lead scoring. The journey from conceptualization to the development of a functional model highlights key achievements and insights.
+
+**Strategic Application of Data Science:** The core of this project was the strategic application of machine learning to enhance email marketing efforts. By employing predictive modeling and feature engineering, we have developed a robust system that can accurately identify and score potential leads. This approach allows for a more targeted and efficient use of marketing resources, potentially leading to increased conversion rates and customer engagement.
+
+**Technical Implementation:** A significant aspect of this project was the technical implementation of our models in a user-friendly interface, achieved through the development of a Streamlit application. This interface serves as a bridge, making complex analytical models accessible and usable for decision-makers within the organization. It represents a crucial step in translating data-driven insights into actionable business strategies.
+
+**Financial Implications and Future Directions:** The ROI analysis conducted as part of this project illustrates the potential financial benefits of implementing a lead scoring system. It offers a glimpse into how optimizing lead targeting can impact the bottom line. However, the full potential of these models will be realized once the Streamlit application is deployed and integrated into the company's daily operations.
+
+# Next Steps
+
+The immediate next step is the deployment of the Streamlit application to a cloud platform, making it widely accessible to the relevant stakeholders. Following deployment, continuous monitoring and iterative improvements based on user feedback and evolving business needs will be crucial.
+
+In conclusion, this project not only showcases the practical application of machine learning in a business context but also sets the stage for further innovations in data-driven marketing strategies. The insights and methodologies developed here can serve as a blueprint for similar initiatives in the future, driving forward the agenda of data-centric decision-making in the business world.
