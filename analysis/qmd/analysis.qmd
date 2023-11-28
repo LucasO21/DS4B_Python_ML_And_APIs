@@ -187,11 +187,11 @@ The plot below is a correlation heatmap of numeric features only -
 This section falls under the **Measure the Drivers/Uncover Problems and Opportunities** Phase of the BSPF
 :::
 
-Now that we have a bit more understanding of some of the potential drivers of `made_purchase`, we may want to develop some hypothesis about how to improve the likelihood of a user making a purchase by applying some of the insights we just learned. For example;
+Now that we have a bit more understanding of some of the potential drivers of `made_purchase`, we may want to develop some hypothesis about how to improve the likelihood of a lead making a purchase by applying some of the insights we just learned. For example;
 
 >> *"Can we reduce the number of sales emails sent to subscribers by 30% and still maintain 99% of sales revenue?"*
 
-Can we segment our email list into hot and cold leads. Hot-Leads meaning those who are more likely to purchase (subscribers with high `member_rating` for example), and Cold-Leads meaning those less likely to purchase (subscribers with low `member_rating`). This way we could come up with a strategy to only send sales emails to hot leads, while nuturing cold leads to increase their likelihood of purchase.
+Can we segment our email list into hot and cold leads? Hot-Leads meaning those who are more likely to purchase (subscribers with high `member_rating` for example), and Cold-Leads meaning those less likely to purchase (subscribers with low `member_rating`). This way we could come up with a strategy to only send sales emails to hot leads, while nuturing cold leads to increase their likelihood of purchase.
 
 One of such KPIs could be to increase the median `tag_count`. Looking at the table below, we can see that the median `tag_count` for those who have not made a purchase is 0 while for those who have made a purchase, the median `tag_count` is 2. Thus, we could establsh a KPI for Cold-Leads to get their median `tag_count` to 2 or more (attend 2 or more webinars/events) and increase their likelihood of making a purchase.
 
@@ -218,13 +218,13 @@ Markdown(tabulate(
 This section falls under the **Encode Alogrithms** Phase of the BSPF
 :::
 
-Now that we have a better understand of our data and what features might be predictive of a subscriber making a purchase, the next phase in our workflow is creating preprocessing pipelines to get our data in the right form for machine learning algorithms. **Feature Engineering** is the process of selecting, manipulation and transforming raw data into features that can be used in supervised learning algorithms.
+Now that we have a better understanding of our data and what features might be predictive of a subscriber making a purchase, the next phase in our workflow is creating preprocessing pipelines to get our data in the right form for machine learning algorithms. **Feature Engineering** is the process of selecting, manipulating and transforming raw data into features that can be used in supervised learning algorithms.
 
-Understanding the business context and having domain expertise can greatly influence the choice and creation of features. Different businesses and domains may have unique characteristics, specifc factors that impact the target variable, and relevant attributes that need to be considered during feature engineering.
+Understanding the business context and having domain expertise can greatly influence the choice and creation of features. Different businesses and domains may have unique characteristics, specific factors that impact the target variable, and relevant attributes that need to be considered during feature engineering.
 
 For this analysis, the following addition features were created from existing data;
 
-+ `optin_days - Generated from `optin_time`. This is the number of days the subscriber has been on the companies email list.
++ `optin_days` - Generated from `optin_time`. This is the number of days the subscriber has been on the company's email list.
 
 + `email_provider` - Generated from `user_email`. Multiple email providers (such as gmail, hotmail) etc are being used by subscribers, and could be helpful in predicting made_purchase.
 
@@ -234,11 +234,11 @@ For this analysis, the following addition features were created from existing da
 
 + Reducing High Cardinality - Applied to `country_code`. Using a threshold of 6, this process lumps countries that have less than 6 subscribers in the dataset into an `other` category.
 
-To demonstrate the importance of feature engineering in this analysis, we'll show an example of some of the new features created and their relationship with our target (`made_purchase`). The plot below shows the proportion of subscribers who made a purchase for 9 randomly selected tags (events). Looking at the first event (`tag_learning_lab_09`) we can see that if a subsriber attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For `tag_learning_lab_12`, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.
+To demonstrate the importance of feature engineering in this analysis, we'll show an example of some of the new features created and their relationship with our target (`made_purchase`). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (`tag_learning_lab_09`) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For `tag_learning_lab_12`, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.
 
 ![](png/eda/attended_event_vs_made_purchase_prop.png){width=80% fig-align="center"}
 
-This indicates that having these additional features could be very indicative of `made_purchase`.
+This indicates that these additional features could be indicative of `made_purchase`.
 
 ---
 
@@ -248,10 +248,13 @@ This indicates that having these additional features could be very indicative of
 This section falls under the **Encode Alogrithms** Phase of the BSPF
 :::
 
-This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score subscribers that what are likely to make a purchase, based on features identified and engineered in previous sections. Therefore this is a binary classification problem. For modeling, we use the [Pycaret](https://pycaret.org/) python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not just a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
+This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score email subscribers that are likely to make a purchase, based on features identified and engineered in previous sections. Therefore this is a binary classification problem. For modeling, we use the [Pycaret](https://pycaret.org/) python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not only a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.
 
 ## Testing Multiple Models
-Several models were initially testing, using [Area Under the Curve](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc) (AUC) as the key metric. Higher AUC indicates a better-performing model in distinquising positive and negative leads. The chart belows shows the AUC along with other metrics from initial modeling. We can see the top 3 models in terms of AUC are Gradient Boosing Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).
+Several models were initially tested, using [Area Under the Curve](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc) (AUC) as the key metric. Higher AUC indicates a better-performing model in distinguishing positive and negative leads. The chart below shows the AUC along with other metrics from initial modeling. We can see the top 3 models in terms of AUC are Gradient Boosting Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).
+
+![](png/modelling_png/best_models.png){width=80% fig-align="center"}
+
 
 ## Model Metrics
 Here we can examine metrics for the Catboost model.
@@ -260,7 +263,6 @@ Here we can examine metrics for the Catboost model.
 The choice of Catboost, a tree-based model, is driven by its inherent advantage in explainability, which is critical for understanding model decisions and behavior. It's important to note that the final model selection will be determined in the Return on Investment (ROI) section of the course. However, it is worth mentioning that all the models under consideration exhibit very similar performance metrics. Consequently, regardless of the final choice, we can anticipate that the selected model will demonstrate metrics comparable to those of the Catboost model. This consistency across models ensures reliability in the anticipated performance, irrespective of the specific model chosen.
 :::
 
-![](png/modelling_png/best_models.png){width=80% fig-align="center"}
 
 ### AUC-ROC Plot
 An AUC-ROC (Area Under the Receiver Operating Characteristic Curve) plot is a graphical representation that summarizes the performance of a binary classification model. It showcases the model's ability to distinguish between positive and negative instances by plotting the true positive rate against the false positive rate. The AUC value, ranging from 0 to 1, quantifies the model's accuracy, with a higher value (higher curve towards 1) indicating better performance. The AUC-ROC plot enables data scientists and decision-makers to assess and compare models, aiding in the selection and optimization of classification algorithms.
@@ -308,7 +310,7 @@ Shap values can also be created for specific observations or individual customer
 
 The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature's SHAP value, with longer bars indicating a larger impact on the prediction.
 
-The color of the bar indicates the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.
+The color of the bars indicate the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.
 
 In this case, we can see that features like `tag_count` of 6, `tag_learning_lab_22` and `tag_learning_lab_2`  positively impact the prediction while `member_rating` of 1 and `country_code_IN` negatively impact the prediction.
 
@@ -316,14 +318,14 @@ In contrast the plot below shows SHAP values for customer who also has a predict
 
 ![](png/modelling_png/best_model_1/shap_instance_1.png){width=90% fig-align="center"}
 
-Notice that features that are positively impacting the score inclue `country_code_other` and `tag_learning_lab_1` while features that are negatively impacting the score include `country_code_IN` and `member_rating` of 1.
+Notice that features that are positively impacting the score include `country_code_other` and `tag_learning_lab_1` while features that are negatively impacting the score include `country_code_IN` and `member_rating` of 1.
 
-These comparison underscores the nuanced and individualized way in which different features contribute to the model's predictions for each customer.
+These comparisons underscore the nuanced and individualized way in which different features contribute to the model's predictions for each customer.
 
 ## Blending Models (Ensembling) for Enhanced Performance
 To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model [ensembling](https://machinelearningmastery.com/tour-of-ensemble-learning-algorithms/). By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.
 
-After blending and [calibrating](https://www.sciencedirect.com/topics/engineering/model-calibration#:~:text=Model%20calibration%20can%20be%20defined,measurements%20performed%20on%20the%20system.) the top three models, the resulting ensemble had an AUC of **0.8020** which is a very slight differnece in AUC from the individual models;
+After blending and [calibrating](https://www.sciencedirect.com/topics/engineering/model-calibration#:~:text=Model%20calibration%20can%20be%20defined,measurements%20performed%20on%20the%20system.) the top three models, the resulting ensemble had an AUC of **0.8020** which is a very slight difference in AUC from the individual models;
 
 
 |                 | GBM     | Catboost  | Ada Boost |
