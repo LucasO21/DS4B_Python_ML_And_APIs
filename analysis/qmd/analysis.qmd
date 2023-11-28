@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning for Email Lead Scoring"
-subtitle: "TBD"
-date: 11/02/2023
+subtitle: "A Case Study of Predictive Analytics in Marketing"
+date: 11/28/2023
 author: Lucas Okwudishu
 title-block-banner: true
 format:
@@ -16,7 +16,7 @@ format:
     page-layout: article
     root.dir: "/Users/BachataLu/Desktop/School/Business_Science/DS4B_Python_ML_And_APIs/analysis/qmd"
 link-citations: true
-categories: [predictive analytics, marketing analytics]
+categories: [predictive analytics, marketing analytics, machine learning, roi analysis]
 ---
 
 # Introduction
@@ -29,7 +29,12 @@ Machine learning based solutions can effectively evaluate the probability of lea
 
 By leveraging machine learning algorithms, such as classification models businesses can create a reliable and automated system that can accurately score and rank email leads according to their conversion potential. The solution will empower email marketers to prioritize their efforts and resources more effectively, enabling them to focus on the most promising leads and improve overall sales and marketing efficiency.
 
-This project demonstrates and end-to-end email lead scoring solution for a business, from initial analysis, to modeling, to deployment. Skills demonstrated in this project include -
+**Note:** This project was completed as part of the [Python for Machine Learning and APIs](https://university.business-science.io/p/ds4b-201-p-machine-learning-and-apis-with-python?el=website) course by [Business Science University](https://www.business-science.io/).
+
+![](png/title/course_workflow.png){width=70% fig-align="center"}
+
+
+The project demonstrates and end-to-end email lead scoring solution for a business, from initial analysis, to modeling, to deployment. Skills demonstrated in this project include -
 
 + Project management.
 
@@ -47,13 +52,17 @@ This project demonstrates and end-to-end email lead scoring solution for a busin
 
 Above all, the project demonstrates how to solve key business problems in the real world.
 
+
+
 ---
 
 # Problem Statement & Objective
 
+<!--
 ::: {.callout-note title="BSPF Phase"}
 This section falls under the **View Business as a Machine** Phase of the [BSPF](https://www.business-science.io/business/2018/06/19/business-science-problem-framework.html).
 :::
+-->
 
 As mentioned earlier, this analysis provides a lead scoring solution for a company for an online educational company. The company offers training courses (their main product) in data science and has a large email list of **100,000** subscribers (or leads), with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out **5** emails per month and the business's sales cycle generates approximately **$250,000** in revenue per month.
 
@@ -69,7 +78,7 @@ This high unsubscribe rate indicates potential inefficiencies in the email marke
 
 ## Objective
 
-Given these key insights, the problem at hand is to develop an effective email list scoring and segmentation strategy. The goal is to identify and prioritize the most valuable customers (in terms of probability of making a purchase) to target for sales emails, while also identifying customers with a low probability of purchase to nurture and increase their likelihood to purchase.
+Given these key insights, the problem at hand is to develop an effective email list scoring and segmentation strategy. The goal is to identify and prioritize the most valuable leads (in terms of probability of making a purchase) to target for sales emails, while also identifying leads with a low probability of purchase to nurture and increase their likelihood to purchase.
 
 In summary, the primary objective is to leverage email list scoring and segmentation techniques to improve customer engagement, reduce unsubscribes, increase customer conversion rates, and ultimately maximize revenue and customer lifetime value.
 
@@ -77,6 +86,9 @@ Now that we have a general understanding of the problem statement and the object
 Business Science Problem Framework.
 
 ## What Is the Business Science Problem Framework
+
+![](png/title/bspf_framework.png){width=70% fig-align="center"}
+
 The [Business Science Problem Framework](https://www.business-science.io/bspf.html) (BSPF) is a structured approach used for solving complex business problems, especially those involving data science and analytics. It's designed to streamline the process of transforming a business problem into an analytical problem, and then into a data science solution.
 
 
@@ -114,7 +126,7 @@ We can see the high cost of this problem which is the lost revenue to the busine
 
 We can see that regardless of how the drivers vary, we can still expect to see annual costs ranging from **$2.61M** to **$4.38M**. Thus this is definitely a problem worth solving.
 
-At this point, a key question is *"can we reduce the unsubscribe rate?"*. Recall that the business is losing **500** customers for every email sent out. What if we can reduce that number by **50%** (or **250**), while maintaining **90%** of revenue. What impact will that have on the business?
+At this point, a key question is *"can we reduce the unsubscribe rate?"*. Recall that the business is losing **500** subscribers for every email sent out. What if we can reduce that number by **50%** (or **250**), while maintaining **90%** of revenue. What impact will that have on the business?
 
 The only problem is that we still do not know a lot about what causes a subscriber to make a purchase. If we do, we can focus on targeting the ones that are more likely to purchase with sales emails and nurture the ones who are unlikely to covert at the moment. This will help with our goal of reducing the unsubscribe rate while maintaning **90%** of revenue.
 
@@ -304,7 +316,7 @@ The higher the shap value is (x-axis), the higher the likelihood of positive. Fo
 
 ### Shap Values (Specific Observations)
 
-Shap values can also be created for specific observations or individual customers in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.
+Shap values can also be created for specific observations or individual leads in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.
 
 ![](png/modelling_png/best_model_1/shap_instance_0.png){width=90% fig-align="center"}
 
@@ -386,7 +398,7 @@ In the preceding phase of this project, we successfully developed and trained pr
 
 2. Optimize the threshold for maximum efficiency and ROI based on senior management decisions.
 
-Again the primary goal here is to evaluate the financial implications of classifying customers as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.
+Again the primary goal here is to evaluate the financial implications of classifying leads as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.
 
 
 ## Initial Threshold & Cost Savings
@@ -394,14 +406,14 @@ This step involved calculating the [cumulative gain](http://mlwiki.org/index.php
 
 The table below shows the proportion of hot and cold leads based on this arbitrary 0.95 threshold.
 
-|   **Category**        | **Total Customers** | **Made Purchase**  |
-|-----------------------:---------------------|:-------------------|
-| Cold-Lead             | 5,528               | 49                 |
-| Hot-Lead              | 14,691              | 913                |
+| **Category**   | **Total Leads** | **Made Purchase** |
+|----------------|-----------------|-------------------|
+| Cold-Lead      | 5,528           | 49                |
+| Hot-Lead       | 14,691          | 913               |
 
 : Hot / Cold Lead Categorization (95% Gain Threshold)
 
-This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potential lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.
+This approach refines our marketing strategy. Instead of targeting all leads with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all leads are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 (27%) of leads will NOT be targeted for sales emails, resulting in potential lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.
 
 ### Expected Value (Cost vs Savings)
 
@@ -440,7 +452,7 @@ These business KPIs are then used along with subscriber counts from the [initial
 To understand how these values are calculated, please refer to [this](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/tree/main/analysis/ev_calculation) excel sheet.
 :::
 
-Finally these preliminary calculations are then used to calculate expected value. The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all customers with sales emails.
+Finally these preliminary calculations are then used to calculate expected value. The table below is a breakdown of cost vs savings for this new strategy vs our old strategy of targeting all leads with sales emails.
 
 | EV (with New Leadscoring Strategy)            | Value      | Description                                           |
 |-----------------------------------------------|:-----------|:----------------------------------------------------- |
@@ -507,7 +519,6 @@ Another `POST` endpoint, it calculates and optimizes lead scoring strategies bas
 
 APIs play a pivotal role in the data science lifecycle, especially in the deployment phase. They enable the seamless integration of data science models into business processes, making predictive insights accessible and actionable for decision-makers. APIs facilitate real-time data processing and interaction, which is essential for dynamic and responsive business strategies.
 
-
 ---
 
 # Frontend Deployment (Streamlit)
@@ -546,6 +557,7 @@ Additionally the user can also see and download the lead scoring strategy data w
 
 In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it's a vital component in ensuring that our project's insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy's financial benefits.
 
+---
 
 # Conclusion
 
@@ -556,6 +568,8 @@ This project has successfully demonstrated the integration of advanced data scie
 **Technical Implementation:** A significant aspect of this project was the technical implementation of our models in a user-friendly interface, achieved through the development of a Streamlit application. This interface serves as a bridge, making complex analytical models accessible and usable for decision-makers within the organization. It represents a crucial step in translating data-driven insights into actionable business strategies.
 
 **Financial Implications and Future Directions:** The ROI analysis conducted as part of this project illustrates the potential financial benefits of implementing a lead scoring system. It offers a glimpse into how optimizing lead targeting can impact the bottom line. However, the full potential of these models will be realized once the Streamlit application is deployed and integrated into the company's daily operations.
+
+---
 
 # Next Steps
 
