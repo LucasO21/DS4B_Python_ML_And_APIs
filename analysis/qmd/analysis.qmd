@@ -370,7 +370,7 @@ PyCaret, can be seamlessly integrated with MLflow to leverage its powerful exper
 
 ![Finalized Model Details](png/modelling_png/mlflow/detail.png){width=100% fig-align="center"}
 
-In this project, MLflow will be a valuable asset as the project progresses progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.
+In this project, MLflow will be a valuable asset as the project progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.
 
 ---
 
