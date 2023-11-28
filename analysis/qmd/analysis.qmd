@@ -380,9 +380,9 @@ In this project, MLflow will be a valuable asset as the project progresses and o
 This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** phase of the BSPF
 :::
 
-In the preceeding phase of this project, we sucessfully developed and trainded predictive models to identify customers who are more like to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determinning the potential cost or savings for a machine learning model's prediction. This process us further sub-divided into 2 phases;
+In the preceding phase of this project, we successfully developed and trained predictive models to identify leads who are more likely to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determining the potential cost or savings for a machine learning model's prediction. This process is further sub-divided into 2 phases;
 
-1. Identifying a threshold for which to categorize customers as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.
+1. Identifying a threshold for which to categorize leads as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.
 
 2. Optimize the threshold for maximum efficiency and ROI based on senior management decisions.
 
@@ -390,9 +390,9 @@ Again the primary goal here is to evaluate the financial implications of classif
 
 
 ## Initial Threshold & Cost Savings
-This step involved calculating the [cumulative gain](http://mlwiki.org/index.php/Cumulative_Gain_Chart) of our machine learning model to enhance our return on investment (ROI). Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbituary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.
+This step involved calculating the [cumulative gain](http://mlwiki.org/index.php/Cumulative_Gain_Chart) of our machine learning model to enhance our return on investment (ROI). Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbitrary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.
 
-The table below shows the proportion of hot and cold leads based on this arbituary 0.95 threshold.
+The table below shows the proportion of hot and cold leads based on this arbitrary 0.95 threshold.
 
 |   **Category**        | **Total Customers** | **Made Purchase**  |
 |-----------------------:---------------------|:-------------------|
@@ -401,7 +401,7 @@ The table below shows the proportion of hot and cold leads based on this arbitua
 
 : Hot / Cold Lead Categorization (95% Gain Threshold)
 
-This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potental lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.
+This approach refines our marketing strategy. Instead of targeting all customers with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we'll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all customers are targeted. Based on the **Cold-Lead** row in the table above, we can see that 5528 (27%) of customers will NOT be targeted for sales emails, resulting in potential lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.
 
 ### Expected Value (Cost vs Savings)
 
@@ -422,19 +422,19 @@ Before proceeding, we'll also need some of the values stated earlier in the [Bus
 
 : Current Business KPIs
 
-These business KPIs are then used along with subscriber counts from the [initial threshold](#initial-threshold--cost-savings) table to generate some preliminatry expected value calulations.
+These business KPIs are then used along with subscriber counts from the [initial threshold](#initial-threshold--cost-savings) table to generate some preliminary expected value calulations.
 
 | KPI                                  | Value    | Description                                        |
 |--------------------------------------|:---------|:---------------------------------------------------|
 | Missed Purchase Ratio                | 5.0%     | Proportion of leads that did not make a purchase   |
-| Made Purchase Ratio                  | 94.91%   | Proportion os leads that made a purchase           |
+| Made Purchase Ratio                  | 94.91%   | Proportion of leads that made a purchase           |
 | Savings - Cold Leads Not Targeted    | $65,616  | Monthly savings from cold leads not targeted       |
 | Cost - Cold Leads Missed Sales       | $12,734  | Missed sales from cold leads not targeted          |
 | Cost - Hot Leads that Unsubscribe    | $184,384 | Missed sales from hot leads that unsubscribe       |
 | Savings - New Monthly Sales          | $237,266 | Monthly sales in the first month of new strategy   |
 
 
-: Preliminary EV Calculations (Based on 95% Threhold and Sample Factor of 5.0)
+: Preliminary EV Calculations (Based on 95% Threshold and Sample Factor of 5.0)
 
 ::: {.callout-important title="Expected Value Calculations"}
 To understand how these values are calculated, please refer to [this](https://github.com/LucasO21/DS4B_Python_ML_And_APIs/tree/main/analysis/ev_calculation) excel sheet.
@@ -461,7 +461,7 @@ The main aim is to find the sweet spot that maximizes profit. However, we must a
 
 To address this, we're now focusing on optimizing the threshold. This means finding a balance that maintains a certain level of monthly sales while still aiming for long-term profit growth. We'll present different threshold options to management, showing how each one impacts monthly costs and potential savings. This way, management can make informed decisions, balancing immediate sales with long-term profitability.
 
-The plot below shows the optimization results. The x-axis is the various levels of thresholds from 0 to 1, while the y-axis shows the expected value for each threshold. There's a red dashed line on the chart, indicating the threshold that gives us the highest expected value, which is $322,893 in this scenario, while retaining monthly current monthly sales of at least $219,595. This peak value is achieved when we ensure that at least 87% of our usual monthly sales are maintained under the new email lead scoring strategy. This condition is what we call the Monthly Sales Reduction Safeguard.
+The plot below shows the optimization results. The x-axis is the various levels of thresholds from 0 to 1, while the y-axis shows the expected value for each threshold. There's a red dashed line on the chart, indicating the threshold that gives us the highest expected value, which is $322,893 in this scenario, while retaining monthly current monthly sales of at least $219,595. This peak value is achieved when we ensure that at least 87% of our usual monthly sales are maintained under the new email lead scoring strategy. This condition is what we call the **Monthly Sales Reduction Safeguard**.
 
 ![](png/cost/optimization_thresh_88.png){width=100% fig-align="center"}
 
@@ -470,10 +470,10 @@ However, management might consider this 87% safeguard to be too low. They may pr
 ![](png/cost/optimization_thresh_90.png){width=100% fig-align="center"}
 
 
-Notice that with a 90% safegaurd, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.
+Notice that with a 90% safeguard, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.
 
 ## Conclusion
-The core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization excercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.
+The core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.
 
 
 ---
