@@ -146,10 +146,7 @@ This phase requires understanding the data available at our disposal to tackle t
 **Note:** We will not be using the `website` table in this project.
 :::
 
----
-
 ## Exploratory Data Analysis
-
 
 After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a lead has made a previous purchase or not (we'll call this target feature `made_purchase`), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of leads making a purchase.
 
@@ -363,6 +360,7 @@ This section is part of the **Encode Algorithims** phase of the BSPF.
 :::
 
 ## What is MLflow?
+
 [MLflow](https://mlflow.org/) is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.
 
 ![Email Lead Scoring MLflow Dashboard](png/modelling_png/mlflow/dashboard.png){width=120% fig-align="center"}
@@ -378,6 +376,7 @@ MLflow plays a critical role in the machine learning workflow, addressing severa
 **Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.
 
 ## Integrating MLflow with PyCaret
+
 PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.
 
 ![Finalized Model Details](png/modelling_png/mlflow/detail.png){width=100% fig-align="center"}
@@ -402,6 +401,7 @@ Again the primary goal here is to evaluate the financial implications of classif
 
 
 ## Initial Threshold & Cost Savings
+
 This step involved calculating the [cumulative gain](http://mlwiki.org/index.php/Cumulative_Gain_Chart) of our machine learning model to enhance our return on investment (ROI). Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbitrary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.
 
 The table below shows the proportion of hot and cold leads based on this arbitrary 0.95 threshold.
@@ -467,6 +467,7 @@ Finally these preliminary calculations are then used to calculate expected value
 
 
 ## Threshold Optimization & Profit Maximization
+
 Our initial analysis used a 95% threshold to decide whether leads are hot (likely to buy) or cold (less likely to buy). This section explores how changing this threshold affects our expected profits and cost savings.
 
 The main aim is to find the sweet spot that maximizes profit. However, we must also consider management's concerns. For example, using the 95% threshold, we saw a 5% drop in sales in the first month. Senior management may be hesitant about any strategy that reduces monthly sales, even if it could lead to higher sales later on.
@@ -484,8 +485,7 @@ However, management might consider this 87% safeguard to be too low. They may pr
 
 Notice that with a 90% safeguard, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.
 
-## Conclusion
-The core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.
+In conclusion the core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.
 
 
 ---
@@ -499,6 +499,7 @@ This section is part of the last 2 phases of the BSPF **(Measure Results and Rep
 We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of [Application Programming Interfaces](https://en.wikipedia.org/wiki/API) (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.
 
 ## API Endpoints
+
 Our API, developed using [FastAPI](https://fastapi.tiangolo.com/), features several endpoints,
 each serving a specific purpose;
 
