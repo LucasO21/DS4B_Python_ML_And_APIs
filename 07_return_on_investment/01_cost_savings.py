@@ -128,7 +128,7 @@ made_purchases = strategy_aggregate_df['sum_made_purchase'].get('Hot-Lead', 0)
 
 
 # ------------------------- 2.2 Confusion Matrix Summaries ---- ------------------------ #
-total_count = (cold_lead_count + hot_lead_count)
+total_count = cold_lead_count + hot_lead_count
 
 total_purchases = (missed_purchases + made_purchases)
 

@@ -95,11 +95,12 @@ cost_table_df = period_series.to_frame()
 cost_table_df["email_size_no_growth"] = np.repeat(email_list_size_1, time)
 
 # Lost Customers - No Growth
-cost_table_df["lost_customers_no_growth"] = cost_table_df["email_size_no_growth"] * \
-    unsub_rate_1 * sales_emails_per_month_1 * conversion_rate_1
+cost_table_df["lost_customers_no_growth"] = cost_table_df["email_size_no_growth"] \
+    * unsub_rate_1 * sales_emails_per_month_1 * conversion_rate_1
 
 # Cost - No Growth
-cost_table_df["cost_no_growth"] = cost_table_df["lost_customers_no_growth"] * average_customer_value_1
+cost_table_df["cost_no_growth"] = cost_table_df["lost_customers_no_growth"] \
+    * average_customer_value_1
 
 # Email Size - With Growth
 cost_table_df["email_size_with_growth"] = cost_table_df["email_size_no_growth"] * \
