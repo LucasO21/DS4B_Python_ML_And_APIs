@@ -5,3 +5,6 @@
 *.css
 *.jss
 *.wolf
+/resources
+/00_jumpstart
+/email_lead_scoring
