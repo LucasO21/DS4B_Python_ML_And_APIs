@@ -19,6 +19,8 @@ link-citations: true
 categories: [predictive analytics, marketing analytics, machine learning, roi analysis]
 ---
 
+>>> Note: This project was completed as part of the [Python for Machine Learning and APIs](https://medium.com/r/?url=https%3A%2F%2Funiversity.business-science.io%2Fp%2Fds4b-201-p-machine-learning-and-apis-with-python%3Fel%3Dwebsite) by [Business Science University](https://www.business-science.io/).
+
 # Introduction
 
 Businesses face challenges in identifying and prioritizing potential customers and/or identifying the future purchase potential of current customers based on their email interactions, leading to suboptimal allocation of resources and missed opportunities.
@@ -64,16 +66,16 @@ This section falls under the **View Business as a Machine** Phase of the [BSPF](
 :::
 -->
 
-As mentioned earlier, this analysis provides a lead scoring solution for a company for an online educational company. The company offers training courses (their main product) in data science and has a large email list of **100,000** subscribers (or leads), with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out **5** emails per month and the business's sales cycle generates approximately **$250,000** in revenue per month.
+As mentioned earlier, this analysis provides a lead scoring solution for an online educational company. The company offers training courses (their main product) in data science and has a large email list of **100,000** subscribers (or leads), with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out **5** emails per month and the business's sales cycle generates approximately **$250,000** in revenue per month.
 
 ::: {.callout-note}
 **Subscribers** and **Leads** will be used interchangeably throughout this project. Note they both refer to the same thing.
 :::
 
 
-However, the email list also experiences a significant number of unsubscribes, about **500** per email, resulting in a total of **2,500** unsubscribers per month.
+However, the email list also experiences a significant number of unsubscribes, about **500** per email, resulting in a total of **2,500** unsubscribes per month.
 
-This high unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue, especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers could potential convertabout **5%** of them back into active customers.
+This high unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue, especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers could potential convert about **5%** of them back into active customers.
 
 
 ## Objective
@@ -114,11 +116,11 @@ In this phase, the key is to highlight why this problem should be a business pri
 
 ## Cost Assessment
 
-Given the values highlighted in the [problem statement](#problem-statement--objective) section, we can estimate the monthly lost revenue (we'll refer to this as cost going forward) due to unsubscribers to be around **$250K** per month (or **$3M** annually), not factoring in email list growth rate.
-
-After factoring in a **3.5%** monthly email list growth rate, we can expect the annual lost revenue due to unsubscribers to rise to around **$364K** per month (or **$4.3M** per year), an increase of **46%** in lost revenue. The table below shows this scenario -
+Given the values highlighted in the [problem statement](#problem-statement--objective) section, we can estimate the monthly lost revenue (we'll refer to this as cost going forward) due to unsubscribes to be around **$250K** per month (or **$3M** annually), not factoring in email list growth rate. This hidden cost is shown in the table below -
 
 ![Cost Analysis](png/cost/cost_scenario_table.png){width=70% fig-align="center"}
+
+After factoring in a **3.5%** monthly email list growth rate (last column), we can expect the lost revenue due to unsubscribes to rise to around **$364K** per month (or **$4.3M** per year), an increase of **46%** in lost revenue.
 
 We can see the high cost of this problem which is the lost revenue to the business. However, the values shown in the table above do not factor in uncertainty. We can thus improve on our cost assessment by factoring in uncertainty in some of the drivers. Let assume some monthly variability in email list growth rate and conversion rate. The heatmap below shows a cost simulation with variability. The y-axis represents various levels of customer conversion rate while the x-axis represents various levels of email list growth rate;
 
@@ -152,7 +154,7 @@ After some initial data manipulation to get the data in the right format we need
 
 First, lets analyze our target feature `made_purchase`.
 
-### Proportion of Users with Previous Purchase
+### Proportion of Subscribers with Previous Purchase
 
 ![](png/eda/made_purchase_prop.png){width=70% fig-align="center"}
 
@@ -186,7 +188,7 @@ The plot below is a correlation heatmap of numeric features only -
 
 ![](png/eda/corr_heatmap.png){width=70% fig-align="center"}
 
-**Observation**: These correlation values further validatate some of the data we saw earlier. We can see that `tag_count` and `member_rating` do show a fairly high correlation with `made_purchase`.
+**Observation**: These correlation values further validate some of the data we saw earlier. We can see that `tag_count` and `member_rating` do show a fairly high correlation with `made_purchase`.
 
 ---
 
@@ -239,11 +241,11 @@ For this analysis, the following addition features were created from existing da
 
 + `activity_per_time` - Generated by dividing `tag_count` (count of events a subscriber has attended) by the newly created `optin_days`.
 
-+ One-To-Many Features (Tags) - These are binary features (0s or 1s) for each tag (event) to indicate if a user attend the event or not.
++ One-To-Many Features (`tags`) - These are binary features (0s or 1s) for each tag (event) to indicate if a user attend the event or not.
 
 + Reducing High Cardinality - Applied to `country_code`. Using a threshold of 6, this process lumps countries that have less than 6 subscribers in the dataset into an `other` category.
 
-To demonstrate the importance of feature engineering in this analysis, we'll show an example of some of the new features created and their relationship with our target (`made_purchase`). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (`tag_learning_lab_09`) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For `tag_learning_lab_12`, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.
+To demonstrate the importance of feature engineering in this analysis, we'll show an example of some of the new features created and their relationship with `made_purchase` (or target). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (`tag_learning_lab_09`) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For `tag_learning_lab_12`, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.
 
 ![](png/eda/attended_event_vs_made_purchase_prop.png){width=80% fig-align="center"}
 
@@ -417,7 +419,7 @@ This approach refines our marketing strategy. Instead of targeting all leads wit
 
 ### Expected Value (Cost vs Savings)
 
-As highlighted above, there is as cost and savings trade-off from only targeting Hot-Leads while only nurturing Cold-Leads. **Expected Value** in this case, is the financial value associated with various cost and saving scenarios. Lets deep dive into this expected value calculations for this project, based on our threshold of **0.9** for determining hot and cold leads and the proportion of hot and cold leaders shown the previous table.
+As highlighted above, there is as cost and savings trade-off from only targeting Hot-Leads while only nurturing Cold-Leads. **Expected Value** in this case, is the financial value associated with various cost and saving scenarios. Let's deep dive into this expected value calculations for this project, based on our threshold of **0.9** for determining hot and cold leads and the proportion of hot and cold leaders shown the previous table.
 
 Before proceeding, we'll also need some of the values stated earlier in the [Business Understanding](#business-understanding) section -
 
@@ -459,7 +461,7 @@ Finally these preliminary calculations are then used to calculate expected value
 | Revenue in First Month                        | $237,266   | Sales in first month with new strategy     |
 | New Revenue (Post Nurturing Cold Leads)       | $290,148   | Expected total sales after nurturing cold leads       |
 | Expected Monthly Savings                      | $52,882    | Expected monthly savings with new strategy |
-| Expected Saved Customers                      | 33         | Expected saved customers after with new strategy   |
+| Expected Saved Customers                      | 33         | Expected saved customers with new strategy   |
 
 : Expected Value of Implementing New Strategy (Based on 95% Threhold and Sample Factor of 5.0)
 
@@ -468,13 +470,13 @@ Finally these preliminary calculations are then used to calculate expected value
 
 ## Threshold Optimization & Profit Maximization
 
-Our initial analysis used a 95% threshold to decide whether leads are hot (likely to buy) or cold (less likely to buy). This section explores how changing this threshold affects our expected profits and cost savings.
+Our initial ROI analysis used a 95% threshold to decide whether leads are hot (likely to buy) or cold (less likely to buy). This section explores how changing this threshold affects our expected profits and cost savings.
 
 The main aim is to find the sweet spot that maximizes profit. However, we must also consider management's concerns. For example, using the 95% threshold, we saw a 5% drop in sales in the first month. Senior management may be hesitant about any strategy that reduces monthly sales, even if it could lead to higher sales later on.
 
-To address this, we're now focusing on optimizing the threshold. This means finding a balance that maintains a certain level of monthly sales while still aiming for long-term profit growth. We'll present different threshold options to management, showing how each one impacts monthly costs and potential savings. This way, management can make informed decisions, balancing immediate sales with long-term profitability.
+The plot below shows our optimization results. On the x-axis, various threshold levels are plotted, ranging from 0 to 1. The y-axis corresponds to the expected value associated with each of these thresholds. A notable feature on the chart is a red dashed line, marking the **88%** threshold. This specific threshold that categorizes leads into Hot or Cold. This is the point where the maximum expected value is realized - in this instance, **$322,893**.
 
-The plot below shows the optimization results. The x-axis is the various levels of thresholds from 0 to 1, while the y-axis shows the expected value for each threshold. There's a red dashed line on the chart, indicating the threshold that gives us the highest expected value, which is $322,893 in this scenario, while retaining monthly current monthly sales of at least $219,595. This peak value is achieved when we ensure that at least 87% of our usual monthly sales are maintained under the new email lead scoring strategy. This condition is what we call the **Monthly Sales Reduction Safeguard**.
+This maximum expected value is achieved under the condition that a minimum of **87%** of the usual monthly sales is preserved, even when implementing the new email lead scoring strategy. Essentially, the **87%** figure acts as a benchmark, ensuring that the new strategy does not significantly erode monthly sales. We refer to this benchmark as the **Monthly Sales Reduction Safeguard**. It serves as a critical parameter, ensuring that while maximizing the expected value from lead scoring, the strategy also safeguards a significant portion of the current monthly sales, maintaining at least **$219,595** in this scenario.
 
 ![](png/cost/optimization_thresh_88.png){width=100% fig-align="center"}
 
@@ -483,9 +485,9 @@ However, management might consider this 87% safeguard to be too low. They may pr
 ![](png/cost/optimization_thresh_90.png){width=100% fig-align="center"}
 
 
-Notice that with a 90% safeguard, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.
+Notice that with a **90%** safeguard, the expected value drops to **$317,695**. However we see an increase in the current monthly sales retained, **$224,532** in this case.
 
-In conclusion the core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.
+In conclusion the core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise shows the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.
 
 
 ---
@@ -498,8 +500,7 @@ This section is part of the last 2 phases of the BSPF **(Measure Results and Rep
 
 We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of [Application Programming Interfaces](https://en.wikipedia.org/wiki/API) (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.
 
-## API Endpoints
-
+## API
 Our API, developed using [FastAPI](https://fastapi.tiangolo.com/), features several endpoints,
 each serving a specific purpose;
 
@@ -533,7 +534,7 @@ In this final phase of the email lead scoring project, we transition from the de
 
 ::: {.callout-important title="Streamlit App"}
 <!--You can access the Streamlit app [here](). -->
-Please be aware that the Streamlit application is currently in the final stages of development and has not yet been deployed to a cloud platform. As soon as the deployment is complete, a direct link will be added to write-up.
+Please be aware that the Streamlit application is currently in the final stages of development and has not yet been deployed to a cloud platform. As soon as the deployment is complete, a direct link will be added to this write-up.
 :::
 
 When first accessed, the link brings the user to an authentication screen where they will need to input their secret keys.
@@ -570,10 +571,12 @@ This project has successfully demonstrated the integration of advanced data scie
 
 **Financial Implications and Future Directions:** The ROI analysis conducted as part of this project illustrates the potential financial benefits of implementing a lead scoring system. It offers a glimpse into how optimizing lead targeting can impact the bottom line. However, the full potential of these models will be realized once the Streamlit application is deployed and integrated into the company's daily operations.
 
+In conclusion, this project not only showcases the practical application of machine learning in a business context but also sets the stage for further innovations in data-driven marketing strategies. The insights and methodologies developed here can serve as a blueprint for similar initiatives in the future, driving forward the agenda of data-centric decision-making in the business world.
+
 ---
 
 # Next Steps
 
-The immediate next step is the deployment of the Streamlit application to a cloud platform, making it widely accessible to the relevant stakeholders. Following deployment, continuous monitoring and iterative improvements based on user feedback and evolving business needs will be crucial.
+* Deploy Streamlit app to a cloud platform.
+* Continue learning how to integrate FastAPI with web applications.
 
-In conclusion, this project not only showcases the practical application of machine learning in a business context but also sets the stage for further innovations in data-driven marketing strategies. The insights and methodologies developed here can serve as a blueprint for similar initiatives in the future, driving forward the agenda of data-centric decision-making in the business world.

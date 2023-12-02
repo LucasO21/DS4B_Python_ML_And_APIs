@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">4.1</span> Exploratory Data Analysis</a>
   <ul class="collapse">
-  <li><a href="#proportion-of-users-with-previous-purchase" id="toc-proportion-of-users-with-previous-purchase" class="nav-link" data-scroll-target="#proportion-of-users-with-previous-purchase"><span class="header-section-number">4.1.1</span> Proportion of Users with Previous Purchase</a></li>
+  <li><a href="#proportion-of-subscribers-with-previous-purchase" id="toc-proportion-of-subscribers-with-previous-purchase" class="nav-link" data-scroll-target="#proportion-of-subscribers-with-previous-purchase"><span class="header-section-number">4.1.1</span> Proportion of Subscribers with Previous Purchase</a></li>
   <li><a href="#member-rating-vs-made-purchase" id="toc-member-rating-vs-made-purchase" class="nav-link" data-scroll-target="#member-rating-vs-made-purchase"><span class="header-section-number">4.1.2</span> Member Rating vs Made Purchase</a></li>
   <li><a href="#country-code-vs-made-purchase" id="toc-country-code-vs-made-purchase" class="nav-link" data-scroll-target="#country-code-vs-made-purchase"><span class="header-section-number">4.1.3</span> Country Code vs Made Purchase</a></li>
   <li><a href="#tag-count-vs-made-purchase" id="toc-tag-count-vs-made-purchase" class="nav-link" data-scroll-target="#tag-count-vs-made-purchase"><span class="header-section-number">4.1.4</span> Tag Count vs Made Purchase</a></li>
@@ -165,14 +165,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#expected-value-cost-vs-savings" id="toc-expected-value-cost-vs-savings" class="nav-link" data-scroll-target="#expected-value-cost-vs-savings"><span class="header-section-number">9.1.1</span> Expected Value (Cost vs Savings)</a></li>
   </ul></li>
   <li><a href="#threshold-optimization-profit-maximization" id="toc-threshold-optimization-profit-maximization" class="nav-link" data-scroll-target="#threshold-optimization-profit-maximization"><span class="header-section-number">9.2</span> Threshold Optimization &amp; Profit Maximization</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9.3</span> Conclusion</a></li>
   </ul></li>
   <li><a href="#backend-deployment-fastapi" id="toc-backend-deployment-fastapi" class="nav-link" data-scroll-target="#backend-deployment-fastapi"><span class="header-section-number">10</span> Backend Deployment (FastAPI)</a>
   <ul class="collapse">
   <li><a href="#api-endpoints" id="toc-api-endpoints" class="nav-link" data-scroll-target="#api-endpoints"><span class="header-section-number">10.1</span> API Endpoints</a></li>
   </ul></li>
   <li><a href="#frontend-deployment-streamlit" id="toc-frontend-deployment-streamlit" class="nav-link" data-scroll-target="#frontend-deployment-streamlit"><span class="header-section-number">11</span> Frontend Deployment (Streamlit)</a></li>
-  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1"><span class="header-section-number">12</span> Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">12</span> Conclusion</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">13</span> Next Steps</a></li>
   </ul>
 </nav>
@@ -214,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 This section falls under the **View Business as a Machine** Phase of the [BSPF](https://www.business-science.io/business/2018/06/19/business-science-problem-framework.html).
 :::
 -->
-<p>As mentioned earlier, this analysis provides a lead scoring solution for a company for an online educational company. The company offers training courses (their main product) in data science and has a large email list of <strong>100,000</strong> subscribers (or leads), with a monthly growth rate of <strong>6,000</strong> new subscribers. The marketing team also sends out <strong>5</strong> emails per month and the business’s sales cycle generates approximately <strong>$250,000</strong> in revenue per month.</p>
+<p>As mentioned earlier, this analysis provides a lead scoring solution for an online educational company. The company offers training courses (their main product) in data science and has a large email list of <strong>100,000</strong> subscribers (or leads), with a monthly growth rate of <strong>6,000</strong> new subscribers. The marketing team also sends out <strong>5</strong> emails per month and the business’s sales cycle generates approximately <strong>$250,000</strong> in revenue per month.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -228,8 +227,8 @@ Note
 <p><strong>Subscribers</strong> and <strong>Leads</strong> will be used interchangeably throughout this project. Note they both refer to the same thing.</p>
 </div>
 </div>
-<p>However, the email list also experiences a significant number of unsubscribes, about <strong>500</strong> per email, resulting in a total of <strong>2,500</strong> unsubscribers per month.</p>
-<p>This high unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue, especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers could potential convertabout <strong>5%</strong> of them back into active customers.</p>
+<p>However, the email list also experiences a significant number of unsubscribes, about <strong>500</strong> per email, resulting in a total of <strong>2,500</strong> unsubscribes per month.</p>
+<p>This high unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue, especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers could potential convert about <strong>5%</strong> of them back into active customers.</p>
 <section id="objective" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">2.1</span> Objective</h2>
 <p>Given these key insights, the problem at hand is to develop an effective email list scoring and segmentation strategy. The goal is to identify and prioritize the most valuable leads (in terms of probability of making a purchase) to target for sales emails, while also identifying leads with a low probability of purchase to nurture and increase their likelihood to purchase.</p>
@@ -271,8 +270,8 @@ BSPF Phase
 </ul>
 <section id="cost-assessment" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="cost-assessment"><span class="header-section-number">3.1</span> Cost Assessment</h2>
-<p>Given the values highlighted in the <a href="#problem-statement--objective">problem statement</a> section, we can estimate the monthly lost revenue (we’ll refer to this as cost going forward) due to unsubscribers to be around <strong>$250K</strong> per month (or <strong>$3M</strong> annually), not factoring in email list growth rate.</p>
-<p>After factoring in a <strong>3.5%</strong> monthly email list growth rate, we can expect the annual lost revenue due to unsubscribers to rise to around <strong>$364K</strong> per month (or <strong>$4.3M</strong> per year), an increase of <strong>46%</strong> in lost revenue. The table below shows this scenario -</p>
+<p>Given the values highlighted in the <a href="#problem-statement--objective">problem statement</a> section, we can estimate the monthly lost revenue (we’ll refer to this as cost going forward) due to unsubscribes to be around <strong>$250K</strong> per month (or <strong>$3M</strong> annually), not factoring in email list growth rate.</p>
+<p>After factoring in a <strong>3.5%</strong> monthly email list growth rate, we can expect the annual lost revenue due to unsubscribes to rise to around <strong>$364K</strong> per month (or <strong>$4.3M</strong> per year), an increase of <strong>46%</strong> in lost revenue. The table below shows this scenario -</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="png/cost/cost_scenario_table.png" class="img-fluid figure-img" style="width:70.0%"></p>
@@ -326,13 +325,12 @@ Important
 <p><strong>Note:</strong> We will not be using the <code>website</code> table in this project.</p>
 </div>
 </div>
-<hr>
 <section id="exploratory-data-analysis" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">4.1</span> Exploratory Data Analysis</h2>
 <p>After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a lead has made a previous purchase or not (we’ll call this target feature <code>made_purchase</code>), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of leads making a purchase.</p>
 <p>First, lets analyze our target feature <code>made_purchase</code>.</p>
-<section id="proportion-of-users-with-previous-purchase" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="proportion-of-users-with-previous-purchase"><span class="header-section-number">4.1.1</span> Proportion of Users with Previous Purchase</h3>
+<section id="proportion-of-subscribers-with-previous-purchase" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="proportion-of-subscribers-with-previous-purchase"><span class="header-section-number">4.1.1</span> Proportion of Subscribers with Previous Purchase</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="png/eda/made_purchase_prop.png" class="img-fluid figure-img" style="width:70.0%"></p>
@@ -378,7 +376,7 @@ Important
 <p><img src="png/eda/corr_heatmap.png" class="img-fluid figure-img" style="width:70.0%"></p>
 </figure>
 </div>
-<p><strong>Observation</strong>: These correlation values further validatate some of the data we saw earlier. We can see that <code>tag_count</code> and <code>member_rating</code> do show a fairly high correlation with <code>made_purchase</code>.</p>
+<p><strong>Observation</strong>: These correlation values further validate some of the data we saw earlier. We can see that <code>tag_count</code> and <code>member_rating</code> do show a fairly high correlation with <code>made_purchase</code>.</p>
 <hr>
 </section>
 </section>
@@ -461,10 +459,10 @@ BSPF Phase
 <li><p><code>optin_days</code> - Generated from <code>optin_time</code>. This is the number of days the subscriber has been on the company’s email list.</p></li>
 <li><p><code>email_provider</code> - Generated from <code>user_email</code>. Multiple email providers (such as gmail, hotmail) etc are being used by subscribers, and could be helpful in predicting made_purchase.</p></li>
 <li><p><code>activity_per_time</code> - Generated by dividing <code>tag_count</code> (count of events a subscriber has attended) by the newly created <code>optin_days</code>.</p></li>
-<li><p>One-To-Many Features (Tags) - These are binary features (0s or 1s) for each tag (event) to indicate if a user attend the event or not.</p></li>
+<li><p>One-To-Many Features (<code>tags</code>) - These are binary features (0s or 1s) for each tag (event) to indicate if a user attend the event or not.</p></li>
 <li><p>Reducing High Cardinality - Applied to <code>country_code</code>. Using a threshold of 6, this process lumps countries that have less than 6 subscribers in the dataset into an <code>other</code> category.</p></li>
 </ul>
-<p>To demonstrate the importance of feature engineering in this analysis, we’ll show an example of some of the new features created and their relationship with our target (<code>made_purchase</code>). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (<code>tag_learning_lab_09</code>) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For <code>tag_learning_lab_12</code>, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.</p>
+<p>To demonstrate the importance of feature engineering in this analysis, we’ll show an example of some of the new features created and their relationship with <code>made_purchase</code> (or target). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (<code>tag_learning_lab_09</code>) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For <code>tag_learning_lab_12</code>, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="png/eda/attended_event_vs_made_purchase_prop.png" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -712,7 +710,7 @@ BSPF Phase
 <p>This approach refines our marketing strategy. Instead of targeting all leads with sales emails, we now only focus on sending sales emails to Hot-Leads, while simultaneously nurturing Cold-Leads, whom we’ll expect to make a purchase within 90 days. The result of this would be some initial loss in sales as not all leads are targeted. Based on the <strong>Cold-Lead</strong> row in the table above, we can see that 5528 (27%) of leads will NOT be targeted for sales emails, resulting in potential lost purchases of 49. However, the initial loss in sales will be offset as we nurture cold leads and get them to make a purchase within 90 days.</p>
 <section id="expected-value-cost-vs-savings" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="expected-value-cost-vs-savings"><span class="header-section-number">9.1.1</span> Expected Value (Cost vs Savings)</h3>
-<p>As highlighted above, there is as cost and savings trade-off from only targeting Hot-Leads while only nurturing Cold-Leads. <strong>Expected Value</strong> in this case, is the financial value associated with various cost and saving scenarios. Lets deep dive into this expected value calculations for this project, based on our threshold of <strong>0.9</strong> for determining hot and cold leads and the proportion of hot and cold leaders shown the previous table.</p>
+<p>As highlighted above, there is as cost and savings trade-off from only targeting Hot-Leads while only nurturing Cold-Leads. <strong>Expected Value</strong> in this case, is the financial value associated with various cost and saving scenarios. Let’s deep dive into this expected value calculations for this project, based on our threshold of <strong>0.9</strong> for determining hot and cold leads and the proportion of hot and cold leaders shown the previous table.</p>
 <p>Before proceeding, we’ll also need some of the values stated earlier in the <a href="#business-understanding">Business Understanding</a> section -</p>
 <table class="table">
 <caption>Current Business KPIs</caption>
@@ -852,7 +850,7 @@ Expected Value Calculations
 <tr class="even">
 <td>Expected Saved Customers</td>
 <td style="text-align: left;">33</td>
-<td style="text-align: left;">Expected saved customers after with new strategy</td>
+<td style="text-align: left;">Expected saved customers with new strategy</td>
 </tr>
 </tbody>
 </table>
@@ -877,10 +875,7 @@ Expected Value Calculations
 </figure>
 </div>
 <p>Notice that with a 90% safeguard, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.</p>
-</section>
-<section id="conclusion" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">9.3</span> Conclusion</h2>
-<p>The core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.</p>
+<p>In conclusion the core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.</p>
 <hr>
 </section>
 </section>
@@ -977,7 +972,7 @@ Streamlit App
 <p>In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it’s a vital component in ensuring that our project’s insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy’s financial benefits.</p>
 <hr>
 </section>
-<section id="conclusion-1" class="level1" data-number="12">
+<section id="conclusion" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Conclusion</h1>
 <p>This project has successfully demonstrated the integration of advanced data science techniques into practical business solutions for email lead scoring. The journey from conceptualization to the development of a functional model highlights key achievements and insights.</p>
 <p><strong>Strategic Application of Data Science:</strong> The core of this project was the strategic application of machine learning to enhance email marketing efforts. By employing predictive modeling and feature engineering, we have developed a robust system that can accurately identify and score potential leads. This approach allows for a more targeted and efficient use of marketing resources, potentially leading to increased conversion rates and customer engagement.</p>
@@ -1345,16 +1340,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>As mentioned earlier, this analysis provides a lead scoring solution for a company for an online educational company. The company offers training courses (their main product) in data science and has a large email list of **100,000** subscribers (or leads), with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out **5** emails per month and the business's sales cycle generates approximately **$250,000** in revenue per month.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>As mentioned earlier, this analysis provides a lead scoring solution for an online educational company. The company offers training courses (their main product) in data science and has a large email list of **100,000** subscribers (or leads), with a monthly growth rate of **6,000** new subscribers. The marketing team also sends out **5** emails per month and the business's sales cycle generates approximately **$250,000** in revenue per month.</span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>**Subscribers** and **Leads** will be used interchangeably throughout this project. Note they both refer to the same thing.</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>However, the email list also experiences a significant number of unsubscribes, about **500** per email, resulting in a total of **2,500** unsubscribers per month.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>However, the email list also experiences a significant number of unsubscribes, about **500** per email, resulting in a total of **2,500** unsubscribes per month.</span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>This high unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue, especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers could potential convertabout **5%** of them back into active customers.</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>This high unsubscribe rate indicates potential inefficiencies in the email marketing strategy. In addition, high unsubscribe rates can result in reduced revenue, especially if the business relies heavily on email marketing as a primary channel for generating leads and driving conversions. To sustain and increase revenue, it is crucial to optimize the email marketing approach and maximize customer conversion rates. The business also believes that nurturing lost customers could potential convert about **5%** of them back into active customers.</span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objective</span></span>
@@ -1395,9 +1390,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cost Assessment</span></span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Given the values highlighted in the <span class="co">[</span><span class="ot">problem statement</span><span class="co">](#problem-statement--objective)</span> section, we can estimate the monthly lost revenue (we'll refer to this as cost going forward) due to unsubscribers to be around **$250K** per month (or **$3M** annually), not factoring in email list growth rate.</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Given the values highlighted in the <span class="co">[</span><span class="ot">problem statement</span><span class="co">](#problem-statement--objective)</span> section, we can estimate the monthly lost revenue (we'll refer to this as cost going forward) due to unsubscribes to be around **$250K** per month (or **$3M** annually), not factoring in email list growth rate.</span>
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>After factoring in a **3.5%** monthly email list growth rate, we can expect the annual lost revenue due to unsubscribers to rise to around **$364K** per month (or **$4.3M** per year), an increase of **46%** in lost revenue. The table below shows this scenario -</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>After factoring in a **3.5%** monthly email list growth rate, we can expect the annual lost revenue due to unsubscribes to rise to around **$364K** per month (or **$4.3M** per year), an increase of **46%** in lost revenue. The table below shows this scenario -</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="al">![Cost Analysis](png/cost/cost_scenario_table.png)</span>{width=70% fig-align="center"}</span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
@@ -1427,262 +1422,262 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>**Note:** We will not be using the <span class="in">`website`</span> table in this project.</span>
 <span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory Data Analysis</span></span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory Data Analysis</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a lead has made a previous purchase or not (we'll call this target feature <span class="in">`made_purchase`</span>), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of leads making a purchase.</span>
 <span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>After some initial data manipulation to get the data in the right format we need for analysis, including adding a target feature which is a binary flag of if a lead has made a previous purchase or not (we'll call this target feature <span class="in">`made_purchase`</span>), we can then begin to do some initial exploratory analysis to get a sense what features in our dataset could be predictive of leads making a purchase.</span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>First, lets analyze our target feature <span class="in">`made_purchase`</span>.</span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="fu">### Proportion of Users with Previous Purchase</span></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/made_purchase_prop.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>**Observation:** Only **5%** of leads have made a previous purchase, meaning we are dealing with a highly <span class="co">[</span><span class="ot">imbalanced dataset</span><span class="co">](https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-data)</span>.</span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### Member Rating vs Made Purchase</span></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>The plot below shows the different values of <span class="in">`member_rating`</span> vs the proportion of <span class="in">`made_purchase`</span> for users with each value of <span class="in">`member_rating`</span> -</span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/member_rating_vs_made_purchase.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>**Observation:** <span class="in">`member_rating`</span> appears to be quite predictive of <span class="in">`made_purchase`</span>. We can see that the likelihood of a user making a purchase increases 3x when the <span class="in">`member_rating`</span> goes from 1 to 2. Additionally the likelihood of making a purchase increases 5x when the <span class="in">`member_rating`</span> goes from 2 to 5.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>First, lets analyze our target feature <span class="in">`made_purchase`</span>.</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Proportion of Subscribers with Previous Purchase</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/made_purchase_prop.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>**Observation:** Only **5%** of leads have made a previous purchase, meaning we are dealing with a highly <span class="co">[</span><span class="ot">imbalanced dataset</span><span class="co">](https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-data)</span>.</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="fu">### Member Rating vs Made Purchase</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>The plot below shows the different values of <span class="in">`member_rating`</span> vs the proportion of <span class="in">`made_purchase`</span> for users with each value of <span class="in">`member_rating`</span> -</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/member_rating_vs_made_purchase.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>**Observation:** <span class="in">`member_rating`</span> appears to be quite predictive of <span class="in">`made_purchase`</span>. We can see that the likelihood of a user making a purchase increases 3x when the <span class="in">`member_rating`</span> goes from 1 to 2. Additionally the likelihood of making a purchase increases 5x when the <span class="in">`member_rating`</span> goes from 2 to 5.</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### Country Code vs Made Purchase</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>The plot below shows <span class="in">`country_code`</span> along with the within group <span class="in">`made_purchase`</span> proportion, for the top 10 countries in terms of count of users -</span>
 <span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Country Code vs Made Purchase</span></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>The plot below shows <span class="in">`country_code`</span> along with the within group <span class="in">`made_purchase`</span> proportion, for the top 10 countries in terms of count of users -</span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/country_code_vs_made_purchase.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>**Observation:** <span class="in">`country_code`</span> also appears to be quite predictive of <span class="in">`made_purchase`</span> as well.For example we can see that while the US has the most users (over 3,500), the proportion of US users who have made a purchase is ~10%. However a country like AU, which has less than 500 users has a higher proprtion of users who have made a purchase (~12%).</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/country_code_vs_made_purchase.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>**Observation:** <span class="in">`country_code`</span> also appears to be quite predictive of <span class="in">`made_purchase`</span> as well.For example we can see that while the US has the most users (over 3,500), the proportion of US users who have made a purchase is ~10%. However a country like AU, which has less than 500 users has a higher proprtion of users who have made a purchase (~12%).</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tag Count vs Made Purchase</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>The plot below shows <span class="in">`tag_count`</span> along with the within group <span class="in">`made_purchase`</span> proportion, for a selected number of <span class="in">`tag_count`</span>. Recall that tags here refer to various events like trainings and webinars. Therefore <span class="in">`tag_count`</span> refers to the number of such events a user has attended -</span>
 <span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tag Count vs Made Purchase</span></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>The plot below shows <span class="in">`tag_count`</span> along with the within group <span class="in">`made_purchase`</span> proportion, for a selected number of <span class="in">`tag_count`</span>. Recall that tags here refer to various events like trainings and webinars. Therefore <span class="in">`tag_count`</span> refers to the number of such events a user has attended -</span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/tags_vs_made_purchase.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/tags_vs_made_purchase.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>**Observation:** We can see that if a subscriber has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as <span class="in">`tag_count`</span> decreases. Note that a lead with 0 tags only have a 2% likelihood of making a purchase. For those with 0 tags (meaning they have not attended any events yet) we may not want to send them emails just yet. We may want to try and nurture them to attend more events before trying to get them to make a purchase. Overall if the business can get leads to attend more events, it drastically increases their likelihood of making a purchase.</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>**Observation:** We can see that if a subscriber has 40 or more tags (events), they are 100% likely to make a purchase. That likelihood drops as <span class="in">`tag_count`</span> decreases. Note that a lead with 0 tags only have a 2% likelihood of making a purchase. For those with 0 tags (meaning they have not attended any events yet) we may not want to send them emails just yet. We may want to try and nurture them to attend more events before trying to get them to make a purchase. Overall if the business can get leads to attend more events, it drastically increases their likelihood of making a purchase.</span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Correlation</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>The plot below is a correlation heatmap of numeric features only -</span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="fu">### Correlation</span></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>The plot below is a correlation heatmap of numeric features only -</span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/corr_heatmap.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>**Observation**: These correlation values further validatate some of the data we saw earlier. We can see that <span class="in">`tag_count`</span> and <span class="in">`member_rating`</span> do show a fairly high correlation with <span class="in">`made_purchase`</span>.</span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="fu"># Formulating KPIs</span></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>This section falls under the **Measure the Drivers/Uncover Problems and Opportunities** Phase of the BSPF</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>Now that we have a bit more understanding of some of the potential drivers of <span class="in">`made_purchase`</span>, we may want to develop some hypothesis about how to improve the likelihood of a lead making a purchase by applying some of the insights we just learned. For example;</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;&gt; *"Can we reduce the number of sales emails sent to subscribers by 30% and still maintain 99% of sales revenue?"*</span></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>Can we segment our email list into hot and cold leads? Hot-Leads meaning those who are more likely to purchase (subscribers with high <span class="in">`member_rating`</span> for example), and Cold-Leads meaning those less likely to purchase (subscribers with low <span class="in">`member_rating`</span>). This way we could come up with a strategy to only send sales emails to hot leads, while nuturing cold leads to increase their likelihood of purchase.</span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>One of such KPIs could be to increase the median <span class="in">`tag_count`</span>. Looking at the table below, we can see that the median <span class="in">`tag_count`</span> for those who have not made a purchase is 0 while for those who have made a purchase, the median <span class="in">`tag_count`</span> is 2. Thus, we could establsh a KPI for Cold-Leads to get their median <span class="in">`tag_count`</span> to 2 or more (attend 2 or more webinars/events) and increase their likelihood of making a purchase.</span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-tag-count-kpi</span></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Tag Count KPI</span></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> [</span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"No"</span>, <span class="fl">1.13</span>, <span class="dv">0</span>, <span class="dv">18957</span>], [<span class="st">"Yes"</span>, <span class="fl">4.72</span>, <span class="dv">2</span>, <span class="dv">968</span>]</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>  table,</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>  headers<span class="op">=</span>[<span class="st">"Made Purchase"</span>, <span class="st">"Mean Tag Count"</span>, <span class="st">"Median Tag Count"</span>, <span class="st">"Count Subscribers"</span>]</span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="fu"># Feature Engineering</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>This section falls under the **Encode Alogrithms** Phase of the BSPF</span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>Now that we have a better understanding of our data and what features might be predictive of a subscriber making a purchase, the next phase in our workflow is creating preprocessing pipelines to get our data in the right form for machine learning algorithms. **Feature Engineering** is the process of selecting, manipulating and transforming raw data into features that can be used in supervised learning algorithms.</span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>Understanding the business context and having domain expertise can greatly influence the choice and creation of features. Different businesses and domains may have unique characteristics, specific factors that impact the target variable, and relevant attributes that need to be considered during feature engineering.</span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>For this analysis, the following addition features were created from existing data;</span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span><span class="in">`optin_days`</span> - Generated from <span class="in">`optin_time`</span>. This is the number of days the subscriber has been on the company's email list.</span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span><span class="in">`email_provider`</span> - Generated from <span class="in">`user_email`</span>. Multiple email providers (such as gmail, hotmail) etc are being used by subscribers, and could be helpful in predicting made_purchase.</span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span><span class="in">`activity_per_time`</span> - Generated by dividing <span class="in">`tag_count`</span> (count of events a subscriber has attended) by the newly created <span class="in">`optin_days`</span>.</span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>One-To-Many Features (Tags) - These are binary features (0s or 1s) for each tag (event) to indicate if a user attend the event or not.</span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Reducing High Cardinality - Applied to <span class="in">`country_code`</span>. Using a threshold of 6, this process lumps countries that have less than 6 subscribers in the dataset into an <span class="in">`other`</span> category.</span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>To demonstrate the importance of feature engineering in this analysis, we'll show an example of some of the new features created and their relationship with our target (<span class="in">`made_purchase`</span>). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (<span class="in">`tag_learning_lab_09`</span>) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For <span class="in">`tag_learning_lab_12`</span>, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.</span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/attended_event_vs_made_purchase_prop.png)</span>{width=80% fig-align="center"}</span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>This indicates that these additional features could be indicative of <span class="in">`made_purchase`</span>.</span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="fu"># Machine Learning</span></span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>This section falls under the **Encode Alogrithms** Phase of the BSPF</span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score email subscribers that are likely to make a purchase, based on features identified and engineered in previous sections. Therefore this is a binary classification problem. For modeling, we use the <span class="co">[</span><span class="ot">Pycaret</span><span class="co">](https://pycaret.org/)</span> python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not only a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/corr_heatmap.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>**Observation**: These correlation values further validate some of the data we saw earlier. We can see that <span class="in">`tag_count`</span> and <span class="in">`member_rating`</span> do show a fairly high correlation with <span class="in">`made_purchase`</span>.</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="fu"># Formulating KPIs</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>This section falls under the **Measure the Drivers/Uncover Problems and Opportunities** Phase of the BSPF</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>Now that we have a bit more understanding of some of the potential drivers of <span class="in">`made_purchase`</span>, we may want to develop some hypothesis about how to improve the likelihood of a lead making a purchase by applying some of the insights we just learned. For example;</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;&gt; *"Can we reduce the number of sales emails sent to subscribers by 30% and still maintain 99% of sales revenue?"*</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>Can we segment our email list into hot and cold leads? Hot-Leads meaning those who are more likely to purchase (subscribers with high <span class="in">`member_rating`</span> for example), and Cold-Leads meaning those less likely to purchase (subscribers with low <span class="in">`member_rating`</span>). This way we could come up with a strategy to only send sales emails to hot leads, while nuturing cold leads to increase their likelihood of purchase.</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>One of such KPIs could be to increase the median <span class="in">`tag_count`</span>. Looking at the table below, we can see that the median <span class="in">`tag_count`</span> for those who have not made a purchase is 0 while for those who have made a purchase, the median <span class="in">`tag_count`</span> is 2. Thus, we could establsh a KPI for Cold-Leads to get their median <span class="in">`tag_count`</span> to 2 or more (attend 2 or more webinars/events) and increase their likelihood of making a purchase.</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-tag-count-kpi</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Tag Count KPI</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> [</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"No"</span>, <span class="fl">1.13</span>, <span class="dv">0</span>, <span class="dv">18957</span>], [<span class="st">"Yes"</span>, <span class="fl">4.72</span>, <span class="dv">2</span>, <span class="dv">968</span>]</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>  table,</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>  headers<span class="op">=</span>[<span class="st">"Made Purchase"</span>, <span class="st">"Mean Tag Count"</span>, <span class="st">"Median Tag Count"</span>, <span class="st">"Count Subscribers"</span>]</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="fu"># Feature Engineering</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>This section falls under the **Encode Alogrithms** Phase of the BSPF</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>Now that we have a better understanding of our data and what features might be predictive of a subscriber making a purchase, the next phase in our workflow is creating preprocessing pipelines to get our data in the right form for machine learning algorithms. **Feature Engineering** is the process of selecting, manipulating and transforming raw data into features that can be used in supervised learning algorithms.</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>Understanding the business context and having domain expertise can greatly influence the choice and creation of features. Different businesses and domains may have unique characteristics, specific factors that impact the target variable, and relevant attributes that need to be considered during feature engineering.</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>For this analysis, the following addition features were created from existing data;</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span><span class="in">`optin_days`</span> - Generated from <span class="in">`optin_time`</span>. This is the number of days the subscriber has been on the company's email list.</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span><span class="in">`email_provider`</span> - Generated from <span class="in">`user_email`</span>. Multiple email providers (such as gmail, hotmail) etc are being used by subscribers, and could be helpful in predicting made_purchase.</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span><span class="in">`activity_per_time`</span> - Generated by dividing <span class="in">`tag_count`</span> (count of events a subscriber has attended) by the newly created <span class="in">`optin_days`</span>.</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>One-To-Many Features (<span class="in">`tags`</span>) - These are binary features (0s or 1s) for each tag (event) to indicate if a user attend the event or not.</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Reducing High Cardinality - Applied to <span class="in">`country_code`</span>. Using a threshold of 6, this process lumps countries that have less than 6 subscribers in the dataset into an <span class="in">`other`</span> category.</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>To demonstrate the importance of feature engineering in this analysis, we'll show an example of some of the new features created and their relationship with <span class="in">`made_purchase`</span> (or target). The plot below shows the proportion of leads who made a purchase for 9 randomly selected tags (events). Looking at the first event (<span class="in">`tag_learning_lab_09`</span>) we can see that if a lead attended that event, they have a 19% likelihood of making a purchase vs only 5% if they did not attend the event. For <span class="in">`tag_learning_lab_12`</span>, the likelihood of making a purchase if they attended that event is 28% vs 5% if they did not. We can also see similar trends for the other tags.</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/eda/attended_event_vs_made_purchase_prop.png)</span>{width=80% fig-align="center"}</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>This indicates that these additional features could be indicative of <span class="in">`made_purchase`</span>.</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="fu"># Machine Learning</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>This section falls under the **Encode Alogrithms** Phase of the BSPF</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>This phase of the analysis focuses on encoding algorithms for email lead scoring. As a reminder the goal is to predict and score email subscribers that are likely to make a purchase, based on features identified and engineered in previous sections. Therefore this is a binary classification problem. For modeling, we use the <span class="co">[</span><span class="ot">Pycaret</span><span class="co">](https://pycaret.org/)</span> python package. Pycaret is an open-source, low code machine learning library in Python that automates machine learning workflows. Pycaret is not only a package for building machine learning models, instead it is an end-to-end machine learning and model management tool that makes it easy to experiment with multiple machine learning models, while logging all experiments.</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## Testing Multiple Models</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>Several models were initially tested, using <span class="co">[</span><span class="ot">Area Under the Curve</span><span class="co">](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)</span> (AUC) as the key metric. Higher AUC indicates a better-performing model in distinguishing positive and negative leads. The chart below shows the AUC along with other metrics from initial modeling. We can see the top 3 models in terms of AUC are Gradient Boosting Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).</span>
 <span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## Testing Multiple Models</span></span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>Several models were initially tested, using <span class="co">[</span><span class="ot">Area Under the Curve</span><span class="co">](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)</span> (AUC) as the key metric. Higher AUC indicates a better-performing model in distinguishing positive and negative leads. The chart below shows the AUC along with other metrics from initial modeling. We can see the top 3 models in terms of AUC are Gradient Boosting Classifier (0.8044) CatBoost Classifier (0.8015) and Ada Boost Classifier (0.7965).</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_models.png)</span>{width=80% fig-align="center"}</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_models.png)</span>{width=80% fig-align="center"}</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Metrics</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>Here we can examine metrics for the Catboost model.</span>
 <span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Metrics</span></span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>Here we can examine metrics for the Catboost model.</span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Model Metrics (Catboost)"}</span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>The choice of Catboost, a tree-based model, is driven by its inherent advantage in explainability, which is critical for understanding model decisions and behavior. It's important to note that the final model selection will be determined in the Return on Investment (ROI) section of the course. However, it is worth mentioning that all the models under consideration exhibit very similar performance metrics. Consequently, regardless of the final choice, we can anticipate that the selected model will demonstrate metrics comparable to those of the Catboost model. This consistency across models ensures reliability in the anticipated performance, irrespective of the specific model chosen.</span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Model Metrics (Catboost)"}</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>The choice of Catboost, a tree-based model, is driven by its inherent advantage in explainability, which is critical for understanding model decisions and behavior. It's important to note that the final model selection will be determined in the Return on Investment (ROI) section of the course. However, it is worth mentioning that all the models under consideration exhibit very similar performance metrics. Consequently, regardless of the final choice, we can anticipate that the selected model will demonstrate metrics comparable to those of the Catboost model. This consistency across models ensures reliability in the anticipated performance, irrespective of the specific model chosen.</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="fu">### AUC-ROC Plot</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>An AUC-ROC (Area Under the Receiver Operating Characteristic Curve) plot is a graphical representation that summarizes the performance of a binary classification model. It showcases the model's ability to distinguish between positive and negative instances by plotting the true positive rate against the false positive rate. The AUC value, ranging from 0 to 1, quantifies the model's accuracy, with a higher value (higher curve towards 1) indicating better performance. The AUC-ROC plot enables data scientists and decision-makers to assess and compare models, aiding in the selection and optimization of classification algorithms.</span>
 <span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### AUC-ROC Plot</span></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>An AUC-ROC (Area Under the Receiver Operating Characteristic Curve) plot is a graphical representation that summarizes the performance of a binary classification model. It showcases the model's ability to distinguish between positive and negative instances by plotting the true positive rate against the false positive rate. The AUC value, ranging from 0 to 1, quantifies the model's accuracy, with a higher value (higher curve towards 1) indicating better performance. The AUC-ROC plot enables data scientists and decision-makers to assess and compare models, aiding in the selection and optimization of classification algorithms.</span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/auc_best_model_1.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/auc_best_model_1.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confusion Matrix</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>The confusion matrix is a tabular representation that provides a comprehensive summary of the performance of a classification model. It organizes predictions made by the model into four categories: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).</span>
 <span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confusion Matrix</span></span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>The confusion matrix is a tabular representation that provides a comprehensive summary of the performance of a classification model. It organizes predictions made by the model into four categories: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).</span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>True Positive (TP): The model correctly predicts the positive class.</span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>True Negative (TN): The model correctly predicts the negative class.</span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>False Positive (FP): The model incorrectly predicts the positive class when it should have been negative (Type I error).</span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>False Negative (FN): The model incorrectly predicts the negative class when it should have been positive (Type II error).</span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/cm_best_model_1.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>Let's understand the confusion matrix above;</span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>24 predictions (bottom right) are true positives, these are the subscribers the model predicted will make a purchase and they did make a purchase.</span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>27 (top right) are false positives. The model predicted them to make a purchase and they did not. This is where we might have wasted effort.</span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>168 (bottom left) are false negatives. The model predicted they will not make a purchase but they did. These are missed opportunities.</span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>3765 (top left) are true negatives. The model predicted they will not make a purchase and they did not. There is no impact for these.</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>True Positive (TP): The model correctly predicts the positive class.</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>True Negative (TN): The model correctly predicts the negative class.</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>False Positive (FP): The model incorrectly predicts the positive class when it should have been negative (Type I error).</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>False Negative (FN): The model incorrectly predicts the negative class when it should have been positive (Type II error).</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/cm_best_model_1.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>Let's understand the confusion matrix above;</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>24 predictions (bottom right) are true positives, these are the subscribers the model predicted will make a purchase and they did make a purchase.</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>27 (top right) are false positives. The model predicted them to make a purchase and they did not. This is where we might have wasted effort.</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>168 (bottom left) are false negatives. The model predicted they will not make a purchase but they did. These are missed opportunities.</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>3765 (top left) are true negatives. The model predicted they will not make a purchase and they did not. There is no impact for these.</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="fu">### Feature Importance</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>A feature importance plot is a graphical representation that helps us understand the relative importance of different features or variables in a predictive model. It provides insights into what factors or variables have the most significant impact on the outcome or target variable. The plot below show feature importance for the Catboost model;</span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Feature Importance</span></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>A feature importance plot is a graphical representation that helps us understand the relative importance of different features or variables in a predictive model. It provides insights into what factors or variables have the most significant impact on the outcome or target variable. The plot below show feature importance for the Catboost model;</span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/vip_best_model_1.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>You can see that the model shows the most importance features to be <span class="in">`optin_days`</span>, <span class="in">`member_rating`</span> and <span class="in">`country_code_US`</span>. Note that this order may vary for another model. Different machine learning models can have different ranking for feature importance due to their inherent characteristics and the algorithims they employ to make predictions. Factors such as model architecture, algorithmic approach, feature interactions, model assumptions, all play a part in how a model ranks feature imporance.</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/vip_best_model_1.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>You can see that the model shows the most importance features to be <span class="in">`optin_days`</span>, <span class="in">`member_rating`</span> and <span class="in">`country_code_US`</span>. Note that this order may vary for another model. Different machine learning models can have different ranking for feature importance due to their inherent characteristics and the algorithims they employ to make predictions. Factors such as model architecture, algorithmic approach, feature interactions, model assumptions, all play a part in how a model ranks feature imporance.</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="fu">### Shap Values</span></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>A SHAP (SHapley Additive exPlanations) values plot is a visual representation that provides insights into the contribution of individual features to the predictions made by a machine learning model. It is based on Shapley values, a concept from cooperative game theory, which assigns a value to each feature by measuring its impact on the prediction compared to its absence or average value. The SHAP values plot displays the magnitude and direction of each feature's impact on the model predictions, allowing for a comprehensive understanding of how different features influence the outcomes. It helps identify which features have the most significant positive or negative influence on predictions and provides a clear picture of how the model is making decisions based on different feature values. This plot enables users, including business leaders, to interpret and explain the model's behavior and make informed decisions based on the feature contributions.</span>
 <span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="fu">### Shap Values</span></span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>A SHAP (SHapley Additive exPlanations) values plot is a visual representation that provides insights into the contribution of individual features to the predictions made by a machine learning model. It is based on Shapley values, a concept from cooperative game theory, which assigns a value to each feature by measuring its impact on the prediction compared to its absence or average value. The SHAP values plot displays the magnitude and direction of each feature's impact on the model predictions, allowing for a comprehensive understanding of how different features influence the outcomes. It helps identify which features have the most significant positive or negative influence on predictions and provides a clear picture of how the model is making decisions based on different feature values. This plot enables users, including business leaders, to interpret and explain the model's behavior and make informed decisions based on the feature contributions.</span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>The plot below shows shap values for the Catboost model;</span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/shap_summary.png)</span>{width=70% fig-align="center"}</span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>The higher the shap value is (x-axis), the higher the likelihood of positive. For example we can see the higher shap values for member_rating and tag_count, meaning that subscribers who have higher values for these 2 features are more likely to predicted as making a purchase.</span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Shap Values (Specific Observations)</span></span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>Shap values can also be created for specific observations or individual leads in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/shap_instance_0.png)</span>{width=90% fig-align="center"}</span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature's SHAP value, with longer bars indicating a larger impact on the prediction.</span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>The color of the bars indicate the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.</span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>In this case, we can see that features like <span class="in">`tag_count`</span> of 6, <span class="in">`tag_learning_lab_22`</span> and <span class="in">`tag_learning_lab_2`</span>  positively impact the prediction while <span class="in">`member_rating`</span> of 1 and <span class="in">`country_code_IN`</span> negatively impact the prediction.</span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score (probability) of 0.9;</span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/shap_instance_1.png)</span>{width=90% fig-align="center"}</span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>Notice that features that are positively impacting the score include <span class="in">`country_code_other`</span> and <span class="in">`tag_learning_lab_1`</span> while features that are negatively impacting the score include <span class="in">`country_code_IN`</span> and <span class="in">`member_rating`</span> of 1.</span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>These comparisons underscore the nuanced and individualized way in which different features contribute to the model's predictions for each customer.</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>The plot below shows shap values for the Catboost model;</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/shap_summary.png)</span>{width=70% fig-align="center"}</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>The higher the shap value is (x-axis), the higher the likelihood of positive. For example we can see the higher shap values for member_rating and tag_count, meaning that subscribers who have higher values for these 2 features are more likely to predicted as making a purchase.</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="fu">### Shap Values (Specific Observations)</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>Shap values can also be created for specific observations or individual leads in this case. Below is the plot of shap values for a customer with a predicted label of 0 and prediction score (probability) of 0.67.</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/shap_instance_0.png)</span>{width=90% fig-align="center"}</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>The plot shows how the prediction of the model was influenced by each input feature, by displaying the contribution of each feature as a horizontal bar on the plot. The length of the bar represents the magnitude of each feature's SHAP value, with longer bars indicating a larger impact on the prediction.</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>The color of the bars indicate the direction of the impact, with blue bars indicating a negative impact and red bars indicating a positive impact.</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>In this case, we can see that features like <span class="in">`tag_count`</span> of 6, <span class="in">`tag_learning_lab_22`</span> and <span class="in">`tag_learning_lab_2`</span>  positively impact the prediction while <span class="in">`member_rating`</span> of 1 and <span class="in">`country_code_IN`</span> negatively impact the prediction.</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>In contrast the plot below shows SHAP values for customer who also has a predicted label of 0 but a higher prediction score (probability) of 0.9;</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/modelling_png/best_model_1/shap_instance_1.png)</span>{width=90% fig-align="center"}</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>Notice that features that are positively impacting the score include <span class="in">`country_code_other`</span> and <span class="in">`tag_learning_lab_1`</span> while features that are negatively impacting the score include <span class="in">`country_code_IN`</span> and <span class="in">`member_rating`</span> of 1.</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>These comparisons underscore the nuanced and individualized way in which different features contribute to the model's predictions for each customer.</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blending Models (Ensembling) for Enhanced Performance</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model <span class="co">[</span><span class="ot">ensembling</span><span class="co">](https://machinelearningmastery.com/tour-of-ensemble-learning-algorithms/)</span>. By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.</span>
 <span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blending Models (Ensembling) for Enhanced Performance</span></span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>To further improve the predictive performance and extract maximum value from our modeling efforts, we employed a technique called model <span class="co">[</span><span class="ot">ensembling</span><span class="co">](https://machinelearningmastery.com/tour-of-ensemble-learning-algorithms/)</span>. By combining the predictions of multiple models, we aimed to leverage the unique strengths of each model, resulting in a more robust and accurate ensemble prediction.</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>After blending and <span class="co">[</span><span class="ot">calibrating</span><span class="co">](https://www.sciencedirect.com/topics/engineering/model-calibration#:~:text=Model%20calibration%20can%20be%20defined,measurements%20performed%20on%20the%20system.)</span> the top three models, the resulting ensemble had an AUC of **0.8020** which is a very slight difference in AUC from the individual models;</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>After blending and <span class="co">[</span><span class="ot">calibrating</span><span class="co">](https://www.sciencedirect.com/topics/engineering/model-calibration#:~:text=Model%20calibration%20can%20be%20defined,measurements%20performed%20on%20the%20system.)</span> the top three models, the resulting ensemble had an AUC of **0.8020** which is a very slight difference in AUC from the individual models;</span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>|                 | GBM     | Catboost  | Ada Boost |</span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>|-----------------|:------- |:----------|:----------|</span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>| **Model AUC**   | 0.8044  | 0.8015    |   0.7965  |</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>| **VS Ensemble** | - 30%   | + 0.06%   |  + 0.69%  |</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>|                 | GBM     | Catboost  | Ada Boost |</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>|-----------------|:------- |:----------|:----------|</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>| **Model AUC**   | 0.8044  | 0.8015    |   0.7965  |</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>| **VS Ensemble** | - 30%   | + 0.06%   |  + 0.69%  |</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>: Ensemble AUC of **0.8020** vs Individual Models</span>
 <span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>: Ensemble AUC of **0.8020** vs Individual Models</span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>This ensemble method showcases how combining individual models can enhance overall predictive accuracy, particularly in complex tasks like lead scoring.</span>
 <span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>This ensemble method showcases how combining individual models can enhance overall predictive accuracy, particularly in complex tasks like lead scoring.</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.</span>
 <span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>In conclusion, this section provided a comprehensive analysis of our model metrics and interpretation. These metrics allow us to evaluate the performance and effectiveness of different machine learning models in predicting our target variable. Understanding these metrics is crucial for assessing the model's overall predictive power and ensuring its reliability for decision-making. It is important to note that the significance of these model metrics will be revisited and tied to the return on investment (ROI) analysis in the subsequent sections of this project. By aligning the model's performance with the business objectives and financial outcomes, we can gain deeper insights into the practical value and impact of the models deployed.</span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="fu"># Experiment Tracking/Logging (MLflow)</span></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>This section is part of the **Encode Algorithims** phase of the BSPF.</span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is MLflow?</span></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">MLflow</span><span class="co">](https://mlflow.org/)</span> is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="fu"># Experiment Tracking/Logging (MLflow)</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>This section is part of the **Encode Algorithims** phase of the BSPF.</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is MLflow?</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">MLflow</span><span class="co">](https://mlflow.org/)</span> is an open-source platform designed to help data scientists and machine learning engineers track and manage their machine learning experiments. It provides tools for experiment logging, reproducibility, and model management. Developed by Databricks, MLflow aims to simplify the machine learning lifecycle by enabling users to keep track of experiments, compare different models, and efficiently share and deploy ML projects.</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="al">![Email Lead Scoring MLflow Dashboard](png/modelling_png/mlflow/dashboard.png)</span>{width=120% fig-align="center"}</span>
 <span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="al">![Email Lead Scoring MLflow Dashboard](png/modelling_png/mlflow/dashboard.png)</span>{width=120% fig-align="center"}</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>MLflow plays a critical role in the machine learning workflow, addressing several key challenges that data scientists often encounter:</span>
 <span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>MLflow plays a critical role in the machine learning workflow, addressing several key challenges that data scientists often encounter:</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>**Experiment Tracking:** MLflow allows data scientists to log their experiments with ease. This includes recording the hyperparameters, metrics, and model artifacts associated with each run. Such comprehensive tracking facilitates comparison between different model iterations and helps in selecting the best performing model for deployment.</span>
 <span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>**Experiment Tracking:** MLflow allows data scientists to log their experiments with ease. This includes recording the hyperparameters, metrics, and model artifacts associated with each run. Such comprehensive tracking facilitates comparison between different model iterations and helps in selecting the best performing model for deployment.</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>**Reproducibility:** In machine learning, it is crucial to ensure that experiments can be reproduced with the same results. MLflow records the exact versions of libraries, data, and code used in each run, making it easier to replicate the experiments and maintain consistency across different environments.</span>
 <span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>**Reproducibility:** In machine learning, it is crucial to ensure that experiments can be reproduced with the same results. MLflow records the exact versions of libraries, data, and code used in each run, making it easier to replicate the experiments and maintain consistency across different environments.</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>**Collaboration:** In team-based data science projects, collaboration is essential. MLflow enables seamless sharing of experiments, models, and associated artifacts with colleagues, promoting knowledge sharing and fostering a collaborative environment.</span>
 <span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>**Collaboration:** In team-based data science projects, collaboration is essential. MLflow enables seamless sharing of experiments, models, and associated artifacts with colleagues, promoting knowledge sharing and fostering a collaborative environment.</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>**Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.</span>
 <span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>**Model Management:** MLflow provides functionalities for model versioning and management. This allows data scientists to keep track of model iterations, deploy the best-performing models, and roll back to previous versions if needed.</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integrating MLflow with PyCaret</span></span>
 <span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integrating MLflow with PyCaret</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.</span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="al">![Finalized Model Details](png/modelling_png/mlflow/detail.png)</span>{width=100% fig-align="center"}</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>In this project, MLflow will be a valuable asset as the project progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="fu"># Return on Investment (ROI)</span></span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** phase of the BSPF</span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>In the preceding phase of this project, we successfully developed and trained predictive models to identify leads who are more likely to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determining the potential cost or savings for a machine learning model's prediction. This process is further sub-divided into 2 phases;</span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifying a threshold for which to categorize leads as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.</span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Optimize the threshold for maximum efficiency and ROI based on senior management decisions.</span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>Again the primary goal here is to evaluate the financial implications of classifying leads as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>PyCaret, can be seamlessly integrated with MLflow to leverage its powerful experiment tracking capabilities. The integration allows data scientists using PyCaret to log their experiments automatically into MLflow, making it easy to keep track of multiple experiments and compare different models efficiently.</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="al">![Finalized Model Details](png/modelling_png/mlflow/detail.png)</span>{width=100% fig-align="center"}</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>In this project, MLflow will be a valuable asset as the project progresses and our machine learning models go from development to production. MLflow ensures that the lead scoring process remains organized, reproducible, and collaborative. Its tracking, versioning, and management capabilities contribute to the success and efficiency of the lead scoring system, making MLflow an indispensable component in the data science workflow.</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="fu"># Return on Investment (ROI)</span></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>This section is part of **Step 2: Tie Financial Value of Individual Decisions to Optimize for Profit** under the **Encode Algorithms** phase of the BSPF</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>In the preceding phase of this project, we successfully developed and trained predictive models to identify leads who are more likely to make a purchase. In this phase, our focus shifts to a critical aspect of the project; Return on Investment (ROI) analysis. This involves tying machine learning models to financial value by determining the potential cost or savings for a machine learning model's prediction. This process is further sub-divided into 2 phases;</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifying a threshold for which to categorize leads as **Hot-Leads** or **Cold-Leads** based on the their score (probability of purchase) from the model. This allows us to determine expected value (sales - cost) from only targeting Hot-Leads.</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Optimize the threshold for maximum efficiency and ROI based on senior management decisions.</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>Again the primary goal here is to evaluate the financial implications of classifying leads as Hot-Leads (high probability of purchase) or Cold-Leads (low probability of purchase). Hot-Leads will be targeting with sales emails while cold leads will be targeted with value emails such as free products or CTAs to attend webinars that are highly correlated with making a purchase. It is important to understand that there is an inherent cost versus savings trade-off in targeting different types of leads. By not targeting Cold-Leads, we potentially miss out on some revenue, however there is also a savings as we nurture the Cold-Leads and potentially gain more sales in the future.</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="fu">## Initial Threshold &amp; Cost Savings</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="fu">## Initial Threshold &amp; Cost Savings</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>This step involved calculating the <span class="co">[</span><span class="ot">cumulative gain</span><span class="co">](http://mlwiki.org/index.php/Cumulative_Gain_Chart)</span> of our machine learning model to enhance our return on investment (ROI). Here the predictions are sorted based on the model's score (probability) of making a purchase. The Cumulative Gain then measures the proportion of Hot-Leads and Cold-Leads based on a threshold. An arbitrary threshold of **0.95** is used here as the cut off for categorizing Hot-Leads and Cold-Leads.</span>
 <span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>The table below shows the proportion of hot and cold leads based on this arbitrary 0.95 threshold.</span>
@@ -1698,7 +1693,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="fu">### Expected Value (Cost vs Savings)</span></span>
 <span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>As highlighted above, there is as cost and savings trade-off from only targeting Hot-Leads while only nurturing Cold-Leads. **Expected Value** in this case, is the financial value associated with various cost and saving scenarios. Lets deep dive into this expected value calculations for this project, based on our threshold of **0.9** for determining hot and cold leads and the proportion of hot and cold leaders shown the previous table.</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>As highlighted above, there is as cost and savings trade-off from only targeting Hot-Leads while only nurturing Cold-Leads. **Expected Value** in this case, is the financial value associated with various cost and saving scenarios. Let's deep dive into this expected value calculations for this project, based on our threshold of **0.9** for determining hot and cold leads and the proportion of hot and cold leaders shown the previous table.</span>
 <span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>Before proceeding, we'll also need some of the values stated earlier in the <span class="co">[</span><span class="ot">Business Understanding</span><span class="co">](#business-understanding)</span> section -</span>
 <span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
@@ -1740,7 +1735,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>| Revenue in First Month                        | $237,266   | Sales in first month with new strategy     |</span>
 <span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a>| New Revenue (Post Nurturing Cold Leads)       | $290,148   | Expected total sales after nurturing cold leads       |</span>
 <span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>| Expected Monthly Savings                      | $52,882    | Expected monthly savings with new strategy |</span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a>| Expected Saved Customers                      | 33         | Expected saved customers after with new strategy   |</span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a>| Expected Saved Customers                      | 33         | Expected saved customers with new strategy   |</span>
 <span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a>: Expected Value of Implementing New Strategy (Based on 95% Threhold and Sample Factor of 5.0)</span>
 <span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a></span>
@@ -1748,25 +1743,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Threshold Optimization &amp; Profit Maximization</span></span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>Our initial analysis used a 95% threshold to decide whether leads are hot (likely to buy) or cold (less likely to buy). This section explores how changing this threshold affects our expected profits and cost savings.</span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a>The main aim is to find the sweet spot that maximizes profit. However, we must also consider management's concerns. For example, using the 95% threshold, we saw a 5% drop in sales in the first month. Senior management may be hesitant about any strategy that reduces monthly sales, even if it could lead to higher sales later on.</span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>To address this, we're now focusing on optimizing the threshold. This means finding a balance that maintains a certain level of monthly sales while still aiming for long-term profit growth. We'll present different threshold options to management, showing how each one impacts monthly costs and potential savings. This way, management can make informed decisions, balancing immediate sales with long-term profitability.</span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a>The plot below shows the optimization results. The x-axis is the various levels of thresholds from 0 to 1, while the y-axis shows the expected value for each threshold. There's a red dashed line on the chart, indicating the threshold that gives us the highest expected value, which is $322,893 in this scenario, while retaining monthly current monthly sales of at least $219,595. This peak value is achieved when we ensure that at least 87% of our usual monthly sales are maintained under the new email lead scoring strategy. This condition is what we call the **Monthly Sales Reduction Safeguard**.</span>
-<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/cost/optimization_thresh_88.png)</span>{width=100% fig-align="center"}</span>
-<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>However, management might consider this 87% safeguard to be too low. They may prefer a higher safeguard, for example, 90%. This means the new strategy should retain at least 90% of our monthly sales. The plot also shows how the expected value changes when we apply this 90% safeguard.</span>
-<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/cost/optimization_thresh_90.png)</span>{width=100% fig-align="center"}</span>
-<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a>Our initial analysis used a 95% threshold to decide whether leads are hot (likely to buy) or cold (less likely to buy). This section explores how changing this threshold affects our expected profits and cost savings.</span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a>The main aim is to find the sweet spot that maximizes profit. However, we must also consider management's concerns. For example, using the 95% threshold, we saw a 5% drop in sales in the first month. Senior management may be hesitant about any strategy that reduces monthly sales, even if it could lead to higher sales later on.</span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>To address this, we're now focusing on optimizing the threshold. This means finding a balance that maintains a certain level of monthly sales while still aiming for long-term profit growth. We'll present different threshold options to management, showing how each one impacts monthly costs and potential savings. This way, management can make informed decisions, balancing immediate sales with long-term profitability.</span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a>The plot below shows the optimization results. The x-axis is the various levels of thresholds from 0 to 1, while the y-axis shows the expected value for each threshold. There's a red dashed line on the chart, indicating the threshold that gives us the highest expected value, which is $322,893 in this scenario, while retaining monthly current monthly sales of at least $219,595. This peak value is achieved when we ensure that at least 87% of our usual monthly sales are maintained under the new email lead scoring strategy. This condition is what we call the **Monthly Sales Reduction Safeguard**.</span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/cost/optimization_thresh_88.png)</span>{width=100% fig-align="center"}</span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>However, management might consider this 87% safeguard to be too low. They may prefer a higher safeguard, for example, 90%. This means the new strategy should retain at least 90% of our monthly sales. The plot also shows how the expected value changes when we apply this 90% safeguard.</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/cost/optimization_thresh_90.png)</span>{width=100% fig-align="center"}</span>
 <span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>Notice that with a 90% safeguard, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.</span>
-<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a>The core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.</span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>Notice that with a 90% safeguard, the expected value drops to $317,695, thus retaining current monthly sales of at least $224,532.</span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a>In conclusion the core of our decision-making process lies in striking a balance between two crucial objectives; achieving higher expected value in the long term vs maintaining current monthly sales levels in the short term. This trade-off presents a strategic challenge that all stakeholders must collectively navigate. The choice between prioritizing immediate sales stability and pursuing potentially greater profits down the line is pivotal. The optimization exercise out the implications of various thresholds, but it ultimately falls to the collective agreement of all involved parties to determine the most suitable path forward. This decision will shape not only our immediate financial landscape but also our strategic direction in the foreseeable future.</span>
 <span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a>---</span>
@@ -1780,83 +1775,84 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>We are now progressing into the deployment phase of our email lead scoring project. It is crucial to understand how we integrate the developed models into our business processes. This integration is achieved through the creation of <span class="co">[</span><span class="ot">Application Programming Interfaces</span><span class="co">](https://en.wikipedia.org/wiki/API)</span> (APIs). The APIs serve as communication gateways between our data models and the user-facing application, in this case, a Streamlit app. This app will enable senior management and other marketing stakeholders to interact with and benefit from our email lead scoring strategies.</span>
 <span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="fu">## API Endpoints</span></span>
-<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>Our API, developed using <span class="co">[</span><span class="ot">FastAPI</span><span class="co">](https://fastapi.tiangolo.com/)</span>, features several endpoints,</span>
-<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a>each serving a specific purpose;</span>
-<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Main Endpoint <span class="in">`("/")`</span></span>
-<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a>This is the landing page of our API. It provides users with a welcoming interface and guides them to the API documentation. This endpoint is crucial for user orientation and ease of use.</span>
-<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Get Email Subscribers <span class="in">`("/get_email_subscribers")`</span></span>
-<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a>This <span class="in">`GET`</span> endpoint exposes our email subscriber data. When accessed, it returns the data with scored leads in JSON format. It's vital for stakeholders to view and understand the current leads database.</span>
-<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Data Reception <span class="in">`("/data")`</span></span>
-<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a>A <span class="in">`POST`</span> endpoint designed to receive data. Users can submit data in JSON format, which is then processed and stored. This endpoint is essential for updating our leads database with new information.</span>
-<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Lead Scoring Prediction <span class="in">`("/predict")`</span></span>
-<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a>This <span class="in">`POST`</span> endpoint is the heart of our API. It accepts lead data and returns scored leads, using our proprietary lead scoring models. It enables the application of our predictive model to new or existing data for real-time lead scoring.</span>
-<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Lead Scoring Strategy Calculation <span class="in">`("/calculate_lead_strategy")`</span></span>
-<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a>Another <span class="in">`POST`</span> endpoint, it calculates and optimizes lead scoring strategies based on various parameters (e.g., sales reduction safeguard, email list size). This is crucial for strategic decision-making and marketing optimization.</span>
-<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a>APIs play a pivotal role in the data science lifecycle, especially in the deployment phase. They enable the seamless integration of data science models into business processes, making predictive insights accessible and actionable for decision-makers. APIs facilitate real-time data processing and interaction, which is essential for dynamic and responsive business strategies.</span>
-<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="fu"># Frontend Deployment (Streamlit)</span></span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
-<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a>This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 2 phases of the BSPF.</span>
-<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a>Our API, developed using <span class="co">[</span><span class="ot">FastAPI</span><span class="co">](https://fastapi.tiangolo.com/)</span>, features several endpoints,</span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a>each serving a specific purpose;</span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Main Endpoint <span class="in">`("/")`</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>This is the landing page of our API. It provides users with a welcoming interface and guides them to the API documentation. This endpoint is crucial for user orientation and ease of use.</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Get Email Subscribers <span class="in">`("/get_email_subscribers")`</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a>This <span class="in">`GET`</span> endpoint exposes our email subscriber data. When accessed, it returns the data with scored leads in JSON format. It's vital for stakeholders to view and understand the current leads database.</span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Data Reception <span class="in">`("/data")`</span></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a>A <span class="in">`POST`</span> endpoint designed to receive data. Users can submit data in JSON format, which is then processed and stored. This endpoint is essential for updating our leads database with new information.</span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Lead Scoring Prediction <span class="in">`("/predict")`</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a>This <span class="in">`POST`</span> endpoint is the heart of our API. It accepts lead data and returns scored leads, using our proprietary lead scoring models. It enables the application of our predictive model to new or existing data for real-time lead scoring.</span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Lead Scoring Strategy Calculation <span class="in">`("/calculate_lead_strategy")`</span></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>Another <span class="in">`POST`</span> endpoint, it calculates and optimizes lead scoring strategies based on various parameters (e.g., sales reduction safeguard, email list size). This is crucial for strategic decision-making and marketing optimization.</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a>APIs play a pivotal role in the data science lifecycle, especially in the deployment phase. They enable the seamless integration of data science models into business processes, making predictive insights accessible and actionable for decision-makers. APIs facilitate real-time data processing and interaction, which is essential for dynamic and responsive business strategies.</span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="fu"># Frontend Deployment (Streamlit)</span></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="BSPF Phase"}</span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a>This section is part of the last 2 phases of the BSPF **(Measure Results and Report Financial Impact)**. Deploying ML models and enabling users to engage with these strategies is key to these last 2 phases of the BSPF.</span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>In this final phase of the email lead scoring project, we transition from the development of <span class="co">[</span><span class="ot">API endpoints</span><span class="co">](#api-endpoints)</span> for our lead scoring strategy to their practical application. Recognizing the importance of deployment in the lifecycle of any data science project, we integrated these APIs into a user-friendly <span class="co">[</span><span class="ot">Streamlit</span><span class="co">](https://streamlit.io/)</span> application. This step is instrumental in transforming our analytical insights into actionable tools, directly accessible to senior management and other marketing stakeholders.</span>
-<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Streamlit App"}</span>
-<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--You can access the Streamlit app [here](). --&gt;</span></span>
-<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>Please be aware that the Streamlit application is currently in the final stages of development and has not yet been deployed to a cloud platform. As soon as the deployment is complete, a direct link will be added to write-up.</span>
-<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a>When first accessed, the link brings the user to an authentication screen where they will need to input their secret keys.</span>
-<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/auth.png)</span>{width=60% fig-align="center"}</span>
-<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>Once logged in successfully, the user will be prompted to upload a csv file with the leads scored data. In an enterprise setting, we will be connecting the app to the company's database.</span>
-<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/browse_csv.png)</span>{width=60% fig-align="center"}</span>
-<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a>Next, the user can adjust the monthly sales and <span class="co">[</span><span class="ot">monthly sales safeguard</span><span class="co">](#threshold-optimization--profit-maximization)</span>, based on the strategy they would like to implement, then hit the <span class="in">`Run Analysis`</span> button.</span>
-<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/safeguard.png)</span>{width=60% fig-align="center"}</span>
-<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>Once the analysis is complete, the user will be able to see the expected value table and plot based on their monthly sales and monthly sales safeguard inputs.</span>
-<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/plot.png)</span>{width=60% fig-align="center"}</span>
-<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a>Additionally the user can also see and download the lead scoring strategy data with leads information and their Hot-Lead/Cold-Lead classification.</span>
-<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/strategy.png)</span>{width=60% fig-align="center"}</span>
-<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a>In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it's a vital component in ensuring that our project's insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy's financial benefits.</span>
-<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conclusion</span></span>
-<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>This project has successfully demonstrated the integration of advanced data science techniques into practical business solutions for email lead scoring. The journey from conceptualization to the development of a functional model highlights key achievements and insights.</span>
-<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a>**Strategic Application of Data Science:** The core of this project was the strategic application of machine learning to enhance email marketing efforts. By employing predictive modeling and feature engineering, we have developed a robust system that can accurately identify and score potential leads. This approach allows for a more targeted and efficient use of marketing resources, potentially leading to increased conversion rates and customer engagement.</span>
-<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>**Technical Implementation:** A significant aspect of this project was the technical implementation of our models in a user-friendly interface, achieved through the development of a Streamlit application. This interface serves as a bridge, making complex analytical models accessible and usable for decision-makers within the organization. It represents a crucial step in translating data-driven insights into actionable business strategies.</span>
-<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>**Financial Implications and Future Directions:** The ROI analysis conducted as part of this project illustrates the potential financial benefits of implementing a lead scoring system. It offers a glimpse into how optimizing lead targeting can impact the bottom line. However, the full potential of these models will be realized once the Streamlit application is deployed and integrated into the company's daily operations.</span>
-<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a><span class="fu"># Next Steps</span></span>
-<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>The immediate next step is the deployment of the Streamlit application to a cloud platform, making it widely accessible to the relevant stakeholders. Following deployment, continuous monitoring and iterative improvements based on user feedback and evolving business needs will be crucial.</span>
-<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a>In conclusion, this project not only showcases the practical application of machine learning in a business context but also sets the stage for further innovations in data-driven marketing strategies. The insights and methodologies developed here can serve as a blueprint for similar initiatives in the future, driving forward the agenda of data-centric decision-making in the business world.</span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a>In this final phase of the email lead scoring project, we transition from the development of <span class="co">[</span><span class="ot">API endpoints</span><span class="co">](#api-endpoints)</span> for our lead scoring strategy to their practical application. Recognizing the importance of deployment in the lifecycle of any data science project, we integrated these APIs into a user-friendly <span class="co">[</span><span class="ot">Streamlit</span><span class="co">](https://streamlit.io/)</span> application. This step is instrumental in transforming our analytical insights into actionable tools, directly accessible to senior management and other marketing stakeholders.</span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Streamlit App"}</span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--You can access the Streamlit app [here](). --&gt;</span></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>Please be aware that the Streamlit application is currently in the final stages of development and has not yet been deployed to a cloud platform. As soon as the deployment is complete, a direct link will be added to write-up.</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>When first accessed, the link brings the user to an authentication screen where they will need to input their secret keys.</span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/auth.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a>Once logged in successfully, the user will be prompted to upload a csv file with the leads scored data. In an enterprise setting, we will be connecting the app to the company's database.</span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/browse_csv.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>Next, the user can adjust the monthly sales and <span class="co">[</span><span class="ot">monthly sales safeguard</span><span class="co">](#threshold-optimization--profit-maximization)</span>, based on the strategy they would like to implement, then hit the <span class="in">`Run Analysis`</span> button.</span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/safeguard.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>Once the analysis is complete, the user will be able to see the expected value table and plot based on their monthly sales and monthly sales safeguard inputs.</span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/plot.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>Additionally the user can also see and download the lead scoring strategy data with leads information and their Hot-Lead/Cold-Lead classification.</span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a><span class="al">![](png/streamlit/strategy.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>In conclusion, the successful deployment of our Streamlit application is a crucial step in our email lead scoring project. This user-friendly platform is key in making our advanced data models accessible and practical for everyday use within the company. By providing senior management and marketing teams with this tool, we enable them to easily measure results and understand the financial impact of our lead scoring strategy. This application is more than just a technical achievement; it's a vital component in ensuring that our project's insights are effectively utilized, leading to informed decisions and a clearer understanding of our strategy's financial benefits.</span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conclusion</span></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a>This project has successfully demonstrated the integration of advanced data science techniques into practical business solutions for email lead scoring. The journey from conceptualization to the development of a functional model highlights key achievements and insights.</span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>**Strategic Application of Data Science:** The core of this project was the strategic application of machine learning to enhance email marketing efforts. By employing predictive modeling and feature engineering, we have developed a robust system that can accurately identify and score potential leads. This approach allows for a more targeted and efficient use of marketing resources, potentially leading to increased conversion rates and customer engagement.</span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>**Technical Implementation:** A significant aspect of this project was the technical implementation of our models in a user-friendly interface, achieved through the development of a Streamlit application. This interface serves as a bridge, making complex analytical models accessible and usable for decision-makers within the organization. It represents a crucial step in translating data-driven insights into actionable business strategies.</span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>**Financial Implications and Future Directions:** The ROI analysis conducted as part of this project illustrates the potential financial benefits of implementing a lead scoring system. It offers a glimpse into how optimizing lead targeting can impact the bottom line. However, the full potential of these models will be realized once the Streamlit application is deployed and integrated into the company's daily operations.</span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a><span class="fu"># Next Steps</span></span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a>The immediate next step is the deployment of the Streamlit application to a cloud platform, making it widely accessible to the relevant stakeholders. Following deployment, continuous monitoring and iterative improvements based on user feedback and evolving business needs will be crucial.</span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a>In conclusion, this project not only showcases the practical application of machine learning in a business context but also sets the stage for further innovations in data-driven marketing strategies. The insights and methodologies developed here can serve as a blueprint for similar initiatives in the future, driving forward the agenda of data-centric decision-making in the business world.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
