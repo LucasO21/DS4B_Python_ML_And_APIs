@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This repository contains all the code and documentation for the Email Lead Scoring Project, an initiative to integrate advanced data science techniques into practical business solutions for email marketing. The project involves the development of predictive models for identifying potential leads who are likely to make purchases, and a user-friendly application for easy interaction with these models.
+This repository contains all the code and documentation for the Email Lead Scoring Project, an initiative to integrate advanced data science techniques into practical business solutions for email marketing. The project was completed as part of the Python for Machine Learning and APIs course by [Business Science University](https://www.business-science.io/) and  involves the development of predictive models for identifying potential leads who are likely to make purchases, and a user-friendly application for easy interaction with these models.
 
 ## Objectives
 * To develop a machine learning model capable of scoring email subscribers based on their likelihood to make a purchase.
